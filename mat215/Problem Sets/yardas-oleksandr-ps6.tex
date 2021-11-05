@@ -1,0 +1,313 @@
+\documentclass[12pt]{article}
+\usepackage{latexsym, amssymb, amsmath, amsfonts, amscd, amsthm, xcolor}
+\usepackage{framed}
+\usepackage[margin=1in]{geometry}
+\linespread{1} %Change the line spacing only if instructed to do so.
+
+\newenvironment{problem}[2][Problem]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1 #2:}]
+	}
+{
+	\end{trivlist}
+	}
+
+\newenvironment{solution}[1][Solution]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\itshape #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+\newenvironment{collaborators}[1][Collaborator(s)]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%    You need only modify code below this block.
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\title{Assignment: Problem Set 6} %Change this to the assignment you are submitting.
+\author{Name: Oleksandr Yardas} %Change this to your name.
+\date{Due Date: 02/19/2018 } %Change this to the due date for the assignment you are submitting.
+\begin{document}
+	\maketitle
+	\thispagestyle{empty}
+	
+	\section*{List Your Collaborators:}%Enter your collaborators names below. Do not delete extra rows.
+\[
+{\bf Note:}
+\]
+\[
+\text{In Problems 1 and 4, I have written in a different
+color (blue) %\textcolor{red}{c}\textcolor{cyan}{o}\textcolor{brown}{l}\textcolor{magenta}{o}\textcolor{blue}{r}
+the parts that go into the blanks.}
+\]
+	\begin{itemize}
+		\begin{framed}
+			\item 
+			Problem 1: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 2: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 3: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 4: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 5: Not Applicable
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 6: Not Applicable
+			\\\\
+		\end{framed}
+	\end{itemize}
+\newpage
+%
+%%%%%%%%%%%%%%%
+%
+% Your problem statements and solutions start here.
+% Use the \newpage command between problems so that
+% each of your problems begins on its own page.
+%
+%%%%%%%%%%%%%%%
+%Provide the problem statement.
+\begin{problem}{1}
+Fill in the blanks below with appropriate phrases so that the result is a correct proof of the following statement: If $\vec{u}, \vec{w} \in \mathbb{R}$ and $ \vec{w} \in$ Span$(\vec{u})$, then Span$(\vec{w}) \in$ Span$(\vec{u})$.
+%\newline
+%\newline
+%\noindent
+%Let $\vec{v} \in$ Span$(\vec{w})$ be arbitrary. Since $\vec{w} \in$ Span$(\vec{u})$, we can \underline{\hspace{2cm}}. Since $\vec{v} \in$ Span$(\vec{w})$, we can \underline{\hspace{2cm}}. Now notice that $\vec{v}=$\underline{\hspace{2cm}}. Since \underline{\hspace{2cm}}$\in \mathbb{R}$, we conclude that $\vec{v} \in$ Span$(\vec{u})$. Since $\vec{v} \in$ Span$(\vec{u})$ was arbitrary, the result follows.
+\[
+{\bf Note:}
+\]
+\[
+\text{I have written in a different
+color (blue) %\textcolor{red}{c}\textcolor{cyan}{o}\textcolor{brown}{l}\textcolor{magenta}{o}\textcolor{blue}{r}
+the parts that go into the blanks.}
+\]
+
+\begin{solution}
+Let $\vec{v} \in$ Span$(\vec{w})$ be arbitrary. Since $\vec{w} \in$ Span$(\vec{u})$, we can \textcolor{blue}{fix a $c\in\mathbb{R}$ with $\vec{w}=c \cdot \vec{u}$ (by definition of Span$(\vec{u})$)}. Since $\vec{v} \in$ Span$(\vec{w})$, we can \textcolor{blue}{fix a $d\in\mathbb{R}$ with $\vec{v}=d \cdot \vec{w}$ (by definition of Span$(\vec{w})$)}. Now notice that $\vec{v}=$\textcolor{blue}{$d \cdot \vec{w} = d \cdot (c \cdot \vec{u}) = (cd) \cdot \vec{u}$ (by Proposition 2.2.1.9)}. Since \textcolor{blue}{$cd$} $\in \mathbb{R}$, we conclude that $\vec{v} \in$ Span$(\vec{u})$. Since $\vec{v} \in$ Span$(\vec{u})$ was arbitrary, the result follows.
+\end{solution}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{2}
+Given $\vec{u} \in \mathbb{R}^2$, is the set Span$(\vec{u})$ always closed under componentwise multiplication? In other words, if
+\[
+\begin{pmatrix} a_{1}\\b_{1} \end{pmatrix} \in \text{ Span}(\vec{u}) \hphantom{1000} \text{ and } \hphantom{1000} \begin{pmatrix} a_{2}\\b_{2} \end{pmatrix} \in \text{ Span}(\vec{u})\text{,}
+\]
+must it be the case that
+\[
+\begin{pmatrix} a_{1} a_{2}\\b_{1} b_{2} \end{pmatrix} \in \text{ Span}(\vec{u}) \text{?}
+\]
+Either argue that this is always true, or provide a specific counterexample (with justification).
+\begin{solution}
+Let  $\begin{pmatrix} a_{1}\\b_{1} \end{pmatrix}=\vec{v_{1}},\begin{pmatrix} a_{2}\\b_{2} \end{pmatrix}=\vec{v_{2}}$. Consider the case in which $\vec{u}=\begin{pmatrix} 1\\2 \end{pmatrix}$, $\vec{v_{1}}=\begin{pmatrix} 3\\6 \end{pmatrix}$, $\vec{v_{2}}=\begin{pmatrix} 4\\8 \end{pmatrix}$. Note that
+\[
+3 \cdot \vec{u} = 3 \cdot \begin{pmatrix} 1\\2 \end{pmatrix} = \begin{pmatrix} 3 \cdot 1\\ 3 \cdot 2 \end{pmatrix} = \begin{pmatrix} 3\\6 \end{pmatrix} = \vec{v_{1}}
+\]
+and
+\[
+4 \cdot \vec{u} = 4 \cdot \begin{pmatrix} 1\\2 \end{pmatrix} = \begin{pmatrix} 4 \cdot 1\\ 4 \cdot 2 \end{pmatrix} = \begin{pmatrix} 4\\8 \end{pmatrix} = \vec{v_{2}}
+\]
+So $\vec{v_{1}}, \vec{v_{2}} \in$ Span$(\vec{u})$ by definition of Span$(\vec{u})$. If we take the componentwise product of $\vec{v_{1}}, \vec{v_{2}}$, we get:
+\begin{align*}
+\begin{pmatrix} 3\cdot4\\6\cdot8 \end{pmatrix} =& \begin{pmatrix} 12\\48 \end{pmatrix}\\
+=& \begin{pmatrix} 12 \cdot (1)\\24 \cdot(2) \end{pmatrix}
+\end{align*}
+This vector cannot be represented by the product of a scalar and $\vec{u}$. We have found a $\vec{v_{1}},\vec{v_{2}} \in$ Span$(\vec{u})$ such that their componentwise product is not an element of Span$(\vec{u})$, therefore it is not the case that the set Span$(\vec{u})$ always closed under componentwise multiplication.
+\end{solution}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{3}
+Let $\vec{u_{1}} = \begin{pmatrix}-1 \\ 2 \end{pmatrix}$, let $\vec{u_{2}} = \begin{pmatrix}5 \\ 1 \end{pmatrix}$, and let $\alpha = (\vec{u_{1}}, \vec{u_{2}})$. In each part, briefly explain how you carried out your computation. 
+\noindent
+\newline
+\newline
+a. Show that Span$(\vec{u_{1}}, \vec{u_{2}})= \mathbb{R}^2$, so $\alpha=(\vec{u_{1}}, \vec{u_{2}})$ is a basis for $\mathbb{R}^2$.
+\begin{solution}
+Let $\vec{v} \in \mathbb{R}^2$ be arbitrary. %We want to show that Span$(\vec{u_{1}}, \vec{u_{2}})= \mathbb{R}^2$, so we do a double containment proof, that is, we show that Span$(\vec{u_{1}}, \vec{u_{2}}) \subseteq \mathbb{R}^2$ and $\mathbb{R}^2 \subseteq$ Span$(\vec{u_{1}}, \vec{u_{2}})$. We know that Span$(\vec{u_{1}}, \vec{u_{2}}) \subseteq \mathbb{R}^2$ by definition. So we just need to show that  $\mathbb{R}^2 \subseteq$ Span$(\vec{u_{1}}, \vec{u_{2}})$. 
+We define Span$(\vec{u_{1}}, \vec{u_{2}})$ as
+\[
+\text{Span}(\vec{u_{1}}, \vec{u_{2}}) = \{c_{1}\vec{u_{1}} + c_{2}\vec{u_{2}} : c_{1},c_{2} \in \mathbb{R}\}\text{,}
+\]
+which we can rewrite as
+\[
+\text{Span}(\vec{u_{1}}, \vec{u_{2}}) = \{\vec{v} \in \mathbb{R}^2: \text{There exist } c_{1},c_{2} \in \mathbb{R} \text{ with } \vec{v}=c_{1}\vec{u_{1}} + c_{2}\vec{u_{2}}\}\text{.} 
+\]
+Now, notice that
+\[
+((-1) \cdot 1) - (5 \cdot 2) = -1 - 10 = -11 \neq 0
+\]
+By Theorem 2.3.10, it follows that for every $\vec{v} \in \mathbb{R}^2$, there does indeed exist $c_{1},c_{2} \in \mathbb{R}$ with $\vec{v}=c_{1}\vec{u_{1}} + c_{2}\vec{u_{2}}$ for our particular values of $\vec{u_{1}},\vec{u_{2}}$. This means that the rule by which $\vec{v}$ is carved out of $\mathbb{R}^2$ to construct  Span$(\vec{u_{1}}, \vec{u_{2}})$ is true for all $\vec{v} \in \mathbb{R}^2$, and it follows that
+\[
+\text{Span}(\vec{u_{1}}, \vec{u_{2}})=\{\vec{v} : \vec{v} \in \mathbb{R}^2\}\text{,}
+\]
+which is just the set of all vectors $\vec{v}$ for all $\vec{v} \in \mathbb{R}^2$. But the set of all vectors $\vec{v} \in \mathbb{R}^2$ is just the set $\mathbb{R}^2$, therefore, Span$(\vec{u_{1}}, \vec{u_{2}}) = \mathbb{R}^2$. By definition 2.3.11 that $\alpha=(\vec{u_{1}}, \vec{u_{2}})$ is a basis for $\mathbb{R}^2$.
+
+\end{solution}
+\noindent
+\newline
+\newline
+b. Find the coordinates of $\begin{pmatrix}5 \\ 1 \end{pmatrix}$ relative to $\alpha$. In other words, calculate $Coord_{\alpha}\left(  \begin{pmatrix}5 \\ 1 \end{pmatrix} \right)$.
+\begin{solution}
+By the Proposition 2.3.13, we have 
+\[
+Coord_{\alpha}\left(\begin{pmatrix}j\\k\end{pmatrix}\right) = \frac{1}{(-11)} \cdot \begin{pmatrix}(1)\cdot j-(5)\cdot k\\(-1) \cdot k-(2) \cdot j\end{pmatrix}
+\]
+So we have
+\begin{align*}
+Coord_{\alpha}\left(  \begin{pmatrix}5 \\ 1 \end{pmatrix} \right) =& \frac{1}{(-11)} \cdot \begin{pmatrix}(1)\cdot (5)-(5)\cdot (1)\\(-1) \cdot (1)-(2) \cdot (5)\end{pmatrix}\\
+=& \frac{1}{(-11)} \cdot \begin{pmatrix}5-5\\-1-10\end{pmatrix}\\
+=& \frac{1}{(-11)} \cdot \begin{pmatrix}0\\-11\end{pmatrix}\\
+=& \begin{pmatrix} \frac{1}{(-11)} \cdot 0\\ \frac{1}{(-11)} \cdot (-11)\end{pmatrix}\\
+=& \begin{pmatrix}0\\1\end{pmatrix}
+\end{align*}
+So the coordinates of $\begin{pmatrix}5 \\ 1 \end{pmatrix}$ relative to $\alpha$ are $\begin{pmatrix}0\\1\end{pmatrix}$.
+\[
+\text{PAGE 1 OF 2 FOR PROBLEM 3}
+\]
+\end{solution}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{4}
+In this problem we work through the proof of Proposition 2.3.8 in the notes, which says the following: Let $\vec{u_{1}}, \vec{u_{2}} \in \mathbb{R}^2$. The following are equivalent.
+\begin{enumerate}
+\item Span$(\vec{u_{1}}, \vec{u_{2}}) =$ Span$(\vec{u_{1}})$.
+\item $\vec{u_{2}} \in$ Span$(\vec{u_{1}})$.
+\end{enumerate}
+Fill in the blanks below with appropriate phrases so that the result is a correct proof:
+%\noindent
+%\newline
+%\newline
+%We first show that 1 implies 2. Assume that 1 is true, so assume that Span$(\vec{u_{1}}, \vec{u_{2}}) =$ Span$(\vec{u_{1}})$. Notice that $\vec{u_{2}}=$\underline{\hspace{2cm}}. Since \underline{\hspace{2cm}}$\in \mathbb{R}$, it follows that $\vec{u_{2}} \in$ Span$(\vec{u_{1}}, \vec{u_{2}})$. Since Span$(\vec{u_{1}}, \vec{u_{2}})=$ Span$(\vec{u_{1}})$, we conclude that \underline{\hspace{2cm}}.
+%\noindent
+%\newline
+%\newline
+%We now show that 2 implies 1. Assume then that 2 is true, so assume that $\vec{u_{2}} \in$ Span$(\vec{u_{1}})$. By definition, we can \underline{\hspace{2cm}}. To show that Span$(\vec{u_{1}}, \vec{u_{2}})=$Span$(\vec{u_{1}})$, we give a double containment proof.
+%\begin{itemize}
+%\item Using Proposition \underline{\hspace{2cm}}, we know immediately that Span$(\vec{u_{1}}) \subseteq$ Span$(\vec{u_{1}}, \vec{u_{2}})$.
+%\item We now show that Span$(\vec{u_{1}}, \vec{u_{2}}) \subseteq$ Span$(\vec{u_{1}})$. Let $\vec{v} \in$ Span$(\vec{u_{1}},\vec{u_{2}}))$ be arbitrary. By definition we can \underline{\hspace{2cm}}. Notice that $\vec{v} =$\underline{\hspace{2cm}}. Since  \underline{\hspace{2cm}}$\in \mathbb{R}$, it follows that $\vec{v} \in$ Span$(\vec{u_{1}})$. Since $\vec{v} \in$ Span$(\vec{u_{1}}, \vec{u_{2}})$ was arbitrary, we conclude that Span$(\vec{u_{1}}, \vec{u_{2}}) \subseteq$ Span$(\vec{u_{1}})$.
+%\end{itemize}
+%\noindent
+%Since we have shown both Span$(\vec{u_{1}}) \subseteq$ Span$(\vec{u_{1}}, \vec{u_{2}})$ and Span$(\vec{u_{1}}, \vec{u_{2}}) \subseteq$ Span$(\vec{u_{1}})$, we conclude that Span$(\vec{u_{1}}, \vec{u_{2}}) =$ Span$(\vec{u_{1}})$.
+\[
+{\bf Note:}
+\]
+\[
+\text{I have written in a different
+color (blue) %\textcolor{red}{c}\textcolor{cyan}{o}\textcolor{brown}{l}\textcolor{magenta}{o}\textcolor{blue}{r}
+the parts that go into the blanks.}
+\]
+
+\begin{solution}
+We first show that 1 implies 2. Assume that 1 is true, so assume that Span$(\vec{u_{1}}, \vec{u_{2}}) =$ Span$(\vec{u_{1}})$. Notice that $\vec{u_{2}}= \textcolor{blue}{0\cdot \vec{u_{1}}+c_{2} \vec{u_{2}} = \vec{0} + c_{2} \vec{u_{2}} = c_{2} \vec{u_{2}}}$. Since $\textcolor{blue}{0,c_{2}} \in \mathbb{R}$, it follows that $\vec{u_{2}} \in$ Span$(\vec{u_{1}}, \vec{u_{2}})$. Since Span$(\vec{u_{1}}, \vec{u_{2}})=$ Span$(\vec{u_{1}})$, we conclude that \textcolor{blue}{$\vec{u_{2}} \in$ Span$(\vec{u_{1}})$}.
+\noindent
+\newline
+\newline
+We now show that 2 implies 1. Assume then that 2 is true, so assume that $\vec{u_{2}} \in$ Span$(\vec{u_{1}})$. By definition, we can \textcolor{blue}{fix a $c \in \mathbb{R}$ with $\vec{u_{2}}= c \cdot \vec{u_{1}}$}. To show that Span$(\vec{u_{1}}, \vec{u_{2}})=$ Span$(\vec{u_{1}})$, we give a double containment proof.
+\begin{itemize}
+\item Using Proposition \textcolor{blue}{2.3.7}, we know immediately that Span$(\vec{u_{1}}) \subseteq$ Span$(\vec{u_{1}}, \vec{u_{2}})$.
+\item We now show that Span$(\vec{u_{1}}, \vec{u_{2}}) \subseteq$ Span$(\vec{u_{1}})$. Let $\vec{v} \in$ Span$(\vec{u_{1}},\vec{u_{2}})$ be arbitrary. By definition we can \textcolor{blue}{fix a $c_{1},c_{2} \in \mathbb{R}$ with $\vec{v}=c_{1}\vec{u_{1}} +c_{2}\vec{u_{2}}$}. Notice that $\vec{v} = $\textcolor{blue}{$c_{1}\vec{u_{1}} +c_{2}(c \cdot \vec{u_{1}}) = c_{1}\vec{u_{1}} +(c_{2}c) \cdot \vec{u_{1}} = (c_{1}c_{2}c) \cdot \vec{u_{1}}$}. Since  \textcolor{blue}{$c_{1}c_{2}c$} $\in \mathbb{R}$, it follows that $\vec{v} \in$ Span$(\vec{u_{1}})$. Since $\vec{v} \in$ Span$(\vec{u_{1}}, \vec{u_{2}})$ was arbitrary, we conclude that Span$(\vec{u_{1}}, \vec{u_{2}}) \subseteq$ Span$(\vec{u_{1}})$.
+\end{itemize}
+\noindent
+Since we have shown both Span$(\vec{u_{1}}) \subseteq$ Span$(\vec{u_{1}}, \vec{u_{2}})$ and Span$(\vec{u_{1}}, \vec{u_{2}}) \subseteq$ Span$(\vec{u_{1}})$, we conclude that Span$(\vec{u_{1}}, \vec{u_{2}}) =$ Span$(\vec{u_{1}})$.
+
+
+\end{solution}
+\newpage
+c. Find the coordinates of $\begin{pmatrix}8 \\ 17 \end{pmatrix}$ relative to $\alpha$. In other words, calculate $Coord_{\alpha}\left(  \begin{pmatrix}8 \\ 17 \end{pmatrix} \right)$.
+\begin{solution}
+By the Proposition 2.3.13, we have 
+\[
+Coord_{\alpha}\left(\begin{pmatrix}j\\k\end{pmatrix}\right) = \frac{1}{(-11)} \cdot \begin{pmatrix}(1)\cdot j-(5)\cdot k\\(-1) \cdot k-(2) \cdot j\end{pmatrix}
+\]
+So we have
+\begin{align*}
+Coord_{\alpha}\left(  \begin{pmatrix}5 \\ 1 \end{pmatrix} \right) =& \frac{1}{(-11)} \cdot \begin{pmatrix}(1)\cdot (8)-(5)\cdot (17)\\(-1) \cdot (17)-(2) \cdot (8)\end{pmatrix}\\
+=& \frac{1}{(-11)} \cdot \begin{pmatrix}8-85\\-17-16\end{pmatrix}\\
+=& \frac{1}{(-11)} \cdot \begin{pmatrix}-93\\-33\end{pmatrix}\\
+=& \begin{pmatrix} \frac{1}{(-11)} \cdot (-93)\\ \frac{1}{(-11)} \cdot (-33)\end{pmatrix}\\
+=& \begin{pmatrix}\frac{93}{11}\\3\end{pmatrix}
+\end{align*}
+So the coordinates of $\begin{pmatrix}8 \\ 17 \end{pmatrix}$ relative to $\alpha$ are $\begin{pmatrix}\frac{93}{11}\\3\end{pmatrix}$.
+\end{solution}
+\noindent
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\[
+\text{PAGE 2 OF 2 FOR PROBLEM 3}
+\]
+
+\end{problem}
+
+
+\end{document}

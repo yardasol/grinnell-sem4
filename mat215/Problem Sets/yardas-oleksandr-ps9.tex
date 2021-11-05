@@ -1,0 +1,378 @@
+\documentclass[12pt]{article}
+\usepackage{latexsym, amssymb, amsmath, amsfonts, amscd, amsthm, xcolor, pgfplots}
+\usepackage{framed}
+\usepackage[margin=1in]{geometry}
+\linespread{1} %Change the line spacing only if instructed to do so.
+
+\newenvironment{problem}[2][Problem]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1 #2:}]
+	}
+{
+	\end{trivlist}
+	}
+
+\newenvironment{solution}[1][Solution]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\itshape #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+\newenvironment{collaborators}[1][Collaborator(s)]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%    You need only modify code below this block.
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\title{Assignment: Problem Set 9} %Change this to the assignment you are submitting.
+\author{Name: Oleksandr Yardas} %Change this to your name.
+\date{Due Date: 02/28/2018 } %Change this to the due date for the assignment you are submitting.
+\begin{document}
+	\maketitle
+	\thispagestyle{empty}
+	
+	\section*{List Your Collaborators:}%Enter your collaborators names below. Do not delete extra rows.
+	
+	\begin{itemize}
+		\begin{framed}
+			\item 
+			Problem 1: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 2: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 3: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 4: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 5: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 6: None
+			\\\\
+		\end{framed}
+	\end{itemize}
+\newpage
+%
+%%%%%%%%%%%%%%%
+%
+% Your problem statements and solutions start here.
+% Use the \newpage command between problems so that
+% each of your problems begins on its own page.
+%
+%%%%%%%%%%%%%%%
+
+%FORMATTING OPTIONS
+%FOR BLANK SPACES: \underline{\hspace{2cm}}
+%FOR SPACES IN align OR SIMILAR ENVIRONMENTS:  \hphantom{1000}
+%FOR MATRICES: \begin{matrix} \end{matrix}, can add p, b, B, v, V, small as suffix to "matrix"
+%SETS: \mathbb{R}^, :\mathbb{R}^ \to \mathbb{R}^
+%Vectors: \vec{},
+%SUBSCRIPTS: _{}
+%FRACTIONS: \frac{}{}
+
+%Provide the problem statement.
+\begin{problem}{1}
+Define $T:\mathbb{R}^2 \to \mathbb{R}^2$ by letting $T(\vec{v})$ be the result of first projecting $\vec{v}$ onto the line $y=3x$, and then projecting the result onto the line $y=4x$. Explain why $T$ is a linear transformation, and then calculate $[T]$.
+
+\noindent
+\newline
+\newline
+\begin{solution}
+Let $\vec{v},\vec{w} \in \mathbb{R}^2$ be arbitrary, and fix $a,b \in \mathbb{R}$ such that $\vec{v}=\begin{pmatrix} a\\b\end{pmatrix}$. Let $\vec{a} = \begin{pmatrix} 1\\3 \end{pmatrix}, \vec{b}=\begin{pmatrix} 1\\4 \end{pmatrix}$. Let $A:\mathbb{R} \to \mathbb{R}^2$ be the linear transformation that projects $\vec{v} \in \mathbb{R}^2$ onto the line $y=3x$ by letting $A(\vec{v})=P_{\vec{a}}(\vec{v})$, where $P_{\vec{a}}$ is the projection linear transformation onto $Span(\vec{a})$, as described in Proposition 3.1.11. %and fix $\vec{w} \in \mathbb{R}^2$ such that $\vec{w}=P(\vec{v})$.
+Let $B:\mathbb{R}^2 \to \mathbb{R}^2$ be the linear transformation that projects $\vec{w}\in \mathbb{R}^2$ onto the line $y=4x$ by letting $B(\vec{v})=P_{\vec{b}}(\vec{v})$, where $P_{\vec{b}}$ is the projection linear transformation onto $Span(\vec{b})$, as described in Proposition 3.1.11.. Notice that $(B\circ A)(\vec{v}) = B(A(\vec{v}))$ by definition of function composition. Geometrically, this means that $(B\circ A)$ takes the output of $P$, which is a the projection of a vector $\vec{v}$ onto the line $y=3x$, and projects it onto the line $y=4x$. In other words,  $(B\circ A)$ takes a vector $\vec{v}$ and projects it onto the line $y=3x$, and then projects the result onto the line $y=4x$. But this is exactly how we define $T$. So $B\circ A=T$. We know that $A,B$ are linear transformations, so By Proposition 2.4.8, $B\circ A$ is a linear transformation, so $T$ is a linear transformation. We want to find $[T]$. We found earlier that $(B\circ A)(\vec{v}) = B(A(\vec{v}))$. By Proposition 3.1.4, $B(A(\vec{v})) = B([A]\vec{v})=[B]\cdot([A]\vec{v})$. By Proposition 3.2.5, $[B]\cdot([A]\vec{v}) = ([B][A])\vec{v}$. So $T(\vec{v})=([B][A])\vec{v}$. It follows from Proposition 3.1.4, that $[T]=[B][A]$. We have defined $A,B$ by Proposition 3.1.11, so we have:
+\begin{align*}
+%[A] = \begin{pmatrix} \frac{1^2}{1^2 + 3^2} & \frac{1\cdot 3}{1^2 + 3^2} \\ \frac{1\cdot 3}{1^2 + 3^2} & \frac{3^2}{1^2 + 3^2} \end{pmatrix} = \begin{pmatrix} \frac{1}{10} & \frac{3}{10} \\ \frac{3}{10} & \frac{9}{10} \end{pmatrix}\\
+%[B] = \begin{pmatrix} \frac{1^2}{1^2 + 4^2} & \frac{1\cdot 4}{1^2 + 4^2} \\ \frac{1\cdot 4}{1^2 + 4^2} & \frac{4^2}{1^2 + 4^2} \end{pmatrix} = \begin{pmatrix} \frac{1}{17} & \frac{4}{17} \\ \frac{4}{17} & \frac{16}{17} \end{pmatrix}\\
+\end{align*}
+Using Definition 3.2.1, we compute:
+\begin{align*}
+[T]=[B][A]=&\begin{pmatrix} \frac{1}{17} & \frac{4}{17} \\ \frac{4}{17} & \frac{16}{17} \end{pmatrix}\begin{pmatrix} \frac{1}{10} & \frac{3}{10} \\ \frac{3}{10} & \frac{9}{10} \end{pmatrix}\\
+=&\begin{pmatrix} \frac{1}{17} \cdot \frac{1}{10} +  \frac{4}{17} \cdot \frac{3}{10} &  \frac{1}{17} \cdot \frac{3}{10} + \frac{4}{17} \cdot \frac{9}{10} \\ \frac{4}{17}\cdot \frac{1}{17} + \frac{16}{17}\cdot \frac{3}{10} & \frac{4}{17}\cdot \frac{3}{10} + \frac{16}{17}\cdot \frac{9}{10}\end{pmatrix} \\
+=& \begin{pmatrix} \frac{1+12}{170} &  \frac{3+36}{170} \\ \frac{4+48}{170} & \frac{12+144}{170}\end{pmatrix} \\
+=& \begin{pmatrix} \frac{13}{170} & \frac{39}{170} \\ \frac{52}{170} & \frac{156}{170} \end{pmatrix}
+\end{align*}
+Therfore, $[T]= \begin{pmatrix} \frac{13}{170} & \frac{39}{170} \\ \frac{52}{170} & \frac{156}{170} \end{pmatrix}$. 
+%w. Recall from Calculus 2 that we define the projection of a vector $\vec{u}$ onto another vector $\vec{q}$ as $Proj_{\vec{q}}(\vec{u})=\frac{\vec{q} \bullet \vec{u}}{\| \vec{q} \| ^2} \vec{q}$. Notice that if we let $\vec{a} = \begin{pmatrix} 1\\3 \end{pmatrix}$, then the solution set of line $y=3x$ is $Span(\vec{a})$ by definition. Also notice that if we let $\vec{b}= \begin{pmatrix} 1\\4 \end{pmatrix}$, then the solution set of line $y=4x$ is $Span(\vec{b})$ by definition. So the projection of a vector $\vec{v}$ onto the line $y=3x$ is $Proj_{\vec{a}}(\vec{v})=\frac{\vec{a} \bullet \vec{v}}{\| \vec{a} \|^2} \vec{a}$, and this is equal to $P(\vec{v})$ by definition. So the projection of $\vec{w} = P(\vec{v})$ onto the line $y=4x$ is $Proj_{\vec{b}}(\vec{w})=\frac{\vec{b} \bullet \vec{w}}{\| \vec{b} \|^2} \vec{b} = \frac{\vec{b} \bullet \left(\frac{\vec{a} \bullet \vec{v}}{\| \vec{a} \|^2} \vec{a}\right)}{\| \vec{b} \|^2} \vec{b}$, and this is equal to $(S\circ P)(\vec{v}) = T(\vec{v})$ by definition. We expand this expression:
+%\noindent
+%\newline
+%\newline
+%\newline
+%\newline
+%\newline
+%\newline
+%\newline
+%\newline
+%\newline
+%\newline
+%\newline
+%\newline
+%\newline
+%\newline
+%\newline
+%\[
+%\text{PAGE 1 OF 2 FOR PROBLEM 1}
+%\]
+\end{solution}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{2}
+Let
+\[
+A=\begin{pmatrix} \frac{1}{5}&\frac{2}{5} \\ \frac{2}{5} &\frac{4}{5}\end{pmatrix}
+\]
+\noindent
+\newline
+\newline
+a. Show that $A\cdot A=A$ by simply computing it.
+\begin{solution}
+By Definition 3.2.1, we have $A \cdot A = \begin{pmatrix} \frac{1}{5}&\frac{2}{5} \\ \frac{2}{5} &\frac{4}{5}\end{pmatrix} \cdot \begin{pmatrix} \frac{1}{5}&\frac{2}{5} \\ \frac{2}{5} &\frac{4}{5}\end{pmatrix} = \begin{pmatrix} \frac{1}{5} \cdot \frac{1}{5} + \frac{2}{5} \cdot \frac{2}{5} & \frac{1}{5} \cdot \frac{2}{5} + \frac{2}{5} \cdot \frac{4}{5} \\ \frac{2}{5} \cdot \frac{1}{5} + \frac{4}{5} \cdot \frac{2}{5} & \frac{2}{5} \cdot \frac{2}{5} + \frac{4}{5} \cdot \frac{4}{5} \end{pmatrix}$
+\noindent
+$=  \begin{pmatrix} \frac{1}{25}  + \frac{4}{25} & \frac{2}{25} + \frac{8}{25}\\ \frac{2}{25} + \frac{8}{25} & \frac{4}{25} + \frac{16}{25} \end{pmatrix}=\begin{pmatrix} \frac{5}{25}  & \frac{10}{25} \\ \frac{10}{25} & \frac{20}{25} \end{pmatrix} = \begin{pmatrix} \frac{5}{5} \cdot \frac{1}{5}  &\frac{5}{5} \cdot \frac{2}{5} \\ \frac{5}{5} \cdot \frac{2}{5} & \frac{5}{5} \cdot \frac{4}{5} \end{pmatrix} =\begin{pmatrix}1 \cdot \frac{1}{5}  &1 \cdot \frac{2}{5} \\ 1 \cdot \frac{2}{5} &1 \cdot \frac{4}{5} \end{pmatrix} = \begin{pmatrix} \frac{1}{5}&\frac{2}{5} \\ \frac{2}{5} &\frac{4}{5}\end{pmatrix} = A$. So $A \cdot A = A$.
+
+\end{solution}
+
+\noindent
+\newline
+\newline
+b. Find an example of $\vec{w} \in \mathbb{R}^2$ such that $A=[P_{\vec{w}}]$.
+\begin{solution}
+Let $\vec{w} \in \mathbb{R}^2$ be arbitrary, and fix $a,b \in \mathbb{R}$ such that $\vec{w} = \begin{pmatrix} a\\b\end{pmatrix}$. By Proposition 3.1.11, $[P_{\vec{w}}]=\frac{1}{a^2 + b^2} \cdot \begin{pmatrix} a^2 &ab \\ ab & b^2 \end{pmatrix}$. Notice that $A = \begin{pmatrix} \frac{1}{5}&\frac{2}{5} \\ \frac{2}{5} &\frac{4}{5}\end{pmatrix} = \frac{1}{5} \cdot \begin{pmatrix}1 & 2 \\ 2 &4\end{pmatrix}$. Suppose $a = 1, b = 2$. Then we have $[P_{\vec{w}}]=\frac{1}{1^2 + 2^2} \cdot \begin{pmatrix} 1^2 &1 \cdot 2 \\ 1\cdot 2 & 2^2 \end{pmatrix} = \frac{1}{5} \cdot \begin{pmatrix} 1 & 2 \\ 2 & 4 \end{pmatrix} = A$. Therefore, $A=[P_{\vec{w}}]$ for $\vec{w} = \begin{pmatrix} 1\\2\end{pmatrix}$.
+\end{solution}
+
+\noindent
+\newline
+\newline
+c. By interpreting the action of $A$ geometrically, explain why you should expect that $A \cdot A =A$.
+\begin{solution}
+Let $\vec{v} \in \mathbb{R}^2$ be arbitrary, and fix $\vec{u} \in \mathbb{R}^2$ such that $\vec{u} = A\vec{v}$. We know that $A=[P_{\vec{w}}]$ when $\vec{w}= \begin{pmatrix} 1\\2\end{pmatrix}$. In other words, $A$ is the standard matrix of the linear transformation that takes a vector $\vec{v}$ and gives a vector $\vec{u}$ which is the projection of $\vec{v}$ onto the line $y=2x$ (by Proposition 3.1.11). The projection of a vector onto the line $y=2x$ that already lies on the line $y=2x$ is just that vector. Notice that $\vec{u}$ lies on $y=2x$ by definition. So we have $A\cdot \vec{u} = \vec{u}$. Substituting  $\vec{u} = A\vec{v}$ into this equation, we get $A\cdot(A\vec{v})=A\vec{v}=(A\cdot A)\vec{v}$ (By Proposition 3.2.5). We know that this equation is true by the way in which we have defined $A$, therefore it must be the case that $A \cdot A =A$ (and it is!). 
+%So it must be the case that  ing f \so when $P_{\vec{w}}$ takes any vector $\vec{u}=P_{\vec{w}}(\vec{v})$ that has already been projected onto the line $y=2x$, it just gives back $\vec{u}$. In other words, it must be the case that $(P_{\vec{w}} \circ P_{\vec{w}})(\vec{v}) = P_{\vec{w}}(\vec{v})$. To show this is true, we use Proposition 3.2.2: $[P_{\vec{w}} \circ P_{\vec{w}}] = [P_{\vec{w}}]\cdot [P_{\vec{w}}] = A \cdot A = A = [P_{\vec{w}}]$. Taking the vector product, we get $[P_{\vec{w}} \circ P_{\vec{w}}]\cdot \vec{v} = [P_{\vec{w}}]\cdot \vec{v}$, and so by Proposition 3.1.4, $(P_{\vec{w}} \circ P_{\vec{w}})(\vec{v}) = P_{\vec{w}}(\vec{v})$. The geo
+\end{solution}
+%\newline
+%\newline
+%\newline
+%\newline
+%\newline
+%\newline
+%\[
+%\text{PAGE 1 OF X FOR PROBLEM 2}
+%\]
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{3}
+Define $T:\mathbb{R}^2 \to \mathbb{R}^2$ by letting $T(\vec{v})$ be the point on the line $y=x+1$ that is closest to $\vec{v}$. Is $T$ a linear transformation? Explain.
+\noindent
+\newline
+\newline
+
+\begin{solution}
+We assume that $T$ is a linear transformation. By definition of $T$, $T(\vec{0}) =$ the point on the line $y=x+1$ that is closest to $\vec{0}$. The point on the line  $y=x+1$ that is closest to $\vec{0}$ is $(0,1)$, so $T(\vec{0}) = \begin{pmatrix} 0\\1 \end{pmatrix}$. But by proposition 2.4.2, for a linear transformation $T:\mathbb{R}^2 \to \mathbb{R}^2$, $T(\vec{0}) = \vec{0}$. Our assumption has lead to a contradiction, therefore it must be the case that $T$ is not a linear transformation.
+%Let $\vec{v} \in \mathbb{R}^2, c \in \mathbb{R}$ be arbitrary, and fix $x,y \in \mathbb{R}, \vec{W} \in \mathbb{R}^2$ such that $\vec{v}=\begin{pmatrix}x\\y\end{pmatrix},\vec{W} = c \cdot \begin{pmatrix} 1\\1\end{pmatrix} + \begin{pmatrix} 0\\1\end{pmatrix}$. Notice that this is the vector form of the line $y=x+1$. $T(\vec{v})$ is the point on the line $y=x+1$ that is closest to $\vec{v}$. In other words, $T(\vec{v}) = Proj_{\vec{W}}(\vec{v}) = \frac{\vec{W} \bullet \vec{v}}{\| \vec{W} \| ^2} \cdot \vec{W}$
+%\begin{align*}
+%Proj_{\vec{W}}(\vec{v}) = \frac{\vec{W} \bullet \vec{v}}{\| \vec{W} \| ^2} \cdot \vec{W} =& \frac{\begin{pmatrix}c\\c+1 \end{pmatrix} \bullet \begin{pmatrix}x\\y\end{pmatrix}}{\left| \left| \begin{pmatrix}c\\c+1 \end{pmatrix} \right| \right| ^2} \cdot \begin{pmatrix}c\\c+1 \end{pmatrix} & \\
+%=& \frac{cx + y(c+1)}{c^2 +(c+1)^2} \cdot \begin{pmatrix}c\\c+1 \end{pmatrix} &\\
+%=&\frac{1}{c^2 +(c+1)^2} \cdot \begin{pmatrix} c^2 x + c(c+1)y \\ c(c+1)x + (c+1)^2y \end{pmatrix}& \\
+%=&\frac{1}{c^2 +(c+1)^2} \cdot \begin{pmatrix} c^2 & c(c+1)\\c(c+1) & (c+1)^2 \end{pmatrix} \begin{pmatrix} x\\y \end{pmatrix} &\\
+%=& \frac{1}{c^2 +(c+1)^2} \cdot\begin{pmatrix} c^2 & c(c+1)\\c(c+1) & (c+1)^2 \end{pmatrix} \vec{v}
+%\end{align*}
+%So $T(\vec{v})=$
+\end{solution}
+%\newline
+%\newline
+%\newline
+%\newline
+%\newline
+%\newline
+%\[
+%\text{PAGE 1 OF X FOR PROBLEM 3}
+%\]
+\end{problem}
+
+
+
+
+
+
+
+\newpage
+\begin{problem}{4}
+Let $\vec{w} \in \mathbb{R}^2$ be nonzero, and let $W=$Span$(\vec{w})$. Define $F_{\vec{w}}:\mathbb{R}^2 \to \mathbb{R}^2$ by letting $F_{\vec{w}}(\vec{v})$ be the result of reflecting  $\vec{v}$ across the line $W$. Show that $F_{\vec{w}}$ is a linear transformation and determine the standard matrix $[F_{\vec{w}}]$.
+\noindent
+\newline
+\newline
+{\it Hint:} Make use of projections. How can you determine $F_{\vec{w}}(\vec{v})$ using $\vec{v}$ and $P_{\vec{w}}(\vec{v})$?
+
+\noindent
+\newline
+\newline
+
+\begin{solution}
+Let $\vec{v} \in \mathbb{R}^2$ be arbitrary, and fix $v_{1},v_{2},u_{1},u_{2} \in \mathbb{R}, \vec{u} \in \mathbb{R}^2$ such that $\vec{v}=\begin{pmatrix}v_{1}\\v_{2}\end{pmatrix}, T_{\vec{w}}(\vec{v})=\vec{u} = \begin{pmatrix}u_{1}\\u_{2}\end{pmatrix}$. So by the definition of $T_{\vec{w}}$, the vector $\vec{u}$ is the reflection of $\vec{v}$ across the line $W=Span(\vec{w})$. Let $P_{\vec{w}}:\mathbb{R}^2 \to \mathbb{R}^2$ be the projection linear transformation (described in Proposition 3.1.11) that takes a vector $\vec{v}$ and gives its projection along the line $W=Span(\vec{u})$. Notice that $P_{\vec{w}}(\vec{u}) = P_{\vec{w}}(\vec{v})$ because the reflection of a vector across a line has the same projection onto that line as the original vector. Because of this, we have that $\vec{u} + \vec{v} = 2\cdot P_{\vec{w}}(\vec{v})$ (this can be shown graphically by using the "tail to tip" method of adding the reflection of a vector across a line and the original vector, and I would show this but I don't know how to do it in {\LaTeX}.), and it follows that $\vec{u} = 2\cdot P_{\vec{w}}(\vec{v})-\vec{v}$, so $T_{\vec{w}}(\vec{v}) =2\cdot P_{\vec{w}}(\vec{v})-\vec{v}$ by defintion of $\vec{u}$. We compute:
+\begin{align*}
+T_{\vec{w}}(\vec{v})=2\cdot P_{\vec{w}}(\vec{v})-\vec{v} =& 2\cdot \begin{pmatrix} \frac{w_{1}^2}{w_{1}^2 +w_{2}^2} & \frac{w_{1}w_{2}}{w_{1}^2 +w_{2}^2}\\ \frac{w_{1}w_{2}}{w_{1}^2 +w_{2}^2} & \frac{w_{2}^2}{w_{1}^2 +w_{2}^2} \end{pmatrix} \cdot \begin{pmatrix} v_{1}\\ v_{2} \end{pmatrix} - \begin{pmatrix} v_{1}\\ v_{2} \end{pmatrix} & \text{(By Proposition 3.1.11)} \\
+=& \begin{pmatrix} \frac{2v_{1}w_{1}^2}{w_{1}^2 +w_{2}^2} + \frac{2v_{2}w_{1}w_{2}}{w_{1}^2 +w_{2}^2}\\ \frac{2v_{1}w_{1}w_{2}}{w_{1}^2 +w_{2}^2} + \frac{2v_{2}w_{2}^2}{w_{1}^2 +w_{2}^2} \end{pmatrix} - \begin{pmatrix} v_{1}\\ v_{2} \end{pmatrix} &\\
+=& \begin{pmatrix} \frac{2v_{1}w_{1}^2}{w_{1}^2 +w_{2}^2} + \frac{2v_{2}w_{1}w_{2}}{w_{1}^2 +w_{2}^2} + \frac{- v_{1}w_{1}^2 -v_{1}w_{2}^2}{w_{1}^2 +w_{2}^2}\\ \frac{2v_{1}w_{1}w_{2}}{w_{1}^2 +w_{2}^2} + \frac{2v_{2}w_{2}^2}{w_{1}^2 +w_{2}^2} +\frac{- v_{2}w_{1}^2 -v_{2}w_{2}^2}{w_{1}^2 +w_{2}^2}\end{pmatrix}&\\
+%=& \frac{2}{w_{1}^2 + w_{2}^2} \begin{pmatrix} v_{1}w_{1}^2 + v_{2}w_{1}w_{2} \\  v_{1}w_{1}w_{2} + v_{2}w_{2}^2 \end{pmatrix} - \begin{pmatrix} v_{1}\\ v_{2} \end{pmatrix} & \\
+=&\frac{1}{w_{1}^2 + w_{2}^2} \begin{pmatrix} 2v_{1}w_{1}^2 + 2v_{2}w_{1}w_{2} - v_{1}w_{1}^2 -v_{1}w_{2}^2\\  2v_{1}w_{1}w_{2} + 2v_{2}w_{2}^2 - v_{2}w_{1}^2 -v_{2}w_{2}^2\end{pmatrix} &\\
+=&\frac{1}{w_{1}^2 + w_{2}^2} \begin{pmatrix} v_{1}(w_{1}^2 - w_{2}^2) + v_{2}(2w_{1}w_{2}) \\  v_{1}(2w_{1}w_{2}) + v_{2}(w_{2}^2 - w_{1}^2) \end{pmatrix} &\\
+=&\begin{pmatrix} v_{1}\frac{(w_{1}^2 - w_{2}^2)}{w_{1}^2 + w_{2}^2}  + v_{2}\frac{(2w_{1}w_{2})}{w_{1}^2 + w_{2}^2}  \\  v_{1}\frac{(2w_{1}w_{2})}{w_{1}^2 + w_{2}^2}  + v_{2}\frac{(w_{2}^2 - w_{1}^2)}{w_{1}^2 + w_{2}^2}  \end{pmatrix} &\\
+%=& v_{1} \begin{pmatrix} \frac{(w_{1}^2 - w_{2}^2)}{w_{1}^2 + w_{2}^2} \\\frac{(2w_{1}w_{2})}{w_{1}^2 + w_{2}^2} \end{pmatrix} + v_{2} \begin{pmatrix} \frac{(2w_{1}w_{2})}{w_{1}^2 + w_{2}^2}  \\ \frac{(w_{2}^2 - w_{1}^2)}{w_{1}^2 + w_{2}^2}\end{pmatrix} &\\
+%=&\begin{pmatrix} \frac{(w_{1}^2 - w_{2}^2)}{w_{1}^2 - w_{2}^2}  & \frac{(2w_{1}w_{2})}{w_{1}^2 + w_{2}^2}  \\  \frac{(2w_{1}w_{2})}{w_{1}^2 + w_{2}^2}  & \frac{(w_{2}^2 - w_{1}^2)}{w_{1}^2 + w_{2}^2}  \end{pmatrix} \cdot \begin{pmatrix} v_{1} \\ v_{2} \end{pmatrix} &\\
+%=& \frac{1}{w_{1}^2 + w_{2}^2} \begin{pmatrix} w_{1}^2 - w_{2}^2 & 2w_{1}w_{2} \\ 2w_{1}w_{2} & w_{2}^2 - w_{1}^2 \end{pmatrix} \cdot \begin{pmatrix} v_{1} \\ v_{2} \end{pmatrix} & \\
+\end{align*}
+So $T_{\vec{w}}(\vec{v}) =  \begin{pmatrix} v_{1}\frac{(w_{1}^2 - w_{2}^2)}{w_{1}^2 + w_{2}^2}  + v_{2}\frac{(2w_{1}w_{2})}{w_{1}^2 + w_{2}^2}  \\  v_{1}\frac{(2w_{1}w_{2})}{w_{1}^2 + w_{2}^2}  + v_{2}\frac{(w_{2}^2 - w_{1}^2)}{w_{1}^2 + w_{2}^2}  \end{pmatrix}$, and so it follows (by Proposition 3.1.8) that $T_{\vec{w}}(\vec{v})$ is a linear transformation and $[T_{\vec{w}}]=\begin{pmatrix} \frac{w_{1}^2 - w_{2}^2}{w_{1}^2 + w_{2}^2}  &  \frac{2w_{1}w_{2}}{w_{1}^2 + w_{2}^2}  \\  \frac{2w_{1}w_{2}}{w_{1}^2 + w_{2}^2}  & \frac{w_{2}^2 - w_{1}^2}{w_{1}^2 + w_{2}^2}  \end{pmatrix}
+ $ %$\vec{u} = T_{\vec{w}}(\vec{v})$ by definition, so $T_{\vec{w}}(\vec{v}) = \frac{1}{w_{1}^2 + w_{2}^2} \begin{pmatrix} w_{1}^2 - w_{2}^2 & 2w_{1}w_{2} \\ 2w_{1}w_{2} & w_{2}^2 - w_{1}^2 \end{pmatrix} \cdot \begin{pmatrix} v_{1} \\ v_{2} \end{pmatrix}$. By Proposition 3.1.4, $[T_{\vec{w}}]=\frac{1}{w_{1}^2 + w_{2}^2} \begin{pmatrix} w_{1}^2 - w_{2}^2 & 2w_{1}w_{2} \\ 2w_{1}w_{2} & w_{2}^2 - w_{1}^2 \end{pmatrix}$.
+ \end{solution}
+%\newline
+%\newline
+%\newline
+%\newline
+%\newline
+%\newline
+%\[
+%\text{PAGE 1 OF X FOR PROBLEM 4}
+%\]
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{5}
+Define $T:\mathbb{R}^2 \to \mathbb{R}^2$ by letting $T(\vec{v})$ be the result of first reflecting $\vec{v}$ across the $x$-axis, and then reflecting the result across the $y$-axis.
+\noindent
+\newline
+\newline
+a. Compute $[T]$.
+\begin{solution}
+We define $X(\vec{v}):\mathbb{R}^2 \to \mathbb{R}^2$ by letting $X(\vec{v})$ be the result of reflecting $\vec{v}$ across the $x$-axis, and we define $Y(\vec{v}):\mathbb{R}^2 \to \mathbb{R}^2$ by letting $Y(\vec{v})$ be the result of reflecting $\vec{v}$ across the $y$-axis. 
+Using our result from Problem 4, we can say that $X$ and $Y$ are both linear transformations, and $[X] = \begin{pmatrix} \frac{1^2 - 0^2}{1^2 + 0^2}  &  \frac{2\cdot 1\cdot 0}{1^2 + 0^2}  \\  \frac{2\cdot 1 \cdot 0}{1^2 + 0^2}  & \frac{0^2 - 1^2}{1^2 + 0^2} \end{pmatrix} =\begin{pmatrix} 1  &  0  \\  0 & -1 \end{pmatrix}, [Y]=\begin{pmatrix} \frac{0^2 - 1^2}{0^2 + 1^2}  &  \frac{2\cdot 0\cdot 1}{0^2 + 1^2}  \\  \frac{2\cdot 0 \cdot 1}{0^2 + 1^2}  & \frac{1^2 - 0^2}{0^2 + 1^2} \end{pmatrix} = \begin{pmatrix} -1  &  0  \\  0 & 1 \end{pmatrix}$. 
+By the same reasoning used in Problem 1, we come to the conclusion that $[T]=[Y][X] = \begin{pmatrix} 1  &  0  \\  0 & -1 \end{pmatrix} \begin{pmatrix} -1  &  0  \\  0 & 1 \end{pmatrix} = \begin{pmatrix} 1\cdot -1 + 0\cdot 0 &  1\cdot 0 + 0\cdot -1  \\  0\cdot -1 + -1 \cdot 0 & 0\cdot 0 + -1\cdot 1 \end{pmatrix} = \begin{pmatrix} -1 & 0\\ 0&-1\end{pmatrix}$
+\end{solution}
+
+\noindent
+\newline
+\newline
+b. The action of $T$ is the same as a certain rotation. Explain which rotation it is.
+\begin{solution}
+By Proposition 3.1.10, the standard matrix of a rotation of $\theta$ degrees counterclockwise around the origin is $[R_{\theta}]=\begin{pmatrix} \cos \theta & - \sin \theta \\ \sin \theta & \cos \theta \end{pmatrix}$. Suppose that $\theta = 180^{\circ}$. So $[R_{180^{\circ}}]=\begin{pmatrix} \cos 180^{\circ} & - \sin 180^{\circ} \\ \sin 180^{\circ} & \cos 180^{\circ} \end{pmatrix} = \begin{pmatrix} -1 & 0 \\ 0 & -1\end{pmatrix} = [T]$. So the action of $T$ is the same as a $180^{\circ}$ rotation about the origin. 
+\end{solution}
+
+%\newline
+%\newline
+%\newline
+%\newline
+%\newline
+%\newline
+%\[
+%\text{PAGE 1 OF X FOR PROBLEM 5}
+%\]
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{6}
+Let $T:\mathbb{R}^2 \to \mathbb{R}^2$ be a linear transformation, and let $r \in \mathbb{R}$. We know from Proposition 2.4.8 that $r \cdot T$ is a linear transformation. Show that if
+\[
+[T]=\begin{pmatrix} a&b\\c&d\end{pmatrix}\text{,}
+\]
+then
+\[
+[r \cdot T]=\begin{pmatrix} ra&rb\\rc&rd\end{pmatrix}\text{.}
+\]
+In other words, if we define the multiplication of a matrix by a scalar as in Definition 3.1.14, then the standard matrix of $r \cdot T$ is obtained by multiplying every element of $[T]$ by $r$.
+
+\noindent
+\newline
+\newline
+
+\begin{solution}
+Let $r \in \mathbb{R}, \vec{v} \in \mathbb{R}^2$ be arbitrary. We are given that $[T]=\begin{pmatrix} a&b\\c&d\end{pmatrix}$. By Propositon 3.1.4, $T(\vec{v}) = [T] \vec{v} = \begin{pmatrix} a&b\\c&d\end{pmatrix}\vec{v}$. Multiplying by $r$ on both sides, we get $r\cdot T(\vec{v}) = r \cdot \begin{pmatrix} a&b\\c&d\end{pmatrix} \vec{v} = \begin{pmatrix} ra&rb\\rc&rd\end{pmatrix} \vec{v}$ (By Definition 3.2.3). It follows from Proposition 3.1.4 that $[r\cdot T] = \begin{pmatrix} ra&rb\\rc&rd\end{pmatrix}$.
+\end{solution}
+%\newline
+%\newline
+%\newline
+%\newline
+%\newline
+%\newline
+%\[
+%\text{PAGE 1 OF X FOR PROBLEM 6}
+%\]
+%\newpage
+%\begin{align*}
+%\frac{\vec{b} \bullet \left(\frac{\vec{a} \bullet \vec{v}}{\| \vec{a} \|^2} \vec{a}\right)}{\| \vec{b} \|^2} \vec{b} =& \frac{\vec{b} \bullet \left(\frac{\begin{pmatrix} 1\\3 \end{pmatrix} \bullet \begin{pmatrix} a\\b \end{pmatrix}}{\left| \left| \begin{pmatrix} 1\\3 \end{pmatrix} \right| \right| ^2} \cdot \begin{pmatrix} 1\\3 \end{pmatrix}\right)}{\| \vec{b} \|^2} \vec{b} & \text{(By definition of $\vec{a}$)}\\
+%=&\frac{\vec{b} \bullet \left(\frac{a +3b}{1^2 +3^2} \cdot \begin{pmatrix} 1\\3 \end{pmatrix}\right)}{\| \vec{b} \|^2} \vec{b}& \text{(By definition of dot product)}\\
+%=& \frac{\vec{b} \bullet \left(\frac{a +3b}{10} \cdot \begin{pmatrix} 1\\3 \end{pmatrix}\right)}{\| \vec{b} \|^2} \vec{b}&\\
+%=& \frac{\frac{a +3b}{10} \cdot \left( \vec{b} \bullet \begin{pmatrix} 1\\3 \end{pmatrix}\right)}{\| \vec{b} \|^2} \vec{b}& \text{(By definition of dot product)}\\
+%=& \frac{\frac{a +3b}{10} \cdot \left( \begin{pmatrix} 1\\4 \end{pmatrix} \bullet \begin{pmatrix} 1\\3 \end{pmatrix}\right)}{\left| \left| \begin{pmatrix} 1\\4 \end{pmatrix} \right| \right| ^2} \cdot \begin{pmatrix} 1\\4 \end{pmatrix}& \text{(By definition of $\vec{b}$)}\\
+%=&\frac{\frac{a +3b}{10} \cdot (1 + 12)}{1^2 + 4^2} \cdot \begin{pmatrix} 1\\4 \end{pmatrix} &\\
+%=&\frac{13\cdot(a +3b)}{10\cdot 17} \cdot \begin{pmatrix} 1\\4 \end{pmatrix} &\\
+%=&\begin{pmatrix}\frac{13}{170}a + 3\cdot \frac{13}{170}b\\ 4\cdot \frac{13}{170}a + 4\cdot 3 \cdot \frac{13}{170}b \end{pmatrix} \\
+%=& \begin{pmatrix}\frac{13}{170}a + \frac{39}{170}b\\ \frac{52}{170}a + \frac{156}{170}b \end{pmatrix} \\
+%=& \begin{pmatrix} \frac{13}{170} & \frac{39}{170}\\ \frac{52}{170} & \frac{156}{170} \end{pmatrix} \begin{pmatrix}a\\b\end{pmatrix} &\text{(By definition of matrix-vector product)}\\
+%=& \begin{pmatrix} \frac{13}{170} & \frac{39}{170}\\ \frac{52}{170} & \frac{156}{170} \end{pmatrix} \cdot \vec{v} &\text{(By definition of $\vec{v}$)}
+%\end{align*}
+%Therefore, $T(\vec{v})=\begin{pmatrix} \frac{13}{170} & \frac{39}{170}\\ \frac{52}{170} & \frac{156}{170} \end{pmatrix} \cdot \vec{v}$. Therefore, $[T]=\begin{pmatrix} \frac{13}{170} & \frac{39}{170}\\ \frac{52}{170} & \frac{156}{170} \end{pmatrix}$ (By Proposition 3.1.4).
+%\newline
+%\newline
+%\newline
+%\newline
+%\newline
+%\newline
+%\[
+%\text{PAGE 2 OF 2 FOR PROBLEM 1}
+%\]
+
+\end{problem}
+
+\end{document}

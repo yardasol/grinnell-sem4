@@ -1,0 +1,157 @@
+\documentclass[12pt]{article}
+\usepackage{latexsym, amssymb, amsmath, amsfonts, amscd, amsthm, xcolor, pgfplots}
+\usepackage{framed}
+\usepackage[margin=1in]{geometry}
+\linespread{1} %Change the line spacing only if instructed to do so.
+
+\newenvironment{problem}[2][Problem]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1 #2:}]
+	}
+{
+	\end{trivlist}
+	}
+
+\newenvironment{solution}[1][Solution]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\itshape #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+\newenvironment{collaborators}[1][Collaborator(s)]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%    You need only modify code below this block.
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\title{Assignment: Written Assignment 9} %Change this to the assignment you are submitting.
+\author{Name: Oleksandr Yardas} %Change this to your name.
+\date{Due Date: 05/04/2018 } %Change this to the due date for the assignment you are submitting.
+\begin{document}
+	\maketitle
+	\thispagestyle{empty}
+	
+	\section*{List Your Collaborators:}%Enter your collaborators names below. Do not delete extra rows.
+	
+	\begin{itemize}
+		\begin{framed}
+			\item 
+			Problem 1: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 2: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 3: Not Applicable
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 4: Not Applicable
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 5: Not Applicable
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 6: Not Applicable
+			\\\\
+		\end{framed}
+	\end{itemize}
+\newpage
+%
+%%%%%%%%%%%%%%%
+%
+% Your problem statements and solutions start here.
+% Use the \newpage command between problems so that
+% each of your problems begins on its own page.
+%
+%%%%%%%%%%%%%%%
+
+%FORMATTING OPTIONS
+%FOR BLANK SPACES: \underline{\hspace{2cm}}
+%FOR SPACES IN align OR SIMILAR ENVIRONMENTS:  \hphantom{1000}
+%FOR MATRICES: \begin{matrix} \end{matrix}, can add p, b, B, v, V, small as suffix to "matrix"
+%SETS: \mathbb{R}^, :\mathbb{R}^ \to \mathbb{R}^
+%Vectors: \vec{},
+%SUBSCRIPTS: _{}
+%FRACTIONS: \frac{}{}
+%FANCY LETTERS: \mathcal{}
+
+%Provide the problem statement.
+\begin{problem}{1}
+Let $U$ and $W$ be subspaces of $\mathbb{R}^6$ with dim$(U)=4$ and dim$(W)=3$. Show that $U\cap W \neq \{ \vec{0} \}$.
+\newline
+\noindent
+{\it Hint:} Do a proof by contradiction. Start by fixing bases of $U$ and $W$. What would happen if $U\cap W = \{\vec{0}\}$? A previous homework problem will be helpful.
+
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+In Problem 3 of Written Assignment 8, we showed that, given a vector space $V$, and letting $\vec{u_1},\vec{u_2}, \dots , \vec{u_n},\vec{w_1},\vec{w_2}, \dots , \vec{w_m} \in V$ such that $(\vec{u_1},\vec{u_2}, \dots , \vec{u_n})$ and $(\vec{w_1},\vec{w_2}, \dots , \vec{w_m})$ are both linearly independent sequences, if
+\[
+\text{Span}(\vec{u_1},\vec{u_2}, \dots , \vec{u_n}) \cap \text{Span}(\vec{w_1},\vec{w_2}, \dots , \vec{w_m}) = \{\vec{0}\}\text{,}
+\]
+then $(\vec{u_1},\vec{u_2}, \dots , \vec{u_n}, \vec{w_1},\vec{w_2}, \dots , \vec{w_m})$ is linearly independent.
+
+We know that $\text{dim}(\mathbb{R}^6)=6$, so by definition we can fix six linearly independent vectors $\vec{v_1},\vec{v_2},\vec{v_3},\vec{v_4},\vec{v_5},\vec{v_6} \in \mathbb{R}^6$ such that $(\vec{v_1},\vec{v_2},\vec{v_3},\vec{v_4},\vec{v_5},\vec{v_6})$ is a basis of $\mathbb{R}^6$. It follows from the definition of basis that $\text{Span}(\vec{v_1},\vec{v_2},\vec{v_3},\vec{v_4},\vec{v_5},\vec{v_6})= \mathbb{R}^6$, so by Theorem 4.4.6, we have that for all $\vec{q_1},\vec{q_2}, \dots ,\vec{q_m}\in \mathbb{R}^6$, if $m > 6$ then $(\vec{q_1},\vec{q_2}, \dots, \vec{q_m})$ is linearly dependent. For the sake of obtaining a contradiction, we assume that given subspaces $U$ and $W$ of $\mathbb{R}^6$ with $\text{dim}(U)=4$ and $\text{dim}(W)=3$, we have that $U \cap W =\{\vec{0}\}$. Fix $\vec{u_1},\vec{u_2},\vec{u_3},\vec{u_4}, \vec{w_1},\vec{w_2},\vec{w_3} \in \mathbb{R}^6$ such that $\alpha=(\vec{u_1},\vec{u_2},\vec{u_3},\vec{u_4})$ and $\beta=(\vec{w_1},\vec{w_2},\vec{w_3})$ are linearly independent sequences. Let $\text{Span}(\alpha) = M$ and let $\text{Span}(\beta) =N$. By Proposition 4.1.16 we have that $M$ and $N$ are subspaces of $\mathbb{R}^6$. Because $\alpha$ and $\beta$ are linearly independent, by definition we have that $\alpha$ is a basis for $M$ and $\beta$ is a basis for $N$. Notice that there are 4 elements in $\alpha$ and 3 elements in $\beta$, so by Definition 4.4.9 we have that $\text{dim}(M) =4$ and  $\text{dim}(N)=3$.  By assumption we have that $M \cap N =\{\vec{0}\}$, so it follows from our result in Problem 3 of WA 8 that $(\vec{u_1},\vec{u_2},\vec{u_3},\vec{u_4}, \vec{w_1},\vec{w_2},\vec{w_3})$ is linearly independent. But we showed earlier that any sequence of $m>6$ vectors in $\mathbb{R}^6$ is linearly {\it dependent}, and so we have reached a contradiction. We know that Theorem 4.4.6 is true, so it must be the case that our assumption that, for all subspaces $U$ and $W$ of $\mathbb{R}^6$ with $\text{dim}(U)=4$ and $\text{dim}(W)=3$, we have that $U \cap W =\{\vec{0}\}$, is false. Therefore, it must be the case that,  given subspaces $U$ and $W$ of $\mathbb{R}^6$ with dim$(U)=4$ and dim$(W)=3$, we have that $U\cap W \neq \{ \vec{0} \}$
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 1}\end{problem}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{2}
+Let $V$ and $W$ be vector spaces. Suppose that $T:V\to W$ is an injective linear transformation and that $(\vec{u_1},\vec{u_2},\dots,\vec{u_n})$ is a linearly independent sequence in $V$. Show that $(T(\vec{u_1}),T(\vec{u_2}), \dots, T(\vec{u_n}))$ is a linearly independent sequence in $W$.
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+Let $T:V\to W$ be an injective linear transformation. Let $(\vec{u_1},\vec{u_2},\dots,\vec{u_n})$ be a linearly independent sequence in $V$. Let $a_1,a_2,\dots,a_n \in \mathbb{R}$ be arbitrary and suppose that $a_1\cdot T(\vec{u_1}) + a_2\cdot T(\vec{u_2}) + \dots + a_n\cdot T(\vec{u_n}) = \vec{0}_W$. Notice that
+\begin{align*}
+a_1\cdot T(\vec{u_1}) + a_2\cdot T(\vec{u_2}) + \dots + a_n\cdot T(\vec{u_n}) =& T(a_1\cdot \vec{u_1}) +T( a_2 \cdot \vec{u_2}) + \dots + T( a_n \cdot \vec{u_n}) & \text{(By Definition 5.1.1)}\\
+=& T(a_1\cdot \vec{u_1} + a_2 \cdot \vec{u_2} + \dots + a_n \cdot \vec{u_n}) & \text{(By Defintion 5.1.1)}
+\end{align*}
+So $T(a_1\cdot \vec{u_1} + a_2 \cdot \vec{u_2} + \dots + a_n \cdot \vec{u_n}) = \vec{0}_W$. Because $T$ is a linear transformation, by Proposition 5.1.4 we have that $T(\vec{0}_V) = \vec{0}_W$. We then have that $T(\vec{0}_V) = T(a_1\cdot \vec{u_1} + a_2 \cdot \vec{u_2} + \dots + a_n \cdot \vec{u_n})$. Because $T$ is injective, by definition we have that $a_1\cdot \vec{u_1} + a_2 \cdot \vec{u_2} + \dots + a_n \cdot \vec{u_n} = \vec{0}_V$. Because $(\vec{u_1},\vec{u_2},\dots,\vec{u_n})$ is linearly independent, by definition we have that $a_1=a_2=\dots=a_n=0$. Because $a_1,a_2,\dots,a_n \in \mathbb{R}$ were arbitrary, it follows that for all $a_1,a_2,\dots,a_n \in \mathbb{R}$, if $a_1\cdot T(\vec{u_1}) + a_2\cdot T(\vec{u_2}) + \dots + a_n\cdot T(\vec{u_n}) = \vec{0}_W$, then $a_1=a_2=\dots=a_n=0$. It follows from Definition 4.3.1 that $(T(\vec{u_1}),T(\vec{u_2}), \dots, T(\vec{u_n}))$ is a linearly independent sequence in $W$.
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 2}
+\end{problem}
+
+
+
+\end{document}

@@ -1,0 +1,381 @@
+\documentclass[12pt]{article}
+\usepackage{latexsym, amssymb, amsmath, amsfonts, amscd, amsthm, xcolor, pgfplots}
+\usepackage{framed}
+\usepackage[margin=1in]{geometry}
+\linespread{1} %Change the line spacing only if instructed to do so.
+
+\newenvironment{problem}[2][Problem]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1 #2:}]
+	}
+{
+	\end{trivlist}
+	}
+
+\newenvironment{solution}[1][Solution]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\itshape #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+\newenvironment{collaborators}[1][Collaborator(s)]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%    You need only modify code below this block.
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\title{Assignment: Problem Set 19} %Change this to the assignment you are submitting.
+\author{Name: Oleksandr Yardas} %Change this to your name.
+\date{Due Date: 04/23/2018 } %Change this to the due date for the assignment you are submitting.
+\begin{document}
+	\maketitle
+	\thispagestyle{empty}
+	
+	\section*{List Your Collaborators:}%Enter your collaborators names below. Do not delete extra rows.
+	
+	\begin{itemize}
+		\begin{framed}
+			\item 
+			Problem 1: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 2: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 3: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 4: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 5: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 6: Not Applicable
+			\\\\
+		\end{framed}
+	\end{itemize}
+\newpage
+%
+%%%%%%%%%%%%%%%
+%
+% Your problem statements and solutions start here.
+% Use the \newpage command between problems so that
+% each of your problems \begins on its own page.
+%
+%%%%%%%%%%%%%%%
+
+%FORMATTING OPTIONS
+%FOR BLANK SPACES: \underline{\hspace{2cm}}
+%FOR SPACES IN align OR SIMILAR ENVIRONMENTS:  \hphantom{1000}
+%FOR MATRICES: \begin{matrix} \end{matrix}, can add p, b, B, v, V, small as suffix to "matrix"
+%SETS: \mathbb{R}^, :\mathbb{R}^ \to \mathbb{R}^
+%Vectors: \vec{},
+%SUBSCRIPTS: _{}
+%FRACTIONS: \frac{}{}
+%FANCY LETTERS: \mathcal{}
+
+%Provide the problem statement.
+\begin{problem}{1}
+Let
+\[
+\alpha = \left( \begin{pmatrix} 1\\3\\2 \end{pmatrix},\begin{pmatrix} -1\\-3\\0 \end{pmatrix}, \begin{pmatrix} 2\\8\\9 \end{pmatrix} \right)\text{.}
+\]
+\noindent
+\newline
+\newline
+a. Show that $\alpha$ is a basis of $\mathbb{R}^3$.
+\begin{solution}
+If $\alpha$ is a basis of $\mathbb{R}^3$, then by definition of basis, Span$(\alpha)=\mathbb{R}^3$ and $\alpha$ is linearly independent. Performing elementary row operations on the matrix having the vectors as columns, we get:
+\begin{align*}
+\begin{pmatrix} 1&-1&2\\3&-3&8\\2&0&9 \end{pmatrix} & \rightarrow \begin{pmatrix} 1&-1&2\\0&0&2\\0&2&5 \end{pmatrix} \begin{matrix} \hphantom{1}\\ -3R_1 + R_2 \hphantom{1} \\ -2R_1+R_3\hphantom{1} \end{matrix}\\
+& \rightarrow \begin{pmatrix} 1&-1&2\\0&2&5\\0&0&2 \end{pmatrix} \begin{matrix} \hphantom{1}\\ R_3 \leftrightarrow R_2  \hphantom{1} \\ R_2 \leftrightarrow R_3 \hphantom{1} \end{matrix}\\
+\end{align*}
+Notice that this matrix is an echelon form of the original matrix. Also notice that every row has a leading entry, so by Proposition 4.2.14, Span$(\alpha) = \mathbb{R}^3$. Also notice that every column has a leading entry, so by Proposition 4.3.3, $\alpha$ is linearly independent. It follows from Definition 4.4.1 that $\alpha$ is a basis of $\mathbb{R}^3$.
+\end{solution}
+\vfill
+\centerline{PAGE 1 OF 2 FOR PROBLEM 1}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{2}
+Consider the following elements of $\mathcal{P}_3$:
+\newline
+\newline
+$\bullet \hphantom{10} f_1 (x) = x^3$
+\newline
+\newline
+$\bullet \hphantom{10} f_2 (x) = x^3 + x^2$
+\newline
+\newline
+$\bullet \hphantom{10} f_3 (x) = x^3 + x^2 +x$
+\newline
+\newline
+$\bullet \hphantom{10} f_4 (x) = x^3 + x^2 +x + 1$
+\newline
+\newline
+\noindent
+Let $\alpha =(f_1,f_2,f_3,f_4)$.
+\noindent
+\newline
+\newline
+a. Show that $\alpha$ is a basis of $\mathcal{P}_3$.
+\begin{solution}
+Let $c_1,c_2,c_3,c_4 \in \mathbb{R}$ be arbitrary, and suppose that $c_1 f_1(x) + c_2 f_2(x) + c_3 f_3(x) + c_4 f_4(x) =0$ for all $x \in \mathbb{R}$. Expanding $f_1,f_2,f_3,f_4$ into their polynomial forms and combining like terms, we get $(c_1+c_2+c_3+c_4)x^3 + (c_2+c_3+c_4)x^2 + (c_3+c_4)x + (c_4)1 = (0)x^3 + (0)x^2 +(0)x +(0)1$ for all $x \in \mathbb{R}$. Because polynomial functions are equal exactly when the corresponding coefficients are equal, our above equation implies the following system of equations:
+\begin{align*}
+&&&&&&&& &&&&&&&& &&&&&&&& &c_1& &+& &c_2& &+& &c_3& &+& &c_4& &=& &0&  &&&&&&&& \hphantom{100} \text{($x^3$ terms)} &&&&&&&& &&&&&&&& \\
+&&&&&&&& &&&&&&&& &&&&&&&& &\hphantom{1}& &\hphantom{1}& &c_2& &+& &c_3& &+& &c_4& &=& &0&  &&&&&&&& \hphantom{100} \text{($x^2$ terms)} &&&&&&&& &&&&&&&& \\
+&&&&&&&& &&&&&&&& &&&&&&&& &\hphantom{1}& &\hphantom{1}& &\hphantom{1}& &\hphantom{1}& &c_3& &+& &c_4& &=& &0&  &&&&&&&& \hphantom{100} \text{($x$ terms)} &&&&&&&& &&&&&&&& \\
+&&&&&&&& &&&&&&&& &&&&&&&& &\hphantom{1}& &\hphantom{1}& &\hphantom{1}& &\hphantom{1}& &\hphantom{1}& &\hphantom{1}& &c_4& &=& &0&  &&&&&&&&  \hphantom{100} \text{(constant terms)} &&&&&&&& &&&&&&&&
+\end{align*}
+The augmented matrix of this system is
+\[
+\begin{pmatrix} 1&1&1&1&0\\ 0&1&1&1&0 \\ 0&0&1&1&0 \\ 0&0&0&1&0\end{pmatrix}
+\]
+Notice that this matrix is in echelon form and that there are no leading entries in the last column, so by Proposition 4.2.12 the system is consistent and has a unique solution. Because $(0,0,0,0)$ is already a solution, it follows that $\{(0,0,0,0)\}$ is the solution set of the system. Because $c_1,c_2,c_3,c_4$ were arbitrary, it follows that whenever $c_1 f_1 + c_2 f_2 + c_3 f_3+c_4 f_4 =0$, $c_1=c_2=c_3=c_4=0$ for all $c_1,c_2,c_3,c_4 \in \mathbb{R}$. This satisfies Definition 4.3.1, so $\alpha$ is linearly independent. Notice that dim$(V) = 4$ and that our $\alpha$ has 4 vectors. Applying Proposition 4.4.14, we conclude that $\alpha$ is a basis of $\mathcal{P}_3$.
+\end{solution}
+\vfill
+\centerline{PAGE 1 OF 2 FOR PROBLEM 2}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{3}
+Let $W = \{ f\in \mathcal{P}_3:f(2)=0\}$. It can be checked that $W$ is a subspace of $\mathcal{P}_2$ (no need to do this). Let $\alpha = (f_1,f_2)$, where:
+\newline
+\newline
+$\bullet \hphantom{10} f_1 (x) = x^2 -4$
+\newline
+\newline
+$\bullet \hphantom{10} f_2 (x) = x -2$
+\noindent
+\newline
+\newline
+a. Show that $\alpha$ is a basis of $W$, and determine dim$(W)$.
+\begin{solution}
+Notice that $f_1,f_2 \in \mathcal{P}_3$. Also notice that $f_1(2) = (2)^2 -4 = 4-4 =0$ and that $f_2 (2) = 2-2 =0$. It follows from the definition of $W$ that $f_1,f_2 \in W$. If $\alpha$ is a basis of $W$, then by Definition 4.4.1, Span$(\alpha)=W$ and $\alpha$ is linearly independent.
+
+Let $f \in \text{Span}(\alpha)$ be arbitrary. By definition of Span, we can fix $c_1,c_2 \in \mathbb{R}$ such that $c_1 f_1 + c_2 f_2 = f$. Expanding $f_1,f_2$ into their polynomial forms, we get $c_1x^2 +c_2 x -4c_1-2c_2=f(x)$. Notice that $f \in \mathcal{P}_3$. Also notice that $f(2) = c_1 (2^2) + c_2 2 -4c_1 - 2c_2 = 4c_1 -4c_1 + 2c_2 -2c_2 = 0 + 0 =0$. It follows from the definition of $W$ that $f\in W$. Because $f \in \text{Span}(\alpha)$ was arbitrary, we conclude that $\text{Span}(\alpha) \subseteq W$. Now let $w \in W$ be arbitrary. Fix $a,b,c \in \mathbb{R}$ such that $w(x) = ax^2 + bx + c$. Because $w \in W$, we have that $w(2) = 0$. So $0 = 4a +2b +c$, and it follows that $c=-4a-2b$. Back substituting this value for $c$ into $w$, we get $w(x) = ax^2 + bx -4a -2b = a(x^2 - 4) + b(x-2)$. $a,b \in \mathbb{R}$, so $w(x) \in \text{Span}(\alpha)$. Because $w \in W$ was arbitrary, we conclude that $W \subseteq \text{Span}(\alpha)$. Because $W \subseteq \text{Span}(\alpha)$ and $\text{Span}(\alpha) \subseteq W$, it must be the case that $\text{Span}(\alpha)=  W$.
+
+Let $a,b \in \mathbb{R}$ be arbitrary. Suppose that $a f_1(x) + b f_2(x) = 0$ for all $x \in \mathbb{R}$. Expanding $f_1,f_2$ into their polynomial forms, we get $(a)x^2 +(b)x + (-4a-2b)1=(0)x^2 +(0)x +(0)1$. Because polynomial functions are equal exactly when their coefficients are equal, the previous equation implies the following system of equations:
+\begin{align*}
+&&&&&&&& &&&&&&&& &&&&&&&& &a& &\hphantom{1}& &\hphantom{1}& &=& &0&  &&&&&&&& \hphantom{100} \text{($x^2$ terms)} &&&&&&&& &&&&&&&& \\
+&&&&&&&& &&&&&&&& &&&&&&&& &\hphantom{1}& &\hphantom{1}& &b& &=& &0&  &&&&&&&& \hphantom{100} \text{($x$ terms)} &&&&&&&& &&&&&&&& \\
+&&&&&&&& &&&&&&&& &&&&&&&& -4&a& &-& 2&b& &=& &0&  &&&&&&&& \hphantom{100} \text{($1$ terms)} &&&&&&&& &&&&&&&& \\
+\end{align*}
+Applying elementary row operations to the augmented matrix of this system, we get:
+\begin{align*}
+\begin{pmatrix} 1&0&0\\0&1&0\\-4&-2&0 \end{pmatrix} &\rightarrow \begin{pmatrix} 1&0&0\\0&1&0\\0&0&0 \end{pmatrix} \begin{matrix} \hphantom{1} \\ \hphantom{1} \\ 4R_1+2R_2+R_3\hphantom{1} \end{matrix}
+\end{align*}
+Notice that this matrix is an echelon form of the original matrix and that there are no leading entries in the last column. Applying Proposition 4.2.12, we conclude that the system is consistent and has a unique solution. Because $(0,0)$ was already a solution, the solution set of the system is $\{(0,0)\}$. Because $a,b$ were arbitrary, it follows that whenever $a f_1(x) + b f_2(x) = 0$, $a=b=0$ for all $a,b \in \mathbb{R}$ for all $x \in \mathbb{R}$. This satisfies Definition 4.3.1, so $\alpha$ is linearly independent.
+
+We have shown that $\text{Span}(\alpha) = W$ and that $\alpha$ is linearly independent. Therefore $\alpha$ is indeed a basis of $W$. $\alpha$ has two elements, so it follows from Definition 4.4.9, dim$(W)=2$.
+\end{solution}
+\vfill
+\centerline{PAGE 1 OF 2 FOR PROBLEM 3}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{4}
+Let $V$ be the vector space of all 2 $\times$ 2 matrices. Let
+\[
+W = \left\{ \begin{pmatrix} a&b\\c&d\end{pmatrix} \in V: b=c \right \}\text{.}
+\]
+It can be checked that $W$ is a subspace of $V$ (no need to do this). Find a basis for $W$, and determine dim$(W)$.
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+Consider the sequence $\alpha=\left( \begin{pmatrix} 1&0\\0&0 \end{pmatrix}, \begin{pmatrix} 0&1\\1&0 \end{pmatrix}, \begin{pmatrix} 0&0\\0&1 \end{pmatrix} \right)$.
+Let $\vec{v} \in \text{Span}(\alpha)$ be arbitrary. By definition of Span, we can fix $c_1,c_2,c_3 \in \mathbb{R}$ such that $\vec{v} = c_1 \begin{pmatrix} 1&0\\0&0 \end{pmatrix} + c_2 \begin{pmatrix} 0&1\\1&0 \end{pmatrix} + c_3 \begin{pmatrix} 0&0\\0&1 \end{pmatrix}$. Notice that
+\begin{align*}
+\vec{v}=&c_1 \begin{pmatrix} 1&0\\0&0 \end{pmatrix} + c_2 \begin{pmatrix} 0&1\\1&0 \end{pmatrix} + c_3 \begin{pmatrix} 0&0\\0&1 \end{pmatrix} &\\
+=&\begin{pmatrix} c_1&0\\0&0 \end{pmatrix} + \begin{pmatrix} 0&c_2\\c_2&0 \end{pmatrix} + \begin{pmatrix} 0&0\\0&c_3 \end{pmatrix} &\\
+=& \begin{pmatrix} c_1&c_2\\c_2&c_3 \end{pmatrix}&
+\end{align*}
+So $\vec{v} = \begin{pmatrix} c_1&c_2\\c_2&c_3 \end{pmatrix}$. Notice that the entries in row 1 column 2 and in row 2 column 1 are equal. So $\vec{v} \in W$. Because $\vec{v} \in \text{Span}(\alpha)$ was arbitrary, it follows that $\text{Span}(\alpha) \subseteq W$. Now let $\vec{w} \in W$ be arbitrary, and fix $a,b,c,d \in \mathbb{R}$ such that $\vec{w} = \begin{pmatrix} a&b\\c&d\end{pmatrix}$. Because $\vec{w} \in W$, we have by definition of $W$ that $b=c$. Back substituting this value of $b$ in to our matrix, we get $\vec{w} = \begin{pmatrix}a&c\\c&d \end{pmatrix}$. Notice that
+\begin{align*}
+\vec{w} =& \begin{pmatrix}a&c\\c&d \end{pmatrix} \\
+=& \begin{pmatrix}a&0\\0&0 \end{pmatrix} + \begin{pmatrix}0&c\\c&0 \end{pmatrix} + \begin{pmatrix}0&0\\0&d \end{pmatrix} \\
+=& a\begin{pmatrix}1&0\\0&0 \end{pmatrix} + c\begin{pmatrix}0&1\\1&0 \end{pmatrix} + d\begin{pmatrix}0&0\\0&1 \end{pmatrix} \text{.}
+\end{align*}
+$a,c,d \in \mathbb{R}$, so $\vec{w} \in \text{Span}(\alpha)$ by definition. Because $\vec{w} \in W$ was arbitrary, it follows that $W \subseteq \text{Span}(\alpha)$. Because $\text{Span}(\alpha) \subseteq W$ and $W \subseteq \text{Span}(\alpha)$, we conclude that $W = \text{Span}(\alpha)$
+\end{solution}
+\vfill
+\centerline{PAGE 1 OF 2 FOR PROBLEM 4}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{5}
+In Problem 2 on Problem Set 18, you showed that
+\[
+\left( \begin{pmatrix} 0\\1\\3\\-1 \end{pmatrix}, \begin{pmatrix} 2\\0\\2\\-1 \end{pmatrix}, \begin{pmatrix} -8\\2\\-2\\2 \end{pmatrix}, \begin{pmatrix} 6\\-1\\9\\5 \end{pmatrix} \right)
+\]
+was linearly dependent. Use your work in that problem to find a basis (with explanation) for the following subspace of $\mathbb{R}^4$:
+\[
+W=\text{Span}\left( \begin{pmatrix} 0\\1\\3\\-1 \end{pmatrix}, \begin{pmatrix} 2\\0\\2\\-1 \end{pmatrix}, \begin{pmatrix} -8\\2\\-2\\2 \end{pmatrix}, \begin{pmatrix} 6\\-1\\9\\5 \end{pmatrix} \right)
+\] 
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+Notice that $2\cdot\begin{pmatrix} 2\\0\\2\\-1 \end{pmatrix}+\frac{1}{2} \cdot\begin{pmatrix} -8\\2\\-2\\2 \end{pmatrix} + 0\cdot  \begin{pmatrix} 6\\-1\\9\\5 \end{pmatrix} =  \begin{pmatrix} 4\\0\\4\\-2 \end{pmatrix}+ \begin{pmatrix} -4\\1\\-1\\1 \end{pmatrix} + \begin{pmatrix} 0\\0\\0\\0 \end{pmatrix}=  \begin{pmatrix} 0\\1\\3\\-1 \end{pmatrix}$. So $\begin{pmatrix} 0\\1\\3\\-1 \end{pmatrix} \in \text{Span}\left( \begin{pmatrix} 2\\0\\2\\-1 \end{pmatrix}, \begin{pmatrix} -8\\2\\-2\\2 \end{pmatrix}, \begin{pmatrix} 6\\-1\\9\\5 \end{pmatrix} \right)$. By Proposition 4.4.4, it follows that $\text{Span}\left( \begin{pmatrix} 0\\1\\3\\-1 \end{pmatrix}, \begin{pmatrix} 2\\0\\2\\-1 \end{pmatrix}, \begin{pmatrix} -8\\2\\-2\\2 \end{pmatrix}, \begin{pmatrix} 6\\-1\\9\\5 \end{pmatrix} \right) = \text{Span}\left( \begin{pmatrix} 2\\0\\2\\-1 \end{pmatrix}, \begin{pmatrix} -8\\2\\-2\\2 \end{pmatrix}, \begin{pmatrix} 6\\-1\\9\\5 \end{pmatrix} \right)$.
+
+So $\text{Span}\left( \begin{pmatrix} 2\\0\\2\\-1 \end{pmatrix}, \begin{pmatrix} -8\\2\\-2\\2 \end{pmatrix}, \begin{pmatrix} 6\\-1\\9\\5 \end{pmatrix} \right)=W$. Now let $c_1,c_2,c_3 \in \mathbb{R}$ be arbitrary. Suppose that $c_1 \begin{pmatrix} 2\\0\\2\\-1 \end{pmatrix} + c_2 \begin{pmatrix} -8\\2\\-2\\2 \end{pmatrix}+ c_3 \begin{pmatrix} 6\\-1\\9\\5 \end{pmatrix} = \begin{pmatrix}0\\0\\0\\0\end{pmatrix}$. We perform Gaussian elimination on the augmented matrix with these vectors as columns, and get:
+\end{solution}
+\vfill
+\centerline{PAGE 1 OF 2 FOR PROBLEM 5}
+%
+%
+%
+%
+%
+%
+\newpage
+b. Determine
+\[
+\left[ \begin{pmatrix} 1\\5\\-5 \end{pmatrix} \right]_{\alpha}
+\]
+\begin{solution}
+By Definition 4.4.3, $\left[ \begin{pmatrix} 1\\5\\-5 \end{pmatrix} \right]_{\alpha}= \begin{pmatrix} c_1\\c_2\\c_3\end{pmatrix}$, where $c_1,c_2,c_3\in \mathbb{R}$ are the unique values such that $c_1 \begin{pmatrix} 1\\3\\2 \end{pmatrix} + c_2 \begin{pmatrix} -1\\-3\\0 \end{pmatrix} + c_3 \begin{pmatrix} 2\\8\\9 \end{pmatrix} = \begin{pmatrix} 1\\5\\-5 \end{pmatrix}$. We form an augmented matrix and use elementary row operations to solve the system:
+\begin{align*}
+\begin{pmatrix} 1&-1&2&1\\3&-3&8&5\\2&0&9&-5\end{pmatrix} & \rightarrow \begin{pmatrix} 1&-1&2&1\\0&0&2&2\\0&2&5&-7\end{pmatrix} \begin{matrix} \hphantom{1} \\ -3R_1+R_2\hphantom{1} \\ -2R_1+R_3\hphantom{1} \end{matrix} \\
+& \rightarrow \begin{pmatrix} 1&-1&0&-1\\0&0&1&1\\0&2&0&-12\end{pmatrix} \begin{matrix} -R_2 + R_1 \hphantom{1} \\ \frac{1}{2} R_2 \hphantom{1} \\ -\frac{5}{2} R_2 +R_3 \hphantom{1} \end{matrix} \\
+& \rightarrow \begin{pmatrix} 1&0&0&-7\\0&0&1&1\\0&1&0&-6\end{pmatrix} \begin{matrix} \frac{1}{2}R_3 + R_1 \hphantom{1} \\  \hphantom{1} \\ \frac{1}{2} R_3 \hphantom{1} \end{matrix}\\
+& \rightarrow \begin{pmatrix} 1&0&0&-7\\0&1&0&-6\\0&0&1&1\end{pmatrix} \begin{matrix} \hphantom{1} \\ R_3 \leftrightarrow R_2 \hphantom{1} \\ R_2 \leftrightarrow R_3  \hphantom{1} \end{matrix}
+\end{align*}
+So $c_1 = -7, c_2  =-6, c_3 = 1$. Therefore, $\left[ \begin{pmatrix} 1\\5\\-5 \end{pmatrix} \right]_{\alpha}= \begin{pmatrix} -7\\-6\\1\end{pmatrix}$. Notice that there are no leading entries in the last column so by Proposition 4.2.12 this is a unique solution.
+\end{solution}
+\vfill
+\centerline{PAGE 2 OF 2 FOR PROBLEM 1}
+%
+%
+%
+%
+%
+%
+\newpage
+b. Let $g(x)=3x^3+7x^2+7x-2$. Determine $[g]_{\alpha}$.
+\begin{solution}
+By Definition 4.4.2, $[g]_{\alpha} = \begin{pmatrix} c_1\\c_2\\c_3\\c_4\end{pmatrix}$ where $c_1,c_2,c_3,c_4 \in \mathbb{R}$ are the unique values such that $c_1 f_1(x) + c_2 f_2(x) + c_3 f_3(x) + c_4 f_4(x) = g(x)$ for all $x \in \mathbb{R}$. Expanding $f_1,f_2,f_3,f_4,g$ into their polynomial forms and combining like terms, we get $(c_1+c_2+c_3+c_4)x^3 + (c_2+c_3+c_4)x^2 + (c_3+c_4)x + (c_4)1 = (3)x^3 + (7)x^2 +(7)x +(-2)1$ for all $x \in \mathbb{R}$. Because polynomial functions are equal exactly when the corresponding coefficients are equal, our above equation implies the following system of equations:
+\begin{align*}
+&&&&&&&& &&&&&&&& &&&&&&&& &c_1& &+& &c_2& &+& &c_3& &+& &c_4& &=& &3&  &&&&&&&& \hphantom{100} \text{($x^3$ terms)} &&&&&&&& &&&&&&&& \\
+&&&&&&&& &&&&&&&& &&&&&&&& &\hphantom{1}& &\hphantom{1}& &c_2& &+& &c_3& &+& &c_4& &=& &7&  &&&&&&&& \hphantom{100} \text{($x^2$ terms)} &&&&&&&& &&&&&&&& \\
+&&&&&&&& &&&&&&&& &&&&&&&& &\hphantom{1}& &\hphantom{1}& &\hphantom{1}& &\hphantom{1}& &c_3& &+& &c_4& &=& &7&  &&&&&&&& \hphantom{100} \text{($x$ terms)} &&&&&&&& &&&&&&&& \\
+&&&&&&&& &&&&&&&& &&&&&&&& &\hphantom{1}& &\hphantom{1}& &\hphantom{1}& &\hphantom{1}& &\hphantom{1}& &\hphantom{1}& &c_4& &=& &-2&  &&&&&&&&  \hphantom{100} \text{(constant terms)} &&&&&&&& &&&&&&&&
+\end{align*}
+Applying elementary row operations to the augmented matrix of this system we get:
+\begin{align*}
+\begin{pmatrix} 1&1&1&1&3\\ 0&1&1&1&7 \\ 0&0&1&1&7 \\ 0&0&0&1&-2\end{pmatrix} &\rightarrow \begin{pmatrix} 1&1&1&0&5\\ 0&1&1&0&9 \\ 0&0&1&0&9 \\ 0&0&0&1&-2\end{pmatrix} \begin{matrix} -R_4+R_1\hphantom{1} \\ -R_4 +R_2\hphantom{1} \\ -R_4 +R_3\hphantom{1} \\ \hphantom{1} \end{matrix}\\
+&\rightarrow \begin{pmatrix} 1&1&0&0&-4 \\ 0&1&0&0&0 \\ 0&0&1&0&9 \\ 0&0&0&1&-2\end{pmatrix} \begin{matrix} -R_3+R_1\hphantom{1} \\ -R_3 +R_2\hphantom{1} \\ \hphantom{1} \\ \hphantom{1} \end{matrix}\\
+&\rightarrow \begin{pmatrix}1&0&0&0&-4 \\ 0&1&0&0&0 \\ 0&0&1&0&9 \\ 0&0&0&1&-2\end{pmatrix} \begin{matrix} -R_2+R_1\hphantom{1} \\ \hphantom{1} \\ \hphantom{1} \\ \hphantom{1} \end{matrix}
+\end{align*}
+So $c_1 = -4, c_2=0,c_3=9,c_4=-2$. Therefore, $[g]_{\alpha} =  \begin{pmatrix} -4\\0\\9\\-2\end{pmatrix}$. Notice that there are no leading entries in the last column so by Proposition 4.2.12 this is a unique solution.
+\end{solution}
+\vfill
+\centerline{PAGE 2 OF 2 FOR PROBLEM 2}
+%
+%
+%
+%
+%
+\newpage
+\noindent
+\newline
+\newline
+b. Let $g(x)=2x^2-7x+6$. Determine $[g]_{\alpha}$.
+\begin{solution}
+By Definition 4.4.2, $[g]_{\alpha} = \begin{pmatrix} x_1\\x_2\end{pmatrix}$ where $x_1,x_2 \in \mathbb{R}$ are the unique values such that  $x_1 f_1(x) + x_2 f_2(x) = g(x)$ for all $x \in \mathbb{R}$. Expanding $f_1,f_2,g$ into their polynomial forms, we get $(x_1)x^2+(x_2)x +(-4x_1-2x_2)1= (2)x^2+(-7)x+(6)1$. Because polynomial functions are equal exactly when their corresponding coefficients are equal, the previous equation implies the following system of equations:
+\begin{align*}
+&&&&&&&& &&&&&&&& &&&&&&&& &x_1& &\hphantom{1}& &\hphantom{1}& &=& &2&  &&&&&&&& \hphantom{100} \text{($x^2$ terms)} &&&&&&&& &&&&&&&& \\
+&&&&&&&& &&&&&&&& &&&&&&&& &\hphantom{1}& &\hphantom{1}& &x_2& &=& &-7&  &&&&&&&& \hphantom{100} \text{($x$ terms)} &&&&&&&& &&&&&&&& \\
+&&&&&&&& &&&&&&&& &&&&&&&& -4&x_1& &-& 2&x_2& &=& &6&  &&&&&&&& \hphantom{100} \text{($1$ terms)} &&&&&&&& &&&&&&&& \\
+\end{align*}
+Applying elementary row operations to the augmented matrix of this system, we get:
+\begin{align*}
+\begin{pmatrix} 1&0&2\\0&1&-7\\-4&-2&6 \end{pmatrix} &\rightarrow \begin{pmatrix} 1&0&2\\0&1&-7\\0&0&0 \end{pmatrix} \begin{matrix} \hphantom{1} \\ \hphantom{1} \\ 4R_1+2R_2+R_3\hphantom{1} \end{matrix}
+\end{align*}
+So $x_1 = 2, x_2=-7$. Therefore, $[g]_{\alpha} = \begin{pmatrix} 2\\-7\end{pmatrix}$. Notice that there are no leading entries in the last column so by Proposition 4.2.12 this is a unique solution.
+\end{solution}
+\vfill
+\centerline{PAGE 2 OF 2 FOR PROBLEM 3}
+
+\newpage
+Now let $x,y,z \in \mathbb{R}$ be arbitrary, and suppose that $x\begin{pmatrix} 1&0\\0&0 \end{pmatrix} + y \begin{pmatrix} 0&1\\1&0 \end{pmatrix} + z \begin{pmatrix} 0&0\\0&1 \end{pmatrix} = \begin{pmatrix}0&0\\0&0\end{pmatrix}$. This sum reduces to $\begin{pmatrix}x&y\\y&z\end{pmatrix} = \begin{pmatrix}0&0\\0&0\end{pmatrix}$. Because matrices are equal exactly when their entries are equal, we have that $x=0,y=0,z=0$.  Because $x,y,z \in \mathbb{R}$ were arbitrary, we have that whenever $x\begin{pmatrix} 1&0\\0&0 \end{pmatrix} + y \begin{pmatrix} 0&1\\1&0 \end{pmatrix} + z \begin{pmatrix} 0&0\\0&1 \end{pmatrix} = \begin{pmatrix}0&0\\0&0\end{pmatrix}$, $x=y=z=0$ for all $x,y,z \in \mathbb{R}$. This satisfies Definition 4.3.1, so it follows that $\alpha$ is linearly independent.
+
+We have shown that $W \subseteq \text{Span}(\alpha)$ and that $\alpha$ is linearly independent, so it must be the case that $\alpha$ is a basis for $W$. Notice that $\alpha$ has three elements, so by Definition 4.4.9, dim$(W) = 3$.
+\vfill
+\centerline{PAGE 2 OF 2 FOR PROBLEM 4}
+\newpage
+\begin{align*}
+\begin{pmatrix} 2&-8&6&0\\0&2&-1&0\\2&-2&9&0\\-1&2&5&0 \end{pmatrix} &\rightarrow \begin{pmatrix} 0&-6&11&0\\0&2&-1&0\\0&0&14&0\\-1&2&5&0 \end{pmatrix} \begin{matrix} R_4 + R_1\hphantom{1} \\ \hphantom{1} \\ R_4 + R_3 \hphantom{1} \\ \hphantom{1}\end{matrix}\\
+%
+&\rightarrow \begin{pmatrix} 0&0&8&0\\0&2&-1&0\\0&0&14&0\\-1&2&5&0 \end{pmatrix} \begin{matrix} 3R_2 + R_1\hphantom{1} \\ \hphantom{1} \\ \hphantom{1} \\ \hphantom{1}\end{matrix}\\
+%
+&\rightarrow \begin{pmatrix} 0&0&0&0\\0&2&-1&0\\0&0&14&0\\-1&2&5&0 \end{pmatrix} \begin{matrix} -\frac{8}{14}R_3 + R_1\hphantom{1} \\ \hphantom{1} \\ \hphantom{1} \\ \hphantom{1}\end{matrix}\\
+%
+&\rightarrow \begin{pmatrix} -1&2&5&0\\0&2&-1&0\\0&0&14&0\\0&0&0&0 \end{pmatrix} \begin{matrix} -\frac{8}{14}R_4 \leftrightarrow R_1\hphantom{1} \\ \hphantom{1} \\ \hphantom{1} \\ R_1 \leftrightarrow R_4 \hphantom{1}\end{matrix}
+\end{align*}
+Notice that this matrix is in echelon form and that there are no leading entries in the last column, so by Proposition 4.2.12, the system is consistent and has a unique solution. Because $(0,0,0)$ was already a solution, the solution set of the system is $\{ (0,0,0)\}$. So $c_1=c_2=c_3=0$. Because $c_1,c_2,c_3$ were arbitrary, whenever $c_1 \begin{pmatrix} 2\\0\\2\\-1 \end{pmatrix} + c_2 \begin{pmatrix} -8\\2\\-2\\2 \end{pmatrix}+ c_3 \begin{pmatrix} 6\\-1\\9\\5 \end{pmatrix} = \begin{pmatrix}0\\0\\0\\0\end{pmatrix}$, $c_1=c_2=c_3=0$ for all $c_1,c_2,c_3 \in \mathbb{R}$. This satisfies Definition 4.3.1, so $\left( \begin{pmatrix} 2\\0\\2\\-1 \end{pmatrix}, \begin{pmatrix} -8\\2\\-2\\2 \end{pmatrix}, \begin{pmatrix} 6\\-1\\9\\5 \end{pmatrix} \right)$ is linearly independent.
+
+We have shown that $\text{Span}\left( \begin{pmatrix} 2\\0\\2\\-1 \end{pmatrix}, \begin{pmatrix} -8\\2\\-2\\2 \end{pmatrix}, \begin{pmatrix} 6\\-1\\9\\5 \end{pmatrix} \right)=W$ and that $\left( \begin{pmatrix} 2\\0\\2\\-1 \end{pmatrix}, \begin{pmatrix} -8\\2\\-2\\2 \end{pmatrix}, \begin{pmatrix} 6\\-1\\9\\5 \end{pmatrix} \right)$ is linearly independent, so by Definition 4.4.1, $\left( \begin{pmatrix} 2\\0\\2\\-1 \end{pmatrix}, \begin{pmatrix} -8\\2\\-2\\2 \end{pmatrix}, \begin{pmatrix} 6\\-1\\9\\5 \end{pmatrix} \right)$ is a basis of $W$.
+\vfill
+\centerline{PAGE 2 OF 2 FOR PROBLEM 5}
+
+\end{problem}
+
+
+
+
+
+\end{document}

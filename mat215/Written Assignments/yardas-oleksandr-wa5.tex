@@ -1,0 +1,203 @@
+\documentclass[12pt]{article}
+\usepackage{latexsym, amssymb, amsmath, amsfonts, amscd, amsthm, xcolor, pgfplots}
+\usepackage{framed}
+\usepackage[margin=1in]{geometry}
+\linespread{1} %Change the line spacing only if instructed to do so.
+
+\newenvironment{problem}[2][Problem]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1 #2:}]
+	}
+{
+	\end{trivlist}
+	}
+
+\newenvironment{solution}[1][Solution]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\itshape #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+\newenvironment{collaborators}[1][Collaborator(s)]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%    You need only modify code below this block.
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\title{Assignment: Written Assignment 5} %Change this to the assignment you are submitting.
+\author{Name: Oleksandr Yardas} %Change this to your name.
+\date{Due Date: 03/12/2018 } %Change this to the due date for the assignment you are submitting.
+\begin{document}
+	\maketitle
+	\thispagestyle{empty}
+	
+	\section*{List Your Collaborators:}%Enter your collaborators names below. Do not delete extra rows.
+	
+	\begin{itemize}
+		\begin{framed}
+			\item 
+			Problem 1: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 2: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 3: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 4: Not Applicable
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 5: Not Applicable
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 6: Not Applicable
+			\\\\
+		\end{framed}
+	\end{itemize}
+\newpage
+%
+%%%%%%%%%%%%%%%
+%
+% Your problem statements and solutions start here.
+% Use the \newpage command between problems so that
+% each of your problems begins on its own page.
+%
+%%%%%%%%%%%%%%%
+
+%FORMATTING OPTIONS
+%FOR BLANK SPACES: \underline{\hspace{2cm}}
+%FOR SPACES IN align OR SIMILAR ENVIRONMENTS:  \hphantom{1000}
+%FOR MATRICES: \begin{matrix} \end{matrix}, can add p, b, B, v, V, small as suffix to "matrix"
+%SETS: \mathbb{R}^, :\mathbb{R}^ \to \mathbb{R}^
+%Vectors: \vec{},
+%SUBSCRIPTS: _{}
+%FRACTIONS: \frac{}{}
+
+%Provide the problem statement.
+\begin{problem}{1}
+Let $T:\mathbb{R}^2 \to \mathbb{R}^2$ be a linear transformation. Is it always possible to find a basis $\alpha=(\vec{u_{1}},\vec{u_{2}})$ of $\mathbb{R}^2$ such that $[T]_{\alpha} \neq [T]$? Either prove this is true, or give a counterexample (with justification).
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+We assume that is is always possible to find a basis $\alpha=(\vec{u_{1}},\vec{u_{2}})$ of $\mathbb{R}^2$ such that $[T]_{\alpha} \neq [T]$ where $T:\mathbb{R}^2 \to \mathbb{R}^2$ is an arbitrary linear transformation. Consider the case in which $T$ is the linear transformation with standard matrix $[T]=\begin{pmatrix} 1 &0 \\ 0&1 \end{pmatrix}$. Notice that $[T]=[id]=I$ by Definition 3.2.7. Let $\alpha = (\vec{u_{1}},\vec{u_{2}})$ be an arbitrary basis of $\mathbb{R}^2$, and fix $a,b,c,d \in \mathbb{R}$ with $\vec{u_{1}} = \begin{pmatrix} a\\c\end{pmatrix}, \vec{u_{2}} = \begin{pmatrix} b\\d \end{pmatrix}$. Let $P=\begin{pmatrix} a & b\\ c& d \end{pmatrix}$. Applying Proposition 3.4.7, we have that 
+\begin{align*}
+[T]_{\alpha} = P^{-1} [T] P =& P^{-1} I P & \text{(By definition of $[T]$)}\\
+=& P^{-1} P & \text{(By Proposition 3.2.8)}\\
+=& I & \text{(By definition)}
+\end{align*}
+So $[T]_{\alpha} = I$ for any basis $\alpha$, and so it follows that, in this specific case, $[T]_{\alpha} = [T]$ for any basis $\alpha$. We assumed that it is always possible to find a basis $\alpha=(\vec{u_{1}},\vec{u_{2}})$ of $\mathbb{R}^2$ such that $[T]_{\alpha} \neq [T]$ for an arbitrary linear transformation $T:\mathbb{R}^2 \to \mathbb{R}^2$, however we have found a linear transformation $T: \mathbb{R}^2 \to \mathbb{R}^2$ with  $[T]_{\alpha} = [T]$ for {\it any} basis $\alpha$. This contradicts our assumption, so it must be the case that is it not {\it always} possible to find a basis $\alpha=(\vec{u_{1}},\vec{u_{2}})$ of $\mathbb{R}^2$ such that $[T]_{\alpha} \neq [T]$ for an arbitrary linear transformation $T:\mathbb{R}^2 \to \mathbb{R}^2$.
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 1}\end{problem}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{2}
+Let $T:\mathbb{R}^2 \to \mathbb{R}^2$ be a linear transformation, and let  $\alpha=(\vec{u_{1}},\vec{u_{2}})$ and  $\beta=(\vec{w_{1}},\vec{w_{2}})$ be bases of $\mathbb{R}^2$. Show that there exists an invertible 2 $\times$ 2 matrix $R$ with $[T]_{\beta}=R^{-1} \cdot [T]_{\alpha} \cdot R$, and explicitly describe how to calculate $R$.
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+Fix $a,b,c,d, e,f,g,h \in \mathbb{R}$ with $\vec{u_{1}} = \begin{pmatrix} a\\c\end{pmatrix}, \vec{u_{2}} = \begin{pmatrix} b\\d\end{pmatrix}, \vec{w_{1}} = \begin{pmatrix} e\\g\end{pmatrix}, \vec{w_{2}} = \begin{pmatrix} f\\h\end{pmatrix}$, and let $P=\begin{pmatrix} a & b\\ c& d \end{pmatrix}$, $Q=\begin{pmatrix} e & f\\ g& h \end{pmatrix}$. We have that $\alpha=(\vec{u_{1}},\vec{u_{2}})$ and  $\beta=(\vec{w_{1}},\vec{w_{2}})$ are bases of $\mathbb{R}^2$, so by definition of basis, we have that $Span(\vec{u_{1}},\vec{u_{2}})=\mathbb{R}^2$ and $Span(\vec{w_{1}},\vec{w_{2}})=\mathbb{R}^2$. Applying Theorem 2.3.10, it follows that $ad-bc \neq 0$ and $eh-fg \neq 0$, and so by Proposition 3.3.16, we conclude that $P$ and $Q$ are invertible and have unique inverses which, by definition, are denoted by $P^{-1}$ and $Q^{-1}$ respectively. By Proposition 3.4.7, we have $[T]_{\alpha} = P^{-1} [T] P$ and $[T]_{\beta} = Q^{-1} [T] Q$. We want to show that there exists an invertible 2 $\times$ 2 matrix $R$ with $[T]_{\beta}=R^{-1} \cdot [T]_{\alpha} \cdot R$, so we will need to express $[T]_{\beta}$ in terms of $R^{-1}$, $R$, and $[T]_{\alpha}$. We do this as follows: We first solve for $[T]$ in terms of $P^{-1}$, $P$, and $[T]_{\alpha}$. We start with the equation $[T]_{\alpha} = P^{-1} [T] P$. Taking the matrix product with $P$, we get
+\begin{align*}
+P [T]_{\alpha} = P P^{-1} [T] P =& I [T] P &\text{(By definition of inverse)} \\
+=&[T] P & \text{(By Propositon 3.2.8)}
+\end{align*}
+We then take the matrix product with $P^{-1}$, giving $P [T]_{\alpha} P^{-1} = [T] P P^{-1}$. The right hand side simplifies to $[T] I$ (by the definition of inverse), which then further simplifies to  $[T]$ (by Proposition 2.3.8). So we have that $[T] = P [T]_{\alpha} P^{-1}$. Substituting for $[T]$ in $[T]_{\beta} = Q^{-1} [T] Q$, we get
+\begin{align*}
+[T]_{\beta} =& Q^{-1} (P [T]_{\alpha} P^{-1}) Q &\\
+=& (Q^{-1} P) [T]_{\alpha} (P^{-1} Q) & \text{(By Proposition 3.2.6)}
+\end{align*}
+Recall that $P$ and $Q$ are invertible. By Proposition 3.1.18, it follows that $P^{-1}$ and $Q^{-1}$ are invertible. Notice that $(Q^{-1} P) = (Q)^{-1} (P^{-1})^{-1} = (P^{-1} Q)^{-1}$ by Proposition 3.3.18. So we can rewrite our equation as $[T]_{\beta} =(P^{-1} Q)^{-1} [T]_{\alpha} (P^{-1} Q)$. Letting $P^{-1} Q =R$, we get $[T]_{\beta} =(R)^{-1} [T]_{\alpha} (R) =R^{-1} [T]_{\alpha} R$. $P^{-1} Q$ is invertible, so $R$ is invertible. We conclude that, for a linear transformation $T:\mathbb{R}^2 \to \mathbb{R}^2$, where $\alpha=(\vec{u_{1}},\vec{u_{2}})$ and  $\beta=(\vec{w_{1}},\vec{w_{2}})$ are bases of $\mathbb{R}^2$, and fixing $a,b,c,d, e,f,g,h \in \mathbb{R}$ with $\vec{u_{1}} = \begin{pmatrix} a\\c\end{pmatrix}, \vec{u_{2}} = \begin{pmatrix} b\\d\end{pmatrix}, \vec{w_{1}} = \begin{pmatrix} e\\g\end{pmatrix}, \vec{w_{2}} = \begin{pmatrix} f\\h\end{pmatrix}$ and defining two 2$\times$2 matrices $P$ and $Q$ by letting $P=\begin{pmatrix} a & b\\ c& d \end{pmatrix}$, $Q=\begin{pmatrix} e & f\\ g& h \end{pmatrix}$, there exists an invertible 2$\times$2 matrix $R=P^{-1} Q$ with $[T]_{\beta} = R^{-1} [T]_{\alpha} R$. We if we know the explicit values for $\alpha$ and $\beta$ we can calculate $R$ by the definition of matrix multiplication, that is, if we know the explicit values of $a,b,c,d, e,f,g,h \in \mathbb{R}$, then we know the explicit value of $P^{-1}$ (given by Proposition 3.3.16) and the explicit value of $Q$, and we can compute $R= P^{-1} Q = \frac{1}{ad-bc} \begin{pmatrix} d & -b \\-c & a\end{pmatrix} \begin{pmatrix} e & f\\ g & h \end{pmatrix} = \frac{1}{ad-bc} \begin{pmatrix} de -bg & df-bh \\ -ce + ag & -cf + ah \end{pmatrix} = R$
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 2}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{3}
+Given two 2 $\times$ 2 matrices $A$ and $B$, write $A \sim B$ to mean that there exists a 2 $\times$ 2 invertible matrix $P$ with $B=P^{-1}AP$.
+\noindent
+\newline
+\newline
+{\it Cultural} {\it Aside:} Using Problem 2 along with our work in class, it follows that $A\sim B$ if and only if $A$ and $B$ are both representations of a common linear transformation $T:\mathbb{R}^2 \to \mathbb{R}^2$, but with respect to possibly different coordinates. In this problem, you are proving that $\sim$ is something called an {\it equivalence} {\it relation}, a concept that you will see repeatedly throughout your mathematical journey.
+\noindent
+\newline
+\newline
+a. Show that $A\sim A$ for all 2$\times$2 $A$.
+\begin{solution}
+Let $A$ be an arbitrary 2$\times$2 matrix. We assume that $A \nsim A$ for all 2$\times$2 $A$, and it follows from the definition of $\sim$ that for all 2$\times$2 matrices $P$, we have $A \neq P^{-1} A P$. Consider the case in which $P = \begin{pmatrix}1&0\\0&1\end{pmatrix}$. Notice that $1\cdot 1 - 0\cdot 0 =1 \neq 0$, so $P$ is indeed invertible. By Proposition 3.3.16, $P$ has a unique inverse $P^{-1}$ given by $P^{-1} = \frac{1}{1} \begin{pmatrix} 1&-0\\-0&1\end{pmatrix} = \begin{pmatrix} 1&0\\0&1\end{pmatrix} =P $. So by assumption, we have that $A \neq P A P$. Notice that $P=I$ by definition 3.3.16. Applying Proposition 3.2.8, we have that $I A =A$ and $A I =A$, so it follows that $P A =A$ and $A P = A$. So we have that $(P A) P = A P = A$. By our previous equation $A \neq P A P$, we conclude that $A \neq A$. This is clearly a contradiction, as for any particular 2$\times$2 matrix $A$, it is always the case that $A=A$. So it must be that case that our assumption that  $A \nsim A$ for all 2$\times$2 $A$ is false, and so it must indeed be the case that $A\sim A$ for all 2$\times$2 matrices $A$, that is, that there exists a  2 $\times$ 2 invertible matrix $P$ with $A=P^{-1}AP$ for all 2 $\times$ 2 matrices $A$. Because $A$ was arbitrary, the result follows.
+\end{solution}
+\noindent
+\newline
+\newline
+b. Show that if $A$ and $B$ are 2 $\times$ 2 matrices with $A\sim B$, then $B\sim A$.
+\begin{solution}
+Let $A,B$ be arbitrary 2 $\times$ 2 matrices such that $A \sim B$. By definition of $A \sim B$, there exists a  2 $\times$ 2 invertible matrix $P$ with $B=P^{-1}AP$. We can manipulate this equation by taking the matrix product with $P$ yielding $P B = P P^{-1}A P = I A P$ (by the definition of inverse matrix). It follows that $P B = A P$ (by Proposition 3.2.8). Taking the matrix product with $P^{-1}$, we get $P B P^{-1} = A P P^{-1} = A I =A$. We conclude that $P B P^{-1} = A$. Because $P$ is invertible, $P^{-1}$ is invertible, and it follows that $(P^{-1})^{-1} = P$ (by Proposition 3.3.18), and we rewrite our equation as $A = (P^{-1})^{-1} B (P^{-1})$. Letting $P^{-1} = Q$, we rewrite our equation as $A = Q^{-1} B Q$. Because $P^{-1}$ is invertible, $Q$ is invertible, and so $A = Q^{-1} B Q$ satisfies the definition of $B \sim A$. Because $A,B$ were arbitrary, the result follows.
+\end{solution}
+
+\noindent
+\newline
+\newline
+c. Show if $A$, $B$ and $C$ are 2 $\times$ 2 with both $A\sim B$ and $B\sim C$, then $A\sim C$.
+\begin{solution}
+Let $A,B,C$ be arbitrary 2 $\times$ 2 matrices with $A \sim B$ and $B \sim C$. By definition of $\sim$, there exist invertible 2 $\times$ 2 matrices $P$ and $Q$ with $B=P^{-1}AP$ and $C=Q^{-1}BQ$.
+\vfill
+\centerline{PAGE 1 OF 2 FOR PROBLEM 3}
+
+\newpage
+Substituting for $B$ into the second equation, we get
+\begin{align*}
+C=Q^{-1}(P^{-1}AP)Q = &(Q^{-1} P^{-1}) A (P Q) &\text{(By Proposition 3.2.6)}
+\end{align*}
+Notice that $Q^{-1} P^{-1} = (PQ)^{-1}$ by Proposition 3.3.18, so we can rewrite the previous equation as $C= (PQ)^{-1} A (P Q)$. Letting $PQ =R$, we rewrite our equation as $C = (R)^{-1} A (R) = R^{-1} A R$. $P$ and $Q$ are both invertible, so by Proposition 3.3.18, $R$ is invertible, and so $C=R^{-1} A R$ satisfies the definition of $A \sim C$. Because $A,B,C$ were arbitrary, the result follows.
+\end{solution}
+\vfill
+\centerline{PAGE 2 OF 2 FOR PROBLEM 3}
+\end{problem}
+
+
+\end{document}

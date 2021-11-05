@@ -1,0 +1,443 @@
+\documentclass[12pt]{article}
+\usepackage{latexsym, amssymb, amsmath, amsfonts, amscd, amsthm, xcolor, pgfplots}
+\usepackage{framed}
+\usepackage[margin=1in]{geometry}
+\linespread{1} %Change the line spacing only if instructed to do so.
+
+\newenvironment{problem}[2][Problem]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1 #2:}]
+	}
+{
+	\end{trivlist}
+	}
+
+\newenvironment{solution}[1][Solution]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\itshape #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+\newenvironment{collaborators}[1][Collaborator(s)]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%    You need only modify code below this block.
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\title{Assignment: Problem Set 18} %Change this to the assignment you are submitting.
+\author{Name: Oleksandr Yardas} %Change this to your name.
+\date{Due Date: 04/18/2018 } %Change this to the due date for the assignment you are submitting.
+\begin{document}
+	\maketitle
+	\thispagestyle{empty}
+	
+	\section*{List Your Collaborators:}%Enter your collaborators names below. Do not delete extra rows.
+	
+	\begin{itemize}
+		\begin{framed}
+			\item 
+			Problem 1: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 2: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 3: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 4: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 5: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 6: None
+			\\\\
+		\end{framed}
+	\end{itemize}
+\newpage
+%
+%%%%%%%%%%%%%%%
+%
+% Your problem statements and solutions start here.
+% Use the \newpage command between problems so that
+% each of your problems begins on its own page.
+%
+%%%%%%%%%%%%%%%
+
+%FORMATTING OPTIONS
+%FOR BLANK SPACES: \underline{\hspace{2cm}}
+%FOR SPACES IN align OR SIMILAR ENVIRONMENTS:  \hphantom{1000}
+%FOR MATRICES: \begin{matrix} \end{matrix}, can add p, b, B, v, V, small as suffix to "matrix"
+%SETS: \mathbb{R}^, :\mathbb{R}^ \to \mathbb{R}^
+%Vectors: \vec{},
+%SUBSCRIPTS: _{}
+%FRACTIONS: \frac{}{}
+%FANCY LETTERS: \mathcal{}
+
+%Provide the problem statement.
+\begin{problem}{1}
+Determine whether
+\[
+\left(\begin{pmatrix}1\\-3\\5\end{pmatrix}, \begin{pmatrix}2\\2\\4\end{pmatrix}, \begin{pmatrix}4\\-4\\14\end{pmatrix}\right)
+\]
+is a linearly independent sequence in $\mathbb{R}^3$.
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+If $\left(\begin{pmatrix}1\\-3\\5\end{pmatrix}, \begin{pmatrix}2\\2\\4\end{pmatrix}, \begin{pmatrix}4\\-4\\14\end{pmatrix}\right)$ is a linearly independent sequence in $\mathbb{R}^3$, then by definition, for all $c_1,c_2,c_3 \in \mathbb{R}$, if $c_1\cdot\begin{pmatrix}1\\-3\\5\end{pmatrix}+c_2\cdot \begin{pmatrix}2\\2\\4\end{pmatrix}+c_3\cdot\begin{pmatrix}4\\-4\\14\end{pmatrix}=\vec{0}$, then $c_1=c_2=c_3=0$, that is to say, that the only solution to $c_1\cdot\begin{pmatrix}1\\-3\\5\end{pmatrix}+c_2\cdot \begin{pmatrix}2\\2\\4\end{pmatrix}+c_3\cdot\begin{pmatrix}4\\-4\\14\end{pmatrix}=\vec{0}$ is $c_1=c_2=c_3=0$. Let $a,b,c \in \mathbb{R}$ be arbitrary with $a\cdot\begin{pmatrix}1\\-3\\5\end{pmatrix}+b\cdot \begin{pmatrix}2\\2\\4\end{pmatrix}+c\cdot\begin{pmatrix}4\\-4\\14\end{pmatrix}=\vec{0}$. Performing scalar multiplication and addition on the left hand side, we see that $a,b,c$ must satisfy the following system of equations:
+\begin{align*}
+&&&&&&&& &&&&&&&& &&&&&&&& 1&a& &+& &2b& &+& &4c& &=& &0& &&&&&&&& &&&&&&&& &&&&&&&&\\
+&&&&&&&& &&&&&&&& &&&&&&&& -3&a& &+& &2b& &-& &4c& &=& &0& &&&&&&&& &&&&&&&& &&&&&&&&\\
+&&&&&&&& &&&&&&&& &&&&&&&& 5&a& &+& &4b& &+& 1&4c& &=& &0& &&&&&&&& &&&&&&&& &&&&&&&&
+\end{align*}
+Performing Gaussian Elimination on the augmented matrix, we get:
+\begin{align*}
+\begin{pmatrix}1&2&4&0\\-3&2&-4&0\\5&4&14&0\end{pmatrix} \rightarrow & \begin{pmatrix}1&2&4&0\\0&8&8&0\\0&-4&-6&0\end{pmatrix} & \begin{matrix} \hphantom{1}\\ (2R_1+R_2)\hphantom{1}\\ (-5R_1+R_3)\hphantom{1}\end{matrix} \\
+\rightarrow & \begin{pmatrix}1&2&4&0\\0&8&8&0\\0&0&-2&0\end{pmatrix} & \begin{matrix} \hphantom{1}\\ \hphantom{1}\\ (\frac{1}{2}R_2+R_3)\hphantom{1}\end{matrix} \\
+\end{align*}
+Notice that the last column does not have a leading entry, so by Proposition 4.1.12, the system has a unique solution. Because $(0,0,0)$ is already the trivial solution, it must be the case that $(0,0,0)$ is the only solution to the system. So $a=b=c=0$, and we conclude that $\left(\begin{pmatrix}1\\-3\\5\end{pmatrix}, \begin{pmatrix}2\\2\\4\end{pmatrix}, \begin{pmatrix}4\\-4\\14\end{pmatrix}\right)$ is a linearly independent sequence in $\mathbb{R}^3$.
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 1}\end{problem}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{2}
+By setting up a system and using Gaussian Eliminations, find one specific example of a nontrivial linear combination of
+\[
+\left(\begin{pmatrix}0\\1\\3\\-1\end{pmatrix}, \begin{pmatrix}2\\0\\2\\-1\end{pmatrix}, \begin{pmatrix}-8\\2\\-2\\2\end{pmatrix}, \begin{pmatrix}6\\-1\\9\\5\end{pmatrix}\right)
+\]
+giving $\vec{0}$.
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+ Let $a,b,c,d \in \mathbb{R}$ be arbitrary with $a\cdot \begin{pmatrix}0\\1\\3\\-1\end{pmatrix} + b\cdot \begin{pmatrix}2\\0\\2\\-1\end{pmatrix} + c\cdot \begin{pmatrix}-8\\2\\-2\\2\end{pmatrix}+ d\cdot \begin{pmatrix}6\\-1\\9\\5\end{pmatrix}=\vec{0}$. Performing scalar multiplication and addition on the left hand side, we see that $a,b,c,d$ must satisfy the following system of equations:
+\begin{align*}
+&&&&&&&& &&&&&&&& &&&&&&&& 0&a& &+& 2&b& &-& 8&c& &+& 6&d& &=& &0& &&&&&&&& &&&&&&&& &&&&&&&&\\
+&&&&&&&& &&&&&&&& &&&&&&&& 1&a& &+& 0&b& &+& 2&c& &-& 1&d& &=& &0& &&&&&&&& &&&&&&&& &&&&&&&&\\
+&&&&&&&& &&&&&&&& &&&&&&&& 3&a& &+& 2&b& &-& 2&c& &+& 9&d& &=& &0& &&&&&&&& &&&&&&&& &&&&&&&&\\
+&&&&&&&& &&&&&&&& &&&&&&&& -1&a& &-& 1&b& &+& 2&c& &+& 5&d& &=& &0& &&&&&&&& &&&&&&&& &&&&&&&&
+\end{align*}
+Performing Gaussian Elimination on the augmented matrix, we get:
+%
+\begin{align*}
+%
+\begin{pmatrix} 0&2&-8&6&0 \\ 1&0&2&-1&0 \\ 3&2&-2&9&0 \\ -1&-1&2&5&0  \end{pmatrix} \rightarrow & \begin{pmatrix} 0&2&-8&6&0 \\ 0&-1&4&4&0 \\ 0&-1&4&24&0 \\ -1&-1&2&5&0 \end{pmatrix} & \begin{matrix} \hphantom{1}\\(R_4+R_2) \hphantom{1}\\ (3R_4+R_3)\hphantom{1}\\ \hphantom{1}\end{matrix} \\
+%
+\rightarrow & \begin{pmatrix} 0&0&0&54&0 \\ 0&0&0&-20&0 \\ 0&-1&4&24&0 \\ -1&-1&2&5&0 \end{pmatrix} & \begin{matrix} (2R_3+R_1)\hphantom{1}\\ (-R_3+R_2)\hphantom{1}\\ \hphantom{1}\\ \hphantom{1}\end{matrix} \\%
+%
+\rightarrow & \begin{pmatrix} 0&0&0&0&0 \\ 0&0&0&-20&0 \\ 0&-1&4&24&0 \\ -1&-1&2&5&0 \end{pmatrix} & \begin{matrix} (\frac{54}{20}R_2+R_1)\hphantom{1}\\ \hphantom{1}\\ \hphantom{1}\\ \hphantom{1}\end{matrix} \\
+\rightarrow & \begin{pmatrix}  -1&-1&2&5&0 \\ 0&-1&4&24&0\\ 0&0&0&-20&0 \\0&0&0&0&0 \end{pmatrix} & \begin{matrix} (R_4 \leftrightarrow R_1)\hphantom{1}\\ (R_3 \leftrightarrow R_2)\hphantom{1}\\ (R_2 \leftrightarrow R_3)\hphantom{1}\\ (R_1 \leftrightarrow R_4)\hphantom{1}\end{matrix} \\
+\end{align*}
+\vfill
+\centerline{PAGE 1 OF 2 FOR PROBLEM 2}
+\end{solution}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{3}
+Consider the following three functions in the vector space $\mathcal{P}_2$:
+\newline
+\newline
+$\hphantom{100} \bullet \hphantom{10} f_1(x)=9x^2-x+3$
+\newline
+\newline
+$\hphantom{100} \bullet \hphantom{10} f_2(x)=3x^2-2x+5$
+\newline
+\newline
+$\hphantom{100} \bullet \hphantom{10} f_3(x)=-5x^2+x+1$
+\newline
+\newline
+\noindent
+Is $(f_1,f_2,f_3)$ linearly independent? Explain.
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+If $(f_1,f_2,f_3)$ is linearly independent, then by definition, for all $c_1,c_2,c_3 \in \mathbb{R}$, if $c_1\cdot f_1 + c_2 \cdot f_2 + c_3 \cdot f_3=0$, then $c_1=c_2=c_3=0$, that is to say, that the only solution to $c_1\cdot f_1 + c_2 \cdot f_2 + c_3 \cdot f_3=0$ is $c_1=c_2=c_3=0$. Let $a,b,c \in \mathbb{R}$ be arbitrary with $a\cdot f_1 + b \cdot f_2 + c \cdot f_3=0$. Expanding $f_1,f_2,f_3$ and performing scalar multiplication and addition on the left hand side, we see get $(9a+3b-5c)x^2+(-a-2b+c)x+(3a+5b+c) =0$. By Proposition 4.2.18, if the previous equality is true, then the coefficients of like terms are also equal. By "matching" the $x^2$ terms on the left to the $x^2$ terms on the right, and doing the same for the $x$ and constant terms, we can describe the relationship between the variables $a,b,c$ in the equation as the following linear system of 3 equations in the variables $a,b,c$:
+\begin{align*}
+&&&&&&&& &&&&&&&& &&&&&&&& 9&a& &+& 3&b& &-& 5&c& &=& &0& &&&&&&&& &&&&&&&& &&&&&&&&\\
+&&&&&&&& &&&&&&&& &&&&&&&& -1&a& &-& 2&b& &+& 1&c& &=& &0& &&&&&&&& &&&&&&&& &&&&&&&&\\
+&&&&&&&& &&&&&&&& &&&&&&&& 3&a& &+& 5&b& &+& 1&c& &=& &0& &&&&&&&& &&&&&&&& &&&&&&&&
+\end{align*}
+Performing Gaussian Elimination on the augmented matrix, we get:
+\begin{align*}
+\begin{pmatrix}9&3&-5&0\\-1&-2&1&0\\3&5&1&0\end{pmatrix} \rightarrow &\begin{pmatrix}0&-15&4&0\\-1&-2&1&0\\0&-1&4&0\end{pmatrix} & \begin{matrix} (9R_2+R_1)\hphantom{1}\\ \hphantom{1}\\ (3R_2+R_3)\hphantom{1}\end{matrix} \\
+\rightarrow &\begin{pmatrix}0&0&-56&0\\-1&-2&1&0\\0&-1&4&0\end{pmatrix} & \begin{matrix} (-15R_3+R_1)\hphantom{1}\\ \hphantom{1}\\ \hphantom{1}\end{matrix} \\
+\rightarrow &\begin{pmatrix}-1&-2&1&0\\0&0&-56&0\\0&-1&4&0\end{pmatrix} & \begin{matrix} (R_2 \leftrightarrow R_1)\hphantom{1}\\ (R_1 \leftrightarrow R_2)\hphantom{1}\\ \hphantom{1}\end{matrix} \\
+\rightarrow &\begin{pmatrix}-1&-2&1&0\\0&-1&4&0\\0&0&-56&0\end{pmatrix} & \begin{matrix} \hphantom{1}\\ (R_3 \leftrightarrow R_2)\hphantom{1}\\  (R_2 \leftrightarrow R_3)\hphantom{1}\end{matrix}
+\end{align*}
+Notice that the last column does not have a leading entry, so by Proposition 4.1.12, the system has a unique solution. Because $(0,0,0)$ is already the trivial solution, it must be the case that $(0,0,0)$ is the only solution to the system. So $a=b=c=0$, and we conclude that $(f_1,f_2,f_3)$ is linearly independent.
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 3}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{4}
+Consider the following three functions in the vector space $\mathcal{F}$:
+\newline
+\newline
+$\hphantom{100} \bullet \hphantom{10} f_1(x)=2^x$
+\newline
+\newline
+$\hphantom{100} \bullet \hphantom{10} f_2(x)=x^2$
+\newline
+\newline
+$\hphantom{100} \bullet \hphantom{10} f_3(x)=x-2$
+\newline
+\newline
+\noindent
+Is $(f_1,f_2,f_3)$ linearly independent? Explain.
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+If $(f_1,f_2,f_3)$ is linearly independent, then by definition, for all $c_1,c_2,c_3 \in \mathbb{R}$, if $c_1\cdot f_1 + c_2 \cdot f_2 + c_3 \cdot f_3=0$, then $c_1=c_2=c_3=0$, that is to say, that the only solution to $c_1\cdot f_1 + c_2 \cdot f_2 + c_3 \cdot f_3=0$ is $c_1=c_2=c_3=0$. Let $a,b,c \in \mathbb{R}$ be arbitrary with $a\cdot f_1 + b \cdot f_2 + c \cdot f_3=0$. Expanding $f_1,f_2,f_3$ and performing scalar multiplication and addition on the left hand side, we see get $(a)2^x +(b)x^2+(c)x+(c) =0$. By "matching" the $2^x$ terms on the left to the $2^x$ terms on the right, and doing the same for the $x^2$, $x$ and constant terms, we can describe the relationship between the variables $a,b,c$ in the equation as the following linear system of 4 equations in the variables $a,b,c$:
+\begin{align*}
+&&&&&&&& &&&&&&&& &&&&&&&& &a& &\hphantom{1}& &\hphantom{1}& &\hphantom{1}& &=& &0& &&&&&&&& &&&&&&&& &\text{($2^x$ terms)}& &&&&&&&&\\
+&&&&&&&& &&&&&&&& &&&&&&&& &\hphantom{1}& &b& &\hphantom{1}& &\hphantom{1}& &=& &0& &&&&&&&& &&&&&&&& &\text{($x^2$ terms)}& &&&&&&&&\\
+&&&&&&&& &&&&&&&& &&&&&&&& &\hphantom{1}& &\hphantom{1}& &c& &\hphantom{1}& &=& &0& &&&&&&&& &&&&&&&&  &\text{($x$ terms)}& &&&&&&&&\\
+&&&&&&&& &&&&&&&& &&&&&&&& &\hphantom{1}& &\hphantom{1}& &\hphantom{1}& &c& &=& &0& &&&&&&&& &&&&&&&& &\text{(constant terms)}& &&&&&&&&
+\end{align*}
+So the solution set of the system is $\{(0,0,0)\}$, and so we conclude that $(f_1,f_2,f_3)$ is linearly independent.
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 4}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{5}
+Find a sequence $(\vec{u_1},\vec{u_2},\vec{u_3},\vec{u_4})$ of vectors in $\mathbb{R}^3$ such that whenever we omit a vector, the resulting 3 are linearly independent. You should justify why your sequence has this property.
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+Fix $a,b,c,d,e,f,g,h,i,j,k,l \in \mathbb{R}$ with $\vec{u_1} = \begin{pmatrix}a\\b\\c\end{pmatrix}, \vec{u_2} = \begin{pmatrix} d\\e\\f\end{pmatrix}, \vec{u_3} = \begin{pmatrix}g\\h\\i\end{pmatrix}, \vec{u_4} = \begin{pmatrix}j\\k\\l\end{pmatrix}$. A sequence with the property described above would have to correspond to a system of 3 equations in the variables $w,x,y,z$ of the form
+\begin{align*}
+&&&&&&&& &&&&&&&& &&&&&&&& a&w& &+& d&x& &+& g&y& &+& j&z& &=& &0& &&&&&&&& &&&&&&&& &&&&&&&&\\
+&&&&&&&& &&&&&&&& &&&&&&&& b&w& &+& e&x& &+& h&y& &+& k&z& &=& &0& &&&&&&&& &&&&&&&& &&&&&&&&\\
+&&&&&&&& &&&&&&&& &&&&&&&& c&w& &+& f&x& &+& i&y& &+& l&z& &=& &0& &&&&&&&& &&&&&&&& &&&&&&&&
+\end{align*}
+such that the solution set of the system of equations is not equal to $\{(0,0,0,0)\}$, so by definition the system would be linearly dependent, but when we remove any one of the four equations, the solution set of the resulting system of equations is equal to $\{(0,0,0)\}$, so by definition the system would be linearly independent. Another way to say this is that for the following equations
+\begin{align}
+w\vec{u_1} + x\vec{u_2} + y\vec{u_3} + z\vec{u_4} = \vec{0}\\
+x\vec{u_1}+u\vec{u_2}+z\vec{u_3} = \vec{0}\\
+x\vec{u_1}+u\vec{u_3}+z\vec{u_4} = \vec{0}\\
+x\vec{u_2}+u\vec{u_3}+z\vec{u_4} = \vec{0}\\
+x\vec{u_1}+u\vec{u_2}+z\vec{u_4} = \vec{0}
+\end{align}
+the solution set of the linear system corresponding to (1) is nonzero and the solutions sets of of the linear systems corresponding to (2),(3),(4),(5) are all $\{(0,0,0)\}$.
+ Let $\vec{u_1}=\begin{pmatrix}1\\0\\0\end{pmatrix}, \vec{u_2} = \begin{pmatrix} 1\\1\\0\end{pmatrix}, \vec{u_3} = \begin{pmatrix}0\\1\\1\end{pmatrix}, \vec{u_4} = \begin{pmatrix}0\\0\\1\end{pmatrix}$. Now consider the following linear systems each corresponding to (1),(2),(3), (4), and (5) above:
+\newline
+\newline
+\noindent
+(1)
+ The corresponding system is
+ \begin{align*}
+&&&&&&&& &&&&&&&& &&&&&&&& 1&w& &+& 1&x& &+& 0&y& &+& 0&z& &=& &0& &&&&&&&& &&&&&&&& &&&&&&&&\\
+&&&&&&&& &&&&&&&& &&&&&&&& 0&w& &+& 1&x& &+& 1&y& &+& 0&z& &=& &0& &&&&&&&& &&&&&&&& &&&&&&&&\\
+&&&&&&&& &&&&&&&& &&&&&&&& 0&w& &+& 0&x& &+& 1&y& &+& 1&z& &=& &0& &&&&&&&& &&&&&&&& &&&&&&&&
+\end{align*}
+\end{solution}
+\vfill
+\centerline{PAGE 1 OF 3 FOR PROBLEM 5}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{6}
+Let $\vec{u_1},\vec{u_2}, \dots , \vec{u_n} \in \mathbb{R}^n$ (notice the same $n$). Explain why Span$(\vec{u_1},\vec{u_2}, \dots ,\vec{u_n}) =\mathbb{R}^n$ if and only if $(\vec{u_1},\vec{u_2}, \dots , \vec{u_n})$ is linearly independent.
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+Let $A$ be the $n \times n$ matrix where the $i^{th}$ column is $\vec{u_i}$, and let $B$ be an echelon form of $A$. Suppose that Span$(\vec{u_1},\vec{u_2}, \dots ,\vec{u_n}) =\mathbb{R}^n$. By Proposition 4.2.14, every row of $B$ has a leading entry. By definition, $B$ has $n$ rows, so it follows that $B$ has $n$ leading entries. Because $B$ is in echelon form, by definition every leading entry is to the right of the entry in the row above, that is to say that every leading entry is in a column that is to the right of the column that contains the leading entry in the row above. Notice that $B$ has exactly $n$ columns, so in order for there to be $n$ leading entries, each leading entry must be exactly one column to the right of the column containing the leading entry in the row directly above. So there is a leading entry in each column. It follows from Proposition 4.3.3 that $(\vec{u_1},\vec{u_2}, \dots ,\vec{u_n})$ is linearly independent.
+
+Now suppose that $(\vec{u_1},\vec{u_2}, \dots ,\vec{u_n})$ is linearly independent. It follows from Proposition 4.3.3 that there is a leading entry in each column of $B$. By definition, $B$ has $n$ columns, so it follows that $B$ has $n$ leading entries. Because $B$ is in echelon form, by definition every leading entry is to the right of the leading entry in the row above, that is to say that every leading entry is in a column that is to the right of the column that contains the leading entry in the row above, so each leading entry must be exactly one column to the right of the column containing the leading entry in the row directly above. Because there are $n$ rows, it follows that leading entry in each row. It follows from Proposition 4.2.14 that Span$(\vec{u_1},\vec{u_2}, \dots ,\vec{u_n}) =\mathbb{R}^n$.
+
+We have proven both implications, and thus the result follows.
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 6}
+%
+%
+%
+\newpage
+Notice that the last column does not contain a leading entry and that the central column also does not have a leading entry, so the system has infinitely many solutions. We find one of these solutions by back substituting:
+\begin{align*}
+&&&&&&&& &&&&&&&& &&&&&&&& -1&a& &-& 1&b& &+& 2&c& &+& 5&d& &=& &0& &&&&&&&& &&&&&&&& &&&&&&&&\\
+&&&&&&&& &&&&&&&& &&&&&&&& &\hphantom{1}& &\hphantom{1}& -1&b& &+& 4&c& &+& 24&d& &=& &0& &&&&&&&& &&&&&&&& &&&&&&&&\\
+&&&&&&&& &&&&&&&& &&&&&&&& &\hphantom{1}& &\hphantom{1}& &\hphantom{1}& &\hphantom{1}& &\hphantom{1}& &\hphantom{1}& -20&d& &=& &0& &&&&&&&& &&&&&&&& &&&&&&&&
+\end{align*}
+\[
+\downarrow
+\]
+\begin{align*}
+&&&&&&&& &&&&&&&& &&&&&&&& -1&a& &-& 1&b& &+& 2&c& &+& &0& &=& &0& &&&&&&&& &&&&&&&& &&&&&&&&\\
+&&&&&&&& &&&&&&&& &&&&&&&& &\hphantom{1}& &\hphantom{1}& -1&b& &+& 4&c& &+& &0& &=& &0& &&&&&&&& &&&&&&&& &&&&&&&&\\
+&&&&&&&& &&&&&&&& &&&&&&&& &\hphantom{1}& &\hphantom{1}& &\hphantom{1}& &\hphantom{1}& &\hphantom{1}& &\hphantom{1}& &d& &=& &0& &&&&&&&& &&&&&&&& &&&&&&&&
+\end{align*}
+\[
+\downarrow
+\]
+\begin{align*}
+&&&&&&&& &&&&&&&& &&&&&&&& && -1&a& &-& 4&c& &+& 2&c& &=& &0& && &&&&&&&& &&&&&&&& &&&&&&&&\\
+&&&&&&&& &&&&&&&& &&&&&&&& && &\hphantom{1}& &\hphantom{1}& &b& &+& &0& &=& 4&c& && &&&&&&&& &&&&&&&& &&&&&&&&\\
+&&&&&&&& &&&&&&&& &&&&&&&& && &\hphantom{1}& &\hphantom{1}& &\hphantom{1}& &\hphantom{1}& &d& &=& &0& && &&&&&&&& &&&&&&&& &&&&&&&&
+\end{align*}
+\[
+\downarrow
+\]
+\begin{align*}
+&&&&&&&& &&&&&&&& &&&&&&&& &a& &=& -2&c& &&&&&&&& &&&&&&&& &&&&&&&&\\
+&&&&&&&& &&&&&&&& &&&&&&&& &b& &=& 4&c& &&&&&&&& &&&&&&&& &&&&&&&&\\
+&&&&&&&& &&&&&&&& &&&&&&&& &d& &=& &0& &&&&&&&& &&&&&&&& &&&&&&&&
+\end{align*}
+If we let $c=1$, then we have $(-2,4,1,0)$ as a solution to the system. This is solution gives a nontrivial linear combination of $\left(\begin{pmatrix}0\\1\\3\\-1\end{pmatrix}, \begin{pmatrix}2\\0\\2\\-1\end{pmatrix}, \begin{pmatrix}-8\\2\\-2\\2\end{pmatrix}, \begin{pmatrix}6\\-1\\9\\5\end{pmatrix}\right)$ giving $\vec{0}$.
+\vfill
+\centerline{PAGE 2 OF 2 FOR PROBLEM 2}
+%
+%
+%
+\newpage
+The augmented matrix is
+\[
+\begin{pmatrix}1&1&0&0&0\\0&1&1&0&0\\0&0&1&1&0\end{pmatrix}
+\]
+Notice that the last column and the second to last column contain no leading entries, so by Proposition 4.2.12, there are infinitely many solutions, that is, the solution set is not equal to $\{(0,0,0,0)\}$, so by definition the  sequence $(\vec{u_1},\vec{u_2},\vec{u_3},\vec{u_4})$ is linearly dependent.
+\newline
+\newline
+\noindent
+(2)
+The corresponding system is
+\begin{align*}
+&&&&&&&& &&&&&&&& &&&&&&&& 1&x& &+& 1&y& &+& 0&z& &=& &0& &&&&&&&& &&&&&&&& &&&&&&&&\\
+&&&&&&&& &&&&&&&& &&&&&&&& 0&x& &+& 1&y& &+& 1&z& &=& &0& &&&&&&&& &&&&&&&& &&&&&&&&\\
+&&&&&&&& &&&&&&&& &&&&&&&& 0&x& &+& 0&y& &+& 1&z& &=& &0& &&&&&&&& &&&&&&&& &&&&&&&&
+\end{align*}
+The augmented matrix is
+\[
+\begin{pmatrix}1&1&0&0\\0&1&1&0\\0&0&1&0\end{pmatrix}
+\]
+Notice that the last column does not have a leading entry, so by Proposition 4.1.12, the system has a unique solution. Because $(0,0,0)$ is already the trivial solution, it must be the case that $(0,0,0)$ is the only solution to the system. So $a=b=c=0$, and we conclude that the sequence $(\vec{u_1},\vec{u_2},\vec{u_3})$ is linearly independent.
+\newline
+\newline
+\noindent
+(3)
+The corresponding system is
+\begin{align*}
+&&&&&&&& &&&&&&&& &&&&&&&& 1&x& &+& 0&y& &+& 0&z& &=& &0& &&&&&&&& &&&&&&&& &&&&&&&&\\
+&&&&&&&& &&&&&&&& &&&&&&&& 0&x& &+& 1&y& &+& 0&z& &=& &0& &&&&&&&& &&&&&&&& &&&&&&&&\\
+&&&&&&&& &&&&&&&& &&&&&&&& 0&x& &+& 1&y& &+& 1&z& &=& &0& &&&&&&&& &&&&&&&& &&&&&&&&
+\end{align*}
+The augmented matrix is
+\[
+\begin{pmatrix}1&0&0&0\\0&1&0&0\\0&1&1&0\end{pmatrix}
+\]
+Notice that the last column does not have a leading entry, so by Proposition 4.1.12, the system has a unique solution. Because $(0,0,0)$ is already the trivial solution, it must be the case that $(0,0,0)$ is the only solution to the system. So $a=b=c=0$, and we conclude that the sequence $(\vec{u_1},\vec{u_3},\vec{u_4})$ is linearly independent.
+\newline
+\newline
+\noindent
+\vfill
+\centerline{PAGE 2 OF 3 FOR PROBLEM 5}
+\noindent
+(4)
+The corresponding system is
+\begin{align*}
+&&&&&&&& &&&&&&&& &&&&&&&& 1&x& &+& 0&y& &+& 0&z& &=& &0& &&&&&&&& &&&&&&&& &&&&&&&&\\
+&&&&&&&& &&&&&&&& &&&&&&&& 1&x& &+& 1&y& &+& 0&z& &=& &0& &&&&&&&& &&&&&&&& &&&&&&&&\\
+&&&&&&&& &&&&&&&& &&&&&&&& 0&x& &+& 1&y& &+& 1&z& &=& &0& &&&&&&&& &&&&&&&& &&&&&&&&
+\end{align*}
+The augmented matrix is
+\[
+\begin{pmatrix}1&0&0&0\\1&1&0&0\\0&1&1&0\end{pmatrix}
+\]
+Notice that the last column does not have a leading entry, so by Proposition 4.1.12, the system has a unique solution. Because $(0,0,0)$ is already the trivial solution, it must be the case that $(0,0,0)$ is the only solution to the system. So $a=b=c=0$, and we conclude that the sequence $(\vec{u_2},\vec{u_3},\vec{u_4})$ is linearly independent.
+\newline
+\newline
+\noindent
+(5)
+The corresponding system is
+\begin{align*}
+&&&&&&&& &&&&&&&& &&&&&&&& 1&x& &+& 1&y& &+& 0&z& &=& &0& &&&&&&&& &&&&&&&& &&&&&&&&\\
+&&&&&&&& &&&&&&&& &&&&&&&& 0&x& &+& 1&y& &+& 0&z& &=& &0& &&&&&&&& &&&&&&&& &&&&&&&&\\
+&&&&&&&& &&&&&&&& &&&&&&&& 0&x& &+& 0&y& &+& 1&z& &=& &0& &&&&&&&& &&&&&&&& &&&&&&&&
+\end{align*}
+The augmented matrix is
+\[
+\begin{pmatrix}1&1&0&0\\0&1&0&0\\0&0&1&0\end{pmatrix}
+\]
+Notice that the last column does not have a leading entry, so by Proposition 4.1.12, the system has a unique solution. Because $(0,0,0)$ is already the trivial solution, it must be the case that $(0,0,0)$ is the only solution to the system. So $a=b=c=0$, and we conclude that the sequence $(\vec{u_1},\vec{u_2},\vec{u_4})$ is linearly independent.
+\newline
+\newline
+\noindent
+We have shown that for our choice of $(\vec{u_1},\vec{u_2},\vec{u_3},\vec{u_4})$, that is $\left(\begin{pmatrix}1\\0\\0\end{pmatrix},  \begin{pmatrix} 1\\1\\0\end{pmatrix},  \begin{pmatrix}0\\1\\1\end{pmatrix},  \begin{pmatrix}0\\0\\1\end{pmatrix}\right)$, the solution set corresponding to (1) is nonzero and the solution sets corresponding to (2), (3), (4), and (5) are all $\{(0,0,0)\}$. Therefore, $\left(\begin{pmatrix}1\\0\\0\end{pmatrix},  \begin{pmatrix} 1\\1\\0\end{pmatrix},  \begin{pmatrix}0\\1\\1\end{pmatrix},  \begin{pmatrix}0\\0\\1\end{pmatrix}\right)$ is a sequence of vectors in $\mathbb{R}^3$ such that whenever we omit a vector, the resulting 3 are linearly independent.
+\vfill
+\centerline{PAGE 3 OF 3 FOR PROBLEM 5}
+\end{problem}
+
+
+\end{document}

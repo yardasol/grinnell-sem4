@@ -1,0 +1,414 @@
+\documentclass[12pt]{article}
+\usepackage{latexsym, amssymb, amsmath, amsfonts, amscd, amsthm, xcolor, pgfplots}
+\usepackage{framed}
+\usepackage[margin=1in]{geometry}
+\linespread{1} %Change the line spacing only if instructed to do so.
+
+\newenvironment{problem}[2][Problem]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1 #2:}]
+	}
+{
+	\end{trivlist}
+	}
+
+\newenvironment{solution}[1][Solution]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\itshape #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+\newenvironment{collaborators}[1][Collaborator(s)]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%    You need only modify code below this block.
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\title{Assignment: Problem Set 10} %Change this to the assignment you are submitting.
+\author{Name: Oleksandr Yardas} %Change this to your name.
+\date{Due Date: 03/05/2018 } %Change this to the due date for the assignment you are submitting.
+\begin{document}
+	\maketitle
+	\thispagestyle{empty}
+	
+	\section*{List Your Collaborators:}%Enter your collaborators names below. Do not delete extra rows.
+	
+	\begin{itemize}
+		\begin{framed}
+			\item 
+			Problem 1: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 2: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 3: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 4: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 5: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 6: None
+			\\\\
+		\end{framed}
+	\end{itemize}
+\newpage
+%
+%%%%%%%%%%%%%%%
+%
+% Your problem statements and solutions start here.
+% Use the \newpage command between problems so that
+% each of your problems begins on its own page.
+%
+%%%%%%%%%%%%%%%
+
+%FORMATTING OPTIONS
+%FOR BLANK SPACES: \underline{\hspace{2cm}}
+%FOR SPACES IN align OR SIMILAR ENVIRONMENTS:  \hphantom{1000}
+%FOR MATRICES: \begin{matrix} \end{matrix}, can add p, b, B, v, V, small as suffix to "matrix"
+%SETS: \mathbb{R}^, :\mathbb{R}^ \to \mathbb{R}^
+%Vectors: \vec{},
+%SUBSCRIPTS: _{}
+%FRACTIONS: \frac{}{}
+
+%Provide the problem statement.
+\begin{problem}{1}
+Consider the unique linear transformation $T:\mathbb{R}^2 \to \mathbb{R}^2$ with
+\[
+[T]=\begin{pmatrix}2 &-5\\-6 & 15 \end{pmatrix}
+\]
+Find, with explanation, vectors $\vec{u},\vec{w} \in \mathbb{R}^2$ with Null$(T)=$ Span$(\vec{u})$ and range$(T)=$ Span$(\vec{w})$.
+%\noindent
+%\newline
+%\newline
+%a. [PART A STUFF]
+%\begin{solution}
+%
+%\end{solution}
+%\noindent
+%\newline
+%\newline
+%a. [PART B STUFF]
+%\begin{solution}
+%
+%\end{solution}
+\begin{solution}
+%Let $\vec{u},\vec{w},\vec{v} \in \mathbb{R}^2$ be arbitrary.
+%and fix $u_{1},u_{2},w_{1},w_{2},v_{1},v_{2}\in \mathbb{R}$ such that $\vec{u}=\begin{pmatrix}u_{1}\\u_{2} \end{pmatrix},\vec{w} =\begin{pmatrix}w_{1}\\w_{2} \end{pmatrix},\vec{v}=\begin{pmatrix}v_{1}\\v_{2} \end{pmatrix}$. 
+ Applying Theorem 3.3.3 to our given linear transformation, all of $a,b,c,d$ are nonzero and $ad-bc=2\cdot 15 - -5 \cdot -6 = 30 - 30=0$ so it follows that there do indeed exist vectors $\vec{u},\vec{w} \in \mathbb{R}^2$ with Null$(T)=$ Span$(\vec{u})$ and range$(T)=$ Span$(\vec{w})$. 
+We start by finding a $\vec{u} \in \mathbb{R}^2$ with Null$(T)=$ Span$(\vec{u})$. Let $\vec{v} \in$ Null$(T)$ be arbitrary. Because Null$(T)=$ Span$(\vec{u})$, $\vec{v} \in$ Span$(\vec{u})$. By the definition of Span$(\vec{u})$, we can fix $a\in \mathbb{R}$ such that $\vec{v}=a\cdot \vec{u}$.  By the definition of Null$(T)$, $T(\vec{v})=\vec{0}$, so  $T(a\cdot \vec{u})=\vec{0} =a\cdot T(\vec{u})$ (by definition of linear transformation), and so $T(\vec{u}) = \vec{0}$ by definition of scalar multiplication of a vector. So we want to find a $\vec{u} \in \mathbb{R}^2$ such that $T(\vec{u})=\vec{0}$. Let's try $\vec{u}=\begin{pmatrix} 5\\2 \end{pmatrix}$. Applying Proposition 3.1.4, we get:
+\begin{align*}
+T(\vec{u})=[T]\vec{u}=&\begin{pmatrix}2 &-5\\-6 & 15 \end{pmatrix}\begin{pmatrix}5\\2 \end{pmatrix} & \text{(By definition of $[T], \vec{u}$)}\\
+=& \begin{pmatrix} 2\cdot 5-5\cdot 2\\-6\cdot 5+15\cdot 2 \end{pmatrix} &\\
+=& \begin{pmatrix}30-30\\-30 + 30\end{pmatrix} = \begin{pmatrix} 0\\0 \end{pmatrix} &\\
+\end{align*}
+So $\vec{u}=\begin{pmatrix} 5\\2 \end{pmatrix}$ satisfies Null$(T)=$ Span$(\vec{u})$.
+\newline
+\newline
+Now we find a $\vec{w} \in \mathbb{R}^2$ with range$(T)=$ Span$(\vec{w})$. Let $\vec{p} \in$ range$(T)$ be arbitrary. By definition of range, there exists a $\vec{d} \in \mathbb{R}^2$ with $T(\vec{d}) =\vec{p}$. Because range$(T)=$ Span$(\vec{w})$, $\vec{p} \in$ Span$(\vec{w})$ so $T(\vec{d})\in$ Span$(\vec{w})$. By definition of Span, we can fix $b \in \mathbb{R}$ with $b\cdot \vec{w}=T(\vec{d})$. Let $\vec{d}=\begin{pmatrix} 1\\0 \end{pmatrix}$. By definition 3.1.1, $T(\vec{d})=\begin{pmatrix} 2\\-6 \end{pmatrix}$. If we pick $b=2$, we have 
+\begin{align*}
+2\vec{w}=&\begin{pmatrix} 2\\-6 \end{pmatrix}\\
+2\vec{w}=&2\cdot \begin{pmatrix} 1\\-3 \end{pmatrix}\\
+\vec{w}=&\begin{pmatrix} 1\\-3 \end{pmatrix}
+\end{align*}
+So $\vec{w}=\begin{pmatrix} 1\\-3 \end{pmatrix}$ satisfies range$(T)=$ Span$(\vec{w})$.
+ %That is to say that By So $\vec{v}Because there exists at least one vector $\vec{u} \in \mathbb{R}^2$ that satisfies Null$(T)=$ Span$(\vec{u})$, by the definition of Span, we can fix $a\in \mathbb{R}$ such that $\vec{v}=To find such vectors, we appeal to the definition of Span, Null, and range. Because
+\end{solution}
+%\newline
+%\newline
+%\newline
+%\newline
+%\newline
+%\newline
+%\[
+%\text{PAGE 1 OF X FOR PROBLEM 1}
+%\]
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{2}
+Let $T:\mathbb{R}^2 \to \mathbb{R}^2$ be a linear transformation. Recall that
+\[
+\text{Null}(T)=\{ \vec{v} \in \mathbb{R}^2: T(\vec{v})=\vec{0} \}
+\]
+\noindent
+\newline
+\newline
+a. Show that if $\vec{v_{1}},\vec{v_{2}} \in$ Null$(T)$, then $\vec{v_{1}}+\vec{v_{2}} \in$ Null$(T)$.
+\begin{solution}
+Let $\vec{v_{1}},\vec{v_{2}} \in$ Null$(T)$ be arbitrary. By definition of Null$(T)$, we have that $T(\vec{v_{1}})=\vec{0}$ and $T(\vec{v_{2}})=\vec{0}$. Notice that
+$T(\vec{v_{1}}+\vec{v_{2}}) = T(\vec{v_{1}}) + T(\vec{v_{2}}) \text{ (by the definition of linear transformation) } = \vec{0} + \vec{0} = \vec{0}$. So we have $T(\vec{v_{1}}+\vec{v_{2}}) = \vec{0}$. Because $\vec{v_{1}}+\vec{v_{2}} \in \mathbb{R}^2$, $\vec{v_{1}}+\vec{v_{2}} \in$ Null$(T)$. Because $\vec{v_{1}},\vec{v_{2}}$ were arbitrary, the result follows.
+\end{solution}
+\noindent
+\newline
+\newline
+b. Show that if $\vec{v} \in$ Null$(T)$ and $c \in \mathbb{R}$, then $c\cdot \vec{v} \in$ Null$(T)$.
+\begin{solution}
+Let $c \in \mathbb{R}, \vec{v}\in$ Null$(T)$ be arbitrary. By definition of Null$(T)$, we have that $T(\vec{v})=\vec{0}$. Notice that
+$T(c\cdot \vec{v}) = c\cdot T(\vec{v})  \text{ (by the definition of linear transformation) } = c\cdot \vec{0} = \vec{0}$. So we have $T(c\cdot \vec{v})  = \vec{0}$. Because $c\cdot \vec{v}  \in \mathbb{R}^2$, $c\cdot \vec{v} \in$ Null$(T)$. Because $c, \vec{v}$ were arbitrary, the result follows.
+
+\end{solution}
+%\newline
+%\newline
+%\newline
+%\newline
+%\newline
+%\newline
+%\[
+%\text{PAGE 1 OF X FOR PROBLEM 2}
+%\]
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{3}
+Let $T:\mathbb{R}^2 \to \mathbb{R}^2$ be the unique linear transformation with
+\[
+[T]=\begin{pmatrix}7 &-9\\-3 & 4 \end{pmatrix}\text{.}
+\]
+Explain why $T$ has an inverse and calculate
+\[
+T^{-1}\left(\begin{pmatrix}5\\1 \end{pmatrix} \right) \text{.}
+\]
+%\noindent
+%\newline
+%\newline
+%a. [PART A STUFF]
+%\begin{solution}
+%
+%\end{solution}
+%\noindent
+%\newline
+%\newline
+%a. [PART B STUFF]
+%\begin{solution}
+%
+%\end{solution}
+\noindent
+\newline
+\newline
+
+\begin{solution}
+We have $ad-bc=7\cdot 4 - -9 \cdot -3 = 28 - 27 \neq 0$. By Corollary 3.3.5, it follows that $T$ is bijective. By Proposition 3.3.8, it follows that there exists an inverse for $T$. By Proposition 3.3.14, it follows that the inverse of $T$, denoted $T^{-1}$, has the standard matrix $[T^{-1}]=\frac{1}{28-27} \begin{pmatrix} 4&9\\3&7\end{pmatrix} = \begin{pmatrix} 4&9\\3&7\end{pmatrix}$. By Proposition 3.1.4, $T^{-1}\left(\begin{pmatrix}5\\1\end{pmatrix}\right)=\begin{pmatrix} 4&9\\3&7\end{pmatrix}\begin{pmatrix}5\\1\end{pmatrix} = \begin{pmatrix} 4\cdot 5 + 9\cdot 1\\3\cdot 5 + 7\cdot 1\end{pmatrix} = \begin{pmatrix} 20 + 9\\15 + 7\end{pmatrix} = \begin{pmatrix} 29\\22 \end{pmatrix}$. We check our answer by computing $T\left(\begin{pmatrix} 29\\22 \end{pmatrix}\right) = \begin{pmatrix}7 &-9\\-3 & 4 \end{pmatrix}\begin{pmatrix} 29\\22 \end{pmatrix} =  \begin{pmatrix}7\cdot 29 + -9\cdot 22\\-3\cdot 29 + 4\cdot 22 \end{pmatrix} = \begin{pmatrix}203-198 \\-87+88 \end{pmatrix} = \begin{pmatrix}5\\1\end{pmatrix}$. This is what we expect. We conclude that we have correctly computed $T^{-1}\left(\begin{pmatrix}5\\1 \end{pmatrix} \right)$ to be $\begin{pmatrix}29\\22\end{pmatrix}$.
+\end{solution}
+%\newline
+%\newline
+%\newline
+%\newline
+%\newline
+%\newline
+%\[
+%\text{PAGE 1 OF X FOR PROBLEM 3}
+%\]
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{4}
+Consider the following system of equations:
+\begin{align*}
+x+4y=& -3\\
+2x+5y=&8
+\end{align*}
+\noindent
+\newline
+\newline
+a. Rewrite the above system in the form $A\vec{v}=\vec{b}$ for some matrix $A$ and vector $\vec{b}$.
+\begin{solution}
+Let $A = \begin{pmatrix} 1 &4\\2&5 \end{pmatrix}, \vec{v} = \begin{pmatrix} x\\y \end{pmatrix},\vec{b}=\begin{pmatrix}-3\\8\end{pmatrix}$. Let $A\vec{v}=\vec{b}$.
+Notice that $A\vec{v}=\begin{pmatrix} 1 &4\\2&5 \end{pmatrix} \begin{pmatrix} x\\y \end{pmatrix}= \begin{pmatrix} x+4y\\2x+5y \end{pmatrix} = \begin{pmatrix}-3\\8\end{pmatrix}$. This is simply the system of equations we have above, and we can rewrite this system of equations as $\begin{pmatrix} 1 &4\\2&5 \end{pmatrix} \begin{pmatrix} x\\y \end{pmatrix}=\begin{pmatrix}-3\\8\end{pmatrix}$.
+\end{solution}
+\noindent
+\newline
+\newline
+b. Explain why $A$ is invertible and calculate $A^{-1}$.
+\begin{solution}
+Notice that $1\cdot 5 - 4\cdot 2 = 5-8 \neq 0$. By Proposition 3.3.16, $A$ is invertible, and its unique inverse is $\frac{1}{5-8} \begin{pmatrix} 5 &-4\\-2&1\end{pmatrix} = \frac{1}{-3}\begin{pmatrix} 5 &-4\\-2&1\end{pmatrix}$. This is denoted by $A^{-1}$ by definition.
+%We say that a 2$\times$2 matrix $A$ is invertible if there exists a 2$\times$2 matrix $B$ such that $AB=I$ and $BA=I$.
+\end{solution}
+\noindent
+\newline
+\newline
+c. Use $A^{-1}$ to solve the system.
+\begin{solution}
+We have $A\vec{v}=\vec{b}$. Taking the matrix product on both sides, we get $A^{-1}(A\vec{v})=A^{-1}\vec{b} = (A^{-1} A)\vec{v} \text{(By Proposition 3.2.5)}$. Because $A$ is invertible, $A^{-1} A=I$, where $I$ is the identity matrix. So we have $A^{-1}\vec{b} = I\vec{v}=\vec{v}$. We compute:
+\noindent
+\newline
+\newline
+$A^{-1}\vec{b} = \frac{1}{-3}\begin{pmatrix} 5 &-4\\-2&1\end{pmatrix}\begin{pmatrix}-3\\8\end{pmatrix} =  \frac{1}{-3}\begin{pmatrix} 5\cdot -3 + -4\cdot 8\\-2 \cdot -3 + 1\cdot 8\end{pmatrix} = \frac{1}{-3}\begin{pmatrix} -15 + -32 \\6 + 8\end{pmatrix} =  \frac{1}{-3}\begin{pmatrix} -47 \\14\end{pmatrix} =  \begin{pmatrix} \frac{47}{3} \\ -\frac{14}{3}\end{pmatrix} = \vec{v}$. So $x=\frac{47}{3},y=-\frac{14}{3}$.
+\end{solution}
+%\newline
+%\newline
+%\newline
+%\newline
+%\newline
+%\newline
+%\[
+%\text{PAGE 1 OF X FOR PROBLEM 4}
+%\]
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{5}
+In this problem, let 0 denote the 2$\times$2 zero matrix, i.e the  2$\times$2 where all four entries are 0.
+\noindent
+\newline
+\newline
+a. Give an example of a nonzero 2$\times$2 matrix $A$ with $A\cdot A=$0.
+\begin{solution}
+Let $A=\begin{pmatrix}0&1\\0&0 \end{pmatrix}$. Notice that $A$ is nonzero. We then have that $A\cdot A = \begin{pmatrix}0&1\\0&0 \end{pmatrix}\begin{pmatrix}0&1\\0&0 \end{pmatrix}=\begin{pmatrix}0\cdot 0 + 1 \cdot 0 & 0\cdot 1 + 1\cdot 0\\0\cdot 0 + 0\cdot 0&0\cdot 1 + 0\cdot 0 \end{pmatrix} = \begin{pmatrix}0+0 & 0+0\\0+0&0+0 \end{pmatrix} =\begin{pmatrix}0&0\\0&0 \end{pmatrix}$. We have found a nonzero 2$\times$2 matrix $A$, namely $\begin{pmatrix}0&1\\0&0 \end{pmatrix}$, for which $A\cdot A=$0.
+\end{solution}
+\noindent
+\newline
+\newline
+b. Show that if $A$ is invertible and $A \cdot A=$0, then $A=$0.
+\noindent
+\newline
+{\it Hint:} Since 0 is not invertible, it follows from part b that there is no invertible matrix $A$ with $A \cdot A=$0.
+\begin{solution}
+%Let $A=\begin{pmatrix}a&b\\c&d\end{pmatrix}$. 
+We assume that $A\cdot A = 0$ and that $A$ is invertible, so there exists a 2$\times$2 matrix $B$ with $AB=I$ and $BA=I$, where $I$ is the identity matrix. We take the matrix product of $A\cdot A = 0$ with $B$ and get
+\begin{align*}
+B\cdot (A\cdot A) =& B\cdot 0 &\\
+(B\cdot A) \cdot A =& 0 & \text{(By Propositions 3.2.6 and 3.2.8)} \\
+I\cdot A =& 0 &\text{(By definition of $B$)}\\
+A =& 0 &\text{(By Proposition 3.2.7)}
+\end{align*}
+We conclude that $A=0$.
+%By Proposition 3.3.15, we have that $ad-bc \neq 0$. 
+%We compute $A\cdot A = 0$:
+%\begin{align*}
+%A\cdot A =& \begin{pmatrix}a&b\\c&d\end{pmatrix}\begin{pmatrix}a&b\\c&d\end{pmatrix} &\\
+%=& \begin{pmatrix}aa+bc&ab+bd\\ca+dc&cb+dd\end{pmatrix} = \begin{pmatrix}a^2+bc&b(a+d)\\c(a+d)&cb+d^2\end{pmatrix}\begin{pmatrix} 0&0\\0&0\end{pmatrix}
+%\end{align*}
+%By Proposition 3.3.18, $A\cdot A$ is invertible, and so by Proposition 3.3.16, we have that $(a^2 +bc)(cb+d^2)-bc(a+d)^2 \neq 0$. But if $A\cdot A = 0$, then every entry of $A \cdot A$ must also equal zero, meaning that $(a^2 +bc)(cb+d^2)-bc(a+d)^2=0\cdot 0 - 0\cdot 0 =0$. Our assumption that $A \cdot A=0$ is invertible and $A\cdot A=0$  has lead to a contradiction, so it must be the case that $A$ is not invertible or $A\cdot A \neq 0$.  
+%if  We compute:
+%\begin{align*}
+%(a^2 +bc)(cb+d^2)-bc(a+d)^2 =& a^2 bc +a^2 d^2 +b^2 c^2 +bcd^2 - bca^2 -2bcad -bcd^2 &\\
+%=& 0 + a^2 d^2 +b^2 c^2 + 0 - 0 -2bcad - 0 &\\
+%=& a^2 d^2 -2bcad + b^2 c^2 & \\
+%=& (ad -bc)^2 
+%\end{align*}
+\end{solution}
+%\newline
+%\newline
+%\newline
+%\newline
+%\newline
+%\newline
+%\[
+%\text{PAGE 1 OF X FOR PROBLEM 5}
+%\]
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{6}
+Let $A,B,C$ all be invertible 2$\times$2 matrices. Must there exist a 2$\times$2 matrix $X$ with
+\[
+A(X+B)C=I\text{?}
+\]
+Either justify carefully of give a counterexample.
+%\noindent
+%\newline
+%\newline
+%a. [PART A STUFF]
+%\begin{solution}
+%
+%\end{solution}
+%\noindent
+%\newline
+%\newline
+%a. [PART B STUFF]
+%\begin{solution}
+%
+%\end{solution}
+\noindent
+\newline
+\newline
+
+\begin{solution}
+Let $A,B,C$ be arbitrary invertible 2$\times$2 matrices. By definition of invertible, there exist 2$\times$2 matrices  $A^{-1} , B^{-1} , C^{-1}$ with $A\cdot A^{-1} =I$, $A^{-1}\cdot A=I$, $B\cdot B^{-1} =I$,$B^{-1}\cdot B=I$, $C\cdot C^{-1} =I$ and $C^{-1}\cdot C=I$, where $I$ is the identity matrix. 
+Applying Proposition 3.2.6, we do the following: We start with our expression:
+\begin{align*}
+ A(X+B)C =& I & \text{and then take the matrix product with $A^{-1}$:}\\
+ A^{-1}A(X+B)C= &A^{-1} I & \text{}\\
+ I(X+B)C=&A^{-1} & \text{(By definition of $A^{-1}$). Now we take the matrix product with $C^{-1}$:}\\
+ (X+B)CC^{-1}=&A^{-1} C^{-1} &\text{}\\
+ (X+B)I = &A^{-1} C^{-1} &\text{(By definition of $C^{-1}$)}\\
+ X+B = &A^{-1} C^{-1} &\text{(By Proposition 3.2.7)}\\
+ X = &A^{-1} C^{-1} -B &\text{}\\
+\end{align*}
+Notice that $B$ need not be invertible in order for this equation to be true, however in this case it is. Notice that the existence of $X$ is dependent on $A,C$ being invertible 2$\times$2 matrices, otherwise the matrices we have defined above as $A^{-1} , C^{-1}$ would not exist (by Proposition 3.3.16), and so $X$ would be undefined for arbitrary 2$\times$2 matrices $A,B,C$. In this case, $A,B,C$ are all arbitrary invertible 2$\times$2 matrices, so we conclude that there must exist such a 2$\times$2 matrix $X$ with
+\[
+A(X+B)C=I
+\]
+which is given by $X = A^{-1} C^{-1} -B$. 
+\end{solution}
+%\newline
+%\newline
+%\newline
+%\newline
+%\newline
+%\newline
+%\[
+%\text{PAGE 1 OF X FOR PROBLEM 6}
+%\]
+\end{problem}
+
+
+\end{document}

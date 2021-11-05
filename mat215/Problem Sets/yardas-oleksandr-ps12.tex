@@ -1,0 +1,369 @@
+\documentclass[12pt]{article}
+\usepackage{latexsym, amssymb, amsmath, amsfonts, amscd, amsthm, xcolor, pgfplots}
+\usepackage{framed}
+\usepackage[margin=1in]{geometry}
+\linespread{1} %Change the line spacing only if instructed to do so.
+
+\newenvironment{problem}[2][Problem]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1 #2:}]
+	}
+{
+	\end{trivlist}
+	}
+
+\newenvironment{solution}[1][Solution]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\itshape #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+\newenvironment{collaborators}[1][Collaborator(s)]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%    You need only modify code below this block.
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\title{Assignment: Problem Set 12} %Change this to the assignment you are submitting.
+\author{Name: Oleksandr Yardas} %Change this to your name.
+\date{Due Date: 03/12/2018 } %Change this to the due date for the assignment you are submitting.
+\begin{document}
+	\maketitle
+	\thispagestyle{empty}
+	
+	\section*{List Your Collaborators:}%Enter your collaborators names below. Do not delete extra rows.
+	
+	\begin{itemize}
+		\begin{framed}
+			\item 
+			Problem 1: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 2: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 3: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 4: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 5: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 6: None
+			\\\\
+		\end{framed}
+	\end{itemize}
+\newpage
+%
+%%%%%%%%%%%%%%%
+%
+% Your problem statements and solutions start here.
+% Use the \newpage command between problems so that
+% each of your problems begins on its own page.
+%
+%%%%%%%%%%%%%%%
+
+%FORMATTING OPTIONS
+%FOR BLANK SPACES: \underline{\hspace{2cm}}
+%FOR SPACES IN align OR SIMILAR ENVIRONMENTS:  \hphantom{1000}
+%FOR MATRICES: \begin{matrix} \end{matrix}, can add p, b, B, v, V, small as suffix to "matrix"
+%SETS: \mathbb{R}^, :\mathbb{R}^ \to \mathbb{R}^
+%Vectors: \vec{},
+%SUBSCRIPTS: _{}
+%FRACTIONS: \frac{}{}
+%PLUS/MINUS: \pm
+%RIGHT/LEFT: 
+
+%Provide the problem statement.
+\begin{problem}{1}
+Find the eigenvalues of the matrix
+\[
+\begin{pmatrix} 5&-1\\-7&3 \end{pmatrix} \text{.}
+\]
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+We can find the eigenvalues $\lambda$ by solving the characteristic polynomial of $\begin{pmatrix} 5&-1\\-7&3 \end{pmatrix}$, that is, finding values of $\lambda$ such that the equation $(5-\lambda)(3-\lambda) - (-7)(-1) = 0$ is true. We assume that the characteristic polynomial is true. We then have
+\begin{align*}
+0=(5-\lambda)(3-\lambda) - (-7)(-1)=& (5-\lambda)(3-\lambda) - 7\\
+=& 15-8 \lambda + {\lambda}^2 -7\\
+=& {\lambda}^2 -8 \lambda + 8
+\end{align*}
+We complete the square, adding 8 to both sides:
+\begin{align}
+8 =&  \lambda ^2 -8 \lambda + 16\\
+8 =& (\lambda -4)^2\\
+\pm 2 \sqrt{2} =& \lambda - 4\\
+4 \pm 2 \sqrt{2} =& \lambda
+\end{align}
+We have two eigenvalues, $\lambda_{1} = 4 + 2\sqrt{2}, \lambda_{2} = 4 - 2\sqrt{2}$.
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 1}\end{problem}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{2}
+Find the eigenvalues of the matrix
+\[
+\begin{pmatrix}1&8\\2&1\end{pmatrix} \text{,}
+\]
+and then find (at least) one eigenvector for each eigenvalue.
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+We can find the eigenvalues $\lambda$ by solving the characteristic polynomial of $\begin{pmatrix} 1&8\\2&1 \end{pmatrix}$, that is, finding values of $\lambda$ such that the equation $(1-\lambda)^2 - (2)(8) = 0$ is true. We assume that the characteristic polynomial is true. We then have
+\begin{align}
+0=(1-\lambda)^2 - (2)(8)=& (1-\lambda)^2 - 16 \\
+16=& (\lambda-1)^2\\
+\pm 4 = \lambda-1\\
+1 \pm 4 =\lambda
+\end{align}
+We have two eigenvalues, $\lambda_{1} = 1+4=5, \lambda_{2} = 1-4 =-3$. We now find eigenvectors of $\begin{pmatrix}1&8\\2&1\end{pmatrix}$ corresponding to eigenvalues $5$ and $-3$, that is, we find the value of the vectors $\vec{v_{1}}, \vec{v_{2}} \in \mathbb{R}^2$ that satisfy
+\[
+\left( \begin{pmatrix}1&8\\2&1\end{pmatrix} - 5I \right) \vec{v_{1}} = \vec{0}
+ \hphantom{1000}
+ \text{ and }
+ \hphantom{1000}
+\left( \begin{pmatrix}1&8\\2&1\end{pmatrix} +3I \right) \vec{v_{2}} = \vec{0}
+\]
+Letting, $\vec{v_{1}}=\begin{pmatrix} x_{1}\\y_{1}\end{pmatrix},\vec{v_{2}} = \begin{pmatrix} x_{2}\\y_{2}\end{pmatrix}$, we get,
+\[
+\begin{pmatrix}-4&8\\2&-4\end{pmatrix} \begin{pmatrix} x_{1}\\y_{1}\end{pmatrix} %= \vec{0}
+ \hphantom{1000}
+ \text{ and }
+ \hphantom{1000}
+\begin{pmatrix}4&8\\2&4\end{pmatrix}\begin{pmatrix} x_{2}\\y_{2}\end{pmatrix} %= \vec{0}
+\]
+which become
+\[
+\begin{pmatrix}-4x_{1}+8y_{1}\\2x_{1}-4y_{1}\end{pmatrix} %= \begin{pmatrix}0\\0\end{pmatrix}
+ \hphantom{1000}
+ \text{ and }
+ \hphantom{1000}
+\begin{pmatrix}4x_{2}+8y_{2}\\2x_{2}+4y_{2}\end{pmatrix}%= \begin{pmatrix}0\\0\end{pmatrix}
+\]
+Letting $x_{1}=2,y_{1}=1,x_{2}=-2,y_{2}=1$, we get
+\[
+\begin{pmatrix}-4\cdot 2+8\cdot 1\\2\cdot 2-4\cdot 1\end{pmatrix} =\begin{pmatrix}-8+8\\4-4\end{pmatrix} = \begin{pmatrix}0\\0\end{pmatrix}= \vec{0} %= \begin{pmatrix}0\\0\end{pmatrix}
+ \hphantom{1000}
+ \text{ and }
+ \hphantom{1000}
+\begin{pmatrix}4\cdot -2+8\cdot 1\\2\cdot -2+4\cdot 1\end{pmatrix} =\begin{pmatrix}-8+8\\-4+4\end{pmatrix}  = \begin{pmatrix}0\\0\end{pmatrix}=\vec{0} %= \begin{pmatrix}0\\0\end{pmatrix}
+\]
+So $\begin{pmatrix}2\\1\end{pmatrix}$ an eigenvector of $\begin{pmatrix}1&8\\2&1\end{pmatrix}$ corresponding to eigenvalue $-5$, and $\begin{pmatrix}-2\\1\end{pmatrix}$ an eigenvector of $\begin{pmatrix}1&8\\2&1\end{pmatrix}$ corresponding to eigenvalue $3$.
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 2}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{3}
+Find the eigenvalues of the matrix
+\[
+\begin{pmatrix}2&-1\\1&4\end{pmatrix} \text{,}
+\]
+and then find (at least) one eigenvector for each eigenvalue.
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+We can find the eigenvalues $\lambda$ by solving the characteristic polynomial of $\begin{pmatrix}2&-1\\1&4\end{pmatrix}$, that is, finding values of $\lambda$ such that the equation $(2-\lambda)(4-\lambda) - (1)(-1) = 0$ is true. We assume that the characteristic polynomial is true. We then have
+\begin{align*}
+0=(2-\lambda)(4-\lambda) - (1)(-1)=& (2-\lambda)(4-\lambda) +1 \\
+=& 8-6 \lambda + \lambda ^2 +1\\
+=& \lambda ^2 -6 \lambda +9\\
+=& (\lambda - 3)^2
+\end{align*}
+We have a repeated eigenvalue, $\lambda = 3$. We now find an eigenvector of $\begin{pmatrix}2&-1\\1&4\end{pmatrix}$ corresponding to eigenvalue $3$, that is, we find the value of the vectors $\vec{v} \in \mathbb{R}^2$ that satisfies
+\[
+\left( \begin{pmatrix}2&-1\\1&4\end{pmatrix} - 3I \right) \vec{v} = \vec{0}
+\]
+Letting, $\vec{v}=\begin{pmatrix} x\\y\end{pmatrix}$, we get,
+\[
+\begin{pmatrix}-1&-1\\1&1\end{pmatrix} \begin{pmatrix} x\\y\end{pmatrix} %= \vec{0}
+\]
+which becomes
+\[
+\begin{pmatrix}-x-y\\x+y\end{pmatrix} %= \begin{pmatrix}0\\0\end{pmatrix}
+\]
+Letting $x=1,y=-1$, we get
+\[
+\begin{pmatrix} -1-(-1)\\1+(-1)\end{pmatrix} = \begin{pmatrix} -1+1\\1-1\end{pmatrix} =\begin{pmatrix}0\\0\end{pmatrix} = \vec{0}
+\]
+So $\begin{pmatrix}1\\-1\end{pmatrix}$ an eigenvector of $\begin{pmatrix}2&-1\\1&4\end{pmatrix}$ corresponding to eigenvalue $3$.
+
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 3}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{4}
+Find values for $c$ and $d$ such that the matrix
+\[
+\begin{pmatrix}3&1\\c&d\end{pmatrix}
+\]
+has both 4 and 7 as eigenvalues. You should show the derivation for how you arrived at your choice.
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+We want to find values of $c$ and $d$ such that the solutions of the characteristic polynomial are 4 and 7, that is, we want to find $c$ and $d$ such that the equation $0=(3-\lambda)(d-\lambda)-(c)(1)$ is true for $\lambda=4$ and $\lambda=7$. In other words, we need to find $c,d$ that solve the system of equations
+\[
+0=4-d-c \hphantom{1000} \text{ and } \hphantom{1000} 0=28-4d-c
+\]
+These equations are derived by plugging in 4 and 7 for $\lambda$, yielding
+\[
+0=(3-4)(d-4)-c \hphantom{1000} \text{ and } \hphantom{1000} 0=(3-7)(d-7)-c
+\]
+which become
+\[
+0=-1(d-4)-c \hphantom{1000} \text{ and } \hphantom{1000} 0=-4(d-7)-c \text{,}
+\]
+and finally
+\[
+0=4-d-c \hphantom{1000} \text{ and } \hphantom{1000} 0=28-4d-c \text{.}
+\]
+We solve for $d$:
+\begin{align}
+28-4d-c=&4-d-c\\
+28-4d=&4-d\\
+28-4=&4d-d\\
+24=&3d\\
+8=&d
+\end{align}
+So $d=8$. We now solve for $c$:
+\begin{align}
+0=28-32-c=&4-8-c=0\\
+0=-4-c=&-4-c=0
+\end{align}
+We know that both the left and the right hand side have to be equal to zero, so it must be the case that $c=-4$. Thus, the values of $c$ and $d$ that give the matrix $\begin{pmatrix}3&1\\c&d\end{pmatrix}$ eigenvalues of 4 and 7 are $c=-4, d=8$.
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 4}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{5}
+Consider the unique linear transfomation $T: \mathbb{R}^2 \to \mathbb{R}^2$ with
+\[
+[T] = \begin{pmatrix} 1&0\\6&-1\end{pmatrix} \text{.}
+\]
+Determine if $T$ is diagonalizable. If so, find an example of the basis $\alpha = (\vec{u_{1}}, \vec{u_{2}})$ of $\mathbb{R}^2$ such that $[T]_{\alpha}$ is a diagonal matrix, and determine $[T]_{\alpha}$ in this case.
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+By definition, $[T]$ is diagonalizable if there exists a basis $\alpha = (\vec{u_{1}},\vec{u_{2}})$ such that $[T]_{\alpha}$ is a diagonal matrix. It follows from Proposition 3.5.13, that $T$ is diagonalizable if and only if $\vec{u_{1}}$ and $\vec{u_{2}}$ are eigenvectors of $T$. So we need to find eigenvectors of $T$ $\vec{u_{1}}$ and $\vec{u_{2}}$ form a basis of $\mathbb{R}^2$. As we did before, we first find eigenvalues by solving the characteristic polynomial:
+\begin{align*}
+0=&(1-\lambda)(-1-\lambda)-(6)(0)\\
+=&-(1-\lambda)(1+\lambda)\\
+=&-(1-\lambda ^2) = \lambda ^2 -1
+\end{align*}
+We get $1=\lambda ^2$, which gives us two eigenvalues, $\lambda_{1}=1,\lambda_{2}=-1$. We now find the eigenvectors $\vec{v_{1}}=\begin{pmatrix} x_{1}\\y_{1}\end{pmatrix},\vec{v_{2}} = \begin{pmatrix} x_{2}\\y_{2}\end{pmatrix}$ corresponding to $\lambda_{1},\lambda_{2}$ respectively:
+\begin{align}
+\left( \begin{pmatrix} 1&0\\6&-1\end{pmatrix} -1I \right)\vec{v_{1}}=\vec{0} \hphantom{1000} \text{ and }& \hphantom{1000} \left( \begin{pmatrix} 1&0\\6&-1\end{pmatrix} +1I \right)\vec{v_{2}}=\vec{0} \\
+\begin{pmatrix} 0&0\\6&-2 \end{pmatrix}\begin{pmatrix} x_{1}\\y_{1} \end{pmatrix}=\vec{0} \hphantom{1000} \text{ and }& \hphantom{1000} \begin{pmatrix} 2&0\\6&0\end{pmatrix}\begin{pmatrix} x_{2}\\y_{2}\end{pmatrix}=\vec{0}\\
+\begin{pmatrix} 0\\6x_{1}-2y_{1} \end{pmatrix}=\vec{0} \hphantom{1000} \text{ and }& \hphantom{1000} \begin{pmatrix} 2x_{2}\\6x_{2}\end{pmatrix}=\vec{0}
+\end{align}
+It is easy to see that setting $\vec{v_{1}}=\begin{pmatrix}1\\3\end{pmatrix},\vec{v_{2}}=\begin{pmatrix}0\\1\end{pmatrix}$ satisfies the above equations. Note that $(1)(1)-(3)(0)=1\neq 0$, so by Theorem 2.3.10, Span$(\vec{v_{1}},\vec{v_{2}})=\mathbb{R}^2$. By definition of basis, $\beta=(\vec{v_{1}},\vec{v_{2}})$ is a basis of $\mathbb{R}^2$. By definition of $[T]_{\beta}$, the entries in the first row are the coordinates of $T(\vec{v_{1}})$ with respect to $\beta$ and the entries in the second row are the coordinates of $T(\vec{v_{2}})$ with respect to $\beta$. We find these as follows:
+\begin{align*}
+T(\vec{v_{1}})=\begin{pmatrix} 1&0\\6&-1\end{pmatrix}\begin{pmatrix}1\\3\end{pmatrix} = \begin{pmatrix}1\\3\end{pmatrix} = 1\vec{v_{1}} + 0\vec{v_{2}}\\
+T(\vec{v_{2}})=\begin{pmatrix} 1&0\\6&-1\end{pmatrix}\begin{pmatrix}0\\1\end{pmatrix} = \begin{pmatrix}0\\-1\end{pmatrix} = 0\vec{v_{1}} - 1\vec{v_{2}}
+\end{align*}
+So $[T]_{\beta}=\begin{pmatrix}1&0\\0&-1\end{pmatrix}$, and it is clear to see that it is indeed diagonal.
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 5}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{6}
+Consider the unique linear transfomation $T: \mathbb{R}^2 \to \mathbb{R}^2$ with
+\[
+[T] = \begin{pmatrix} 3&-1\\1&5\end{pmatrix} \text{.}
+\]
+Determine if $T$ is diagonalizable. If so, find an example of the basis $\alpha = (\vec{u_{1}}, \vec{u_{2}})$ of $\mathbb{R}^2$ such that $[T]_{\alpha}$ is a diagonal matrix, and determine $[T]_{\alpha}$ in this case.
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+By definition, $[T]$ is diagonalizable if there exists a basis $\alpha = (\vec{u_{1}},\vec{u_{2}})$ such that $[T]_{\alpha}$ is a diagonal matrix. It follows from Proposition 3.5.13, that $T$ is diagonalizable if and only if $\vec{u_{1}}$ and $\vec{u_{2}}$ are eigenvectors of $T$. So we need to find eigenvectors of $T$ $\vec{u_{1}}$ and $\vec{u_{2}}$ form a basis of $\mathbb{R}^2$. As we did before, we first find eigenvalues by solving the characteristic polynomial:
+\begin{align*}
+0=&(3-\lambda)(5-\lambda)-(1)(-1)\\
+=&15-8\lambda +\lambda ^2 +1\\
+=&\lambda ^2 -8\lambda +16 =(\lambda - 4)^2
+\end{align*}
+We get a repeated eigenvalue, $\lambda=4$, so $[T]$ only has one eigenvector, so there exists no basis $\alpha=(\vec{u_{1}},\vec{u_{2}})$ for which $\vec{u_{1}}$ and $\vec{u_{2}}$ are eigenvectors of $T$. We conclude that $[T]$ is not diagonalizable.
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 6}
+\end{problem}
+
+
+\end{document}

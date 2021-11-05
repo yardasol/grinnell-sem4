@@ -1,0 +1,242 @@
+\documentclass[12pt]{article}
+\usepackage{latexsym, amssymb, amsmath, amsfonts, amscd, amsthm}
+\usepackage{framed}
+\usepackage[margin=1in]{geometry}
+\linespread{1} %Change the line spacing only if instructed to do so.
+
+\newenvironment{problem}[2][Problem]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1 #2:}]
+	}
+{
+	\end{trivlist}
+	}
+
+\newenvironment{solution}[1][Solution]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\itshape #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+\newenvironment{collaborators}[1][Collaborator(s)]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%    You need only modify code below this block.
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\title{Assignment: Writing Assignment 3} %Change this to the assignment you are submitting.
+\author{Name: Oleksandr Yardas} %Change this to your name.
+\date{Due Date: 02/23/2018 } %Change this to the due date for the assignment you are submitting.
+\begin{document}
+	\maketitle
+	\thispagestyle{empty}
+	
+	\section*{List Your Collaborators:}%Enter your collaborators names below. Do not delete extra rows.
+	
+	\begin{itemize}
+		\begin{framed}
+			\item 
+			Problem 1: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 2: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 3: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 4: Not Applicable
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 5: Not Applicable
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 6: Not Applicable
+			\\\\
+		\end{framed}
+	\end{itemize}
+\newpage
+%
+%%%%%%%%%%%%%%%
+%
+% Your problem statements and solutions start here.
+% Use the \newpage command between problems so that
+% each of your problems begins on its own page.
+%
+%%%%%%%%%%%%%%%
+%Provide the problem statement.
+\begin{problem}{1}
+Consider the linear transformation $T:\mathbb{R}^2 \to \mathbb{R}^2$ given by
+\[
+T \left( \begin{pmatrix} x \\ y \end{pmatrix} \right) = \begin{pmatrix} x-y \\ x+y \end{pmatrix} \text{.}
+\]
+Is $T$ injective? Justify your answer carefully.
+\begin{solution}
+Let $\vec{v}=\begin{pmatrix}v_{1}\\ v_{2} \end{pmatrix}, \vec{w} =\begin{pmatrix}w_{1}\\w_{2} \end{pmatrix} \in \mathbb{R}^2$ be arbitrary vectors.
+If $T$ is injective, then whenever $T(\vec{v})=T(\vec{w})$, we have that $\vec{v}=\vec{w}$. That is, $T$ is injective if whenever $T(\vec{v})=T(\vec{w})$ implied that $\vec{v}=\vec{w}$. We assume that $T$ is injective. So we have:
+\begin{align*}
+T (\vec{v}) =& T (\vec{w}) &\\
+\begin{pmatrix} v_{1}-v_{2} \\ v_{1}+v_{2} \end{pmatrix}=& \begin{pmatrix} w_{1}-w_{2} \\ w_{1}+w_{2} \end{pmatrix}& \text{(by the definition of $T$)}
+\end{align*}
+We solve for $v_{1}, v_{2}$. Taking the first component, we manipulate to express $v_{1}$ in terms of $v_{2}, w_{1}, w_{2}$:
+\begin{align*}
+v_{1}&-v_{2} = w_{1}-w_{2}\\
+v_{1} &= w_{1}-w_{2}+ v_{2}\text{,}
+\end{align*}
+and substitute for $v_{1}$ in the bottom component:
+\begin{align*}
+v_{1}+v_{2}=&w_{1}+w_{2}\\
+(w_{1}-w_{2}+ v_{2})+v_{2}=&w_{1}+w_{2}\\
+w_{1}-w_{2}+ 2v_{2}=&w_{1}+w_{2}\\
+2v_{2}=&w_{1}+w_{2} -(w_{1}-w_{2})\\
+2v_{2}=& 2w_{2}\\
+v_{2}=& w_{2}
+\end{align*}
+So $v_{2}= w_{2}$. Substituting back in for $v_{2}$ in the top component, we have:
+\begin{align*}
+v_{1}-(w_{2}) =& w_{1}-w_{2}\\
+v_{1}=&w_{1}
+\end{align*}
+Our assumption has lead us to the conclusion that $v_{1}= w_{1}, v_{2}= w_{2}$. So $\vec{v}=\vec{w}$, therefore $T$ is injective by definition. Because $\vec{v},\vec{w}$ were arbitrary, the result follows.
+\end{solution}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{2}
+Let $T : \mathbb{R}^2 \to \mathbb{R}^2$ be a linear transformation. Recall that
+\[
+\text{range}(T) = \{ \vec{w} \in \mathbb{R}^2 : \text{There exists } \vec{v} \in \mathbb{R}^2 \text{ with } \vec{w} = T( \vec{v} ) \} \text{.}
+\]
+Notice that $\vec{0} \in$ range$(T)$ because we know that $T( \vec{0} ) = \vec{0}$ by Proposition 2.4.2.
+\noindent
+\newline
+\newline
+a. Show that if $\vec{w_{1}}, \vec{w_{2}} \in$ range$(T)$, then $\vec{w_{1}} + \vec{w_{2}} \in$ range$(T)$.
+\begin{solution}
+Let $\vec{v_{1}}, \vec{v_{2}} \in \mathbb{R}^2$ be arbitrary. We fix vectors $\vec{w_{1}}, \vec{w_{2}}, \vec{v} \in \mathbb{R}^2$ by letting $T(\vec{v_{1}})=\vec{w_{1}}, T(\vec{v_{2}})=\vec{w_{2}},\vec{v_{1}}+ \vec{v_{2}}=\vec{v}$. So $\vec{w_{1}}, \vec{w_{2}} \in$ range$(T)$ by definition. Notice that:
+\begin{align*}
+T(\vec{v})=&T(\vec{v_{1}}+ \vec{v_{2}}) &\\
+=&T(\vec{v_{1}})+T(\vec{v_{2}}) & \text{(by definition of linear transformation)}\\
+=&\vec{w_{1}} + \vec{w_{2}} & 
+\end{align*}
+So $T(\vec{v})=\vec{w_{1}} + \vec{w_{2}}$. Because, $\vec{w_{1}} + \vec{w_{2}} \in \mathbb{R}^2$, $\vec{w_{1}} + \vec{w_{2}} \in$ range$(T)$ by definition. Because $\vec{v_{1}}, \vec{v_{2}}$ were arbitrary, the result follows.
+\end{solution}
+\noindent
+\newline
+\newline
+b. Show that if $\vec{w} \in$ range$(T)$ and $c \in \mathbb{R}$, then $c \vec{w} \in$ range$(T)$.
+\begin{solution}
+Let $\vec{v} \in \mathbb{R}^2, c \in \mathbb{R}$ be arbitrary. We fix a vector $\vec{w} \in \mathbb{R}^2$ by letting $T(\vec{v})=\vec{w}$. So $\vec{w} \in$ range$(T)$ by definition. Notice that:
+\begin{align*}
+T(c\vec{v})=& c \cdot T(\vec{v}) &\text{(by definition of linear transformation)}\\
+=&c \cdot \vec{w} & \\
+=&c\vec{w} & 
+\end{align*}
+So $T(c \vec{v})=c\vec{w}$. Because, $c\vec{w} \in \mathbb{R}^2$, $c\vec{w} \in$ range$(T)$ by definition. Because $\vec{w},c$ were arbitrary, the result follows.
+\end{solution}
+%\newline
+%\newline
+%\newline
+%\newline
+%\newline
+%\newline
+%\[
+%\text{PAGE 1 OF X FOR PROBLEM 2}
+%\]
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{3}
+We defined linear transformations from $\mathbb{R}^2$ to $\mathbb{R}^2$, but we can also define them from $\mathbb{R}$ to $\mathbb{R}$ as follows. A linear transformation from $\mathbb{R}$ to $\mathbb{R}$ is a function $f : \mathbb{R} \to \mathbb{R}$ with both of the following properties:
+\begin{itemize}
+\item $f(x+y)=f(x) + f(y)$ for all $x,y \in \mathbb{R}$.
+\item $f(c \cdot x) = c \cdot f(x)$ for all $c,x \in \mathbb{R}$.
+\end{itemize}
+\noindent
+\newline
+\newline
+a. Let $r \in \mathbb{R}$. Show that the function $g_{r}: \mathbb{R} \to \mathbb{R}$ given by $g_{r}(x)=rx$ is a linear transformation.
+\begin{solution}
+We check to see if $g_{r}: \mathbb{R} \to \mathbb{R}$ given by $g_{r}(x)=rx$ satisfies the above conditions. Let $x, y \in \mathbb{R}$ be arbitrary. Note that:
+\begin{align*}
+g_{r}(x+y) =&r(x+y) &\text{(by definition of $g_{r}$)}\\
+=& rx + ry &\\
+=& g_{r}(x) + g_{r}(y) &\text{(by definition of $g_{r}$)}
+\end{align*}
+So for arbitrary $x,y \in \mathbb{R}$, we have $g_{r}(x+y)=g_{r}(x) + g_{r}(y)$. So $g_{r}$ satisfies the first condition. Now we test the second condition. Let $c \in \mathbb{R}$ be arbitrary. Note that:
+\begin{align*}
+g_{r}(c\cdot x) =&r(c \cdot x) &\text{(by definition of $g_{r}$)}\\
+=& crx &\\
+=&c \cdot (rx) &\\
+=& c\cdot g_{r}(x) &\text{(by definition of $g_{r}$)}
+\end{align*}
+So for arbitrary $c \in \mathbb{R}$, we have $g_{r}(c\cdot x)=c\cdot g_{r}(x)$. So $g_{r}$ satisfies the second condition.
+\noindent
+We have shown both conditions to be satisfied for $g_{r}: \mathbb{R} \to \mathbb{R}$ given by $g_{r}(x)=rx$, so $g_{r}$ is a linear transformation by definition.
+
+\end{solution}
+\noindent
+\newline
+\newline
+b. Show that if $f : \mathbb{R} \to \mathbb{R}$ and $g : \mathbb{R} \to \mathbb{R}$ are both linear transformations, and $f(1)=g(1)$, then $f=g$.
+\begin{solution}
+Let $f : \mathbb{R} \to \mathbb{R}$ and $g : \mathbb{R} \to \mathbb{R}$ be arbitrary linear transformations. Let $c \in \mathbb{R}$ be arbitrary. Notice that:
+\begin{align*}
+f(c) = f(c \cdot 1) =& c\cdot f(1) & \text{(by definition of linear transformation from $\mathbb{R} \to \mathbb{R}$)}\\
+=& c \cdot g(1) &\text{(by assumption)}\\
+=& g(c) & \text{(by definition of linear transformation from $\mathbb{R} \to \mathbb{R}$)}
+\end{align*}
+So for arbitrary $c \in \mathbb{R}$, $f(c) = g(c)$. So $f=g$. Because $f : \mathbb{R} \to \mathbb{R}, g: \mathbb{R} \to \mathbb{R}$ were arbitrary linear transformations, the result follows.
+\end{solution}
+%\newline
+%\newline
+%\newline
+%\newline
+%\newline
+%\newline
+%\[
+%\text{PAGE 1 OF X FOR PROBLEM 3}
+%\]
+\end{problem}
+
+
+\end{document}

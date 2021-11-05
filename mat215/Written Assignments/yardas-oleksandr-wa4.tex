@@ -1,0 +1,285 @@
+\documentclass[12pt]{article}
+\usepackage{latexsym, amssymb, amsmath, amsfonts, amscd, amsthm, xcolor, pgfplots}
+\usepackage{framed}
+\usepackage[margin=1in]{geometry}
+\linespread{1} %Change the line spacing only if instructed to do so.
+
+\newenvironment{problem}[2][Problem]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1 #2:}]
+	}
+{
+	\end{trivlist}
+	}
+
+\newenvironment{solution}[1][Solution]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\itshape #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+\newenvironment{collaborators}[1][Collaborator(s)]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%    You need only modify code below this block.
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\title{Assignment: Written Assignment 4} %Change this to the assignment you are submitting.
+\author{Name: Oleksandr Yardas} %Change this to your name.
+\date{Due Date: 03/02/2018 } %Change this to the due date for the assignment you are submitting.
+\begin{document}
+	\maketitle
+	\thispagestyle{empty}
+	
+	\section*{List Your Collaborators:}%Enter your collaborators names below. Do not delete extra rows.
+	
+	\begin{itemize}
+		\begin{framed}
+			\item 
+			Problem 1: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 2: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 3: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 4: Not Applicable
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 5: Not Applicable
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 6: Not Applicable
+			\\\\
+		\end{framed}
+	\end{itemize}
+\newpage
+%
+%%%%%%%%%%%%%%%
+%
+% Your problem statements and solutions start here.
+% Use the \newpage command between problems so that
+% each of your problems begins on its own page.
+%
+%%%%%%%%%%%%%%%
+
+%FORMATTING OPTIONS
+%FOR BLANK SPACES: \underline{\hspace{2cm}}
+%FOR SPACES IN align OR SIMILAR ENVIRONMENTS:  \hphantom{1000}
+%FOR MATRICES: \begin{matrix} \end{matrix}, can add p, b, B, v, V, small as suffix to "matrix"
+%SETS: \mathbb{R}^, :\mathbb{R}^ \to \mathbb{R}^
+%Vectors: \vec{},
+%SUBSCRIPTS: _{}
+%FRACTIONS: \frac{}{}
+
+%Provide the problem statement.
+
+\begin{problem}{1}
+Suppose that $T:\mathbb{R}^2 \to \mathbb{R}^2$ is a surjective linear transformation and that $\vec{u_{1}},\vec{u_{2}} \in \mathbb{R}^2$. Show that if Span$(\vec{u_{1}},\vec{u_{2}}) = \mathbb{R}^2$, then Span$(T(\vec{u_{1}}),T(\vec{u_{2}}))=\mathbb{R}^2$.
+\noindent
+\newline
+\newline
+{\it Hint:} You need only show that $\mathbb{R}^2 \subseteq$ Span$(T(\vec{u_{1}}),T(\vec{u_{2}}))$, as the reverse containment is immediate. Start by taking an arbitrary $\vec{w} \in \mathbb{R}^2$. To show that $\vec{w} \in$ Span$(T(\vec{u_{1}}),T(\vec{u_{2}})$, what do you need to do?
+\noindent
+\newline
+\newline
+
+\begin{solution}
+We have that Span$(\vec{u_{1}},\vec{u_{2}}) =\mathbb{R}^2$. Applying Theorem 2.3.10, it follows that that there does not exist $n \in \mathbb{R}$ with $n\vec{u_{1}}=\vec{u_{2}}$. %that is, $\vec{u_{1}}$ and $\vec{u_{2}}$ are linearly independent. 
+Because $T$ is surjective, it follows from Corollary 3.3.5 that $T$ is bijective, that is, that there is exactly one $\vec{v} \in \mathbb{R}^2$ for every $\vec{u} \in \mathbb{R}^2$ with $\vec{u}=T(\vec{v})$. Combining this with the fact that that there does not exist $n \in \mathbb{R}$ with $n\vec{u_{1}}=\vec{u_{2}}$, it must be the case that that there does not exist $m \in \mathbb{R}$ with $mT(\vec{u_{1}})=T(\vec{u_{2}})$ (if we assume that it were the case, this would imply $m\vec{u_{1}}=\vec{u_{2}}$ because $T$ is bijective, but we know that there does not exist $n \in \mathbb{R}$ with $n\vec{u_{1}}=\vec{u_{2}}$, so we have a contradiction and so the previous statement about $T$ follows). Applying Theorem 2.3.10, it follows that Span$(T(\vec{u_{1}}),T(\vec{u_{2}})) = \mathbb{R}^2$. 
+
+%If this is not a sufficient conclusion, note that is immediate that Span$(T(\vec{u_{1}}),T(\vec{u_{2}})) \subseteq \mathbb{R}^2$, so we just need to show that $\mathbb{R}^2 \subseteq$ Span$(T(\vec{u_{1}}),T(\vec{u_{2}}))$. Let $\vec{w} \in \mathbb{R}^2$ be arbitrary. Let $\vec{v_{1}}, \vec{v_{2}} \in$ Span$(T(\vec{u_{1}}),T(\vec{u_{2}}))$ be arbitrary. By the definition of Span, we can fix $x,y,p,q \in \mathbb{R}$ such that $\vec{v_{1}}=x\cdot T(\vec{u_{1}}) + y \cdot T(\vec{u_{2}})$, and $\vec{v_{2}}=p\cdot T(\vec{u_{1}}) + q \cdot T(\vec{u_{2}})$. Span$(T(\vec{u_{1}}),T(\vec{u_{2}}))\subseteq \mathbb{R}^2$, so $\vec{v_{1}},\vec{v_{2}} \in \mathbb{R}^2$. Because $\vec{w} \in \mathbb{R}^2$, we can fix an $a,b \in \mathbb{R}^2$ with $\vec{w} = a \vec{v_{1}} + b\vec{v_{2}} =a\cdot (x\cdot T(\vec{u_{1}}) + y \cdot T(\vec{u_{2}})) + b\cdot (p\cdot T(\vec{u_{1}}) + q \cdot T(\vec{u_{2}})) = (ax+bp) \cdot T(\vec{u_{1}}) + (ay+bq) \cdot T(\vec{u_{2}})$. Because $ax+bp,ay+bq \in \mathbb{R}$, $\vec{w} \in$ Span$(T(\vec{u_{1}}),T(\vec{u_{2}}))$. Because $\vec{w}$ was arbitrary, the result follows.
+\end{solution}
+%\newline
+%\newline
+%\newline
+%\newline
+%\newline
+%\newline
+%\[
+%\text{PAGE 1 OF X FOR PROBLEM 1}
+%\]
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{2}
+Suppose that $T:\mathbb{R}^2 \to \mathbb{R}^2$ is a surjective linear transformation and that $\vec{u},\vec{w} \in \mathbb{R}^2$. Show that if $\vec{w}\notin$ Span$(\vec{u})$, then $T(\vec{w}) \notin$ Span$(T(\vec{u}))$.
+\noindent
+\newline
+\newline
+
+\begin{solution}
+Let $\vec{u}, \vec{w} \in \mathbb{R}^2$ be arbitrary with the property that $\vec{w} \notin$ Span$(\vec{u})$. Because $\vec{w} \notin$ Span$(\vec{u})$, by definition there does not exist a $c\in \mathbb{R}$ with $c \cdot \vec{u} = \vec{w}$. We assume that there exists a surjective linear transformation $T:\mathbb{R}^2 \to \mathbb{R}^2$ with $T(\vec{w}) \in$ Span$(T(\vec{u}))$. Because $T(\vec{w}) \in$ Span$(T(\vec{u}))$, we can fix a $d \in \mathbb{R}$ such that $T(\vec{w}) = d\cdot T(\vec{u})$ (by definition of Span). We conclude that $T(\vec{w}) = T(d\cdot \vec{u})$ (by the definition of linear transformation). Because $T$ is surjective, it follows from Corollary 3.3.5 that $T$ is bijective, that is, that for there is exactly one $\vec{v} \in \mathbb{R}^2$ for every $\vec{u} \in \mathbb{R}^2$ with $\vec{u}=T(\vec{v})$. So it must be the case that $\vec{w} = d\cdot \vec{u}$. But we have defined $\vec{u}, \vec{w}$ such that that there does not exist a $c\in \mathbb{R}$ with $c \cdot \vec{u} = \vec{w}$. Our assumption that there exists a surjective linear transformation $T:\mathbb{R}^2 \to \mathbb{R}^2$ with $T(\vec{w}) \in$ Span$(T(\vec{u}))$ has led us to a contradiction, so it must be the case that $T(\vec{w}) \notin$ Span$(T(\vec{u}))$.
+\end{solution}
+%\newline
+%\newline
+%\newline
+%\newline
+%\newline
+%\newline
+%\[
+%\text{PAGE 1 OF X FOR PROBLEM 2}
+%\]
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{3}
+In this problem, we determine which 2$\times$2 matrices commute with {\it every} 2$\times$2 matrix.
+\noindent
+\newline
+a. Show that if $r \in \mathbb{R}$ and we let
+\[
+A=\begin{pmatrix}r&0\\0&r\end{pmatrix}\text{,}
+\]
+then $AB=BA$ for every 2$\times$2 matrix $B$.
+\begin{solution}
+Let B be an arbitrary 2$\times$2 matrix, and fix $a,b,c,d \in \mathbb{R}$ with $B= \begin{pmatrix} a & b \\ c& d \end{pmatrix}$. Note that:
+\begin{align*}
+AB =& \begin{pmatrix}r&0\\0&r\end{pmatrix} \cdot \begin{pmatrix} a & b \\ c& d \end{pmatrix} & \text{(By definition of $A,B$)}\\
+=& \begin{pmatrix} ra + 0\cdot c & rb + 0\cdot d \\ 0\cdot a + rc & 0\cdot b + rd\end{pmatrix} & \text{(By definition 3.2.1)}\\
+=&\begin{pmatrix} ra +  0 & rb + 0 \\ 0 + rc &  0 + rd \end{pmatrix} =\begin{pmatrix} ar +  0 & br + 0 \\ 0 + cr &  0 + dr \end{pmatrix} & \\
+=&\begin{pmatrix} ar +  0 & 0 + br \\ cr + 0 &  0 + dr \end{pmatrix} =\begin{pmatrix} ar + b\cdot 0 & a\cdot 0 + br \\ cr + d\cdot 0 &  c\cdot 0 + dr \end{pmatrix} & \\
+=& \begin{pmatrix} a & b \\ c& d \end{pmatrix} \cdot \begin{pmatrix}r&0\\0&r\end{pmatrix} & \text{(By definition 3.2.1)}\\
+=& BA
+\end{align*}
+Therefore, $AB=BA$. Because $B$ was an arbitrary 2$\times$2 matrix, the result follows.
+\end{solution}
+\noindent
+\newline
+\newline
+b. Suppose that $A$ is a 2$\times$2 matrix with the property that $AB=BA$ for every 2$\times$2 matrix $B$. Show that there exists $r \in \mathbb{R}$ such that
+\[
+A=\begin{pmatrix}r&0\\0&r\end{pmatrix}\text{.}
+\]
+\begin{solution}
+Let $A,B$ be arbitrary 2$\times$2 matrices, and fix $a_{1,1},a_{1,2},a_{2,1},a_{2,2},b_{1,1},b_{1,2},b_{2,1},b_{2,2} \in \mathbb{R}$ such that $A=\begin{pmatrix} a_{1,1} & a_{1,2} \\ a_{2,1} & a_{2,2} \end{pmatrix},B=\begin{pmatrix} b_{1,1} & b_{1,2} \\ b_{2,1} & b_{2,2} \end{pmatrix}$. We assume that that $AB=BA$, so we get:
+\begin{align*}
+AB=& BA &\\
+\Rightarrow \begin{pmatrix} a_{1,1} & a_{1,2} \\ a_{2,1} & a_{2,2} \end{pmatrix} \cdot \begin{pmatrix} b_{1,1} & b_{1,2} \\ b_{2,1} & b_{2,2} \end{pmatrix} =&\begin{pmatrix} b_{1,1} & b_{1,2} \\ b_{2,1} & b_{2,2} \end{pmatrix} \cdot \begin{pmatrix} a_{1,1} & a_{1,2} \\ a_{2,1} & a_{2,2} \end{pmatrix}  & \text{(By definition of $A,B$)} \\
+\Rightarrow \begin{pmatrix} a_{1,1}b_{1,1} + a_{1,2}b_{2,1} & a_{1,1}b_{1,2} + a_{1,2}b_{2,2} \\ a_{2,1}b_{1,1} + a_{2,2}b_{2,1} & a_{2,1}b_{1,2} + a_{2,2}b_{2,2} \end{pmatrix} =& \begin{pmatrix} b_{1,1}a_{1,1} + b_{1,2}a_{2,1} & b_{1,1}a_{1,2} + b_{1,2}a_{2,2} \\ b_{2,1}a_{1,1} + b_{2,2}a_{2,1} & b_{2,1}a_{1,2} + b_{2,2}a_{2,2} \end{pmatrix} &  \text{(By definition 3.2.1)}\\
+\end{align*}
+\[
+\text{PAGE 1 OF 2 FOR PROBLEM 3}
+\]
+Let $a_{1,1}=a_{2,2}=r, a_{1,2}=a_{2,1}=0$, where $r\in \mathbb{R}$ is some fixed constant. So $A=\begin{pmatrix}r&0\\0&r\end{pmatrix}$. We test to see if $AB=BA$ is true
+\begin{align*}
+\begin{pmatrix} rb_{1,1} + 0b_{2,1} & rb_{1,2} + 0b_{2,2} \\ 0b_{1,1} + rb_{2,1} & 0b_{1,2} + rb_{2,2} \end{pmatrix} =& \begin{pmatrix} b_{1,1}r + b_{1,2}0 & b_{1,1}0 + b_{1,2}r \\ b_{2,1}r + b_{2,2}0 & b_{2,1}0 + b_{2,2}r \end{pmatrix}\\
+\Rightarrow \begin{pmatrix} rb_{1,1} & rb_{1,2} \\ rb_{2,1} & rb_{2,2} \end{pmatrix} =& \begin{pmatrix} b_{1,1}r  &  b_{1,2}r \\ b_{2,1}r & b_{2,2}r \end{pmatrix} \text{,}\\
+\end{align*}
+and it is!. We have found an $r\in \mathbb{R}$ such that $A=\begin{pmatrix}r&0\\0&r\end{pmatrix}$ and has the property that $AB=BA$ for every  2$\times$2 matrix $B$.
+%It follows that :
+%\begin{align*}
+%& a_{1,1}b_{1,1} + a_{1,2}b_{2,1} =b_{1,1}a_{1,1} + b_{1,2}a_{2,1} &\\
+%&\Rightarrow a_{1,2}b_{2,1} = b_{1,2}a_{2,1} & \text{(1)}\\
+%\end{align*}
+%\begin{align*}
+%& a_{1,1}b_{1,2} + a_{1,2}b_{2,2} = b_{1,1}a_{1,2} + b_{1,2}a_{2,2} &\\
+%&\Rightarrow (a_{1,1}-a_{2,2})b_{1,2} = (b_{1,1} -b_{2,2})a_{1,2} &\text{(2)}\\
+%\end{align*}
+%\begin{align*}
+%& a_{2,1}b_{1,1} + a_{2,2}b_{2,1}=b_{2,1}a_{1,1} + b_{2,2}a_{2,1} &\\ 
+%&\Rightarrow a_{2,1}(b_{1,1} -b_{2,2})=b_{2,1}(a_{1,1}-a_{2,2})&\text{(3)}\\
+%\end{align*}
+%\begin{align*}
+%&a_{2,1}b_{1,2} + a_{2,2}b_{2,2} = b_{2,1}a_{1,2} + b_{2,2}a_{2,2} & \\
+%&\Rightarrow a_{2,1}b_{1,2}  = b_{2,1}a_{1,2} & \text{(4)}
+%\end{align*}
+%(1) and (4) are identical. If we assume (1) is true, note we can reduce (2) and (3) to:
+%\begin{align*}
+%&b_{1,1} -b_{2,2} = a_{2,1} & \text{from (2)}\\
+%&a_{1,1}-a_{2,2}= b_{2,1} & \text{from (2)} \\
+%&b_{1,1} -b_{2,2} =a_{1,2}& \text{from (3)}\\
+%&a_{1,1}-a_{2,2}=b_{1,2} & \text{from (3)}
+%\end{align*}
+%So it must be the case that $ a_{2,1} =  a_{1,2}$ and that $b_{2,1}=b_{1,2}$.
+%\begin{align*}
+%a_{1,2}b_{2,1} = b_{1,2}a_{2,1}\\
+%(a_{1,1}-a_{2,2})b_{1,2} = (b_{1,1} -b_{2,2})a_{1,2}\\
+%a_{2,1}(b_{1,1} -b_{2,2})=b_{2,1}(a_{1,1}-a_{2,2})\\
+%a_{2,1}b_{1,2}  = b_{2,1}a_{1,2}
+%\end{align*}
+%So we have:
+%\[
+%A= \begin{pmatrix} a_{1,1} & a_{1,2}\\ \frac{a_{1,2}b_{2,1}}{b_{1,2}} & a_{1,1}-\frac{a_{1,2}(b_{1,1}-b_{2,2})}{b_{1,2}} \end{pmatrix}
+%\]
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\[
+\text{PAGE 2 OF 2 FOR PROBLEM 3}
+\]
+\end{solution}
+\end{problem}
+
+
+\end{document}

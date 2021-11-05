@@ -1,0 +1,288 @@
+\documentclass[12pt]{article}
+\usepackage{latexsym, amssymb, amsmath, amsfonts, amscd, amsthm, xcolor, pgfplots}
+\usepackage{framed}
+\usepackage[margin=1in]{geometry}
+\linespread{1} %Change the line spacing only if instructed to do so.
+
+\newenvironment{problem}[2][Problem]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1 #2:}]
+	}
+{
+	\end{trivlist}
+	}
+
+\newenvironment{solution}[1][Solution]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\itshape #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+\newenvironment{collaborators}[1][Collaborator(s)]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%    You need only modify code below this block.
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\title{Assignment: Problem Set 11} %Change this to the assignment you are submitting.
+\author{Name: Oleksandr Yardas} %Change this to your name.
+\date{Due Date: 03/07/2018 } %Change this to the due date for the assignment you are submitting.
+\begin{document}
+	\maketitle
+	\thispagestyle{empty}
+	
+	\section*{List Your Collaborators:}%Enter your collaborators names below. Do not delete extra rows.
+	
+	\begin{itemize}
+		\begin{framed}
+			\item 
+			Problem 1: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 2: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 3: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 4: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 5: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 6: Not Applicable
+			\\\\
+		\end{framed}
+	\end{itemize}
+\newpage
+%
+%%%%%%%%%%%%%%%
+%
+% Your problem statements and solutions start here.
+% Use the \newpage command between problems so that
+% each of your problems begins on its own page.
+%
+%%%%%%%%%%%%%%%
+
+%FORMATTING OPTIONS
+%FOR BLANK SPACES: \underline{\hspace{2cm}}
+%FOR SPACES IN align OR SIMILAR ENVIRONMENTS:  \hphantom{1000}
+%FOR MATRICES: \begin{matrix} \end{matrix}, can add p, b, B, v, V, small as suffix to "matrix"
+%SETS: \mathbb{R}^, :\mathbb{R}^ \to \mathbb{R}^
+%Vectors: \vec{},
+%SUBSCRIPTS: _{}
+%FRACTIONS: \frac{}{}
+
+%Provide the problem statement.
+\begin{problem}{1}
+Consider the unique linear transformation $T:\mathbb{R}^2 \to \mathbb{R}^2$ with
+\[
+[T]=\begin{pmatrix}6&-7\\4&-5\end{pmatrix}\text{.}
+\]
+Let $\alpha=(\vec{u_{1}},\vec{u_{2}})$, where
+\[
+\vec{u_{1}}=\begin{pmatrix}5\\3\end{pmatrix} \hphantom{1000} \text{ and } \hphantom{1000} \vec{u_{2}}=\begin{pmatrix}2\\1\end{pmatrix}
+\]
+In this problem, we compute $[T]_{\alpha}$ directly from the definition.
+\noindent
+\newline
+\newline
+a. Show that $\alpha=(\vec{u_{1}},\vec{u_{2}})$ is a basis of $\mathbb{R}^2$.
+\begin{solution}
+Let $\vec{u},\vec{v} \in \mathbb{R}^2$ be arbitrary.
+% and fix $a,b,c,d \in \mathbb{R}$ with $\vec{v}=\begin{pmatrix}a\\c\end{pmatrix}$ and $\vec{u}=\begin{pmatrix}b\\d\end{pmatrix}$.
+By definition, the ordered pair $(\vec{v},\vec{u})$ is a basis for $\mathbb{R}^2$ if Span$(\vec{v},\vec{u})=\mathbb{R}^2$. Consider the case where $\vec{v}=\vec{u_{1}},\vec{u}=\vec{u_{2}}$, and denote the ordered pair $(\vec{u_{1}},\vec{u_{2}})$ by $\alpha$, that is, let $\alpha=\left( \begin{pmatrix}5\\3\end{pmatrix} ,\begin{pmatrix}2\\1\end{pmatrix} \right)$. Notice that $5\cdot 1 -2\cdot 3=5-6=-1\neq 0$. Applying Theorem 3.4.1, it follows that Span$(\vec{u_{1}},\vec{u_{2}}) =\mathbb{R}^2$. Therfore, $\alpha=(\vec{u_{1}},\vec{u_{2}})$ satisfies the definition of a basis of $\mathbb{R}^2$. 
+\end{solution}
+
+\noindent
+\newline
+\newline
+b. Determine $T(\vec{u_{1}})$ and then use this to compute $[T(\vec{u_{1}})]_{\alpha}$.
+\begin{solution}
+$[T(\vec{u_{1}})]_{\alpha}$ is shorthand for $Coord_{\alpha}(T(\vec{u_{1}}))$, where $Coord_{\alpha}$ is the linear transformation with standard matrix $[Coord_{\alpha}]=\frac{1}{-1}\cdot \begin{pmatrix} 1 & -2\\-3 & 5 \end{pmatrix} = \begin{pmatrix} -1 & 2\\3 & -5 \end{pmatrix}$ (by Definition 2.3.12). $Coord_{\alpha}(T(\vec{u_{1}})) = (Coord_{\alpha} \circ T)(\vec{u_{1}})$ by definition of function composition. $T$ and $Coord_{\alpha}$ are both linear transformations, so by Proposition 2.4.8, $Coord_{\alpha} \circ T$ is also a linear transformation. By Proposition 3.1.4, $(Coord_{\alpha} \circ T)(\vec{u_{1}}) = [Coord_{\alpha} \circ T]\vec{u_{1}}$. 
+By Proposition 3.2.2,  $[Coord_{\alpha} \circ T] =  [Coord_{\alpha}]\cdot [T]$, and it follows that $ [Coord_{\alpha} \circ T]\vec{u_{1}}= [Coord_{\alpha}]\cdot [T] \cdot \vec{u_{1}}$. We conclude that $[T(\vec{u_{1}})]_{\alpha} = [Coord_{\alpha}]\cdot [T] \cdot \vec{u_{1}}$ and we compute:
+\begin{align*}
+ [T(\vec{u_{1}})]_{\alpha} = [Coord_{\alpha}]\cdot [T] \cdot \vec{u_{1}}=& \begin{pmatrix} -1 & 2\\3 & -5 \end{pmatrix} \begin{pmatrix}6&-7\\4&-5\end{pmatrix}\begin{pmatrix}5\\3\end{pmatrix} &\\
+=& \begin{pmatrix} -1\cdot 6 + 2\cdot 4 & -1 \cdot -7 + 2 \cdot -5\\3 \cdot 6 + -5 \cdot 4 & 3\cdot -7 + -5 \cdot -5 \end{pmatrix} \begin{pmatrix}5\\3\end{pmatrix}&\\
+=& \begin{pmatrix} -6 + 8 & 7 + -10 \\18+ -20 & -21 + 25 \end{pmatrix} \begin{pmatrix}5\\3\end{pmatrix}&\\
+=& \begin{pmatrix} 2 & -3 \\-2 & 4 \end{pmatrix} \begin{pmatrix}5\\3\end{pmatrix}&\\
+=& \begin{pmatrix} 2\cdot 5 + -3\cdot 3 \\-2\cdot 5 + 4\cdot 3\end{pmatrix}&\\
+=& \begin{pmatrix} 10 -9 \\-10 +12\end{pmatrix} =  \begin{pmatrix} 1 \\2\end{pmatrix}&\\
+\end{align*}
+\vfill
+\centerline{PAGE 1 OF 2 FOR PROBLEM 1}
+\end{solution}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{2}
+With the same setup as Problem 1, compute $[T]_{\alpha}$ using Proposition 3.4.7.
+\noindent
+\newline
+\newline
+
+\begin{solution}
+Proposition 3.4.7 states that, given a basis $\alpha = (\vec{u_{1}},\vec{u_{2}})$ of $\mathbb{R}^2$ and a linear transformation $T:\mathbb{R}^2 \to \mathbb{R}^2$, and fixing $a,b,c,d \in \mathbb{R}$ with $\vec{u_{1}}=\begin{pmatrix}a\\c\end{pmatrix}, \vec{u_{2}}=\begin{pmatrix}b\\d\end{pmatrix}$ so as to let $P = \begin{pmatrix} a &b\\c&d\end{pmatrix}$, we have that $P$ is invertible and $[T]_{\alpha} = P^{-1} [T]P$. In this case, we have that $[T]=\begin{pmatrix}6&-7\\4&-5\end{pmatrix}$ and $\alpha=\left( \begin{pmatrix}5\\3\end{pmatrix} ,\begin{pmatrix}2\\1\end{pmatrix} \right)$, so $P= \begin{pmatrix}5&2\\3&1\end{pmatrix}$, and By Proposition 3.3.16, $P^{-1} = \frac{1}{5\cdot 1 - 2\cdot 3} \begin{pmatrix} 1 & -2 \\ -3&5\end{pmatrix} = \frac{1}{5-6}  \begin{pmatrix} 1 & -2 \\ -3&5\end{pmatrix} = -1  \begin{pmatrix} 1 & -2 \\ -3&5\end{pmatrix} =  \begin{pmatrix} -1 & 2 \\ 3&-5\end{pmatrix}$. Applying Proposition 3.4.7, we have:
+\begin{align*}
+[T]_{\alpha} = P^{-1} [T]P =&\begin{pmatrix} -1 & 2 \\ 3&-5\end{pmatrix} \begin{pmatrix}6&-7\\4&-5\end{pmatrix}  \begin{pmatrix}5&2\\3&1\end{pmatrix} & \\
+=& \begin{pmatrix} -1 & 2 \\ 3&-5\end{pmatrix} \begin{pmatrix}6\cdot 5 + -7 \cdot 3 &6\cdot 2 + -7\cdot 1\\4\cdot 5 + -5 \cdot 3&4\cdot 2 + -5\cdot 1\end{pmatrix} & \\
+=& \begin{pmatrix} -1 & 2 \\ 3&-5\end{pmatrix} \begin{pmatrix}30-21 &12  -7\\20 -15&8-5\end{pmatrix} & \\
+=& \begin{pmatrix} -1 & 2 \\ 3&-5\end{pmatrix} \begin{pmatrix}9 &5\\5&3\end{pmatrix} & \\
+=& \begin{pmatrix} -1\cdot 9 + 2\cdot 5&-1 \cdot 5 + 2\cdot 3 \\ 3\cdot 9 + -5\cdot 5&3\cdot 5 + -5\cdot 3\end{pmatrix} & \\
+=& \begin{pmatrix} -9 + 10&-5 + 6 \\ 27 + -25&15 -15\end{pmatrix} =\begin{pmatrix} 1&1\\ 2&0\end{pmatrix}  & \\
+\end{align*}
+This result agrees with our result from Problem 1.
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF 4 FOR PROBLEM 2}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{3}
+Again, use the same setup as in Problem 1. Let
+\[
+\vec{v}=\begin{pmatrix}1\\2\end{pmatrix}
+\]
+In this problem, we compute  $[T(\vec{v})]_{\alpha}$ in two different ways.
+\noindent
+\newline
+\newline
+a. First determine $T(\vec{v})$, and then use this to compute $[T(\vec{v})]_{\alpha}$.
+\begin{solution}
+Recall that in Problem 1, we reasoned that $[T(\vec{u_{1}})]_{\alpha} =  [Coord_{\alpha}]\cdot [T] \cdot \vec{u_{1}}$. By similar reasoning, we have that $[T(\vec{v})]_{\alpha} =  [Coord_{\alpha}]\cdot [T] \cdot \vec{v}$. Recall also that we found $[Coord_{\alpha}]\cdot [T] = \begin{pmatrix} 2 & -3 \\-2 & 4 \end{pmatrix}$. So $[T(\vec{v})]_{\alpha} =\begin{pmatrix} 2 & -3 \\-2 & 4 \end{pmatrix} \begin{pmatrix}1\\2\end{pmatrix} = \begin{pmatrix} 2\cdot 1 + -3 \cdot 2 \\ -2 \cdot 1 + 4\cdot 2 \end{pmatrix} = \begin{pmatrix} 2-6 \\ -2+8 \end{pmatrix} = \begin{pmatrix} -4 \\ 6 \end{pmatrix}$.
+\end{solution}
+\noindent
+\newline
+\newline
+b. First determine $[\vec{v}]_{\alpha}$, and then multiply by the result by your matrix $[T]_{\alpha}$ to compute$[T(\vec{v})]_{\alpha}$.
+\begin{solution}
+$[\vec{v}]_{\alpha}$ is shorthand for $Coord_{\alpha} (\vec{v})$. Recall from Problem 1 we reasoned that $Coord_{\alpha} (T(\vec{u_{1}})) = [Coord_{\alpha}] \cdot [T] \cdot \vec{u_{1}}$. By similar reasoning, we have that $Coord_{\alpha} (\vec{v}) = [Coord_{\alpha}] \cdot \vec{v}$. Recall also that we found $[Coord_{\alpha}] = \begin{pmatrix} -1 & 2\\3 & -5 \end{pmatrix}$. So we have that $[\vec{v}]_{\alpha} = [Coord_{\alpha}] \cdot \vec{v} = \begin{pmatrix} -1 & 2\\3 & -5 \end{pmatrix} \begin{pmatrix}1\\2\end{pmatrix} = \begin{pmatrix} -1\cdot 1 + 2\cdot 2\\3\cdot 1 + -5\cdot 2 \end{pmatrix} = \begin{pmatrix} -1+4\\3 -10 \end{pmatrix}=\begin{pmatrix} 3\\-7 \end{pmatrix}$. Taking the matrix product with $[T]_{\alpha} =\begin{pmatrix} 1&1\\ 2&0\end{pmatrix}$, we get $\begin{pmatrix} 1&1\\ 2&0\end{pmatrix} \begin{pmatrix} 3\\-7 \end{pmatrix} =\begin{pmatrix} 1\cdot 3 +1\cdot -7\\ 2\cdot 3 + 0 \cdot -7\end{pmatrix} = \begin{pmatrix} 3-7\\ 6+ 0  \end{pmatrix} = \begin{pmatrix} -4\\ 6 \end{pmatrix} = [T(\vec{v})]_{\alpha}$.
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF 4 FOR PROBLEM 1}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{4}
+Consider the unique linear transformation $T:\mathbb{R}^2 \to \mathbb{R}^2$ with
+\[
+[T]=\begin{pmatrix}3&2\\4&-1\end{pmatrix}\text{.}
+\]
+Let $\alpha=(\vec{u_{1}},\vec{u_{2}})$, where
+\[
+\vec{u_{1}}=\begin{pmatrix}-4\\-2\end{pmatrix} \hphantom{1000} \text{ and } \hphantom{1000} \vec{u_{2}}=\begin{pmatrix}9\\4\end{pmatrix} \text{.}
+\]
+Compute $[T]_{\alpha}$ using any method.
+\noindent
+\newline
+\newline
+\begin{solution}
+Let $P=\begin{pmatrix}-4 & 9\\-2&4\end{pmatrix}$, and so by Proposition 3.3.16, $P^{-1} = \frac{1}{-4\cdot 4 - 9\cdot -2} \begin{pmatrix} 4&-9\\2&-4\end{pmatrix} = \frac{1}{-16+18}\begin{pmatrix} 4&-9\\2&-4\end{pmatrix} = \frac{1}{2} \begin{pmatrix} 4&-9\\2&-4\end{pmatrix} = \begin{pmatrix} 2&-\frac{9}{2}\\1&-2\end{pmatrix}$. Applying Proposition 3.4.7, we have that 
+\begin{align*}
+[T]_{\alpha} = P^{-1} [T]P =& \begin{pmatrix} 2&-\frac{9}{2}\\1&-2\end{pmatrix}\begin{pmatrix}3&2\\4&-1\end{pmatrix}\begin{pmatrix}-4 & 9\\-2&4\end{pmatrix} &\\
+=&\begin{pmatrix} 2&-\frac{9}{2}\\1&-2\end{pmatrix}\begin{pmatrix}3\cdot -4 + 2\cdot -2& 3\cdot 9 + 2\cdot4\\4\cdot -4 + -1\cdot -2&4\cdot 9 + -1\cdot 4\end{pmatrix} &\\
+=&\begin{pmatrix} 2&-\frac{9}{2}\\1&-2\end{pmatrix}\begin{pmatrix}-12 + -4& 27 + 8\\-16+2&36-4\end{pmatrix} & \\
+=&\begin{pmatrix} 2&-\frac{9}{2}\\1&-2\end{pmatrix}\begin{pmatrix}-16& 35\\-14&32\end{pmatrix} & \\
+=& \begin{pmatrix} 2\cdot -16 + -\frac{9}{2} \cdot -14&2\cdot 35 + -\frac{9}{2}\cdot 32\\1\cdot -16 + -2\cdot -14&1\cdot 35 +-2\cdot 32\end{pmatrix} & \\
+=& \begin{pmatrix} -32 + 63&70 -144\\-16 +28&35 -64\end{pmatrix} =\begin{pmatrix} 31&-74\\12&-29\end{pmatrix}  & \\
+\end{align*}
+Therefore $[T]_{\alpha} = \begin{pmatrix} 31&-74\\12&-29\end{pmatrix}$.
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF 4 FOR PROBLEM 1}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{5}
+Let $A$ and $B$ be 2 $\times$ 2 matrices. Assume that $A\vec{v}=B\vec{v}$ for all $\vec{v}\in \mathbb{R}^2$. Show that $A=B$.
+\noindent
+\newline
+\newline
+
+\begin{solution}
+Let $T : \mathbb{R}^2 \to \mathbb{R}^2$, $S : \mathbb{R}^2 \to \mathbb{R}^2$ be arbitrary linear transformations, and let $[T]=A,[S]=B$. We assume that for all $\vec{v} \in \mathbb{R}^2, A\vec{v}=B\vec{v}$, so by definition of $A,B$, $[T]\vec{v} = [S]\vec{v}$ for  for all $\vec{v} \in \mathbb{R}^2$. By Proposition 3.1.4, it follows that $T(\vec{v})=S(\vec{v})$, and so by Proposition 3.1.6, $[T]=[S]$. By definition of $[T],[S]$, we conclude that $A=B$.
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF 4 FOR PROBLEM 1}
+
+\newpage
+So we have that $[T(\vec{u_{1}})]_{\alpha}=\begin{pmatrix} 1\\2 \end{pmatrix}$. Note that $[Coord_{\alpha}]\cdot [T] = \begin{pmatrix} 2 & -3 \\-2 & 4 \end{pmatrix}$. We will use this in the rest of the problem.
+
+\noindent
+\newline
+\newline
+c.  Determine $T(\vec{u_{2}})$ and then use this to compute $[T(\vec{u_{2}})]_{\alpha}$.
+\begin{solution}
+By the similar reasoning as in part b, we have that $[T(\vec{u_{2}})]_{\alpha} = [Coord_{\alpha}]\cdot [T] \cdot \vec{u_{2}}$. We compute:
+\begin{align*}
+[T(\vec{u_{2}})]_{\alpha} = [Coord_{\alpha}]\cdot [T] \cdot \vec{u_{2}} =& \begin{pmatrix} 2 & -3 \\-2 & 4 \end{pmatrix} \begin{pmatrix}2\\1\end{pmatrix} & \\
+=& \begin{pmatrix} 2\cdot 2 + -3\cdot 1 \\-2\cdot 2 + 4\cdot 1 \end{pmatrix} & \\
+=& \begin{pmatrix} 4-3 \\-4 + 4\end{pmatrix} = \begin{pmatrix} 1 \\ 0 \end{pmatrix} & \\
+\end{align*}
+So we have that $[T(\vec{u_{2}})]_{\alpha} = \begin{pmatrix} 1 \\ 0 \end{pmatrix}$. 
+\end{solution}
+
+\noindent
+\newline
+\newline
+d. Using parts b and c, determine $[T]_{\alpha}$.
+\begin{solution}
+We have that $[T(\vec{u_{1}})]_{\alpha}=\begin{pmatrix} 1\\2 \end{pmatrix}, [T(\vec{u_{2}})]_{\alpha} = \begin{pmatrix} 1 \\ 0 \end{pmatrix}$. So $[T]_{\alpha} = \begin{pmatrix} 1 & 1 \\ 2 & 0 \end{pmatrix}$ (by Definition 3.4.2).
+\end{solution}
+
+\vfill
+\centerline{PAGE 2 OF 2 FOR PROBLEM 1}
+\end{problem}
+
+
+\end{document}

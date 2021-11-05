@@ -1,0 +1,301 @@
+\documentclass[12pt]{article}
+\usepackage{latexsym, amssymb, amsmath, amsfonts, amscd, amsthm, xcolor, pgfplots}
+\usepackage{framed}
+\usepackage[margin=1in]{geometry}
+\linespread{1} %Change the line spacing only if instructed to do so.
+
+\newenvironment{problem}[2][Problem]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1 #2:}]
+	}
+{
+	\end{trivlist}
+	}
+
+\newenvironment{solution}[1][Solution]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\itshape #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+\newenvironment{collaborators}[1][Collaborator(s)]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%    You need only modify code below this block.
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\title{Assignment: Problem Set 22} %Change this to the assignment you are submitting.
+\author{Name: Oleksandr Yardas} %Change this to your name.
+\date{Due Date: 05/07/2018 } %Change this to the due date for the assignment you are submitting.
+\begin{document}
+	\maketitle
+	\thispagestyle{empty}
+	
+	\section*{List Your Collaborators:}%Enter your collaborators names below. Do not delete extra rows.
+	
+	\begin{itemize}
+		\begin{framed}
+			\item 
+			Problem 1: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 2: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 3: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 4: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 5: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 6: Not Applicable
+			\\\\
+		\end{framed}
+	\end{itemize}
+\newpage
+%
+%%%%%%%%%%%%%%%
+%
+% Your problem statements and solutions start here.
+% Use the \newpage command between problems so that
+% each of your problems begins on its own page.
+%
+%%%%%%%%%%%%%%%
+
+%FORMATTING OPTIONS
+%FOR BLANK SPACES: \underline{\hspace{2cm}}
+%FOR SPACES IN align OR SIMILAR ENVIRONMENTS:  \hphantom{1000}
+%FOR MATRICES: \begin{matrix} \end{matrix}, can add p, b, B, v, V, small as suffix to "matrix"
+%SETS: \mathbb{R}^, :\mathbb{R}^ \to \mathbb{R}^
+%Vectors: \vec{},
+%SUBSCRIPTS: _{}
+%FRACTIONS: \frac{}{}
+%FANCY LETTERS: \mathcal{}
+
+%Provide the problem statement.
+\begin{problem}{1}
+Consider the matrix
+\[
+A=\begin{pmatrix} 3&2\\5&3\end{pmatrix}\text{.}
+\]
+We know from Proposition 3.3.16 that $A$ is invertible, and we also know a formula for the inverse. Now compute $A^{-1}$ using our new method by applying elementary row operations to the matrix
+\[
+\begin{pmatrix} 3&2&1&0\\5&3&0&1\end{pmatrix}\text{.}
+\]
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+We use the algorithm given at the end of section 5.2. Notice that we already have appended $\begin{pmatrix} 1&0\\0&1 \end{pmatrix}$ to $A$, so we proceed to perform elementary row operations to until the 2 $\times$ 2 matrix on the left is in echelon form:
+\begin{align*}
+\begin{pmatrix} 3&2&1&0\\5&3&0&1\end{pmatrix} \rightarrow & \begin{pmatrix} 3&2&1&0\\0&-\frac{1}{3}&-\frac{5}{3}&1\end{pmatrix} \begin{matrix} \text{} \\ -\frac{5}{3} R_1 + R_2 \text{}\end{matrix} \\
+&\text{Notice that the 2 $\times$ 2 matrix on has a leading entry in every row, so we continue to step 4:}\\
+\rightarrow & \begin{pmatrix} 3&0&-9&6\\0&-\frac{1}{3}&-\frac{5}{3}&1\end{pmatrix} \begin{matrix} 6R_2 + R_1 \text{} \\ \text{}\end{matrix} \\
+\rightarrow & \begin{pmatrix} 1&0&-3&2\\0&1&5&-3\end{pmatrix} \begin{matrix} \frac{1}{3}R_1 \text{} \\ -3R_2\text{}\end{matrix}
+\end{align*}
+We have the 2 $\times$ 2 identity matrix on the left, and so by step 5 the right 2 columns contains $A^{-1}$. So $A^{-1} = \begin{pmatrix} -3&2\\5&-3\end{pmatrix}$. Checking our calculation for $A^{-1}$ using our formula from Chapter 3, we get $A^{-1} = \frac{1}{3\cdot 3 - 5\cdot 2} \begin{pmatrix}3&-2\\-5&3 \end{pmatrix} = \frac{1}{9-10} \begin{pmatrix}3&-2\\-5&3 \end{pmatrix} = -1 \begin{pmatrix}3&-2\\-5&3 \end{pmatrix}  = \begin{pmatrix} -3&2\\5&-3\end{pmatrix}$. So $A^{-1}$ does indeed equal $\begin{pmatrix} -3&2\\5&-3\end{pmatrix}$.
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 1}\end{problem}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{2}
+Let $V$ be the vector space of all 2 $\times$ 2 matrices. Explain why there is no injective linear transformation $T:\mathcal{P}_4 \to V$.
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+Let $T:\mathcal{P}_4 \to V$ be an arbitrary linear transformation. We know that $(1,x,x^2,x^3,x^4)$ is a basis for $\mathcal{P}_4$ and has 5 elements, so by definition of dimension we have that $\text{dim}(\mathcal{P}_4)=5$. We know that $\left( \begin{pmatrix}1&0\\0&0 \end{pmatrix}, \begin{pmatrix}0&1\\0&0 \end{pmatrix}, \begin{pmatrix}0&0\\1&0 \end{pmatrix}, \begin{pmatrix}0&0\\0&1 \end{pmatrix} \right)$ is a basis for $V$ and has 4 elements, so by definition of dimension we have that $\text{dim}(V)=4$. $5>4$, so by Corollary 5.2.15 we have that $T$ is not injective. Because $T:\mathcal{P}_4 \to V$ was arbitrary, the result follows.
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 2}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{3}
+Determine whether each of the following matrices is invertible, and if so, find the inverse.
+\noindent
+\newline
+a. $\begin{pmatrix} 1&1&3\\0&2&4\\-1&1&0 \end{pmatrix}$
+\begin{solution}
+Let $A=\begin{pmatrix} 1&1&3\\0&2&4\\-1&1&0 \end{pmatrix}$. Notice that $A$ is a 3 $\times$ 3 matrix, so we can use the algorithm given at the end of section 5.2. We first form the 3 $\times$ 6 matrix obtained by augmenting $A$ with the 3 $\times$ 3 identity matrix:
+\[
+\begin{pmatrix} 1&1&3&1&0&0\\0&2&4&0&1&0\\-1&1&0&0&0&1 \end{pmatrix}
+\]
+We then perform elementary row operations until the 3 $\times$ 3 matrix on the left is in echelon form:
+\begin{align*}
+\begin{pmatrix} 1&1&3&1&0&0\\0&2&4&0&1&0\\-1&1&0&0&0&1 \end{pmatrix} \rightarrow & \begin{pmatrix} 1&1&3&1&0&0\\0&2&4&0&1&0\\0&2&3&1&0&1 \end{pmatrix} \begin{matrix}  \text{} \\ \text{} \\ R_1 + R_3 \text{} \end{matrix} \\
+%
+\rightarrow & \begin{pmatrix} 1&1&3&1&0&0\\0&2&4&0&1&0\\0&0&-1&1&-1&1 \end{pmatrix}\begin{matrix} \text{} \\ \text{} \\ -R_2+R_3\text{} \end{matrix} \\
+\end{align*}
+Notice that there is a leading entry in every row and column of the 3 $\times$ 3 matrix on the left, so applying Proposition 4.2.14 and Proposition 4.3.3 we have that the columns of this matrix span $\mathbb{R}^3$ and that the sequence of the columns of this matrix are linearly independent, so by definition the columns of this matrix form a basis of $\mathbb{R}^3$. Treating $A$ as the standard matrix of the linear transformation $T:\mathbb{R}^3 \to \mathbb{R}^3$, by Proposition 5.2.19 we have that $T$ is bijective, so by Proposition 3.3.8 $T$ has an inverse, and it follows that $A$ has an inverse, so by definition $A$ is invertible. We continue performing elementary row operations to eliminate nonzero entries above the diagonal and to make the diagonal entries equal to 1:
+\begin{align*}
+%
+\rightarrow & \begin{pmatrix} 1&1&0&4&-3&3\\0&2&0&4&-3&4\\0&0&-1&1&-1&1 \end{pmatrix}\begin{matrix} 3R_3+R_1 \text{} \\ 4R_3+R_2 \text{} \\ \text{} \end{matrix} \\
+%
+\rightarrow & \begin{pmatrix} 1&0&0&2&-\frac{3}{2}&1\\0&1&0&2&-\frac{3}{2}&2\\0&0&1&-1&1&-1 \end{pmatrix}\begin{matrix} -\frac{1}{2}R_2 +R_1 \text{} \\ \frac{1}{2}R_2 \text{} \\ -R_3 \text{} \end{matrix} \\
+\end{align*}
+We have the 3 $\times$ 3 identity matrix on the left, and the rightmost 3 columns contain the matrix $A^{-1}$. So $A^{-1} = \begin{pmatrix} 2&-\frac{3}{2}&1\\2&-\frac{3}{2}&2\\-1&1&-1\end{pmatrix}$.
+\vfill
+\centerline{PAGE 1 OF 3 FOR PROBLEM 3}
+\end{solution}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{4}
+Either prove or find a counterexample: If $A$ and $B$ are invertible $n\times n$ matrices, then $A+B$ is invertible.
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+Consider the two 2 $\times$ 2 matrices $A=\begin{pmatrix} 1&0\\0&1 \end{pmatrix}$ and $B=\begin{pmatrix} 0&1\\1&0 \end{pmatrix}$. Notice that $1\cdot 1 - 0\cdot 0 = 1-0=1\neq 0$, so by Proposition 3.3.16 we have that $A$ is invertible. Notice also that $0\cdot 0 - 1\cdot 1 = 0-1=-1\neq 0$, so by Proposition 3.3.16 we have that $B$ is invertible. Now consider the 2 $\times$ 2 matrix $A+B = \begin{pmatrix} 1&0\\0&1 \end{pmatrix} + \begin{pmatrix} 0&1\\1&0 \end{pmatrix}=\begin{pmatrix} 1&1\\1&1 \end{pmatrix}$. Notice that $1\cdot 1 - 1\cdot 1 =1 -1 =0$, so by Proposition 3.3.16 we have that $A+B$ is not invertible. Therefore, if $A$ and $B$ are invertible $n\times n$ matrices, it need not be the case that $A+B$ is invertible.
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 4}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{5}
+Consider the matrix
+\[
+A=\begin{pmatrix} 1&0&1\\0&1&0 \end{pmatrix}\text{.}
+\]
+\noindent
+\newline
+\newline
+a. Explain why $A$ has no left inverse.
+\begin{solution}
+Notice that $A$ is a 2 $\times$ 3 matrix. Notice that $3>2$, so by Corollary 5.2.18 $A$ has no left inverse.
+\end{solution}
+%
+\noindent
+\newline
+\newline
+b. Show that $A$ has infinitely many right inverses.
+\begin{solution}
+Let $a,b \in \mathbb{R}$ are arbitrary. Let $B$ be the 3 $\times$ 2 matrix defined by letting $B=\begin{pmatrix}a&b\\0&1\\1-a&-b\end{pmatrix}$. Notice that
+\begin{align*}
+AB =& \begin{pmatrix} 1&0&1\\0&1&0 \end{pmatrix} \begin{pmatrix}a&b\\0&1\\1-a&-b\end{pmatrix}\\
+=&\begin{pmatrix}1(a)+0(0)+1(1-a)&1(b)+0(1)+1(-b)\\0(a)+1(0)+0(1-a)&0(b)+1(1)+0(-b) \end{pmatrix}\\
+=& \begin{pmatrix}a+1-a&b-b\\0&1 \end{pmatrix}\\
+=&\begin{pmatrix}1&0\\0&1\end{pmatrix} = I_2
+\end{align*}
+So $AB = I_2$. We then have that $B$ is a right inverse of $A$ by Definition 5.1.16. Because $a,b \in \mathbb{R}$ were arbitrary, and there are infinitely many elements in $\mathbb{R}$, it follows that there are infinitely many $B$ with $AB=I_2$. Therefore, there are infinitely many right inverses of $A$.
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 5}
+%
+%
+\newpage
+b. $\begin{pmatrix} 0&4&4\\1&-2&0\\3&-4&2 \end{pmatrix}$
+\begin{solution}
+Let $B=\begin{pmatrix} 0&4&4\\1&-2&0\\3&-4&2 \end{pmatrix}$.
+%Notice that $B$ is a 3 $\times$ 3 matrix, so we can use the algorithm given at the end of section 5.2. We first form the 3 $\times$ 6 matrix obtained by augmenting $A$ with the 3 $\times$ 3 identity matrix:
+%\[
+%\begin{pmatrix} 0&4&4&1&0&0\\1&-2&0&0&1&0\\3&-4&2&0&0&1 \end{pmatrix}
+%\]
+We then perform elementary row operations until the 3 $\times$ 3 matrix on the left is in echelon form:
+\begin{align*}
+\begin{pmatrix} 0&4&4\\1&-2&0\\3&-4&2 \end{pmatrix} \rightarrow & \begin{pmatrix}  0&4&4&\\1&-2&0\\0&2&2 \end{pmatrix} \begin{matrix} \text{} \\ \text{} \\ -3R_2+R_3\text{} \end{matrix} \\
+%
+\rightarrow & \begin{pmatrix}  0&4&4\\1&-2&0\\0&0&0 \end{pmatrix} \begin{matrix} \text{} \\ \text{} \\ -\frac{1}{2}R_2+R_3\text{} \end{matrix} \\
+%
+\rightarrow & \begin{pmatrix}  1&-2&0\\0&4&4\\0&0&0 \end{pmatrix} \begin{matrix} R_2\leftrightarrow R_1 \text{} \\ R_1\leftrightarrow R_2\text{} \\ \text{} \end{matrix}
+\end{align*}
+Notice that there is not a leafing entry in every row of the 3 $\times$ 3 matrix on the left, so by Proposition 4.2.14 the columns of $B$ do not span $\mathbb{R}^3$, so the columns of $B$ cannot be a basis for $\mathbb{R}^3$ by definition. It follows from Proposition 5.2.19 that the linear transformation with $B$ as its augmented matrix is not bijective, so by Proposition 3.3.8 the linear transformation does not have an inverse, and it follows that $B$ does not have an inverse, so by definition $B$ is not invertible.
+\end{solution}
+%
+\noindent
+\newline
+\newline
+c. $\begin{pmatrix} 0&1&5\\0&-2&4\\2&3&-2 \end{pmatrix}$
+\begin{solution}
+Let $C=\begin{pmatrix} 0&1&5\\0&-2&4\\2&3&-2 \end{pmatrix}$. Notice that $C$ is a 3 $\times$ 3 matrix, so we can use the algorithm given at the end of section 5.2. We first form the 3 $\times$ 6 matrix obtained by augmenting $A$ with the 3 $\times$ 3 identity matrix:
+\[
+\begin{pmatrix} 0&1&5&1&0&0\\0&-2&4&0&1&0\\2&3&-2&0&0&1 \end{pmatrix}
+\]
+\vfill
+\centerline{PAGE 2 OF 3 FOR PROBLEM 3}
+We then perform elementary row operations until the 3 $\times$ 3 matrix on the left is in echelon form:
+\begin{align*}
+\begin{pmatrix} 0&1&5&1&0&0\\0&-2&4&0&1&0\\2&3&-2&0&0&1 \end{pmatrix} \rightarrow & \begin{pmatrix} 0&0&7&1&\frac{1}{2}&0\\0&-2&4&0&1&0\\2&3&-2&0&0&1 \end{pmatrix} \begin{matrix} \frac{1}{2}R_2+R_1 \text{} \\ \text{} \\ \text{} \end{matrix} \\
+%
+\rightarrow & \begin{pmatrix} 2&3&-2&0&0&1\\0&-2&4&0&1&0\\0&0&7&1&\frac{1}{2}&0 \end{pmatrix} \begin{matrix} R_3 \leftrightarrow R_1 \text{} \\ \text{} \\ R_1 \leftrightarrow R_3 \text{} \end{matrix}
+\end{align*}
+Notice that there is a leading entry in every row and column of the 3 $\times$ 3 matrix on the left, so applying Proposition 4.2.14 and Proposition 4.3.3 we have that the columns of this matrix span $\mathbb{R}^3$ and that the sequence of the columns of this matrix are linearly independent, so by definition the columns of this matrix form a basis of $\mathbb{R}^3$. Treating $A$ as the standard matrix of the linear transformation $T:\mathbb{R}^3 \to \mathbb{R}^3$, by Proposition 5.2.19 we have that $T$ is bijective, so by Proposition 3.3.8 $T$ has an inverse, and it follows that $C$ has an inverse, so by definition $C$ is invertible. We continue performing elementary row operations to eliminate nonzero entries above the diagonal and to make the diagonal entries equal to 1:
+\begin{align*}
+\rightarrow & \begin{pmatrix} 2&3&-2&0&0&1\\0&1&-2&0&-\frac{1}{2}&0\\0&0&1&\frac{1}{7}&\frac{1}{14}&0 \end{pmatrix} \begin{matrix} \text{} \\ -\frac{1}{2}R_2 \text{} \\ \frac{1}{7}R_3 \text{} \end{matrix}\\
+%
+\rightarrow & \begin{pmatrix} 2&3&0&\frac{2}{7}&\frac{1}{7}&1\\0&1&0&\frac{2}{7}&-\frac{5}{14}&0\\0&0&1&\frac{1}{7}&\frac{1}{14}&0 \end{pmatrix} \begin{matrix} 2R_3+R_1\text{} \\ 2R_3+R_2 \text{} \\ \text{} \end{matrix}\\
+%
+\rightarrow & \begin{pmatrix} 2&0&0&-\frac{4}{7}&\frac{17}{14}&1\\0&1&0&\frac{2}{7}&-\frac{5}{14}&0\\0&0&1&\frac{1}{7}&\frac{1}{14}&0 \end{pmatrix} \begin{matrix} -3R_2+R_1\text{} \\ \text{} \\ \text{} \end{matrix}\\
+%
+\rightarrow & \begin{pmatrix} 1&0&0&-\frac{2}{7}&\frac{17}{28}&\frac{1}{2}\\0&1&0&\frac{2}{7}&-\frac{5}{14}&0\\0&0&1&\frac{1}{7}&\frac{1}{14}&0 \end{pmatrix} \begin{matrix} \frac{1}{2}R_1\text{} \\ \text{} \\ \text{} \end{matrix}\\
+\end{align*}
+We have the 3 $\times$ 3 identity matrix on the left, and the rightmost 3 columns contain the matrix $C^{-1}$. So $C^{-1} = \begin{pmatrix} -\frac{2}{7}&\frac{17}{28}&\frac{1}{2}\\ \frac{2}{7}&-\frac{5}{14}&0\\ \frac{1}{7}&\frac{1}{14}&0\end{pmatrix}$.
+\end{solution}
+\vfill
+\centerline{PAGE 3 OF 3 FOR PROBLEM 3}
+\end{problem}
+
+
+
+
+
+\end{document}

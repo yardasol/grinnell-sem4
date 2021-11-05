@@ -1,0 +1,273 @@
+\documentclass[12pt]{article}
+\usepackage{latexsym, amssymb, amsmath, amsfonts, amscd, amsthm, xcolor, pgfplots}
+\usepackage{framed}
+\usepackage[margin=1in]{geometry}
+\linespread{1} %Change the line spacing only if instructed to do so.
+
+\newenvironment{problem}[2][Problem]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1 #2:}]
+	}
+{
+	\end{trivlist}
+	}
+
+\newenvironment{solution}[1][Solution]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\itshape #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+\newenvironment{collaborators}[1][Collaborator(s)]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%    You need only modify code below this block.
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\title{Assignment: Written Assignment 8} %Change this to the assignment you are submitting.
+\author{Name: Oleksandr Yardas} %Change this to your name.
+\date{Due Date: 04/20/2018 } %Change this to the due date for the assignment you are submitting.
+\begin{document}
+	\maketitle
+	\thispagestyle{empty}
+	
+	\section*{List Your Collaborators:}%Enter your collaborators names below. Do not delete extra rows.
+	
+	\begin{itemize}
+		\begin{framed}
+			\item 
+			Problem 1: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 2: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 3: Alicia Ledesma-Alonso
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 4: Not Applicable
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 5: Not Applicable
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 6: Not Applicable
+			\\\\
+		\end{framed}
+	\end{itemize}
+\newpage
+%
+%%%%%%%%%%%%%%%
+%
+% Your problem statements and solutions start here.
+% Use the \newpage command between problems so that
+% each of your problems begins on its own page.
+%
+%%%%%%%%%%%%%%%
+
+%FORMATTING OPTIONS
+%FOR BLANK SPACES: \underline{\hspace{2cm}}
+%FOR SPACES IN align OR SIMILAR ENVIRONMENTS:  \hphantom{1000}
+%FOR MATRICES: \begin{matrix} \end{matrix}, can add p, b, B, v, V, small as suffix to "matrix"
+%SETS: \mathbb{R}^, :\mathbb{R}^ \to \mathbb{R}^
+%Vectors: \vec{},
+%SUBSCRIPTS: _{}
+%FRACTIONS: \frac{}{}
+%FANCY LETTERS: \mathcal{}
+
+%Provide the problem statement.
+\begin{problem}{1}
+Let $V$ be a vector space, and let $\vec{u_1},\vec{u_2}, \dots , \vec{u_n},\vec{w_1},\vec{w_2}, \dots , \vec{w_m} \in V$. Assume that $(\vec{u_1},\vec{u_2}, \dots , \vec{u_n})$ is linearly dependent. Show that $(\vec{u_1},\vec{u_2}, \dots , \vec{u_n},\vec{w_1},\vec{w_2}, \dots , \vec{w_m})$ is linearly dependent.
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+Let $\vec{u_1},\vec{u_2}, \dots , \vec{u_n},\vec{w_1},\vec{w_2}, \dots , \vec{w_m} \in V$ be arbitrary.
+By definition, a sequence $(\vec{v_1}, \dots , \vec{v_n})$ is linearly dependent if there exists $c_1, \dots , c_n \in \mathbb{R}$ with $c_1 \vec{u_1} + \dots + c_n \vec{u_n} = \vec{0}$ such that at least one $c_i$ is nonzero. By assumption, we have that $(\vec{u_1},\vec{u_2}, \dots , \vec{u_n})$ is linearly dependent, so by definition we can fix $a_1, a_2, \dots , a_n \in \mathbb{R}$ with $a_1 \vec{u_1} + a_2 \vec{u_2} + \dots + a_n \vec{u_n} = \vec{0}$ with at least one nonzero $a_i$. Now fix $b_1, b_2, \dots , b_m \in \mathbb{R}$ with $b_1 = b_2 = \dots = b_m = 0$. Notice that
+\begin{align*}
+&a_1 \vec{u_1} + a_2 \vec{u_2} + \dots + a_n \vec{u_n}  & &\\
+&+ b_1 \vec{w_1} + b_2 \vec{w_2} + \dots + b_m \vec{w_m} = a_1 \vec{u_1} + a_2 \vec{u_2} + \dots + a_n \vec{u_n}+ \vec{0} + \vec{0} + \dots + \vec{0} & \text{(By Proposition 4.1.11)} \\
+=&  a_1 \vec{u_1} + a_2 \vec{u_2} + \dots + a_n \vec{u_n} + \vec{0} & \\
+=& \vec{0}
+\end{align*}
+We conclude that $a_1 \vec{u_1} + a_2 \vec{u_2} + \dots + a_n \vec{u_n} + b_1 \vec{w_1} + b_2 \vec{w_2} + \dots + b_n \vec{w_n} =\vec{0}$. Because there is at least one nonzero $a_i$, by definition the sequence $(\vec{u_1},\vec{u_2}, \dots , \vec{u_n},\vec{w_1},\vec{w_2}, \dots , \vec{w_n})$ is linearly dependent.
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 1}\end{problem}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{2}
+Let $V$ be a vector space and let $\vec{u},\vec{v},\vec{w} \in V$. Assume that $(\vec{u},\vec{v},\vec{w})$ is linearly independent. Show that $(\vec{u}+\vec{v}, \vec{u}+\vec{w},\vec{v}+\vec{w})$ is linearly independent.
+\newline
+\noindent
+{\it Hint:} Think carefully about how to start your argument. Remember that you want to prove that $(\vec{u}+\vec{v}, \vec{u}+\vec{w},\vec{v}+\vec{w})$ is linearly independent, which is a "for all'" statement.
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+Let $\vec{u},\vec{v},\vec{w} \in V$ be arbitrary and suppose that $(\vec{u},\vec{v},\vec{w})$ is linearly independent. By definition, for all $x,y,z \in \mathbb{R}$, if $x \vec{u} + y \vec{v} + z + \vec{w} = \vec{0}$, then $x=y=z=0$. Let $a,b,c \in \mathbb{R}$ be arbitrary, and suppose that $a(\vec{u} +\vec{v}) + b(\vec{u}+\vec{w})+c(\vec{v}+\vec{w}) =\vec{0}$. Notice that
+\begin{align*}
+a(\vec{u} +\vec{v}) + b(\vec{u}+\vec{w})+c(\vec{v}+\vec{w}) =& a\vec{u} + a\vec{v}+ b\vec{u}+ b\vec{w} + c\vec{v}+ c\vec{w} & \text{(By Property 8 of vector spaces.)}\\
+=& a\vec{u} + b\vec{u} + a\vec{v} + c\vec{v} + b\vec{w} + c\vec{w} &\\
+=& (a+b) \vec{u} + (a+c) \vec{v} + (b+c) \vec{w} & \text{(By Property 8 of vector spaces)}\\
+\end{align*}
+So $a(\vec{u} +\vec{v}) + b(\vec{u}+\vec{w})+c(\vec{v}+\vec{w}) = (a+b) \vec{u} + (a+c) \vec{v} + (b+c) \vec{w}$. Because $a(\vec{u} +\vec{v}) + b(\vec{u}+\vec{w})+c(\vec{v}+\vec{w}) =\vec{0}$ (by assumption), it follows that $(a+b) \vec{u} + (a+c) \vec{v} + (b+c) \vec{w} = \vec{0}$. Because $(\vec{u},\vec{v},\vec{w})$ is linearly independent, it must be the case that $(a+b) = 0$, $(a+c) =0$, and  $(b+c) = 0$. We have the following a system of linear equations in the variables $a,b,c$:
+\begin{align*}
+&&&& &&&& &&&& 1&a& &+&  1&b& &+& 0&c& &=& &0& &&&& &&&& &&&& \\
+&&&& &&&& &&&& 1&a& &+&  0&b& &+& 1&c& &=& &0& &&&& &&&& &&&& \\
+&&&& &&&& &&&& 0&a& &+&  1&b& &+& 1&c& &=& &0& &&&& &&&& &&&& 
+\end{align*}
+We use Gaussian elimination to find the solution set of this system:
+\begin{align*}
+\begin{pmatrix}1&1&0&0\\1&0&1&0\\0&1&1&0\end{pmatrix} & \rightarrow  \begin{pmatrix}1&1&0&0\\1&-1&0&0\\0&1&1&0\end{pmatrix} \begin{matrix} \hphantom{1} \\ -R_3 + R_2 \hphantom{1} \\ \hphantom{1} \end{matrix} \\
+&\rightarrow \begin{pmatrix}2&0&0&0\\1&-1&0&0\\0&1&1&0\end{pmatrix} \begin{matrix} R_2 + R_1 \hphantom{1}\\\hphantom{1} \\ \hphantom{1} \end{matrix} \\
+&\rightarrow \begin{pmatrix}1&0&0&0\\0&-1&0&0\\0&1&1&0\end{pmatrix} \begin{matrix} \frac{1}{2} R_1 \hphantom{1}\\ -\frac{1}{2}R_1 +R_2\hphantom{1} \\ \hphantom{1} \end{matrix} \\
+&\rightarrow \begin{pmatrix}1&0&0&0\\0&1&0&0\\0&0&1&0\end{pmatrix} \begin{matrix} \hphantom{1}\\ -R_2\hphantom{1} \\ R_2 + R_3\hphantom{1} \end{matrix}
+\end{align*}
+Notice that the above matrix is in echelon form and that there are no leading entries in the last column, so by Proposition 4.1.12 we conclude that there is a unique solution to the system, which is $(a,b,c) = (0,0,0)$, so the solution set of the system is $S = \left \{ (0,0,0) \right \}$. Because $a,b,c$ were arbitrary, it follows that for all $a,b,c \in \mathbb{R}$, if $a(\vec{u} +\vec{v}) + b(\vec{u}+\vec{w})+c(\vec{v}+\vec{w}) =\vec{0}$ then $a=b=c=0$. This satisfies the definition of linearly independent sequence. Therefore $(\vec{u}+\vec{v}, \vec{u}+\vec{w},\vec{v}+\vec{w})$ is linearly independent.
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 2}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{3}
+Let $V$ be a vector space, and let $\vec{u_1},\vec{u_2}, \dots , \vec{u_n},\vec{w_1},\vec{w_2}, \dots , \vec{w_m} \in V$. Assume that both $(\vec{u_1},\vec{u_2}, \dots , \vec{u_n})$ and $(\vec{w_1},\vec{w_2}, \dots , \vec{w_m})$ are linearly independent.
+\noindent
+\newline
+\newline
+a. Give an example of this situation where $(\vec{u_1},\vec{u_2}, \dots , \vec{u_n},\vec{w_1},\vec{w_2}, \dots , \vec{w_m})$ is linearly dependent.
+\begin{solution} Consider the following sequences of vectors in $\mathbb{R}^2$:
+\[
+\left( \begin{pmatrix}1\\0\end{pmatrix}, \begin{pmatrix} 0\\1 \end{pmatrix} \right)
+\]
+and
+\[
+\left( \begin{pmatrix}2\\0\end{pmatrix}, \begin{pmatrix} 0\\2 \end{pmatrix} \right)
+\]
+Notice that $\begin{pmatrix}1\\0\end{pmatrix} \notin \text{Span}\left( \begin{pmatrix} 0\\1 \end{pmatrix} \right)$ and that $\begin{pmatrix}0\\1\end{pmatrix} \notin \text{Span}\left(\begin{pmatrix} 1\\0 \end{pmatrix} \right)$. Applying Proposition 4.3.2, we conclude that $\left( \begin{pmatrix}1\\0\end{pmatrix}, \begin{pmatrix} 0\\1 \end{pmatrix} \right)$ is linearly independent. By similar reasoning, we conclude that $\left( \begin{pmatrix}2\\0\end{pmatrix}, \begin{pmatrix} 0\\2 \end{pmatrix} \right)$ is linearly independent. Now consider the seqence $\left( \begin{pmatrix}1\\0\end{pmatrix}, \begin{pmatrix} 0\\1 \end{pmatrix}, \begin{pmatrix}2\\0\end{pmatrix}, \begin{pmatrix} 0\\2 \end{pmatrix} \right)$. Notice that we have 4 vectors in $\mathbb{R}^2$. Applying Corollary 4.3.5, we conclude that $\left( \begin{pmatrix}1\\0\end{pmatrix}, \begin{pmatrix} 0\\1 \end{pmatrix}, \begin{pmatrix}2\\0\end{pmatrix}, \begin{pmatrix} 0\\2 \end{pmatrix} \right)$ is linearly dependent.
+%
+%
+%
+%
+%We first prove the following statement:
+%\begin{align*}
+ %\text{Statement 1: } &\text{If } (\vec{v_1},\dots,\vec{v_f}) \text{ is an linearly independent sequence of } f\geq 1 \text{ vectors in } V,\\
+%& \text{then there does not exist an } i \text{ such that } \vec{v_i} = \vec{0}\text{.} \hphantom{1000}
+%\end{align*}
+%{\it Proof:} Let $(\vec{v_1},\dots,\vec{v_f})$ be an arbitrary linearly independent sequence of $f\geq 1$ vectors in $V$. Let $c_1,\dots, c_n \in \mathbb{R}$ be arbitrary. Suppose that there exists an $i$ such that $\vec{v_i} = \vec{0}$. Consider the case where $c_i = 1$ and $c_1=\dots=c_{i-1}=c_{i+1}=\dots=c_f=0$. We then have that  $c_1 \vec{v_1}+ \dots+c_{i-1}\vec{v_{i-1}}+c_i\vec{v_i}+c_{i+1}\vec{v_{i+1}}+\dots+ c_f \vec{v_f} = 0\cdot \vec{v_1}+ \dots+0\cdot\vec{v_{i-1}}+1\cdot\vec{0}+0\cdot\vec{v_{i+1}}+\dots+ 0\cdot \vec{v_f}=\vec{0} + \dots + \vec{0} + \vec{0} + \vec{0} + \dots + \vec{0} \text{ (By Proposition 4.1.11)} = \vec{0}$. Because $(\vec{v_1},\dots,\vec{v_f})$ is linearly independent, by definition we have that $c_1=\dots=c_i=\dots=c_f=0$. So $1= 0$. We have reached a contradiction, so our assumption that there exists an $i$ such that $\vec{v_i} = \vec{0}$ must be false. Because $(\vec{v_1},\dots,\vec{v_f})$ was arbitrary, the result follows. $\square$
+%\newline
+%\newline
+%Negating Definition 4.3.1, we get the following:
+%
+%Let $V$ be a vector space and let $\vec{v_1},\dots,\vec{v_n} \in V$. We say that $(\vec{v_1},\dots, \vec{v_n})$ is linearly dependent if there exists $c_1,\dots,c_n\in\mathbb{R}$ with $c_1\vec{v_1}+\dots+c_n\vec{v_n} =\vec{0}$ and such that at least one $c_i$ is nonzero.
+%\newline
+%\newline
+%Taking the contrapositive of Proposition 4.3.2, we get the following:
+%
+%Let $V$ be a vector space and let $\vec{v_1},\dots,\vec{v_n} \in V$ where $n \geq 2$. The following are equivalent:
+%
+%1. $(\vec{v_1},\dots,\vec{v_n})$ is linearly dependent
+%
+%2. There exists an $i$ such that $\vec{v_i}$ is a linear combination of $\vec{v_1},\dots,\vec{v_{i-1}},\vec{v_{i+1}},\dots,\vec{v_n}$.
+%\newline
+%\newline
+%\noindent
+%
+%Let $(\vec{u_1},\vec{u_2}, \dots , \vec{u_n})$ and $(\vec{w_1},\vec{w_2}, \dots , \vec{w_m})$ be linearly independent. Suppose that $n \geq 2$ and $m \geq 2$. Because $(\vec{u_1},\vec{u_2}, \dots , \vec{u_n})$ and $(\vec{w_1},\vec{w_2}, \dots , \vec{w_m})$ are both linearly independent and $n \geq 2$ and $m \geq 2$, it follows from Proposition 4.3.2 that there does not exist $i, j$ such that $\vec{u_i}$ is a linear combination of $\vec{u_1},\dots,\vec{u_{i-1}},\vec{u_{i+1}},\dots,\vec{u_n}$ and such that $\vec{w_j}$ is a linear combination of $\vec{w_1},\dots,\vec{w_{j-1}},\vec{w_{j+1}},\dots,\vec{w_m}$.
+%
+%Now consider the sequence $(\vec{u_1},\vec{u_2}, \dots , \vec{u_n},\vec{w_1},\vec{w_2}, \dots , \vec{w_m})$, and suppose that this sequence is linearly dependent. By the contrapositive of Proposition 4.3.2 and our results directly above, it follows that there exists an $i$ such that such that $\vec{u_i}$ is a linear combination of $\vec{w_1},\dots,\vec{w_m}$ OR that there exists a $j$ such that $\vec{w_j}$ is a linear combination of $\vec{u_1},\dots,\vec{u_n}$. 
+%
+%More succinctly, the sequence $(\vec{u_1},\vec{u_2}, \dots , \vec{u_n},\vec{w_1},\vec{w_2}, \dots , \vec{w_m})$ is linearly dependent if there exists $i$ such that $\vec{u_i} \in \text{Span}(\vec{w_1},\dots,\vec{w_m})$ 
+%and such that $\vec{u_i} \notin \text{Span}(vec{u_1},\dots,\vec{u_{i-1}},\vec{u_{i+1}},\dots,\vec{u_n})$
+%OR if there exists $j$ such that $\vec{w_j} \in \text{Span}(\vec{u_1},\dots,\vec{u_n})$.
+%and such that $\vec{w_j} \notin \text{Span}(vec{w_1},\dots,\vec{w_{j-1}},\vec{w_{j+1}},\dots,\vec{w_m})$.
+%\newline
+%\newline
+%\noindent
+%Now suppose that $m=n=1$.
+%Because $(\vec{u_1})$ and $(\vec{w_1})$ are linearly independent, we have by Statement 1 that $\vec{u_1} \neq \vec{0}$ and that $\vec{w_1} \neq \vec{0}$. Consider the sequence $(\vec{u_1},\vec{w_1})$, and suppose this sequence is linearly dependent. By the contrapositive of Definition 4.3.1, we have that there exists $c_1,c_2 \in \mathbb{R}$ with $c_1 \vec{u_1} + c_2 \vec{u_2} =\vec{0}$ and such that $c_1$ or $c_2$ is nonzero. Suppose that $c_1 = 0$. We then have that $c_1 \vec{u_1} + c_2 \vec{u_2} = 0\cdot \vec{u_1} + c_2 \vec{u_2} = \vec{0} +c_2 \vec{w_1} = c_2 \vec{w_1} = \vec{0}$. Because $\vec{w_1} \neq \vec{0}$, by reasoning similar to that in Problem 1 of Written Assignment 6, it follows that $c_2 =0$. But $c_1=0$ and we must have that $c_1$ or $c_2$ is nonzero. So it must be the case that $c_1 \neq 0$. Now suppose that $c_2 = 0$. We then have that $c_1 \vec{u_1} + c_2 \vec{u_2} = c_1\vec{u_1} + 0\cdot\vec{u_2} =  c_1\vec{u_1}+\vec{0} = c_1\vec{u_1}= \vec{0}$. Because $\vec{u_1} \neq \vec{0}$, by reasoning similar to that in Problem 1 of Written Assignment 6, it follows that $c_1 =0$. But we just showed that $c_1 \neq 0$, so out assumption must be incorrect. Thus, it must be the case that $c_2 \neq 0$. We now have that there exists $c_1,c_2 \in \mathbb{R}$ with $c_1 \vec{u_1} + c_2 \vec{w_1} =\vec{0}$ and such that $c_1$ and $c_2$ are nonzero. Rearranging, we get $\vec{u_1} = -\frac{c_2}{c_1} \vec{w_1}$. Notice that $-\frac{c_2}{c_1} \in \mathbb{R}$, so by definition $\vec{u_1} \in \text{Span}(\vec{w_1})$. By similar reasoning, we obtain that $\vec{w_1} \in \text{Span}(u_1)$. Therefore, the sequence $(\vec{u_1},\vec{w_1})$ is linearly independent if $\vec{u_1} \in \text{Span}(\vec{w_1})$ and $\vec{w_1} \in \text{Span}(u_1)$.
+%
+%
+%
+%Therefore, for $n\geq 2$ and $m \geq 2$, $(\vec{u_1},\vec{u_2}, \dots , \vec{u_n},\vec{w_1},\vec{w_2}, \dots , \vec{w_m})$ is linearly dependent if there exists an $i$ such that such that $\vec{u_i}$ is a linear combination of $\vec{w_1},\dots,\vec{w_m}$ OR that there exists a $j$ such that $\vec{w_j}$ is a linear combination of $\vec{u_1},\dots,\vec{u_n}$, and for $n=m=1$, the sequence $(\vec{u_1},\vec{w_1})$ is linearly independent if $\vec{u_1} \in \text{Span}(\vec{w_1})$ and $\vec{w_1} \in \text{Span}(u_1)$.
+%%
+%to is linearly dependent if there exists $c_{1,1},c_{1,2},\dots, c_{1,n},c_{2,1},c_{2,2},\dots,c_{2,m} \in \mathbb{R}$ with $c_{1,1}\vec{u_1}+c_{1,2}\vec{u_2} +\dots +c_{1,n} \vec{u_n}+c_{2,1}\vec{w_1}+c_{2,2}\vec{w_2}+\dots +c_{2,m} \vec{w_m}=\vec{0}$ and such that $\vec{u_i}$ is a linear combination of $\vec{u_1},\dots,\vec{u_{i-1}},\vec{u_{i+1}},\dots,\vec{u_n}, \vec{w_1},\dots,\vec{w_m}$ OR at least one $c_{q,i}$ is nonzero. That is to say, the sequence $(\vec{u_1},\vec{u_2}, \dots , \vec{u_n},\vec{w_1},\vec{w_2}, \dots , \vec{w_m})$ is linearly dependent if there exists a nonzero coefficient $c_{q,i}$ such that the above sum equals zero. 
+%
+%
+%
+%
+%We have that Suppose that $n \geq 2$ and that $m \geq 2$. We then have $m+n \geq 4$. Applying the negation of Proposition 4.3.2, we have that the sequence $(\vec{u_1},\vec{u_2}, \dots , \vec{u_n},\vec{w_1},\vec{w_2}, \dots , \vec{w_m})$ is linearly dependent if and only if there exists an $i$ such that $\vec{v
+%
+%
+\end{solution}
+\noindent
+\newline
+\newline
+b. Assume also that
+\[
+\text{Span}(\vec{u_1},\vec{u_2}, \dots , \vec{u_n}) \cap \text{Span}(\vec{w_1},\vec{w_2}, \dots , \vec{w_m}) = \{\vec{0}\}\text{.}
+\]
+Show that $(\vec{u_1},\vec{u_2}, \dots , \vec{u_n},\vec{w_1},\vec{w_2}, \dots , \vec{w_m})$ is linearly independent.
+\begin{solution} If $(\vec{u_1},\vec{u_2}, \dots , \vec{u_n},\vec{w_1},\vec{w_2}, \dots , \vec{w_m})$ is linearly independent, then by definition, for all $c_1,c_2,\dots,c_n,d_1,d_2,\dots,d_m \in \mathbb{R}$, if $c_1\vec{u_1} + \dots + c_n \vec{u_n} + d_1 \vec{w_1} +\dots + d_m \vec{w_m} = \vec{0}$, then $c_1=c_2=\dots=c_n=d_1=d_2\dots=d_m=0$. Let $c_1,c_2,\dots,c_n,d_1,d_2,\dots,d_m \in \mathbb{R}$ be arbitrary. Suppose that $c_1\vec{u_1} + \dots + c_n \vec{u_n} + d_1 \vec{w_1} +\dots + d_m \vec{w_m} = \vec{0}$. Subtracting all the $d_j\vec{w_j}$ terms from the left hand side, we get $c_1 \vec{u_1} + \dots + c_n \vec{u_n} = -d_1 \vec{w_1} - \dots -d_m \vec{w_m}$. Suppose that $\text{Span}(\vec{u_1},\vec{u_2}, \dots , \vec{u_n}) \cap \text{Span}(\vec{w_1},\vec{w_2}, \dots , \vec{w_m}) = \{\vec{0}\}$. By definition of set intersection, we get
+\newline
+$\left\{ \vec{v} \in V: \vec{v} \in \text{Span}(\vec{u_1},\vec{u_2}, \dots , \vec{u_n}) \text{ and } \vec{v} \in \text{Span}(\vec{w_1},\vec{w_2}, \dots , \vec{w_m}) \right\} =\{\vec{0}\}$, that is, $\vec{0}$ is the only vector that is a linear combination of $(\vec{u_1},\vec{u_2}, \dots , \vec{u_n})$ that is also a linear combination of $(\vec{w_1},\vec{w_2}, \dots , \vec{w_m})$. So by definition of linear combination, $c_1 \vec{u_1} + \dots + c_n \vec{u_n} = -d_1 \vec{w_1} - \dots -d_m \vec{w_m}$ implies that $c_1 \vec{u_1} + \dots + c_n \vec{u_n} = -d_1 \vec{w_1} - \dots -d_m \vec{w_m}=\vec{0}$. Because $(\vec{u_1},\vec{u_2}, \dots , \vec{u_n})$ and $(\vec{w_1},\vec{w_2}, \dots , \vec{w_m})$ are both linearly independent, we have that for all $c_1,c_2,\dots,c_n, d_1,d_2,\dots,d_m \in \mathbb{R}$ that $c_1=c_2=\dots=c_n=d_1=d_2=\dots=d_m=0$. Because $c_1,c_2,\dots,c_n,d_1,d_2,\dots,d_m$ were arbitrary, the result follows.
+%
+%
+%
+%
+%By definition of set intersection, $\text{Span}(\vec{u_1},\vec{u_2}, \dots , \vec{u_n}) \cap \text{Span}(\vec{w_1},\vec{w_2}, \dots , \vec{w_m}) = \left\{ \vec{v} \in V: \vec{v} \in \text{Span}(\vec{u_1},\vec{u_2}, \dots , \vec{u_n}) \text{ and } \vec{v} \in \text{Span}(\vec{w_1},\vec{w_2}, \dots , \vec{w_m}) \right\}$. Because $\text{Span}(\vec{u_1},\vec{u_2}, \dots , \vec{u_n}) \cap \text{Span}(\vec{w_1},\vec{w_2}, \dots , \vec{w_m}) = \{ \vec{0}\}$, it must be the case that $\vec{0}$ is the only vector that is in both $\text{Span}(\vec{u_1},\vec{u_2}, \dots , \vec{u_n})$ and in  $\text{Span}(\vec{w_1},\vec{w_2}, \dots , \vec{w_m})$. In other words, for all nonzero $\vec{p} \in \text{Span}(\vec{u_1},\vec{u_2}, \dots , \vec{u_n})$, $\vec{p} \notin \text{Span}(\vec{w_1},\vec{w_2}, \dots , \vec{w_m})$, and for all nonzero $\vec{q} \in \text{Span}(\vec{w_1},\vec{w_2}, \dots , \vec{w_m})$, $\vec{q} \notin \text{Span}(\vec{u_1},\vec{u_2}, \dots , \vec{u_n})$. Notice that $\vec{u_1} = 1 \cdot \vec{u_1} + 0\cdot \vec{u_2} + \dots + 0\cdot \vec{u_n}$, so $\vec{u_1} \in \text{Span}(\vec{u_1},\vec{u_2}, \dots , \vec{u_n})$. We have by similar reasoning that $\vec{u_2},\dots,\vec{u_n} \in \text{Span}(\vec{u_1},\vec{u_2}, \dots , \vec{u_n})$. Because $\vec{u_1},\vec{u_2},\dots,\vec{u_n}$ are all nonzero, we have that $\vec{u_1},\vec{u_2},\dots,\vec{u_n} \notin \text{Span}(\vec{w_1},\vec{w_2}, \dots , \vec{w_m})$. We can make a similar argument for $\vec{w_1},\vec{w_2},\dots,\vec{w_m}$, and conclude that $\vec{w_1},\vec{w_2},\dots,\vec{w_m} \notin \text{Span}(\vec{u_1},\vec{u_2}, \dots , \vec{u_n})$.
+
+
+
+
+%= \left \{\vec{p} \in V: \text{There exist} a_1,a_2,\dots,a_n \in \mathbb{R} \text{with} \vec{p} = a_1 \vec{u_1} + a_2 \vec{u_2} +...+a_n \vec{u_n} \right \} \cap \left \{\vec{q} \in V: \text{There exist} b_1,b_2,\dots,b_m \in \mathbb{R} \text{with} \vec{q} = b_1 \vec{w_1} + b_2 \vec{w_2} +...+b_m \vec{w_m} \right \}$. By defintion of set intersection, $\left \{\vec{p} \in V: \text{There exist} a_1,a_2,\dots,a_n \in \mathbb{R} \text{with} \vec{p} = a_1 \vec{u_1} + a_2 \vec{u_2} +...+a_n \vec{u_n} \right \} \cap \left \{\vec{q} \in V: \text{There exist} b_1,b_2,\dots,b_m \in \mathbb{R} \text{with} \vec{q} = b_1 \vec{w_1} + b_2 \vec{w_2} +...+b_m \vec{w_m} \right \}=
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 3}
+\end{problem}
+
+
+\end{document}

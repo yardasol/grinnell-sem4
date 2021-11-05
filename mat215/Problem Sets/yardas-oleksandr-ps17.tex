@@ -1,0 +1,397 @@
+\documentclass[12pt]{article}
+\usepackage{latexsym, amssymb, amsmath, amsfonts, amscd, amsthm, xcolor, pgfplots}
+\usepackage{framed}
+\usepackage[margin=1in]{geometry}
+\linespread{1} %Change the line spacing only if instructed to do so.
+
+\newenvironment{problem}[2][Problem]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1 #2:}]
+	}
+{
+	\end{trivlist}
+	}
+
+\newenvironment{solution}[1][Solution]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\itshape #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+\newenvironment{collaborators}[1][Collaborator(s)]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%    You need only modify code below this block.
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\title{Assignment: Problem Set 17} %Change this to the assignment you are submitting.
+\author{Name: Oleksandr Yardas} %Change this to your name.
+\date{Due Date: 04/16/2018 } %Change this to the due date for the assignment you are submitting.
+\begin{document}
+	\maketitle
+	\thispagestyle{empty}
+	
+	\section*{List Your Collaborators:}%Enter your collaborators names below. Do not delete extra rows.
+	
+	\begin{itemize}
+		\begin{framed}
+			\item 
+			Problem 1: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 2: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 3: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 4: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 5: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 6: None
+			\\\\
+		\end{framed}
+	\end{itemize}
+\newpage
+%
+%%%%%%%%%%%%%%%
+%
+% Your problem statements and solutions start here.
+% Use the \newpage command between problems so that
+% each of your problems begins on its own page.
+%
+%%%%%%%%%%%%%%%
+
+%FORMATTING OPTIONS
+%FOR BLANK SPACES: \underline{\hspace{2cm}}
+%FOR SPACES IN align OR SIMILAR ENVIRONMENTS:  \hphantom{1000}
+%FOR MATRICES: \begin{matrix} \end{matrix}, can add p, b, B, v, V, small as suffix to "matrix"
+%SETS: \mathbb{R}^, :\mathbb{R}^ \to \mathbb{R}^
+%Vectors: \vec{},
+%SUBSCRIPTS: _{}
+%FRACTIONS: \frac{}{}
+%FANCY LETTERS: \mathcal{}
+
+%Provide the problem statement.
+\begin{problem}{1}
+Does
+\[
+\text{Span}\left(\begin{pmatrix}2\\0\\1\end{pmatrix}, \begin{pmatrix}1\\1\\0\end{pmatrix}, \begin{pmatrix}0\\0\\1\end{pmatrix}\right)=\mathbb{R}^3
+\]
+Explain.
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+If $\text{Span}\left(\begin{pmatrix}2\\0\\1\end{pmatrix}, \begin{pmatrix}1\\1\\0\end{pmatrix}, \begin{pmatrix}0\\0\\1\end{pmatrix}\right)=\mathbb{R}^3$, then by Proposition 4.2.14, an echelon form of the 3 $\times$ 3 matrix where the 1st, 2nd, and 3rd columns are $\begin{pmatrix}2\\0\\1\end{pmatrix}$, $ \begin{pmatrix}1\\1\\0\end{pmatrix}$, and $\begin{pmatrix}0\\0\\1\end{pmatrix}$, respectively, has a leading entry in every row. We find an echelon form using Gaussian elimination:
+\begin{align*}
+\begin{pmatrix}2&1&0\\0&1&0\\1&0&1\end{pmatrix}
+&\begin{matrix}\hphantom{1}\\\hphantom{1}\\\hphantom{1}\end{matrix}\\
+\begin{pmatrix}2&1&0\\0&1&0\\0&-\frac{1}{2}&1\end{pmatrix}
+&\begin{matrix}\hphantom{1}\\\hphantom{1}\\-\frac{1}{2}R_1+R_3\hphantom{1}\end{matrix}\\
+\begin{pmatrix}2&1&0\\0&1&0\\0&0&1\end{pmatrix}
+&\begin{matrix}\hphantom{1}\\\hphantom{1}\\\frac{1}{2}R_2+R_3\hphantom{1}\end{matrix}\\
+\end{align*}
+Notice that this matrix is row equivalent to the original matrix. There are no zero rows in this matrix, and the leading entry in each row is to the right of the leading entry in the row above it, and we so by definition this matrix is indeed an echelon form of the original matrix. Notice that there is a leading entry in each row of the echelon matrix. Therefore $\text{Span}\left(\begin{pmatrix}2\\0\\1\end{pmatrix}, \begin{pmatrix}1\\1\\0\end{pmatrix}, \begin{pmatrix}0\\0\\1\end{pmatrix}\right)=\mathbb{R}^3$.
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 1}\end{problem}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{2}
+Given $b_1,b_2,b_3 \in \mathbb{R}$, determine necessary and sufficient conditions so that
+\[
+\begin{pmatrix}b_1\\b_2\\b_3\end{pmatrix} \in \text{ Span}\left(\begin{pmatrix}0\\1\\5\end{pmatrix}, \begin{pmatrix}3\\1\\-1\end{pmatrix}, \begin{pmatrix}1\\1\\3\end{pmatrix}\right)
+\]
+is true.
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+Let $b_1,b_2,b_3 \in \mathbb{R}$ be arbitrary. If $\begin{pmatrix}b_1\\b_2\\b_3\end{pmatrix} \in \text{ Span}\left(\begin{pmatrix}0\\1\\5\end{pmatrix}, \begin{pmatrix}3\\1\\-1\end{pmatrix}, \begin{pmatrix}1\\1\\3\end{pmatrix}\right)$, then by definition of Span, there exist $x,y,z \in \mathbb{R}$ with $\begin{pmatrix}b_1\\b_2\\b_3\end{pmatrix} = x\cdot \begin{pmatrix}0\\1\\5\end{pmatrix} + y\cdot \begin{pmatrix}3\\1\\-1\end{pmatrix}+ z\cdot \begin{pmatrix}1\\1\\3\end{pmatrix}$. Performing scalar multiplication and addition on the right hand side, we see that $x,y,z$ must satisfy the following system of equations:
+\begin{align*}
+&&&&&&&& &&&&&&&& &&&&&&&& &\hphantom{500}& &\hphantom{500}& &3y& &+& &1z& &=& &b_1& &&&&&&&& &&&&&&&& &&&&&&&&\\
+&&&&&&&& &&&&&&&& &&&&&&&& &1x& &+& &1y& &+& &1z& &=& &b_2& &&&&&&&& &&&&&&&& &&&&&&&&\\
+&&&&&&&& &&&&&&&& &&&&&&&& &5x& &-& &1y& &+& &3z& &=& &b_3& &&&&&&&& &&&&&&&& &&&&&&&&
+\end{align*}
+If this system is consistent, that is if it has at least one solution, then then the result follows. We can find necessary and sufficient conditions for this system by determining the conditions under which it is consistent.We do this by finding an echelon form of the augmented matrix of the linear system. The augmented matrix is
+\[
+\begin{pmatrix}0&3&1&b_1\\1&1&1&b_2\\5&-1&3&b_3\end{pmatrix}\text{,}
+\]
+and we apply elementary row operations to this matrix until we get a matrix in echelon form:
+\begin{align*}
+\begin{pmatrix}0&3&1&b_1\\1&1&1&b_2\\0&-6&-2&b_3-5b_2\end{pmatrix}
+&\begin{matrix}\hphantom{1}\\\hphantom{1}\\-5R_2+R_3\hphantom{1}\end{matrix}\\
+\begin{pmatrix}0&3&1&b_1\\1&1&1&b_2\\0&0&0&b_3-5b_2+2b_1\end{pmatrix}
+&\begin{matrix}\hphantom{1}\\\hphantom{1}\\2R_1+R_3\hphantom{1}\end{matrix}\\
+\begin{pmatrix}1&1&1&b_2\\0&3&1&b_1\\0&0&0&b_3-5b_2+2b_1\end{pmatrix}
+&\begin{matrix}R_2 \leftrightarrow R_1 \hphantom{1}\\R_1 \leftrightarrow R_2\hphantom{1}\\\hphantom{1}\end{matrix}\\
+\end{align*}
+\end{solution}
+\vfill
+\centerline{PAGE 1 OF 2 FOR PROBLEM 2}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{3}
+Working in $\mathcal{P}_3$, consider the following functions:
+\newline
+\newline
+$\hphantom{100} \bullet \hphantom{10} f_1 (x) = x^3 + 2x^2 +x$
+\newline
+\newline
+$\hphantom{100} \bullet \hphantom{10} f_2 (x) = -3x^3 - 5x^2 +x +2$
+\newline
+\newline
+$\hphantom{100} \bullet \hphantom{10} f_3(x) = x^2 - x +1$
+\newline
+\newline
+$\hphantom{100} \bullet \hphantom{10} g(x) = x^3 + 8x^2 +7$
+\newline
+\newline
+\noindent
+Is $g \in \text{Span}(f_1,f_2,f_3)$? Explain.
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+We want to know if $g\in \text{Span}(f_1,f_2,f_3)$, that is, we want to know if there exist $a,b,c \in \mathbb{R}$ with $g(x)=a\cdot f_1(x) + b\cdot f_2(x) + c\cdot f_3(x)$ for all $x\in \mathbb{R}$. Expanding $g,f_1,f_2,f_3$ to their polynomial forms and combing like terms, we get $x^3 + 8x^2 +7 = (a-3b)x^3 + (2a-5b+c)x^2 +(a+b-c)x +(2b+c)$. So we want to know if there exist $a,b,c \in \mathbb{R}$ with $x^3 + 8x^2 +7 = (a-3b)x^3 + (2a-5b+c)x^2 +(a+b-c)x +(2b+c)$ for all $x\in \mathbb{R}$. By Proposition 4.2.18, if the previous equality is true, then the coefficients of like terms are also equal. By "matching" the $x^3$ terms on the left to the $x^3$ terms on the right, and doing the same for the $x^2$, $x$, and constant terms, we can describe the relationship between the variables $a,b,c$ in the equation as the following linear system of 4 equations in the variables $a,b,c$:
+\begin{align*}
+&&&&&&&& &&&&&&&& &&&&&&&& &1a& &-& &3b& &\hphantom{500}& &\hphantom{500}& &=& &1& &&&&&&&& &&&&&&&& \text{($x^3$ terms)} &&&&&&&& \\
+&&&&&&&& &&&&&&&& &&&&&&&& &2a& &-& &5b& &+& &1c& &=& &8& &&&&&&&& &&&&&&&& \text{($x^2$ terms)} &&&&&&&& \\
+&&&&&&&& &&&&&&&& &&&&&&&& &1a& &+& &1b& &-& &1c& &=& &0& &&&&&&&& &&&&&&&& \text{($x$ terms)} &&&&&&&& \\
+&&&&&&&& &&&&&&&& &&&&&&&& &\hphantom{500}& &\hphantom{500}& &2b& &+& &1c& &=& &7& &&&&&&&& &&&&&&&& \text{(constant terms)} &&&&&&&& 
+\end{align*}
+If this system has a solution, then it would follow that there exist $a,b,c \in \mathbb{R}$ such that $g(x)=a\cdot f_1(x) + b\cdot f_2(x) + c\cdot f_3(x)$ for all $x\in \mathbb{R}$, and so we would have $g\in \text{Span}(f_1,f_2,f_3)$. So we just need to determine if the system has a solution or not. By reasoning similar to that in Problem 2, the system has a solution if the last column of an echelon form of the augmented matrix of the system does not have leading entry. The augmented matrix of the system is
+\[
+\begin{pmatrix}1&-3&0&1\\2&-5&1&8\\1&1&-1&0\\0&2&1&7\end{pmatrix}\text{,}
+\]
+\end{solution}
+\vfill
+\centerline{PAGE 1 OF 2 FOR PROBLEM 3}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{4}
+Let $V$ be the vector space of all 2 $\times$ 2 matrices. Does
+\[
+\text{Span}\left( \begin{pmatrix}1&1\\2&0\end{pmatrix}, \begin{pmatrix}2&3\\7&2\end{pmatrix}, \begin{pmatrix}0&1\\2&6\end{pmatrix} \right) =V\text{?}
+\]
+Explain.
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+We want to know if $\text{Span}\left( \begin{pmatrix}1&1\\2&0\end{pmatrix}, \begin{pmatrix}2&3\\7&2\end{pmatrix}, \begin{pmatrix}0&1\\2&6\end{pmatrix} \right) =V$, that is, we want to know if $\text{Span}\left( \begin{pmatrix}1&1\\2&0\end{pmatrix}, \begin{pmatrix}2&3\\7&2\end{pmatrix}, \begin{pmatrix}0&1\\2&6\end{pmatrix} \right) \subseteq V$ and $V\subseteq \text{Span}\left( \begin{pmatrix}1&1\\2&0\end{pmatrix}, \begin{pmatrix}2&3\\7&2\end{pmatrix}, \begin{pmatrix}0&1\\2&6\end{pmatrix} \right)$. The first containment is immediate, so we just need to prove the second containment. Suppose that the second containment is true. It then follows from the definition of Span that there exist $x,y,z \in \mathbb{R}$ such that $M = x\cdot \begin{pmatrix}1&1\\2&0\end{pmatrix}+ y\cdot \begin{pmatrix}2&3\\7&2\end{pmatrix} + z\cdot\begin{pmatrix}0&1\\2&6\end{pmatrix}$ for {\it all} $M \in V$. Consider $\begin{pmatrix}1&1\\1&1\end{pmatrix} \in V$. Because $V\subseteq \text{Span}\left( \begin{pmatrix}1&1\\2&0\end{pmatrix}, \begin{pmatrix}2&3\\7&2\end{pmatrix}, \begin{pmatrix}0&1\\2&6\end{pmatrix} \right)$, it follows that $\begin{pmatrix}1&1\\1&1\end{pmatrix} \in \text{Span}\left( \begin{pmatrix}1&1\\2&0\end{pmatrix}, \begin{pmatrix}2&3\\7&2\end{pmatrix}, \begin{pmatrix}0&1\\2&6\end{pmatrix} \right)$, and so there exists $x,y,z \in \mathbb{R}$ such that $\begin{pmatrix}1&1\\1&1\end{pmatrix} = x\cdot \begin{pmatrix}1&1\\2&0\end{pmatrix}+ y\cdot \begin{pmatrix}2&3\\7&2\end{pmatrix} + z\cdot\begin{pmatrix}0&1\\2&6\end{pmatrix}$. Expanding the right hand side using the definition of addition and scalar multiplication for $V$, we get $\begin{pmatrix}1&1\\1&1\end{pmatrix} = \begin{pmatrix}x+2y&x+3y+z\\2x+7y+2z&2y+6z\end{pmatrix}$. By Definition 3.1.5, we have that:
+\begin{align*}
+&&&&&&&& &&&&&&&& &&&&&&&& &1x& &+& &2y& &\hphantom{500}& &\hphantom{500}& &=& &1& &&&&&&&& &&&&&&&& &&&&&&&& \\
+&&&&&&&& &&&&&&&& &&&&&&&& &1x& &+& &3y& &+& &1z& &=& &1& &&&&&&&& &&&&&&&& &&&&&&&& \\
+&&&&&&&& &&&&&&&& &&&&&&&& &2x& &+& &7y& &+& &2z& &=& &1& &&&&&&&& &&&&&&&& &&&&&&&& \\
+&&&&&&&& &&&&&&&& &&&&&&&& &\hphantom{500}& &\hphantom{500}& &2y& &+& &6z& &=& &1& &&&&&&&& &&&&&&&&  &&&&&&&& 
+\end{align*}
+Notice that this is a linear system of four equations in the variables $x,y,z$. We search for the solution of this system. By reasoning similar to that in Problem 2, the system has a solution if the last column of an echelon form of the augmented matrix of the system does not have leading entry. The augmented matrix of the system is
+\[
+\begin{pmatrix}1&2&0&1\\1&3&1&1\\2&7&2&1\\0&2&6&1\end{pmatrix}\text{,}
+\]
+\vfill
+\centerline{PAGE 1 OF 2 FOR PROBLEM 4}
+\end{solution}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{5}
+Consider the vector space $\mathbb{R}$, under the usual addition and scalar multiplicaiton (so $\vec{0}=0$ here). Show that the only subspaces of $\mathbb{R}$ are $\{0\}$ and $\mathbb{R}$.
+\newline
+\noindent
+{\it Hint:} Let $W$ be an arbitrary subspace of $\mathbb{R}$ with $W \neq \{0\}$. We know that $0 \in W$, so we can fix some $a \in W$ with $a \neq 0$. Now explain why every element of $\mathbb{R}$ is in $W$.
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+Let $W$ be a arbitrary subspace of $\mathbb{R}$ with $W =\{\vec{n}\}$, that is, $W$ is a subspace of $V$ containing a single arbitrary element, $\vec{n}$. Because $W$ is a subspace of $\mathbb{R}$, $W$ has the following properties as laid out in Definition 4.1.12:
+
+1. $\vec{0} \in W$
+
+2. For all $\vec{v_1},\vec{v_2} \in W$, we have that $\vec{v_1}+\vec{v_2} \in W$
+
+3. For all $\vec{v} \in W$ and all $c \in \mathbb{R}$, we have $c\cdot \vec{v} \in W$
+\newline
+\newline
+\noindent
+By Property 1, $\vec{0} \in W$. Because $W =\{\vec{n}\}$, it must be the case that $\vec{n}= \vec{0}$. Notice that $\vec{0}+\vec{0} = \vec{0}$ (by Proposition 4.1.7) and $c\cdot \vec{0} = \vec{0}$ for all $c \in \mathbb{R}$ (by Proposition 4.1.11), so Property 2 and 3 are also satisfied. Because $W$ was arbitrary, it follows that the only subspace of $\mathbb{R}$ with one element is $\{0\}$. 
+
+Now let $W$ be an arbitrary subspace of $\mathbb{R}$ where $W$ has more than one element. We know that $0 \in W$, so there must be a unique nonzero element $a$ in $W$. By Property 2 of subspaces, for all $c\in \mathbb{R}$, $c\cdot a \in W$. Suppose that $a=1$. We then have that $c \in W$ for all $c \in \mathbb{R}$, so it follows that $\mathbb{R} \in W$. Becuase $W \in \mathbb{R}$ by definition, we have that $W = \mathbb{R}$. Because $W$ was an arbitrary subset, we conclude that all subsets with more than one element $W$ of $\mathbb{R}$ are equal to $\mathbb{R}$.
+
+We have that all subsets of $\mathbb{R}$ with one element are $\{0\}$, and all subsets of $\mathbb{R}$ with more than one element are $\mathbb{R}$. These two cases exhaust all possibilities, so it must be the case that the only subspaces of $\mathbb{R}$ are $\{0\}$ and $\mathbb{R}$.
+%Let $q \in U\mathbb{R}$ 
+%be arbitrary and let $U = \text{Span}(q)$. Let $n \in U$ be arbitrary. By Proposition 4.1.16, $U$ is a subspace of $\mathbb{R}$. In the case that $q=0$, we trivially have that $U=\{0\}$. Consider the case in which $q \neq 0$. By definition of Span, we can fix $c \in \mathbb{R}$ such that $n=c\cdot q$. $c\cdot q \in \mathbb{R}$ by definition of vector spaces, so it follows that $n \in \mathbb{R}$. Because $n$ was arbitrary, it follows that $U \subseteq \mathbb{R}$. Now let $m \in \mathbb{R}$ be arbitrary. Because $m \in \mathbb{R}$, by property of vector spaces we can fix a $d \in \mathbb{R}$ with $m=d\cdot p$ for $p \in \mathbb{R}$. So $m \in $
+
+%Let $V = \mathbb{R}$, and let $U$ be an arbitrary subspace of $V$ with more than one element. We know that any subspace $P$ of a vector space $Q$ is also a vector space under the inherited operations from $Q$, so we can treat $U$ itself as a vector space. We proved in part c of Problem 1 on Written Assignment 6 that if a vector space has more than one element, then it must have infinitely many elements, so it follows that $U$ has infinitely many elements. Let $u \in U$ be arbitrary. Because $U$ is a subspace of $V$, it follows that $U \subseteq V$. So $u \in V$. Now let $r \in \mathbb{R}$ be arbitrary. By property of vector spaces, we have that $c\cdot r \in V$. Because $u \in U$ was arbitrary, it follows thatBy Property 2 of vector spaces, $c\cdot u \in U$. Because $U \cdot U$Because $U$ is a vector space of $\mathbb{R}$,  Because $c \in \mathbb{R}$ was arbitrary, there are an infinite number of unique $c\cdot v \in U$. Therefore, $U$ must have infinitely many elements of$
+
+%Let $U$ be a subspace of vector space $\mathbb{R}$. By definition we have that $ U \subseteq \mathbb{R}$. By the above properties, we have that $U \cap \mathbb{R} = U$ and $U \cup \mathbb{R} = B$. Notice that 
+%Let $U$ be a subspace of $\mathbb{R}$. By definition we have that $U \subseteq \mathbb{R}$. We prove the following statement: If $U \neq \{0\}$ then $\mathbb{R} \subseteq U$. Notice that $U\cup \mathbb{R} = \mathbb{R}\cup U$ and that $U\cap \mathbb{R} = \mathbb{R} \cap U$.
+%We instead prove the contrapositive.
+%Contrapositive:
+%If $\mathbb{R} \nsubseteq U$, then $U = \{0\}$
+%Let $U$ be an arbitrary subspace of $\mathbb{R}$, so by definition $U \subseteq \mathbb{R}$. It follows that there are more elements in $\mathbb{R}$ than there are in $U$, that is, the cardinality of $\mathbb{R}$ is greater than or equal to the cardinality of $U$. Now suppose that $\mathbb{R} \nsubseteq U$. Because $U \subseteq \mathbb{R}$ this means that the cardinality $U$ is less than the cardinality of $\mathbb{R}$. of Because $\mathbb{R}$ $ the then have that $U$ contains a less than infinite amount of amount of elements from $\mathbb{R}$
+
+ %We also know that any subspace $S$ of a vector space $V$ is also a vector space under the inherited operations from $V$, so it follows that any subspace with more than one element must have infinitely many elements. Therefore, any subspace $U$ of $\mathbb{R}$ with more than one element has infinitely many elements. Because $U$ is a subspace of $\mathbb{R}$, it follows that $U \subseteq \mathbb{R}$. Because $U$ has infinitely elements, it must have infinitely many elements from $\mathbb{R}$. and since $\mathbb{R}$ has infinitely many elements, any subspace of $\mathbb{R}$ must also have 
+
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 5}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{6}
+In Problem 5 on Problem Set 14, you showed that
+\[
+W=\left\{\begin{pmatrix}a_1\\a_2\\a_3\end{pmatrix} \in \mathbb{R}^3 : a_1+a_2+a_3 =0 \right\}
+\]
+was a subspace of $\mathbb{R}^3$. Show that
+\[
+W=\text{Span}\left(\begin{pmatrix}1\\-1\\0\end{pmatrix}, \begin{pmatrix}1\\0\\-1\end{pmatrix}\right)
+\]
+by giving a double containment proof.
+\newline
+\noindent
+{\it Aside:} Using this result, we can instead apply Proposition 4.1.15 to conclude that $W$ is a subspace of $\mathbb{R}^3$.
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+Let $\vec{w} \in W$ be arbitrary, and fix $x,y,z \in \mathbb{R}$ such that $\vec{w} = \begin{pmatrix}x\\y\\z\end{pmatrix}$. Because $w \in W$, we have that $x+y+z =0$. Rearranging, we get $x= -y-z$. So $\vec{w} = \begin{pmatrix}-y-z\\y\\z\end{pmatrix}$. Notice that
+\begin{align*}
+\vec{w}=\begin{pmatrix}-y-z\\y\\z \end{pmatrix} =& \begin{pmatrix}-y\\y\\0\end{pmatrix} + \begin{pmatrix}-z\\0\\z\end{pmatrix}\\
+=&(-y)\cdot \begin{pmatrix}1\\-1\\0\end{pmatrix} + (-z)\cdot\begin{pmatrix}1\\0\\-1\end{pmatrix}
+\end{align*}
+$-y,-z \in \mathbb{R}$, so it follows that $\vec{w} \in \text{Span}\left(\begin{pmatrix}1\\-1\\0\end{pmatrix}, \begin{pmatrix}1\\0\\-1\end{pmatrix}\right)$. Because $\vec{w}$ was arbitrary, it follows that $W \subseteq \text{Span}\left(\begin{pmatrix}1\\-1\\0\end{pmatrix}, \begin{pmatrix}1\\0\\-1\end{pmatrix}\right)$.
+
+Now let $\vec{v} \in \text{Span}\left(\begin{pmatrix}1\\-1\\0\end{pmatrix}, \begin{pmatrix}1\\0\\-1\end{pmatrix}\right)$ be arbitrary. By definition of Span, we can fix
+\end{solution}
+\vfill
+\centerline{PAGE 1 OF 2 FOR PROBLEM 6}
+%
+%
+%
+\newpage
+All leading entries are to the right of the leading entry in the row above, so by definition this matrix is in echelon form. We obtained this matrix by applying fundamental row operations to the original matrix, so by definition the echelon matrix is row equivalent to the original matrix, and it follows that the echelon matrix is an echelon form of the original matrix. By Proposition 4.2.12, if the last column of the echelon matrix contains a leading entry, then the system is inconsistent. So in order for the system to be consistent, it must be the case that $b_3-5b_2+2b_1 = 0$. Under this condition, the system has a solution, that is, there exist $x,y,z \in \mathbb{R}$ that satisfy the three equations. Recombining the equations into their original vector form, if $b_3-5b_2+2b_1 = 0$, then there exist $x,y,z \in \mathbb{R}$ with $\begin{pmatrix}b_1\\b_2\\b_3\end{pmatrix} = x\cdot \begin{pmatrix}0\\1\\5\end{pmatrix} + y\cdot \begin{pmatrix}3\\1\\-1\end{pmatrix}+ z\cdot \begin{pmatrix}1\\1\\3\end{pmatrix}$. So by the definition of Span, if $b_3-5b_2+2b_1 = 0$, then $\begin{pmatrix}b_1\\b_2\\b_3\end{pmatrix} \in \text{ Span}\left(\begin{pmatrix}0\\1\\5\end{pmatrix}, \begin{pmatrix}3\\1\\-1\end{pmatrix}, \begin{pmatrix}1\\1\\3\end{pmatrix}\right)$.
+\vfill
+\centerline{PAGE 2 OF 2 FOR PROBLEM 2}
+%
+%
+%
+\newpage
+and we apply elementary row operations to this matrix until we get a matrix in echelon form:
+\begin{align*}
+\begin{pmatrix}0&-4&1&1\\0&-7&3&8\\1&1&-1&0\\0&2&1&7\end{pmatrix}
+&\begin{matrix}-R_3+R_1\hphantom{1}\\-2R_3+R_2\hphantom{1}\\\hphantom{1}\\\hphantom{1}\end{matrix}\\
+\begin{pmatrix}0&0&3&15\\0&0&13&65\\1&1&-1&0\\0&2&1&7\end{pmatrix}
+&\begin{matrix}2R_4+R_1\hphantom{1}\\7R_4+2R_2\hphantom{1}\\\hphantom{1}\\\hphantom{1}\end{matrix}\\
+\begin{pmatrix}0&0&3&15\\0&0&0&0\\1&1&-1&0\\0&2&1&7\end{pmatrix}
+&\begin{matrix}\hphantom{1}\\-13R_1+3R_2\hphantom{1}\\\hphantom{1}\\\hphantom{1}\end{matrix}\\
+\begin{pmatrix}1&1&-1&0\\0&2&1&7\\0&0&3&15\\0&0&0&0\end{pmatrix}
+&\begin{matrix}R_3 \leftrightarrow R_1\hphantom{1}\\R_4 \leftrightarrow R_2\hphantom{1}\\R_1 \leftrightarrow R_3\hphantom{1}\\R_2 \leftrightarrow R_4\hphantom{1}\end{matrix}\\
+\end{align*}
+All zero rows are below nonzero rows, and the leading entry of each nonzero row is to the right of the leading entry of the row above it, so by definition this matrix is in echelon form. By similar reasoning as in Problem 2, this matrix is an echelon form of the original matrix. Notice that there are no leading entries in the last column of the echelon matrix. By Proposition 4.2.12, the system is consistent and thus has a solution, and so by our reasoning above in the second paragraph, $g\in \text{Span}(f_1,f_2,f_3)$.
+\vfill
+\centerline{PAGE 2 OF 2 FOR PROBLEM 3}
+%
+%
+%
+\newpage
+and we apply elementary row operations to this matrix until we get a matrix in echelon form:
+\begin{align*}
+\begin{pmatrix}1&2&0&1\\0&1&1&0\\0&3&2&-1\\0&2&6&1\end{pmatrix}
+&\begin{matrix}\hphantom{1}\\-R_1+R_2\hphantom{1}\\-2R_1+R_3\hphantom{1}\\\hphantom{1}\end{matrix}\\
+\begin{pmatrix}1&2&0&1\\0&1&1&0\\0&0&-1&-1\\0&0&4&1\end{pmatrix}
+&\begin{matrix}\hphantom{1}\\\hphantom{1}\\-3R_2+R_3\hphantom{1}\\-2R_2+R_4\hphantom{1}\end{matrix}\\
+\begin{pmatrix}1&2&0&1\\0&1&1&0\\0&0&-1&-1\\0&0&0&-3\end{pmatrix}
+&\begin{matrix}\hphantom{1}\\\hphantom{1}\\\hphantom{1}\\4R_3+R_4\hphantom{1}\end{matrix}\\
+\end{align*}
+All leading entries are to the right of the leading entry in the column above, so by definition, this matrix is an echelon form of the original matrix. Notice that the last column contains a leading entry, so by Proposition 4.2.12 the system is inconsistent, that is, there does not exist $x,y,z \in \mathbb{R}$ with $\begin{pmatrix}1&1\\1&1\end{pmatrix} = x\cdot \begin{pmatrix}1&1\\2&0\end{pmatrix}+ y\cdot \begin{pmatrix}2&3\\7&2\end{pmatrix} + z\cdot\begin{pmatrix}0&1\\2&6\end{pmatrix}$. But we have from our assumption that $V\subseteq \text{Span}\left( \begin{pmatrix}1&1\\2&0\end{pmatrix}, \begin{pmatrix}2&3\\7&2\end{pmatrix}, \begin{pmatrix}0&1\\2&6\end{pmatrix} \right)$ that there {\it does} exist such $x,y,z \in \mathbb{R}$. We have a contradiction, and so it must be the case that $V\nsubseteq \text{Span}\left( \begin{pmatrix}1&1\\2&0\end{pmatrix}, \begin{pmatrix}2&3\\7&2\end{pmatrix}, \begin{pmatrix}0&1\\2&6\end{pmatrix} \right)$, and it follows that $\text{Span}\left( \begin{pmatrix}1&1\\2&0\end{pmatrix}, \begin{pmatrix}2&3\\7&2\end{pmatrix}, \begin{pmatrix}0&1\\2&6\end{pmatrix} \right) \neq V$.
+\vfill
+\centerline{PAGE 2 OF 2 FOR PROBLEM 4}
+%
+%
+%
+\newpage
+$a,b \in \mathbb{R}$ such that $\vec{v} =  a\cdot \begin{pmatrix}1\\-1\\0\end{pmatrix} +b\cdot \begin{pmatrix}1\\0\\-1\end{pmatrix}$. Notice that
+\begin{align*}
+\vec{v} =& a\cdot \begin{pmatrix}1\\-1\\0\end{pmatrix} +b\cdot \begin{pmatrix}1\\0\\-1\end{pmatrix}\\
+=& \begin{pmatrix}a\\-a\\0\end{pmatrix} +\begin{pmatrix}b\\0\\-b\end{pmatrix}\\
+=& \begin{pmatrix}a+b\\-a\\-b\end{pmatrix}
+\end{align*}
+So we have that $\vec{v} = \begin{pmatrix}a+b\\-a\\-b\end{pmatrix}$. Notice that $(a+b) + (-a) + (-b) = a+b-a-b =0+0 =0$, so $\vec{v} \in W$. Because $\vec{v}$ was arbitrary, it follows that $\text{Span}\left(\begin{pmatrix}1\\-1\\0\end{pmatrix}, \begin{pmatrix}1\\0\\-1\end{pmatrix}\right) \subseteq W$.
+
+We have shown that $W\subseteq \text{Span}\left(\begin{pmatrix}1\\-1\\0\end{pmatrix}, \begin{pmatrix}1\\0\\-1\end{pmatrix}\right)$ and $\text{Span}\left(\begin{pmatrix}1\\-1\\0\end{pmatrix}, \begin{pmatrix}1\\0\\-1\end{pmatrix}\right)\subseteq W$. Therefore, $W=\text{Span}\left(\begin{pmatrix}1\\-1\\0\end{pmatrix}, \begin{pmatrix}1\\0\\-1\end{pmatrix}\right)$.
+\vfill
+\centerline{PAGE 2 OF 2 FOR PROBLEM 6}
+\end{problem}
+
+
+\end{document}

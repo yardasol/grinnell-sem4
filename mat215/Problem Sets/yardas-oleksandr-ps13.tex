@@ -1,0 +1,400 @@
+\documentclass[12pt]{article}
+\usepackage{latexsym, amssymb, amsmath, amsfonts, amscd, amsthm, xcolor, pgfplots}
+\usepackage{cancel}
+\usepackage{framed}
+\usepackage[margin=1in]{geometry}
+\linespread{1} %Change the line spacing only if instructed to do so.
+
+\newenvironment{problem}[2][Problem]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1 #2:}]
+	}
+{
+	\end{trivlist}
+	}
+
+\newenvironment{solution}[1][Solution]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\itshape #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+\newenvironment{collaborators}[1][Collaborator(s)]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%    You need only modify code below this block.
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\title{Assignment: Problem Set 12} %Change this to the assignment you are submitting.
+\author{Name: Oleksandr Yardas} %Change this to your name.
+\date{Due Date: 04/02/2018 } %Change this to the due date for the assignment you are submitting.
+\begin{document}
+	\maketitle
+	\thispagestyle{empty}
+	
+	\section*{List Your Collaborators:}%Enter your collaborators names below. Do not delete extra rows.
+	
+	\begin{itemize}
+		\begin{framed}
+			\item 
+			Problem 1: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 2: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 3: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 4: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 5: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 6: None
+			\\\\
+		\end{framed}
+	\end{itemize}
+\newpage
+%
+%%%%%%%%%%%%%%%
+%
+% Your problem statements and solutions start here.
+% Use the \newpage command between problems so that
+% each of your problems begins on its own page.
+%
+%%%%%%%%%%%%%%%
+
+%FORMATTING OPTIONS
+%FOR BLANK SPACES: \underline{\hspace{2cm}}
+%FOR SPACES IN align OR SIMILAR ENVIRONMENTS:  \hphantom{1000}
+%FOR MATRICES: \begin{matrix} \end{matrix}, can add p, b, B, v, V, small as suffix to "matrix"
+%SETS: \mathbb{R}^, :\mathbb{R}^ \to \mathbb{R}^
+%Vectors: \vec{},
+%SUBSCRIPTS: _{}
+%FRACTIONS: \frac{}{}
+
+%Provide the problem statement.
+\begin{problem}{1}
+Explain why a 2 $\times$ 2 matrix $A$ is invertible if and only if $0$ is not an eigenvalue of $A$.
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+Let $A$ be the 2 $\times$ 2 matrix that is the standard matrix of some linear transformation $T:\mathbb{R}^2 \to \mathbb{R}^2$, and fix $a,b,c,d \in \mathbb{R}$ with $A=\begin{pmatrix}a&b\\c&d\end{pmatrix}$. Notice that
+\begin{align*}
+Null(T) = & \{\vec{v} \in \mathbb{R}^2 :T(\vec{v})=\vec{0}\}  &\\
+=& \{\vec{v} \in \mathbb{R}^2 :[T]\vec{v}=\vec{0}\} & \text{(By Proposition 3.1.4)} \\
+=& \{\vec{v} \in \mathbb{R}^2 :A\vec{v}=\vec{0}\}&\text{(By definiton of $A$)}\\
+=& Null(A) &
+\end{align*}
+So $Null(T)=Null(A)$. Now let $\lambda \in \mathbb{R}$ be arbitrary. By Corollary 3.5.5, $\lambda$ is an eigenvalue of $A$ if and only if $Null(A-\lambda I) \neq \{\vec{0}\}$.
+
+We first show that if $A$ is invertible, then 0 is not an eigenvalue of $A$. Suppose that $A$ is invertible, so by Proposition 3.3.16, $ad-bc \neq 0$. $ad-bc\neq0$, so by Theorem 3.3.3, $Null(T) = \{\vec{0}\}$, and it follows that $Null(A) = \{\vec{0} \}$. Consider the case where $\lambda = 0$. We then have that $Null(A-\lambda I) = Null(A-0I) = Null(A-0) = Null(A)$. $Null(A) = \{\vec{0}\}$, so $Null(A-0I) = \{\vec{0}\}$, and it follows from Corollary 3.5.5 that $0$ is not an eigenvalue of $A$. Therefore, if $A$ is invertible, 0 is not an eigenvalue of $A$.
+
+We now prove the converse, that if 0 is not an eigenvalue of $A$, then $A$ is invertible. We prove the contrapositive: If $A$ is not invertible, then 0 is an eigenvalue of $A$. Suppose that $A$ is not invertible. By Proposition 3.3.16, $ad-bc = 0$. Now let $\lambda \in \mathbb{R}$ be arbitrary. By Corollary 3.5.5, $\lambda$ is an eigenvalue of $A$ if and only if $Null(A-\lambda I) \neq \{\vec{0}\}$. Consider the case where $\lambda = 0$. We then have that $Null(A-\lambda I) = Null(A-0I) = Null(A-0) = Null(A)$. So 0 is an eigenvalue of $A$ if and only if $Null(A)\neq\{\vec{0}\}$. We have two cases for $A$:
+\newline
+\newline
+\noindent
+1. All of $a,b,c,d$ equal 0, that is, that $A = 0$. Applying Theorem 3.3.3, there exists a nonzero $\vec{u} \in \mathbb{R}^2$ with $Null(T) = Span(\vec{u})$, so it follows that $Null(A)= Span(\vec{u})$. So $Null(A)\neq \{\vec{0}\}$, and 0 is an eigenvalue of $A$.
+\newline
+\newline
+\noindent
+2. $ad-bc=0$ and at least one of $a,b,c,d$ is nonzero. Applying Theorem 3.3.3, we have $Null(T) = \mathbb{R}^2$, and it follows that $Null(A)=\mathbb{R}^2$. So $Null(A)\neq \{\vec{0}\}$, and 0 is an eigenvalue of $A$.
+\newline
+\newline
+These two cases exhaust all possibilities, so it must be the case that if $A$ is not invertible, then 0 is an eigenvalue of $A$. Because we have proven the contrapositive, the original statement must also be true. Therefore, if 0 is not an eigenvalue of $A$, then $A$ is invertible. We have proven the implication and its converse to both be true, therefore, a 2 $\times$ 2 matrix $A$ is invertible if and only if $0$ is not an eigenvalue of $A$.
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 1}\end{problem}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{2}
+Define a sequence of numbers as follows. Let $g_{0}=0$, $g_{1}=1$, and $g_{n}= \frac{1}{2} (g_{n-1} + g_{n-2})$ for all $n \in \mathbb{N}$ with $n \geq 2$. Notice that if
+\[
+A = \begin{pmatrix} \frac{1}{2} & \frac{1}{2} \\ 1 & 0 \end{pmatrix}
+\]
+then
+\[
+A\begin{pmatrix} g_{n+1}\\g_{n} \end{pmatrix} = \begin{pmatrix} g_{n+2}\\g_{n+1} \end{pmatrix}
+\]
+for all $n\in \mathbb{N}$, so
+\[
+A^{n} \begin{pmatrix}1\\0\end{pmatrix} = \begin{pmatrix} g_{n+1}\\g_{n} \end{pmatrix}
+\]
+for all $n\in \mathbb{N}$.
+\noindent
+\newline
+\newline
+a. Find an invertible matrix $P$ and a diagonal matrix $D$ with $A=PDP^{-1}$.
+\begin{solution}
+%
+%Suppose that a linear transformation $T:\mathbb{R}^2 \to \mathbb{R}^2$ has two distinct eigenvalues. By Corollary 3.5.20, $T$ is diagonalizable. By definition of diagonalizable, there exists a basis $\alpha=(\vec{u_{1}},\vec{u_{2}})$ of $\mathbb{R}^2$ such that $[T]_{\alpha}$ is a diagonal matrix. By Proposition 5.3.13, the basis that makes $[T]_{\alpha}$ a diagonal matrix is the basis formed by the eigenvectors of $T$, that is to say, that $\vec{u_{1}},\vec{u_{2}}$ are eigenvectors of $T$. Combining these, we get the following statement: 
+%
+%If a linear transformation $T:\mathbb{R}^2\to \mathbb{R}^2$ has two distinct eigenvalues, then its eigenvectors $\vec{u_{1}},\vec{u_{2}}$ form a basis of $\mathbb{R}^2$ and  let $\alpha=(\vec{u_{1}},\vec{u_{2}})$ be a basis of $\mathbb{R}^2$. The following are equivalent:
+%
+%
+%1. $\vec{u_{1}},\vec{u_{2}}$ are eigenvectors of $T$.
+%
+%
+%2. $[T]_{\alpha}$ is a diagonal matrix.
+%\newline
+%\newline
+Let $\alpha=(\vec{u_{1}},\vec{u_{2}})$ be an arbitrary basis of $\mathbb{R}^2$, and fix $a,b,c,d \in \mathbb{R}$ with $\vec{u_{1}} = \begin{pmatrix}a\\c\end{pmatrix}, \vec{u_{2}} = \begin{pmatrix}b\\d\end{pmatrix}$ Let $T :\mathbb{R}^2 \to \mathbb{R}^2$ be a linear transformation, and define $T$ such that $[T]=A$.
+ %Let $D=[T]_{\alpha}$ and 
+Let $P=\begin{pmatrix}a&b\\c&d\end{pmatrix}$. By definition of basis, $Span(\vec{u_{1}},\vec{u_{2}})=\mathbb{R}^2$, so by Theorem 2.3.10, $ad-bc\neq 0$. It follows that $P$ is invertible by Proposition 3.3.16. Applying Proposition 3.4.7, we have that $[T]_{\alpha} = P^{-1} A P$. It follows that $A=P [T]_{\alpha} P^{-1}$. By Proposition 3.5.14, $[T]_{\alpha}$ is a diagonal matrix if and only if $\vec{u_{1}},\vec{u_{2}}$ are eigenvectors of $A$, that is to say, that the eigenvectors of $A$ form a basis of $\mathbb{R}^2$ $\alpha=(\vec{u_{1}},\vec{u_{2}})$.
+%If $A$ has two distinct eigenvalues, then it is diagonalizable. it must be the case that $A$ has distinct eigenvalues. 
+We first find the eigenvalues by finding the roots of the characteristic polynomial:
+\begin{align*}
+(0.5-\lambda)(0-\lambda) - (1)(0.5) =& 0\\
+{\lambda}^2 - 0.5 \lambda - 0.5 =& 0\\
+(\lambda - 1)(\lambda+0.5)=&0
+\end{align*}
+So $A$ has distinct eigenvalues $\lambda_{1}=1$ and $\lambda_{2}=-0.5$. We now find the eigenvectors
+
+
+We now find eigenvectors of $A$ corresponding to eigenvalues $1$ and $-0.5$, that is, we find the value of the vectors $\vec{v_{1}}, \vec{v_{2}} \in \mathbb{R}^2$ that satisfy
+\[
+\left( \begin{pmatrix}0.5&0.5\\1&0\end{pmatrix} - 1I \right) \vec{v_{1}} = \vec{0}
+ \hphantom{1000}
+ \text{ and }
+ \hphantom{1000}
+\left( \begin{pmatrix}0.5&0.5\\1&0\end{pmatrix} +0.5I \right) \vec{v_{2}} = \vec{0}
+\]
+Letting, $\vec{v_{1}}=\begin{pmatrix} x_{1}\\y_{1}\end{pmatrix},\vec{v_{2}} = \begin{pmatrix} x_{2}\\y_{2}\end{pmatrix}$, we get,
+\[
+\begin{pmatrix}-0.5&0.5\\1&-1\end{pmatrix} \begin{pmatrix} x_{1}\\y_{1}\end{pmatrix} %= \vec{0}
+ \hphantom{1000}
+ \text{ and }
+ \hphantom{1000}
+\begin{pmatrix}1&0.5\\1&0.5\end{pmatrix}\begin{pmatrix} x_{2}\\y_{2}\end{pmatrix} %= \vec{0}
+\]
+which become
+\end{solution}
+\vfill
+\centerline{PAGE 1 OF 3 FOR PROBLEM 2}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{3}
+Show that det$(AB)=$ det$(A) \cdot$ det$(B)$ for all 2 $\times$ 2 matrices $A$ and $B$.
+\noindent
+{\it Note:} Intuitively, if the linear transformation with standard matrix $B$ distorts area by a factor of $s$, and the linear transformation with standard matrix $A$ distorts area by a factor of $r$, then the {\it composition} of these linear transformations will distort area by a factor of $rs$ (because matrix multiplication corresponds to function composition), with appropriate signs. Although it is possible to make this geometric sketch precise by using arguments similar to the ones at the end of Section 3.6, you should give a computational argument in this problem by just using the formula for the determinant.
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+Let $A,B$ be arbitrary 2 $\times$ 2 matrices, and fix $a,b,c,d,e,f,g,h \in \mathbb{R}$ with $A=\begin{pmatrix}a&b\\c&d\end{pmatrix}, B=\begin{pmatrix}e&f\\g&h\end{pmatrix}$. Let $C=AB=\begin{pmatrix}a&b\\c&d\end{pmatrix}\begin{pmatrix}e&f\\g&h\end{pmatrix} = \begin{pmatrix}ae+bg&af+bh\\ce+dg&cf+dh\end{pmatrix}$. By definition of the determinant, det$(A) = ad-bc$, and det$(B)=eh-gf$. So
+\begin{align*}
+\text{det}(A)\cdot \text{det}(B)=&(ad-bc)(eh-gf) &\\
+=& adeh-adgf-bceh+bcgf = adeh +bgcf -cebh-dgaf &
+\end{align*}.
+So det$(A)$ $\cdot$ det$(B)= adeh +bgcf -cebh-dgaf$. Notice that
+\begin{align*}
+\text{det}(C)= \text{det}(AB) =& (ae+bg)(cf+dh)-(ce+dg)(af+bh) &\\
+=& \cancel{aecf}+aedh+bgcf+\cancel{bgdh} &\\
+-&\cancel{ceaf}-cebh-dgaf-\cancel{dgbh} &\\
+=&aedh+bgcf-cebh-dgaf =\text{det}(A)\cdot \text{det}(B)&\\
+\end{align*}
+Therefore, det$(AB)=$ det$(A) \cdot$ det$(B)$. Becase, $A,B$ were arbitrary, the result follows.
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 3}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{4}
+Show that if $A$ is invertible, then
+\[
+\text{det}(A^{-1}) = \frac{1}{\text{det}(A)}\text{.}
+\]
+{\it Hint:} Start with the fact that $AA^{-1}=I$, and use the previous problem.
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+Let $A$ be an arbitrary invertible 2 $\times$ 2 matrix, and fix $a,b,c,d \in \mathbb{R}$ with $A=\begin{pmatrix}a&b\\c&d\end{pmatrix}$. By Proposition 3.3.16, $ad-bc\neq 0$, and $A$ had a unique inverse, denoted $A^{-1}$, given by $\frac{1}{ad-bc} \begin{pmatrix}d&-b\\-c&a\end{pmatrix}$. By definition, det$(A) = ad-bc = \frac{(ad-bc)^2}{ad-bc}$.  Note that det$(A^{-1}) = \frac{da}{(ad-bc)^2} - \frac{bc}{(ad-bc)^2} = \frac{ad-bc}{(ad-bc)^2} = \frac{1}{\left(\frac{(ad-bc)^2}{ad-bc}\right)}=\frac{1}{\text{det}(A)}$. Because $A$ was arbitrary, the result follows.
+\newline
+\newline
+\newline
+We can also show this as follows: Let $A$ be an arbitrary invertible 2 $\times$ 2 matrix. Because $A$ is invertible, there exists a unique inverse of $A$ denoted by $A^{-1}$, for which $AA^{-1} = I$ and $A^{-1} A = I$. So det$(AA^{-1})=$ det$(I)$. By the previous problem, det$(AA^{-1}) =$ det$(A)$ $\cdot$ det$(A^{-1})$, so it follows that det$(A)$ $\cdot$ det$(A^{-1}) = $ det$(I)$. Manipulating, we get det$(A^{-1}) = \frac{\text{det}(I)}{\text{det}(A)}$. Notice that det$(I) = \begin{vmatrix}1&0\\0&1\end{vmatrix} = (1)(1)-(0)(0)=1$, so det$(A^{-1}) = \frac{1}{\text{det}(A)}$. Because $A$ was arbitrary, the result follows.
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 4}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{5}
+Show that if $T:\mathbb{R}^2 \to \mathbb{R}^2$ is a linear transformation and $\alpha$ is a basis of $\mathbb{R}^2$, then det$([T]_{\alpha})=$ det$([T])$. Thus, although we might obtain different matrices when we represent $T$ with respect to different bases, the resulting matrices will all have the same determinant.
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+Let $T:\mathbb{R}^2 \to \mathbb{R}^2$ be a linear transformation defined by fixing $e,f,g,h \in \mathbb{R}$ such that $[T]=\begin{pmatrix}e&f\\g&h\end{pmatrix}$, and let $\alpha=\left(\begin{pmatrix}a\\c\end{pmatrix}, \begin{pmatrix}b\\d\end{pmatrix}\right)$ be an arbitrary basis of $\mathbb{R}^2$, and let $P= \begin{pmatrix} a&b\\c&d\end{pmatrix}$. By similar reasoning as in problem 2, we have that $P$ is invertible. By Proposition 3.4.7, we then have that
+\begin{align*}
+[T]_{\alpha} = P^{-1} [T] P
+%& \frac{1}{ad-bc} \begin{pmatrix}d&-b\\-c&a\end{pmatrix} \begin{pmatrix}e&f\\g&h\end{pmatrix}  \begin{pmatrix} a&b\\c&d\end{pmatrix} &\\
+%=&\frac{1}{ad-bc} \begin{pmatrix}d&-b\\-c&a\end{pmatrix} \begin{pmatrix}ea+fc & eb+fd\\ga+hc&gb+hd\end{pmatrix} &\\
+%=&\frac{1}{ad-bc} \begin{pmatrix}d(ea+fc)-b(ga+hc) & d(eb+fd)-b(gb+hd)\\-c(ea+fc)+a(ga+hc) & -c(eb+fd)+a(gb+hd)\end{pmatrix}&
+\end{align*}
+So det$([T]_{\alpha})=$ det$(P^{-1} [T] P) =$ det$(P^{-1})$ $\cdot$ det$([T])$ $\cdot$ det$(P)$ (By the result of Problem 3) $=\cancel{\frac{1}{\text{det}(P)}} \cdot \text{det}([T]) \cdot \cancel{\text{det}(P)}$ (By the result of Problem 4) $= \text{det}([T])$. So $\text{det}([T]_{\alpha})=\text{det}([T])$. Because $\alpha, T$ were arbitrary, the result follows.
+%So $[T]_{\alpha} = \frac{1}{ad-bc} \begin{pmatrix}d(ea+fc)-b(ga+hc) & d(eb+fd)-b(gb+hd)\\-c(ea+fc)+a(ga+hc) & -c(eb+fd)+a(gb+hd)\end{pmatrix}$. So by definition of determinant,
+%\begin{align*}
+%\text{det}([T]_{\alpha} =&\frac{(d(ea+fc)-b(ga+hc))(-c(eb+fd)+a(gb+hd))}{(ad-bc)^2} &\\
+%-&\frac{(d(eb+fd)-b(gb+hd))(-c(ea+fc)+a(ga+hc))}{(ad-bc)^2} &\\
+%=&\frac{\cancel{-dc(ea+fc)(eb+fd)} + da(ea+fc)(gb+hd)+bc(ga+hc)(eb+fd) - \cancel{ba(ga+hc)(gb+hd)}}{(ad-bc)^2} &\\
+%-&\frac{\cancel{-dc(eb+fd)(ea+fc)}+da(eb+fd)(ga+hc) + bc(gb+hd)(ea+fc) - \cancel{ba(gb+hd)(ga+hc)}}{(ad-bc)^2} &\\
+%=&\frac{ da(ea+fc)(gb+hd)+bc(ga+hc)(eb+fd) -da(eb+fd)(ga+hc) -bc(gb+hd)(ea+fc)}{(ad-bc)^2}&\\
+%=&\frac{ad((ea+fc)(gb+hd)-(eb+fd)(ga+hc)) - bc ((gb+hd)(ea+fc)-(ga+hc)(eb+fd))}{(ad-bc)^2}&\\
+%=&\frac{\cancel{(ad-bc)}((ea+fc)(gb+hd)-(eb+fd)(ga+hc))}{(ad-bc)^{\cancel{2}}}
+%=&\frac{
+%\end{align*}
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 5}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{6}
+Given a 2 $\times$ 2 matrix $A$ and an $r\in \mathbb{R}$, what is the relationship between det$(r\cdot A)$ and det$(A)$? Explain.
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+Let $A$ be an arbitrary 2 $\times$ 2 matrix, and let $r\in\mathbb{R}$ be arbitrary. Fix $a,b,c,d\in\mathbb{R}$ such that $A=\begin{pmatrix}a&b\\c&d\end{pmatrix}$. Notice that $\text{det}(A) = \begin{vmatrix}a&b\\c&d\end{vmatrix} = ad-bc$, and that $\text{det}(r\cdot A) = \begin{vmatrix} ra&rb\\rc&rd\end{vmatrix} = r^2 (ad-bc) = r^2 \cdot \text{det}(A)$. So $\text{det}(r\cdot A) = r^2 \cdot \text{det}(A)$. The determinant of a matrix gives the signed area distortion factor of the linear transformation on vectors $\vec{v},\vec{u}\in\mathbb{R}^2$ that form a parallelogram, with that matrix as the standard matrix of the linear transformation. Scaling the linear transformation by a factor of $r$ scales the magnitude of the transformed vectors by a factor of $r$, and it follows that the area of the transformed parallelogram is scaled by $r^2$, so it must be the case that the area distortion factor is also scaled by $r^2$.
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 6}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\[
+\begin{pmatrix}-0.5x_{1}+0.5y_{1}\\x_{1}-y_{1}\end{pmatrix} %= \begin{pmatrix}0\\0\end{pmatrix}
+ \hphantom{1000}
+ \text{ and }
+ \hphantom{1000}
+\begin{pmatrix}x_{2}+0.5y_{2}\\x_{2}+0.5y_{2}\end{pmatrix}%= \begin{pmatrix}0\\0\end{pmatrix}
+\]
+Letting $x_{1}=1,y_{1}=1,x_{2}=0.5,y_{2}=-1$, we get
+\[
+\begin{pmatrix}-0.5+0.5\\-0.5+0.5\end{pmatrix} =\begin{pmatrix}0\\0\end{pmatrix} =\vec{0} %= \begin{pmatrix}0\\0\end{pmatrix}
+ \hphantom{1000}
+ \text{ and }
+ \hphantom{1000}
+\begin{pmatrix}0.5-0.5\\0.5-0.5\end{pmatrix} =\begin{pmatrix}0\\0\end{pmatrix} =\vec{0} %= \begin{pmatrix}0\\0\end{pmatrix}
+\]
+So $\begin{pmatrix}1\\1\end{pmatrix}$ an eigenvector of $A$ corresponding to eigenvalue $1$, and $\begin{pmatrix}0.5\\-1\end{pmatrix}$ an eigenvector of $A$ corresponding to eigenvalue $-0.5$. Notice that $(1)(-1)-(0.5)(1)=-1-0.5=-1.5\neq0$, so by Theorem 2.3.10, $Span\left(\begin{pmatrix}1\\1\end{pmatrix},\begin{pmatrix}0.5\\-1\end{pmatrix} \right) = \mathbb{R}^2$, so $\left(\begin{pmatrix}1\\1\end{pmatrix},\begin{pmatrix}0.5\\-1\end{pmatrix} \right)$ is a basis of $\mathbb{R}^2$. Letting $D=[T]_{\beta}$, where $\beta=\left(\begin{pmatrix}1\\1\end{pmatrix}, \begin{pmatrix}0.5\\-1\end{pmatrix}\right)$, we have that $D$ is a diagonal matrix, and $P=\begin{pmatrix}1&0.5\\1&-1\end{pmatrix}$. It follows that $P^{-1}=-\frac{2}{3} \begin{pmatrix}-1&-0.5\\-1&1\end{pmatrix}$. We compute $[T]_{\alpha}$ using Proposition 3.4.7.
+\begin{align*}
+[T]_{\alpha} = P^{-1} A P =& -\frac{2}{3} \begin{pmatrix}-1&-0.5\\-1&1\end{pmatrix} \begin{pmatrix}0.5&0.5\\1&0\end{pmatrix} \begin{pmatrix}1&0.5\\1&-1\end{pmatrix} &\\
+=& -\frac{2}{3} \begin{pmatrix}-1&-0.5\\-1&1\end{pmatrix} \begin{pmatrix}(0.5)(1)+(0.5)(1) & (0.5)(0.5)+(0.5)(-1)\\(1)(1)+(0)(1)&(1)(0.5)+(0)(-1)\end{pmatrix} &\\
+=&-\frac{2}{3} \begin{pmatrix}-1&-0.5\\-1&1\end{pmatrix} \begin{pmatrix}1&-0.25\\1&0.5\end{pmatrix} &\\
+=&-\frac{2}{3}\begin{pmatrix}(-1)(1)+(-0.5)(1) & (-1)(-0.25)+(-0.5)(0.5)\\(-1)(1)+(1)(1)&(-1)(-0.25)+(1)(0.5)\end{pmatrix} &\\
+=&-\frac{2}{3}\begin{pmatrix}-1.5&0\\0&0.75\end{pmatrix} = \begin{pmatrix}1&0\\0&-0.5\end{pmatrix}&
+\end{align*}
+So $D=\begin{pmatrix}1&0\\0&-0.5\end{pmatrix}$, and it is clear to see that this matrix is diagonal. Therefore, for $A=\begin{pmatrix}0.5&0.5\\1&0\end{pmatrix}$, we have that $A=P D P^{-1}$, where $D=\begin{pmatrix}1&0\\0&-0.5\end{pmatrix}$ is diagonal, $P=\begin{pmatrix}1&0.5\\1&-1\end{pmatrix}$ is invertible.
+\noindent
+\newline
+\newline
+b. Find a general formula for $g_{n}$.
+\begin{solution}
+Recall that $A^{n} \begin{pmatrix}1\\0\end{pmatrix} = \begin{pmatrix}g_{n+1}\\g_{n}\end{pmatrix}$, so $g_{n}$ is dot product of the matrix-vector product $A^{n} \begin{pmatrix}1\\0\end{pmatrix}$ with $\begin{pmatrix}0\\1\end{pmatrix}$. Notice that
+\begin{align*}
+A^{2}=AA=P D P^{-1}P D P^{-1} = P D I D P^{-1}= P D D P^{-1}=P D^{2} P^{-1}\\
+A^{3}=A(A^{2})=P D P^{-1}P D^{2} P^{-1} = P D I D^{2} P^{-1} = P D D^{2} P^{-1}=P D^{3} P^{-1}
+\end{align*}
+\vfill
+\centerline{PAGE 2 OF 3 FOR PROBLEM 2}
+\newpage
+so $A^{n}=A(A^{n-1})=P D P^{-1}P D^{n-1} P^{-1} =P D I D^{n-1} P^{-1}=P D D^{n-1} P^{-1} =P D^{n} P^{-1}$. So $A^{n}=P D^{n} P^{-1}$ Notice that for a diagonal matrix $M=\begin{pmatrix}a&0\\0&d\end{pmatrix}$, $M^2 = MM=\begin{pmatrix}a&0\\0&d\end{pmatrix}\begin{pmatrix}a&0\\0&d\end{pmatrix} = \begin{pmatrix}(a)(a)+(0)(0)&(a)(0)+(0)(d)\\(0)(a)+(d)(0)&(0)(0)+(d)(d)\end{pmatrix}=\begin{pmatrix}a^2&0\\0&d^2\end{pmatrix}$, and $M^3 = M(M^2)=\begin{pmatrix}a&0\\0&d\end{pmatrix}\begin{pmatrix}a^2 &0\\0&d^2 \end{pmatrix} = \begin{pmatrix}(a)(a^2)+(0)(0)&(a)(0)+(0)(d^2)\\(0)(a^2)+(d)(0)&(0)(0)+(d)(d^2)\end{pmatrix}=\begin{pmatrix}a^3&0\\0&d^3\end{pmatrix}$, so it must be the case that $M^{n}=M(M^{n-1})=\begin{pmatrix}a&0\\0&d\end{pmatrix}\begin{pmatrix}a^{n-1}&0\\0&d^{n-1}\end{pmatrix} = \begin{pmatrix}(a)(a^{n-1})+(0)(0)&(a)(0)+(0)(d^{n-1})\\(0)(a^{n-1})+(d)(0)&(0)(0)+(d)(d^{n-1})\end{pmatrix}=\begin{pmatrix}a^{n}&0\\0&d^{n}\end{pmatrix}$. It follows that 
+\begin{align*}
+A^{n}=P D^{n} P^{-1} =& \begin{pmatrix}1&0.5\\1&-1\end{pmatrix} \begin{pmatrix}1&0\\0&(-0.5)^{n}\end{pmatrix} \left( -\frac{2}{3} \right) \begin{pmatrix}-1&-0.5\\-1&1\end{pmatrix} &\\
+=&\left( -\frac{2}{3} \right) \begin{pmatrix}1&0.5\\1&-1\end{pmatrix} \begin{pmatrix} (1)(-1)+(0)(-1)&(1)(-0.5)+(0)(1)\\(0)(-1)+(-0.5)^{n} (-1) & (0)(-0.5)+(-0.5)^{n} (1)\end{pmatrix} &\\
+=& \left( -\frac{2}{3} \right) \begin{pmatrix}1&0.5\\1&-1\end{pmatrix} \begin{pmatrix} -1&-0.5\\-(-0.5)^{n}&(-0.5)^{n}\end{pmatrix} &\\
+=&-\frac{2}{3} \begin{pmatrix}(1)(-1)+(0.5)(-(-0.5)^{n})& (1)(-0.5)+(0.5)(-0.5)^{n}\\(1)(-1)+(-1)(-(-0.5)^{n})&(1)(-0.5)+(-1)(-0.5)^{n}\end{pmatrix} &\\
+=&-\frac{2}{3} \begin{pmatrix}(-0.5)^{n+1} -1&-0.5+0.5(-0.5)^{n}\\-1+(-0.5)^{n} & -0.5-(-0.5)^{n}\end{pmatrix}
+\end{align*}
+So $A^{n} = -\frac{2}{3} \begin{pmatrix}(-0.5)^{n+1} -1&-0.5+0.5(-0.5)^{n}\\-1+(-0.5)^{n} & -0.5-(-0.5)^{n}\end{pmatrix}$. It follows that
+\begin{align*}
+\begin{pmatrix}g_{n+1}\\g_{n}\end{pmatrix} = A^{n} \begin{pmatrix}1\\0\end{pmatrix} =& -\frac{2}{3} \begin{pmatrix}(-0.5)^{n+1} -1&-0.5+0.5(-0.5)^{n}\\-1+(-0.5)^{n} & -0.5-(-0.5)^{n}\end{pmatrix}\begin{pmatrix}1\\0\end{pmatrix} &\\
+=& -\frac{2}{3} \begin{pmatrix}(-0.5)^{n+1} -1\\(-0.5)^{n}-1\end{pmatrix}
+\end{align*}
+and so $g_{n}=\begin{pmatrix}g_{n+1}\\g_{n}\end{pmatrix} \bullet \begin{pmatrix}0\\1\end{pmatrix} =  -\frac{2}{3}((-0.5)^{n}-1) = \frac{2(-1)^{n}}{-3(2)^{n}}+ \frac{2}{3} =\frac{(-1)^{n-1}}{3(2)^{n-1}} + \frac{2}{3} = \frac{1}{3(-2)^{n-1}} + \frac{2}{3}$. Therfore, $g_{n}=\frac{2}{3}+\frac{1}{3(-2)^{n-1}}$.
+\end{solution}
+\noindent
+\newline
+\newline
+c. As $n$ gets large, the values of $g_{n}$ approach a fixed number. Find that number.
+\begin{solution}
+As $n \to \infty$, $|\frac{1}{3(-2)^{n-1}}| \to 0$, so as $n \to \infty$, $g_{n} \to \frac{2}{3}$.
+\end{solution}
+\vfill
+\centerline{PAGE 3 OF 3 FOR PROBLEM 2}
+
+
+\end{document}

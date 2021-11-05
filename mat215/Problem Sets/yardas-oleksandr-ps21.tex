@@ -1,0 +1,346 @@
+\documentclass[12pt]{article}
+\usepackage{latexsym, amssymb, amsmath, amsfonts, amscd, amsthm, xcolor, pgfplots}
+\usepackage{framed}
+\usepackage[margin=1in]{geometry}
+\linespread{1} %Change the line spacing only if instructed to do so.
+
+\newenvironment{problem}[2][Problem]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1 #2:}]
+	}
+{
+	\end{trivlist}
+	}
+
+\newenvironment{solution}[1][Solution]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\itshape #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+\newenvironment{collaborators}[1][Collaborator(s)]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%    You need only modify code below this block.
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\title{Assignment: Problem Set 21} %Change this to the assignment you are submitting.
+\author{Name: Oleksandr Yardas} %Change this to your name.
+\date{Due Date: 05/02/2018 } %Change this to the due date for the assignment you are submitting.
+\begin{document}
+	\maketitle
+	\thispagestyle{empty}
+	
+	\section*{List Your Collaborators:}%Enter your collaborators names below. Do not delete extra rows.
+	
+	\begin{itemize}
+		\begin{framed}
+			\item 
+			Problem 1: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 2: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 3: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 4: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 5: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 6: Not Applicable
+			\\\\
+		\end{framed}
+	\end{itemize}
+\newpage
+%
+%%%%%%%%%%%%%%%
+%
+% Your problem statements and solutions start here.
+% Use the \newpage command between problems so that
+% each of your problems begins on its own page.
+%
+%%%%%%%%%%%%%%%
+
+%FORMATTING OPTIONS
+%FOR BLANK SPACES: \underline{\hspace{2cm}}
+%FOR SPACES IN align OR SIMILAR ENVIRONMENTS:  \hphantom{1000}
+%FOR MATRICES: \begin{matrix} \end{matrix}, can add p, b, B, v, V, small as suffix to "matrix"
+%SETS: \mathbb{R}^, :\mathbb{R}^ \to \mathbb{R}^
+%Vectors: \vec{},
+%SUBSCRIPTS: _{}
+%FRACTIONS: \frac{}{}
+%FANCY LETTERS: \mathcal{}
+
+%Provide the problem statement.
+\begin{problem}{1}
+Define $T:\mathcal{P}_2 \to \mathbb{R}^2$ bt letting
+\[
+T(f)=\begin{pmatrix} f(0)\\f(1) \end{pmatrix} \text{.}
+\]
+It turns out that $T$ is a linear transformation. Let $\alpha = (x^2,x,1)$, which is a basis for $\mathcal{P}_2$.
+\noindent
+\newline
+\newline
+a. Let
+\[
+\epsilon _2 = \left( \begin{pmatrix} 1\\0 \end{pmatrix}, \begin{pmatrix} 0\\1 \end{pmatrix} \right) \text{.}
+\]
+be the standard basis of $\mathbb{R}^2$. What is $[T]_\alpha ^{\epsilon_2}$?
+\begin{solution}
+By Definition 5.1.7, $[T]_\alpha ^{\epsilon_2}$ is the matrix where the $i^{th}$ column is $[T(\vec{u_i})]_{\epsilon_2}$, where $\vec{u_i}$ is the $i^{th}$ element in $\alpha$. We have that
+$T(x^2)=\begin{pmatrix}0\\1\end{pmatrix}$, 
+$T(x)=\begin{pmatrix}0\\1\end{pmatrix}$, and
+$T(1)=\begin{pmatrix}1\\1\end{pmatrix} \text{.}$
+Notice that
+$\begin{pmatrix}0\\1\end{pmatrix} = 0 \cdot \begin{pmatrix}1\\0\end{pmatrix} + 1\cdot \begin{pmatrix}0\\1\end{pmatrix}$ and 
+$\begin{pmatrix}1\\1\end{pmatrix} = 1 \cdot \begin{pmatrix}1\\0\end{pmatrix} + 1\cdot \begin{pmatrix}0\\1\end{pmatrix} \text{,}$
+so by Definition 4.4.3,
+$[T(x^2)]_{\epsilon_2} = \begin{pmatrix}0\\1 \end{pmatrix}$, 
+$[T(x)]_{\epsilon_2}=\begin{pmatrix} 0\\1 \end{pmatrix}$, and
+$[T(1)]_{\epsilon_2}=\begin{pmatrix}1\\1 \end{pmatrix}$.
+Therefore,
+$[T]_\alpha ^{\epsilon_2}= \begin{pmatrix} 0&0&1\\1&1&1 \end{pmatrix}$.
+\end{solution}
+%
+\noindent
+\newline
+\newline
+b. Let
+\[
+\beta = \left( \begin{pmatrix} 1\\1 \end{pmatrix}, \begin{pmatrix} 1\\-1 \end{pmatrix} \right) \text{.}
+\]
+be the standard basis of $\mathbb{R}^2$. What is $[T]^\beta _\alpha$?
+\begin{solution}
+By Definition 5.1.7, $[T]^\beta _\alpha$ is the matrix where the $i^{th}$ column is $[T(\vec{u_i})]_\beta$, where $\vec{u_i}$ is the $i^{th}$ element in $\alpha$. We have the same values of $T(x^2)$, $T(x)$, and $T(1)$ as before. Notice that
+$\begin{pmatrix}0\\1\end{pmatrix} = 0.5 \cdot \begin{pmatrix}1\\1\end{pmatrix} - 0.5\cdot \begin{pmatrix}1\\-1\end{pmatrix}$ and 
+$\begin{pmatrix}1\\1\end{pmatrix} = 1 \cdot \begin{pmatrix}1\\1\end{pmatrix} + 0\cdot \begin{pmatrix}1\\-1\end{pmatrix} \text{,}$
+so by Definition 4.4.3,
+$[T(x^2)]_\beta = \begin{pmatrix}0.5\\-0.5 \end{pmatrix}$, 
+$[T(x)]_\beta=\begin{pmatrix} 0.5\\-0.5 \end{pmatrix}$, and
+$[T(1)]_\beta=\begin{pmatrix}1\\0 \end{pmatrix}$.
+Therefore,
+$[T]_\alpha ^{\beta}= \begin{pmatrix} 0.5&0.5&1\\-0.5&-0.5&0 \end{pmatrix}$.
+
+\end{solution}
+
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 1}\end{problem}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{2}
+Let $V$ be the vector space of all 2 $\times$ 2 matrices. Define $T:V \to V$ by letting
+\[
+T\left( \begin{pmatrix} a&b\\c&d\end{pmatrix} \right) = \begin{pmatrix} a&c\\b&d \end{pmatrix}\text{.}
+\]
+Note that the function $T$ takes an input matrix and outputs the result of switching the rows and columns (which is called the {\it transpose} of the original matrix). It turns out that $T$ is a linear transformation. Let
+\[
+\alpha=\left( \begin{pmatrix} 1&0\\0&0 \end{pmatrix}, \begin{pmatrix} 0&1\\0&0 \end{pmatrix}, \begin{pmatrix} 0&0\\1&0 \end{pmatrix}, \begin{pmatrix} 0&0\\0&1 \end{pmatrix} \right) \text{,}
+\]
+and recall that $\alpha$ is a basis for $V$. What is $[T]_\alpha ^\alpha$? Explain briefly.
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+By Definition 5.1.7, $[T]^\alpha _\alpha$ is the matrix where the $i^{th}$ column is $[T(\vec{u_i})]_\alpha$, where $\vec{u_i}$ is the $i^{th}$ element in $\alpha$. Let 
+$\alpha_1=\begin{pmatrix} 1&0\\0&0 \end{pmatrix}$, 
+$\alpha_2=\begin{pmatrix} 0&1\\0&0 \end{pmatrix}$, 
+$\alpha_3=\begin{pmatrix} 0&0\\1&0 \end{pmatrix}$, and 
+$\alpha_4=\begin{pmatrix} 0&0\\0&1 \end{pmatrix}$, so $\alpha = (\alpha_1,\alpha_2,\alpha_3,\alpha_4)$. We have that $T(\alpha_1)=\alpha_1$, $T(\alpha_2)=\alpha_3$, $T(\alpha_3)=\alpha_2$, and $T(\alpha_4)=\alpha_4$. Notice that
+\begin{align*}
+\alpha_1 = 1\cdot \alpha_1 + 0\cdot \alpha_2 + 0\cdot \alpha_3 + 0\cdot \alpha_4\\
+\alpha_2 = 0\cdot \alpha_1 + 1\cdot \alpha_2 + 0\cdot \alpha_3 + 0\cdot \alpha_4\\
+\alpha_3 = 0\cdot \alpha_1 + 0\cdot \alpha_2 + 1\cdot \alpha_3 + 0\cdot \alpha_4\\
+\alpha_4 = 0\cdot \alpha_1 + 0\cdot \alpha_2 + 0\cdot \alpha_3 + 1\cdot \alpha_4
+\end{align*} so by Definition 4.4.3,
+$[T(\alpha_1)]_{\alpha} = \begin{pmatrix} 1\\0\\0\\0 \end{pmatrix}$,
+$[T(\alpha_2)]_{\alpha} = \begin{pmatrix} 0\\0\\1\\0 \end{pmatrix}$,
+$[T(\alpha_3)]_{\alpha} = \begin{pmatrix} 0\\1\\0\\0 \end{pmatrix}$, and
+$[T(\alpha_4)]_{\alpha} = \begin{pmatrix} 0\\0\\0\\1 \end{pmatrix}$.
+Therefore, $[T]^\alpha _\alpha = \begin{pmatrix} 1&0&0&0\\0&0&1&0\\0&1&0&0\\0&0&0&1 \end{pmatrix}$.
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 2}
+\end{problem}
+
+
+
+
+\newpage
+\begin{problem}{3}
+Working in $\mathbb{R}^4$, let
+\[
+W= \text{Span} \left( \begin{pmatrix} 1\\3\\0\\2 \end{pmatrix}, \begin{pmatrix} 2\\6\\1\\-1 \end{pmatrix}, \begin{pmatrix} 3\\9\\1\\1 \end{pmatrix}, \begin{pmatrix} 1\\3\\-1\\7 \end{pmatrix}, \begin{pmatrix} -4\\-7\\0\\3 \end{pmatrix} \right)\text{.}
+\]
+Find, with explanation, a basis for $W$ and also dim$(W)$.
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+Let 
+$\alpha_1 = \begin{pmatrix} 1\\3\\0\\2 \end{pmatrix}$,
+$\alpha_2 = \begin{pmatrix} 2\\6\\1\\-1 \end{pmatrix}$,
+$\alpha_3 = \begin{pmatrix} 3\\9\\1\\1 \end{pmatrix}$, 
+$\alpha_4 = \begin{pmatrix} 1\\3\\-1\\7 \end{pmatrix}$, and
+$\alpha_5 = \begin{pmatrix} -4\\-7\\0\\3 \end{pmatrix}$,
+so $\alpha = (\alpha_1, \alpha_2,\alpha_3,\alpha_4,\alpha_5)$ and $\text{Span}(\alpha)=W$. Notice immediately that $\alpha_3 = 1\cdot\alpha_1 + 1\cdot\alpha_2 + 0\cdot\alpha_4 + 0\cdot\alpha_5$, so by definition we have that  $\alpha_3 \in \text{Span}(\alpha_1,\alpha_2,\alpha_4,\alpha_5)$. It follows from Proposition 4.4.4 that $\text{Span}(\alpha) = \text{Span}(\alpha_1,\alpha_2,\alpha_4,\alpha_5)$, so $\text{Span}(\alpha_1,\alpha_2,\alpha_4,\alpha_5)=W$. Notice also that $\alpha_4 = 3\cdot\alpha_1 - 1\cdot\alpha_2 + 0\cdot\alpha_5$, so by definition we have that $\alpha_4 \in \text{Span}(\alpha_1,\alpha_2,\alpha_5)$. It follows from Proposition 4.4.4 that $\text{Span}(\alpha_1,\alpha_2,\alpha_4,\alpha_5)=\text{Span}(\alpha_1,\alpha_2,\alpha_5)$, so $\text{Span}(\alpha_1,\alpha_2,\alpha_5) = W$. Let $A_0$ be the $4\times 3$ matrix with $\alpha_1$, $\alpha_2$, and $\alpha_5$ as the first, second, and third columns respectively. We perform Gaussian Elimination on $A_0$ to get:
+\begin{align*}
+\begin{pmatrix} 1&2&-4\\3&6&-7\\0&1&0\\2&-1&3 \end{pmatrix} \rightarrow& \begin{pmatrix} 1&2&-4\\0&0&5\\0&1&0\\0&-5&11 \end{pmatrix} \begin{matrix} \text{ } \\ -3R_1 + R_2 \text{ } \\ \text{ } \\ -2R_1 + R_4 \text{ } \end{matrix}\\
+%
+\rightarrow& \begin{pmatrix} 1&0&-4\\0&0&5\\0&1&0\\0&0&11 \end{pmatrix} \begin{matrix} -2R_3+R_1\text{ } \\  \text{ } \\ \text{ } \\ 5R_3 + R_4 \text{ } \end{matrix}\\
+%
+\rightarrow& \begin{pmatrix} 1&0&0\\0&1&0\\0&0&5\\0&0&0 \end{pmatrix} \begin{matrix} \frac{4}{5}R_2+R_1\text{ } \\  R_3\leftrightarrow R_2 \text{ } \\ R_2 \leftrightarrow R_3 \text{ } \\ -\frac{11}{5}R_2 + R_4 \text{ } \end{matrix}\\
+\end{align*}
+Notice that this matrix is indeed in echelon form and has a leading entry in every column, so by Proposition 4.3.3 $(\alpha_1,\alpha_2,\alpha_5)$ is linearly independent. Because $\text{Span}(\alpha_1,\alpha_2,\alpha_5) = W$ and $(\alpha_1,\alpha_2,\alpha_5)$ is linearly independent, it follows from Definition 4.4.1 that $(\alpha_1,\alpha_2,\alpha_5)$ is a basis for $W$. Notice that there are three elements in this basis, so by Definition 4.4.9, $\text{dim}(W) = 3$.
+
+% If we remove $\alpha_3$ and $\alpha_4$ from the initial matrix -- that is, we construct a $4\times 3$ matrix $B_0$ using $\alpha_1$, $\alpha_2$, and $\alpha_5$ as the first, second, and third columns respectively -- and perform the same sequence of elementary row operations as above, we get
+%\[
+%\begin{pmatrix} 1&0&0\\0&1&0\\0&0&5\\0&0&0 \end{pmatrix} \text{.}
+%\]
+%Notice that this matrix is in echelon form and has a leading entry in every column, so by Proposition 4.3.3 the sequence $(\alpha_1,\alpha_2,\alpha_5)$ is linearly independent. %Appending $\alpha_3$ to the end of $B_0$ and performing the same sequence of elementary row operations as above, we get
+%\[
+%\begin{pmatrix} 1&0&0&1\\0&1&0&1\\0&0&5&0\\0&0&0&0 \end{pmatrix} \text{.}
+%\]
+%Notice that there is a leading entry in every column except the last one. If we treat the matrix $B_0$ with $\alpha_3$ appended to the end of it as the augmented matrix of the linear system given by $a\alpha_1 + b\alpha_2 =+ c\alpha_5 = \alpha_3$, then by Proposition 4.2.12 this system is consistent and has a solution, so $\alpha_3 \in \text{Span}(\alpha_1,\alpha_2,\alpha_5)$. Similarly, appending $\alpha_4$ to the end of $B_0$ and performing the same sequence of elementary row operations as above, we get
+%\[
+%\begin{pmatrix} 1&0&0&3\\0&1&0&-1\\0&0&5&0\\0&0&0&0 \end{pmatrix} \text{.}
+%\]
+%Notice that there is a leading entry in every column except the last one. If we treat the matrix $B_0$ with $\alpha_4$ appended to the end of it as the augmented matrix of the linear system given by $a\alpha_1 + b\alpha_2 =+ c\alpha_5 = \alpha_4$, then by Proposition 4.2.12 this system is consistent and has a solution, so $\alpha_4 \in \text{Span}(\alpha_1,\alpha_2,\alpha_5)$. We have that $\alpha_3 \in \text{Span}(\alpha_1,\alpha_2,\alpha_5)$ and $\alpha_4 \in \text{Span}(\alpha_1,\alpha_2,\alpha_5)$, so by Proposition 4.4.4, $\text{Span}(\alpha) = \text{Span}(\alpha_1,\alpha_2, \alpha_4,\alpha_5) = \text{Span}(\alpha_1,\alpha_2,\alpha_3, \alpha_5)
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 3}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{4}
+Consider the unique linear transformation $T:\mathbb{R}^4 \to \mathbb{R}^3$ with
+\[
+[T]=\begin{pmatrix} 1&0&2&-1\\3&1&9&-5\\-1&2&4&-1 \end{pmatrix} \text{.}
+\]
+\noindent
+\newline
+\newline
+a. Find bases for each of range$(T)$ and Null$(T)$.
+\begin{solution}
+We first work with range$(T)$. Let $R=\text{range}(T)$. By definition of range, we have that $R=\{T(\vec{v}):\vec{v} \in \mathbb{R}^4 \}$. Let $\vec{a} \in \mathbb{R}^4$ be arbitrary and fix $w,x,y,x \in \mathbb{R}$ with $\vec{a} = \begin{pmatrix} w\\x\\y\\z \end{pmatrix}$. Notice that \begin{align*}
+T(\vec{a}) =& \begin{pmatrix} 1&0&2&-1\\3&1&9&-5\\-1&2&4&-1 \end{pmatrix} \begin{pmatrix} w\\x\\y\\z \end{pmatrix}\\
+=& \begin{pmatrix} 1w+0x+2y-1z\\3w+1x+9y-5z\\-1w+2x+4y-1z \end{pmatrix} \\
+=& w\cdot \begin{pmatrix} 1\\3\\-1 \end{pmatrix} + x\cdot \begin{pmatrix} 0\\1\\2 \end{pmatrix} + y\cdot \begin{pmatrix} 2\\9\\4 \end{pmatrix} +z\cdot \begin{pmatrix} -1\\-5\\-1 \end{pmatrix}
+\end{align*}
+Letting $\alpha_1 =\begin{pmatrix} 1\\3\\-1 \end{pmatrix}$, $\alpha_2 =\begin{pmatrix} 0\\1\\2 \end{pmatrix}$, $\alpha_3 =\begin{pmatrix} 2\\9\\4 \end{pmatrix}$, and $\alpha_4 =\begin{pmatrix} -1\\-5\\-1 \end{pmatrix}$, we have that $\text{range}(T)=\text{Span}(\alpha_1, \alpha_2, \alpha_3, \alpha_4)$. Notice that these are just the columns of $[T]$. Performing Gaussian Elimination on $[T]$, we get:
+\begin{align*}
+\begin{pmatrix} 1&0&2&-1\\3&1&9&-5\\-1&2&4&-1 \end{pmatrix} \rightarrow& \begin{pmatrix} 0&2&6&-2\\0&7&21&-8\\-1&2&4&-1 \end{pmatrix} \begin{matrix} R_3+R_1\text{ } \\ 3R_3+R_2\text{ } \\ \text{ } \end{matrix}\\
+\rightarrow& \begin{pmatrix} 0&0&0&\frac{2}{7}\\0&1&3&-\frac{8}{7}\\-1&0&\frac{22}{7}&\frac{9}{7} \end{pmatrix} \begin{matrix} -\frac{2}{7}R_2 + R_1 \text{ } \\ \frac{1}{7}R_2\text{ } \\ -\frac{2}{7}R_2 + R_3\text{ } \end{matrix}\\
+\rightarrow& \begin{pmatrix} 0&0&0&\frac{2}{7}\\0&1&3&0\\-1&0&\frac{22}{7}&0 \end{pmatrix} \begin{matrix} \text{ } \\ 4R_1+R_2\text{ } \\ -\frac{9}{2}R_1 + R_3\text{ } \end{matrix}\\
+\rightarrow& \begin{pmatrix} -1&0&\frac{22}{7}&0\\0&1&3&0\\0&0&0&\frac{2}{7} \end{pmatrix} \begin{matrix} R_3 \leftrightarrow R_1 \text{ } \\ \text{ } \\ R_1 \leftrightarrow R_3 \text{ } \end{matrix}\\
+\end{align*}
+\end{solution}
+\end{problem}
+\vfill
+\centerline{PAGE 1 OF 3 FOR PROBLEM 4}
+
+
+
+
+
+
+\newpage
+\begin{problem}{5}
+Define $T:\mathcal{P}_5 \to \mathcal{P}_5$ by letting $T(f)=f''$, i.e $T(f)$ is the second derivative of $f$. Determine, with explanation, both rank$(T)$ and nullity$(T)$.
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+Letting $N=\text{Null}(T)$, by definition we have that $N=\{\vec{v} \in \mathcal{P}_5: T(\vec{v})=\vec{0}_{\mathcal{P}_5}\}$. $\vec{0}_{\mathcal{P}_5}$ is just the function $f_0(x)=0x^5 + 0x^4+0x^3 +0x^2 + 0x +0 = 0x^3 +0x^2 + 0x +0 $. Let $g:\mathbb{R} \to \mathbb{R}$ be an arbitrary polynomial in $\text{Null}(T)$, and fix $b_1,b_2,b_3,b_4,b_5,b_6 \in \mathbb{R}$ with $g(x)=a_1 x^5 + a_2 x^4 + a_3 x^3 + a_4 x^2 +a_5 x + a_6$. By definition of $T$, we have that $T(g)=20 a_5 x^3 + 12 a_2 x^2 +6 a_3 x + 2 a_4$. Because $g \in \text{Null}(T)$, we have that $20 a_1 x^3 + 12 a_2 x^2 +6 a_3 x + 2 a_4=0x^3 +0x^2 + 0x +0$ for all $x \in \mathbb{R}$. Because polynomials functions are equal exactly when their coefficients are equal, we have that $a_1=a_2=a_3=a_4=0$. So $g(x) = a_5x +a_6$. Because $g \in \text{Null}(T)$ was arbitrary, we have that $\text{Null}(T)=\{a_5x + a_6:a_5,a_6 \in \mathbb{R}\} = \text{Span}(x,1) = \mathcal{P}_1$. We know that $(x,1)$ is linearly independent, so by definition we have that $(x,1)$ is a basis for $\text{Null}(T)$. Our basis has two elements, so by definition we have that $\text{nullity}(T)=2$.
+
+By definition, we have that $\text{range}(T)=\{T(f):f\in \mathcal{P}_5\}$. Let $h:\mathbb{R}\to \mathbb{R}$ be an arbitrary polynomial in $\mathcal{P}_5$, and fix $b_1,b_2,b_3,b_4,b_5,b_6 \in \mathbb{R}$ with $h(x)=b_1 x^5 + b_2 x^4 + b_3 x^3 + b_4 x^2 +b_5 x + b_6$. By definition of $T$, we have that $T(h)=20 b_1 x^3 + 12 b_2 x^2 +6 b_3 x + 2 b_4$. Because $h \in \mathcal{P}_5$ was arbitrary, it follows that $\text{range}(T)=\{20 b_1 x^3 + 12 b_2 x^2 +6 b_3 x + 2 b_4 : b_1,b_2,b_3,b_4 \in \mathbb{R}\}$. $20b_1,12b_2,6b_3,2b_4 \in \mathbb{R}$, so by definition we have that $\text{range}(T)= \text{Span}(x^3,x^2,x,1) = \mathcal{P}_3$. We know that $(x^3,x^2,x,1)$ is linearly independent, so by definition we have that $(x^3,x^2,x,1)$ is a basis for $\text{range}(T)$. Our basis has four elements, so by definition we have that $\text{rank}(T)=4$.
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 5}
+\end{problem}
+%
+%
+%
+%
+%f
+\newpage
+Notice that if we take the matrix with $\alpha_1$, $\alpha_2$, and $\alpha_4$ as its columns, and append $\alpha_3$ on as the last column, we then have an augmented matrix that encodes the linear system given by $w\alpha_1 + x\alpha_2 + z\alpha_4 = \alpha_3$. Performing the same sequence of elementary row operations as above, we get
+\[
+\begin{pmatrix} -1&0&0&\frac{22}{7}\\0&1&0&3\\0&0&\frac{2}{7}&0 \end{pmatrix} \text{.}
+\]
+Notice that there is a leading entry in every column but the last, so by Proposition 4.2.12 the system is consistent and has a solution, so $\alpha_3 \in \text{Span}(\alpha_1,\alpha_2,\alpha_4)$. By Proposition 4.4.4, we have that $\text{Span}(\alpha_1,\alpha_2,\alpha_3,\alpha_4)=\text{Span}(\alpha_1,\alpha_2,\alpha_4)$, and it follows that $\text{range}(T)=\text{Span}(\alpha_1,\alpha_2,\alpha_4)$. Notice that if we take the matrix with $\alpha_1$, $\alpha_2$, and $\alpha_4$ as its columns, and perform the same sequence of elementary row operations as above, we get
+\[
+\begin{pmatrix} -1&0&0\\0&1&0\\0&0&\frac{2}{7} \end{pmatrix} \text{.}
+\]
+Notice that there is a leading entry in every column, so by Proposition 4.3.3 we have that $(\alpha_1,\alpha_2,\alpha_4)$ is linearly independent. Because $\text{range}(T)=\text{Span}(\alpha_1,\alpha_2,\alpha_4)$ and $(\alpha_1,\alpha_2,\alpha_4)$ is linearly independent, it follows from Definition 4.4.1 that $(\alpha_1,\alpha_2,\alpha_4)$ is a basis for $\text{range}(T)$.
+\newline
+\newline
+\noindent
+Now we work with $\text{Null}(T)$. Let $N =\text{Null}(T)$. By Definition of $\text{Null}(T)$, we have that $N=\{ \vec{v} \in \mathbb{R}^4: T(\vec{v})=\vec{0}_{\mathbb{R}^3}\}$. We found the echelon form of $[T]$ when finding a basis for $\text{range}(T)$. Appending $\vec{0}_{\mathbb{R}^3}$ to the end of $[T]$, we get the augmented matrix that encodes the system of linear equations given by $w\alpha_1+x\alpha_2+y\alpha_3+z\alpha_4 = \vec{0}_{\mathbb{R}^3}$. Performing the same sequence of elementary row operations as above, we get
+\[
+\begin{pmatrix} -1&0&\frac{22}{7}&0&0\\0&1&3&0&0\\0&0&0&\frac{2}{7}&0 \end{pmatrix} \text{.}
+\]
+Notice that this matrix is in echelon form, and that there is no leading entry in the last and third columns, so by Proposition 4.2.12 the system is consistent and has infinitely many solutions. Changing $y$ to the parameter $t$, we solve to determine $z=0$, $y=t$, $x=-3t$, and $w=\frac{22}{7}t$. Therefore, $\text{Null}(T)=\left\{ \begin{pmatrix}\frac{22}{7}t\\-3t\\t\\0\end{pmatrix}:t\in\mathbb{R}\right\}=\text{Span}\left( \begin{pmatrix}\frac{22}{7}\\-3\\1\\0\end{pmatrix} \right)$. Let $\beta =\begin{pmatrix}\frac{22}{7}\\-3\\1\\0\end{pmatrix}$, and notice that $(\beta)$ is linearly independent, so by Definition 4.4.1 $(\beta)$ is a basis for $\text{Null}(T)$.
+\vfill
+\centerline{PAGE 2 OF 3 FOR PROBLEM 4}
+%
+%
+%
+\newpage
+b. Calculate $rank(T)$ and $nullity(T)$.
+\begin{solution}
+By Definition 5.2.7, $rank(T)=\text{dim$(\text{range}(T))$}$ and $nullity(T)=\text{dim$(\text{Null}(T))$}$. In part a, we found a basis for $\text{range}(T)$ that had three elements, and we found a basis for $\text{Null}(T)$ that had one element, so by Definition 4.4.9 $\text{dim$(\text{range}(T))$} =3$ and $\text{dim$(\text{Null}(T))$}=1$, so $rank(T)=3$ and $nullity(T)=1$. Notice that $\text{dim}(\mathbb{R}^4)=4$ and that $rank(T)+nullity(T)=4$, so $rank(T)+nullity(T)=\text{dim}(\mathbb{R}^4)$ which is what we expect (given Theorem 5.2.8) because $T$ is a linear transformation with domain $\mathbb{R}^4$.
+\end{solution}
+\vfill
+\centerline{PAGE 3 OF 3 FOR PROBLEM 4}
+
+
+
+
+\end{document}

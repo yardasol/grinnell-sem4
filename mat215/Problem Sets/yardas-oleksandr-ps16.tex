@@ -1,0 +1,551 @@
+\documentclass[12pt]{article}
+\usepackage{latexsym, amssymb, amsmath, amsfonts, amscd, amsthm, xcolor, pgfplots}
+\usepackage{framed}
+\usepackage[margin=1in]{geometry}
+\linespread{1} %Change the line spacing only if instructed to do so.
+
+\newenvironment{problem}[2][Problem]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1 #2:}]
+	}
+{
+	\end{trivlist}
+	}
+
+\newenvironment{solution}[1][Solution]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\itshape #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+\newenvironment{collaborators}[1][Collaborator(s)]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%    You need only modify code below this block.
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\title{Assignment: Problem Set 16} %Change this to the assignment you are submitting.
+\author{Name: Oleksandr Yardas} %Change this to your name.
+\date{Due Date: 04/11/2018 } %Change this to the due date for the assignment you are submitting.
+\begin{document}
+	\maketitle
+	\thispagestyle{empty}
+	
+	\section*{List Your Collaborators:}%Enter your collaborators names below. Do not delete extra rows.
+	
+	\begin{itemize}
+		\begin{framed}
+			\item 
+			Problem 1: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 2: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 3: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 4: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 5: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 6: None
+			\\\\
+		\end{framed}
+	\end{itemize}
+\newpage
+%
+%%%%%%%%%%%%%%%
+%
+% Your problem statements and solutions start here.
+% Use the \newpage command between problems so that
+% each of your problems begins on its own page.
+%
+%%%%%%%%%%%%%%%
+
+%FORMATTING OPTIONS
+%FOR BLANK SPACES: \underline{\hspace{2cm}}
+%FOR SPACES IN align OR SIMILAR ENVIRONMENTS:  \hphantom{1000}
+%FOR MATRICES: \begin{matrix} \end{matrix}, can add p, b, B, v, V, small as suffix to "matrix"
+%SETS: \mathbb{R}^, :\mathbb{R}^ \to \mathbb{R}^
+%Vectors: \vec{},
+%SUBSCRIPTS: _{}
+%FRACTIONS: \frac{}{}
+
+%Provide the problem statement.
+\begin{problem}{1}
+Use Gaussian elimination to solve the following system:
+\begin{align*}
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& &x&   &\hphantom{500}& &\hphantom{500}& &-&                         &z&                         &=& &0& &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&\\
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& 3&x& &+&                        &y&                         &\hphantom{500}& &\hphantom{500}& &=& &1& &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& \\
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& -&x&  &+&                        &y&                         &+&                         &z&                        &=& &4&  &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+\end{align*}
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+We first construct the augmented matrix of this linear system:
+\[
+\begin{pmatrix} 1&0&-1&0\\3&1&0&1\\-1&1&1&4 \end{pmatrix} \hphantom{500} \begin{matrix}\\ \\\end{matrix}
+\]
+We then use the elementary row operations to find an echelon form of this matrix:
+\begin{align*}
+& \begin{pmatrix} 1&0&-1&0\\0&1&3&1\\0&1&0&4 \end{pmatrix} \hphantom{500} \begin{matrix} \hphantom{1} \\-3 R_1 +R_2 \\ R_1 + R_2 \end{matrix} \\
+& \begin{pmatrix} 1&0&-1&0\\0&1&3&1\\0&0&-3&3 \end{pmatrix} \hphantom{500} \begin{matrix} \hphantom{1} \\ \hphantom{1} \\ -R_2 + R_3 \end{matrix}\\
+& \begin{pmatrix} 1&0&0&-1\\0&1&0&4\\0&0&1&-1 \end{pmatrix} \hphantom{500} \begin{matrix} -\frac{1}{3} R_3 + R_1 \\  R_3 + R_2 \\ -\frac{1}{3} R_3 \end{matrix}
+\end{align*}
+So the solution set to the echelon system is $\{(x,y,z)\}=\{(-1,4,-1)\}$. By Corollary 4.2.5, this solution set is equal to the solution set of the original system.
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 1}\end{problem}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{2}
+Find the coefficients $a$, $b$, and $c$ so that the graph of $f(x) = a x^2 +bx +c$ passes through the points $(1,2)$, $(-1,6)$, and $(2,3)$.
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+If the graph of $f(x)$ passes through the points $(1,2)$, $(-1,6)$, and $(2,3)$, then we have that $a$, $b$, and $c$ are such that $f(1)=2$, $f(-1) = 6$, and $f(2)=3$. Using the definition of $f$, we can turn this into a linear system of three equations in the variables $a,b,c$:
+\begin{align*}
+(1)^2 a+(1)b+c=&1 \hphantom{1000} \text{ becomes } \hphantom{1000} a+b+c=1\\
+(-1)^2 a + (-1) b+ c=&6 \hphantom{1000} \text{ becomes } \hphantom{1000} a-b+c=6\\
+(2)^2 a+(2) b+c=&3 \hphantom{1000} \text{ becomes }  \hphantom{1000} 4a+2b+c=3
+\end{align*}
+We construct the augmented matrix for this linear system
+\[
+\begin{pmatrix} 1&1&1&1\\1&-1&1&6\\4&2&1&3 \end{pmatrix} \text{,}
+\] 
+and then use elementary row operations to get an echelon form of this matrix:
+\begin{align*}
+\begin{pmatrix}4&2&1&3\\1&-1&1&6\\1&1&1&1 \end{pmatrix} 
+&\begin{matrix}
+R_3 \leftrightarrow R_1 
+%\hphantom{1}
+\\
+%R_2
+\hphantom{1}
+\\
+R_1 \leftrightarrow R_3
+%\hphantom{1}
+\end{matrix} \\
+%
+%
+%
+\begin{pmatrix}6&0&3&15\\1&-1&1&6\\2&0&2&7 \end{pmatrix} 
+&\begin{matrix}
+2R_2 + R_1 
+%\hphantom{1}
+\\
+%R_2
+\hphantom{1}
+\\
+R_2 + R_3
+%\hphantom{1}
+\end{matrix} \\
+%
+%
+%
+\begin{pmatrix}2&0&1&5\\0&-1&0&\frac{5}{2}\\2&0&2&7 \end{pmatrix} 
+&\begin{matrix}
+\frac{1}{3}R_1 
+%\hphantom{1}
+\\
+-\frac{1}{2}R_3+R_2
+%\hphantom{1}
+\\
+%R_3
+\hphantom{1}
+\end{matrix} \\
+%
+%
+%
+\begin{pmatrix}2&0&1&5\\0&1&0&-\frac{5}{2}\\0&0&1&2 \end{pmatrix} 
+&\begin{matrix}
+%R_1 
+\hphantom{1}
+\\
+-R_2
+\hphantom{1}
+\\
+-R_1+R_3
+%\hphantom{1}
+\end{matrix}\\
+%
+%
+%
+\begin{pmatrix}2&0&0&3\\0&1&0&-\frac{5}{2}\\0&0&1&2 \end{pmatrix} 
+&\begin{matrix}
+-R_3+R_1 
+\hphantom{1}
+\\
+%R_2
+\hphantom{1}
+\\
+%R_3
+\hphantom{1}
+\end{matrix}\\
+%
+%
+%
+\begin{pmatrix}1&0&0&\frac{3}{2}\\0&1&0&-\frac{5}{2}\\0&0&1&2 \end{pmatrix} 
+&\begin{matrix}
+\frac{1}{2} R_1 
+%\hphantom{1}
+\\
+%R_2
+\hphantom{1}
+\\
+%R_3
+\hphantom{1}
+\end{matrix}
+\end{align*}
+\end{solution}
+So the solution set to the echelon system is $\{(a,b,c)\}=\{(\frac{3}{2},-\frac{5}{2},2)\}$. By Corollary 4.2.5, this solution set is equal to the solution set of the original system.
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 2}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{3}
+Is
+\[
+\begin{pmatrix} 20\\0\\5\\10\end{pmatrix} \in \text{ Span}\left( \begin{pmatrix} 0\\2\\1\\1 \end{pmatrix}, \begin{pmatrix} 4\\-2\\0\\1 \end{pmatrix}, \begin{pmatrix} 1\\1\\1\\-1 \end{pmatrix} \right) \text{?}
+\]
+Explain.
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+If
+\[
+\begin{pmatrix} 20\\0\\5\\10\end{pmatrix} \in \text{ Span}\left( \begin{pmatrix} 0\\2\\1\\1 \end{pmatrix}, \begin{pmatrix} 4\\-2\\0\\1 \end{pmatrix}, \begin{pmatrix} 1\\1\\1\\-1 \end{pmatrix} \right) \text{,}
+\]
+then by definition of span, there exist $a,b,c \in \mathbb{R}$ with
+\[
+\begin{pmatrix} 20\\0\\5\\10\end{pmatrix}=a\cdot \begin{pmatrix} 0\\2\\1\\1 \end{pmatrix}+b\cdot \begin{pmatrix} 4\\-2\\0\\1 \end{pmatrix} + c\cdot \begin{pmatrix} 1\\1\\1\\-1 \end{pmatrix}\text{.}
+\]
+We have a linear system of four equations in the variables $a,b,c$:
+\begin{align*}
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& 0&a& &+& 4&b& &+& 1&c& &=& &20& &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&\\
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& 2&a& &-&  2&b& &+& 1&c& &=& &0& &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& \\
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& 1&a& &+& 0&b& &+& 1&c& &=& &5& &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& \\
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& 1&a& &+& 1&b& &-& 1&c& &=& &10&  &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+\end{align*}
+
+The augmented matrix of the system is:
+\[
+\begin{pmatrix} 0&4&1&20\\2&-2&1&0\\1&0&1&5\\1&1&-1&10\end{pmatrix}
+\begin{matrix} 
+%R_1
+\hphantom{1}\\
+%R_2
+\hphantom{1}\\
+%R_3
+\hphantom{1}\\
+%R_4
+\hphantom{1}
+\end{matrix}
+\]
+If we can get an echelon form of the augmented matrix where the last column has no leading entries, then by Proposition 4.1.12, the system is consistent, and therefore has at least one solution, so the result would follow. We construct an echelon form of the augmented matrix using the elementary row operations:
+\end{solution}
+\vfill
+\centerline{PAGE 1 OF 2 FOR PROBLEM 3}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{4}
+Give a parametric description of the solution set of the following system:
+\begin{align*}
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& &x&   &+& 2&y& &-&                          &z&                        &\hphantom{500}&  &\hphantom{500}&               &=& &3& &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&\\
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& 2&x& &+&  &y&  &\hphantom{500}& &\hphantom{500}& &+&                         &w&                                      &=& &4&  &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& \\
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& &x&  &-&   &y&   &+&                         &z&                        &+&                         &w&                                      &=& &1&  &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+\end{align*}
+
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+We can find a parametric description of the solution set by constructing the augmented matrix of the system and then finding an echelon form of that matrix. The augmented matrix of the system is:
+\[
+\begin{pmatrix}1&2&-1&0&3\\2&1&0&1&4\\1&-1&1&1&1\end{pmatrix}
+\]
+We use elementary row operations to find an echelon form:
+\begin{align*}
+\begin{pmatrix}1&2&-1&0&3\\0&-3&2&1&-2\\0&-3&2&1&-2\end{pmatrix}
+&\begin{matrix}
+%R_1
+\hphantom{1}\\
+-2R_1+R_2
+\hphantom{1}\\
+-R_1+R_3
+\hphantom{1}
+\end{matrix}\\
+%
+%
+%
+\begin{pmatrix}1&0&\frac{1}{3}&\frac{2}{3}&\frac{5}{3}\\0&-3&2&1&-2\\0&0&0&0&0\end{pmatrix}
+&\begin{matrix}
+\frac{2}{3}R_2+R_1
+\hphantom{1}\\
+%R_2
+\hphantom{1}\\
+-R_1+R_3
+\hphantom{1}
+\end{matrix}\\
+%
+%
+%
+\begin{pmatrix}3&0&1&2&5\\0&-3&2&1&-2\\0&0&0&0&0\end{pmatrix}
+&\begin{matrix}
+3R_1
+\hphantom{1}\\
+%R_2
+\hphantom{1}\\
+%R_3
+\hphantom{1}
+\end{matrix}
+\end{align*}
+This matrix is the augmented matrix of the following linear system:
+\begin{align*}
+3x+z+2w=5\\
+-3y+2z+w=-2
+\end{align*}
+We construct a parametric description of the solution set by parameterizing $w$ as $s$ and $z$ as $t$, and solving for $x$ and $y$ in terms of $s$ and $t$:
+\begin{align*}
+x=\frac{5}{3}-\frac{2}{3}s-\frac{1}{3}t\\
+y=\frac{2}{3}+\frac{1}{3}s+\frac{2}{3}t
+\end{align*}
+So the solution set is
+\begin{align*}
+\left\{\begin{pmatrix} \frac{5}{3} - \frac{2}{3} s - \frac{1}{3} t \\ \frac{2}{3} + \frac{1}{3} s + \frac{2}{3} t \\ s \\ t \end{pmatrix} : s, t \in \mathbb{R}\right\}
+\end{align*}
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 4}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{5}
+Use Gaussian Elimination to classify for which values of $h,k \in \mathbb{R}$ the system
+\begin{align*}
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& &x&   &+& h&y&  &=& &2& &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&\\
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& 4&x& &+&  8&y&   &=& &k&  &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+\end{align*}
+has
+
+\noindent
+(i) no solution.
+
+\noindent
+(ii) one solution.
+
+\noindent
+(iii) infinitely many solutions.
+\begin{solution}
+We first construct the augmented matrix of the system:
+\[
+\begin{pmatrix} 1&h&2\\4&8&k \end{pmatrix}
+\]
+We then use the elementary row operations to find an echelon form of this matrix:
+\begin{align*}
+\begin{pmatrix} 1&h&2\\0&-4h+8&-8+k \end{pmatrix}
+\begin{matrix} \hphantom{1}\\-4R_1+R_2 \hphantom{1} \end{matrix}\\
+\end{align*}
+By Proposition 4.2.12, this system has no solution if the last column contains a leading entry, has one solution if the last column does not contain a leading entry and every other column does, and has infinitely many solutions if the last column contains no leading entry and at least one other column also contains no leading entry. We have three cases:
+\newline
+\newline
+\noindent
+1. The last column contains a leading entry
+
+The last column will contain a leading entry if $-4h+8=0$ and $-8-k \neq 0$. Solving for $h,k$, we conclude that the system has no solution when $h=2,k\neq 8$.
+\newline
+\newline
+\noindent
+2. The last column does not contain a leading entry and every other column does.
+
+This case occurs when $-4h+8\neq 0$. Solving for $h$, we conclude that the system has a unique solution when $h\neq 2$.
+\newline
+\newline
+\noindent
+3. The last column does not contain leading entry and at least one other column does not contains a leading entry.
+
+This case occurs when $-4h+8=0$ and $-8+k=0$. Solving for $h,k$, we conclude that the system has infinitely many solutions when $h=2, k=8$.
+\end{solution}
+
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 5}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{6}
+Determine the exact conditions (that is, conditions that are both necessary and sufficient) on $a,b,c,d \in \mathbb{R}$ such that
+\begin{align*}
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& &x&   &-& 3&y&  &=& &a& &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&\\
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& 3&x& &+&  &y&   &=& &b& &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& \\
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& &x&   &+& 7&y&  &=& &c& &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&\\
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& 2&x& &+&  4&y&   &=& &d& &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+\end{align*}
+has a solution.
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+The system has a solution if an echelon form of the augmented matrix does not have a leading entry in the last column. The augmented matrix of the system is
+\[
+\begin{pmatrix}1&-3&a\\3&1&b\\1&7&c\\2&4&d\end{pmatrix}
+\]
+We find an echelon form using Gaussian elimination:
+\begin{align*}
+\begin{pmatrix}1&-3&a\\0&10&-3a+b\\0&10&-a+c\\0&10&-2a+d\end{pmatrix} \begin{matrix} \hphantom{1}\\-3R_1+R_2\\-R_1+R_3\\-2R_1+R_4 \end{matrix}\\
+\begin{pmatrix}1&-3&a\\0&10&-3a+b\\0&0&2a+c-b\\0&0&a+d-b\end{pmatrix} \begin{matrix} \hphantom{1}\\ \hphantom{1}\\-R_2+R_3\\-R_2+R_4 \end{matrix}\\
+\end{align*}
+In order for there to be no leading entries in the last column, it must be the case that $2a+c-b=0$ and $a+d-b=0$. Solving for $c$ and $d$ in terms of $a,b$, we have $c=b-2a, d=b-a$. A set of the exact conditions for which the above system has a solution is as follows:
+\[
+\left\{ \begin{pmatrix}a\\b\\c\\d\end{pmatrix}: \text{There exist } a,b \in \mathbb{R} \text{ such that } \begin{pmatrix}a\\b\\b-2a\\b-a\end{pmatrix} = \begin{pmatrix}a\\b\\c\\d\end{pmatrix} \text{ for all $a,b,c,d \in \mathbb{R}$} \right\}
+\]
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 6}
+%
+%
+%
+\newpage
+\begin{align*}
+\begin{pmatrix} 0&4&1&20\\2&-2&1&0\\1&0&1&5\\1&1&-1&10\end{pmatrix}
+&\begin{matrix} 
+%R_1
+\hphantom{1}\\
+%R_2
+\hphantom{1}\\
+%R_3
+\hphantom{1}\\
+%R_4
+\hphantom{1}
+\end{matrix}\\
+%
+%
+%
+\begin{pmatrix} 1&1&-1&10\\2&-2&1&0\\1&0&1&5\\0&4&1&20\end{pmatrix}
+&\begin{matrix} 
+R_4 \leftrightarrow R_1
+\hphantom{1}\\
+%R_2
+\hphantom{1}\\
+%R_3
+\hphantom{1}\\
+R_1 \leftrightarrow R_4
+\hphantom{1}
+\end{matrix}\\
+%
+%
+%
+\begin{pmatrix} 1&1&-1&10\\0&-4&3&-20\\0&-1&2&-5\\0&4&1&20\end{pmatrix}
+&\begin{matrix} 
+%R_1
+\hphantom{1}\\
+-2R_1+R_2
+\hphantom{1}\\
+-R_1+R_3
+\hphantom{1}\\
+%R_4
+\hphantom{1}
+\end{matrix}\\
+%
+%
+%
+\begin{pmatrix} 1&1&-1&10\\0&-4&3&-20\\0&0&\frac{5}{4}&0\\0&0&4&0\end{pmatrix}
+&\begin{matrix} 
+%R_1
+\hphantom{1}\\
+%R_2
+\hphantom{1}\\
+-\frac{1}{4}R_2+R_3
+\hphantom{1}\\
+R_2+R_4
+\hphantom{1}
+\end{matrix}\\
+%
+%
+%
+\begin{pmatrix} 1&1&-1&10\\0&-4&3&-20\\0&0&5&0\\0&0&0&0\end{pmatrix}
+&\begin{matrix} 
+%R_1
+\hphantom{1}\\
+%R_2
+\hphantom{1}\\
+4R_3
+\hphantom{1}\\
+-\frac{16}{5}R_3+R_4
+\hphantom{1}
+\end{matrix}\\
+\end{align*}
+All nonzero rows are below zero rows, and every leading entry is to the right of the leading entry in the row above, so this matrix is indeed in echelon form by definition. Notice that there are no leading terms in the last column, so by Proposition 4.1.2, the linear system is consistent, that is, it has a solution. By Corollary 4.2.5, this solution set is the same as the solution set of the original system, therefore, $\begin{pmatrix} 20\\0\\5\\10\end{pmatrix} \in \text{ Span}\left( \begin{pmatrix} 0\\2\\1\\1 \end{pmatrix}, \begin{pmatrix} 4\\-2\\0\\1 \end{pmatrix}, \begin{pmatrix} 1\\1\\1\\-1 \end{pmatrix} \right)$.
+\vfill
+\centerline{PAGE 2 OF 2 FOR PROBLEM 3}
+\end{problem}
+
+
+\end{document}

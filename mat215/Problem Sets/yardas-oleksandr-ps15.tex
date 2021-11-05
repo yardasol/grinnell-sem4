@@ -1,0 +1,336 @@
+\documentclass[12pt]{article}
+\usepackage{latexsym, amssymb, amsmath, amsfonts, amscd, amsthm, xcolor, pgfplots}
+\usepackage{framed}
+\usepackage[margin=1in]{geometry}
+\linespread{1} %Change the line spacing only if instructed to do so.
+
+\newenvironment{problem}[2][Problem]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1 #2:}]
+	}
+{
+	\end{trivlist}
+	}
+
+\newenvironment{solution}[1][Solution]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\itshape #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+\newenvironment{collaborators}[1][Collaborator(s)]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%    You need only modify code below this block.
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\title{Assignment: Problem Set 15} %Change this to the assignment you are submitting.
+\author{Name: Oleksandr Yardas} %Change this to your name.
+\date{Due Date: 04/09/2018 } %Change this to the due date for the assignment you are submitting.
+\begin{document}
+	\maketitle
+	\thispagestyle{empty}
+	
+	\section*{List Your Collaborators:}%Enter your collaborators names below. Do not delete extra rows.
+	
+	\begin{itemize}
+		\begin{framed}
+			\item 
+			Problem 1: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 2: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 3: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 4: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 5: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 6: None
+			\\\\
+		\end{framed}
+	\end{itemize}
+\newpage
+%
+%%%%%%%%%%%%%%%
+%
+% Your problem statements and solutions start here.
+% Use the \newpage command between problems so that
+% each of your problems begins on its own page.
+%
+%%%%%%%%%%%%%%%
+
+%FORMATTING OPTIONS
+%FOR BLANK SPACES: \underline{\hspace{2cm}}
+%FOR SPACES IN align OR SIMILAR ENVIRONMENTS:  \hphantom{1000}
+%FOR MATRICES: \begin{matrix} \end{matrix}, can add p, b, B, v, V, small as suffix to "matrix"
+%SETS: \mathbb{R}^, :\mathbb{R}^ \to \mathbb{R}^
+%Vectors: \vec{},
+%SUBSCRIPTS: _{}
+%FRACTIONS: \frac{}{}
+%FANCY LETTERS: \mathcal{}
+%DOTS: \dots, can add c,l,v,d as suffix to "dots"
+
+%Provide the problem statement.
+\begin{problem}{1}
+Recall that $\mathcal{P}$ is the vector space of all polynomial functions $f: \mathbb{R} \to \mathbb{R}$. Let $W$ be the subset of $\mathcal{P}$ consisting of those polynomials that have a nonnegative constant term (i.e. the constant terms is greater than or equal to 0). Is $W$ a subspace of $\mathcal{P}$? Either prove or give a counterexample.
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+If $W$ is a subspace of $\mathcal{P}$,  then $W$ has the following the properties as laid out in Definition 4.1.12:
+
+1. There exists a $\vec{w_0} \in W$ such that $\vec{w} + \vec{w_0} = \vec{w}$ for all $\vec{w} \in W$.
+
+2. For all $\vec{w_1},\vec{w_2} \in W$, we have $\vec{w_1}+\vec{w_2} \in W$
+
+3. For all $\vec{w} \in W$ and all $c \in \mathbb{R}$, we have $c\cdot \vec{w} \in W$
+\newline
+\newline
+\noindent
+Consider the third property:
+\newline
+\newline
+Define a polynomial $w:\mathbb{R} \to \mathbb{R}$ by fixing $a_n, a_{n-1}, \dots, a_1, a_0 \in \mathbb{R}$ such that $a_0 > 0$ and $w(x) = a_n x^n + a_{n-1} x^{n-1} + \dots + a_1 x + a_0$ for all $x \in \mathbb{R}$. Notice that $a_0$ is a nonnegative constant term, so $w \in W$ by definition. Consider $(-1) \in \mathbb{R}$. Notice that
+\begin{align*}
+(-1)\cdot w(x) =& -1 \cdot (a_n x^n + a_{n-1} x^{n-1} + \dots + a_1 x + a_0)\\
+=& (-1)a_n x^n +  (-1)a_{n-1} x^{n-1} + \dots + (-1)a_1 x + (-1)a_0\\
+=& -a_n x^n -a_{n-1} x^{n-1} - \dots - a_1 x - a_0
+\end{align*}
+So $(-1) \cdot w(x) = -a_n x^n -a_{n-1} x^{n-1} - \dots - a_1 x - a_0$ for all $x \in \mathbb{R}$. Notice that the constant term is negative, so $(-1) \cdot w(x) \notin W$. Because $(-1) \in \mathbb{R}$, it follows that Property 3 is not true for $W$, and so $W$ is not a subspace of $\mathcal{P}$.
+
+%We check all three properties:
+%\newline
+%\newline
+%1. We define a function $w_0 :\mathbb{R} \to \mathbb{R}$ by letting $w_0 (x) = 0$ for all $x\in \mathbb{R}$. Notice that $w_0 = 0 = (0)x^n + (0)x^{n-1} + \dots + (0)x + 0$ for all $x \in \mathbb{R}$. Because $0 \in \mathbb{R}$, by Definition 4.1.13 $w_0$ is a polynomial function, and it follows that $w_0 \in \mathcal{P}$. Notice that the constant term in $w_0$ is $0$, and so $w_0 \in W$ by definition. Now let $w:\mathbb{R} \to \mathbb{R}$ be an arbitrary polynomial function with a nonnegative constant term, so $w \in W$ by definition. Notice that $w(x) + w_0 (x) = w(x) + 0 = w(x)$. Because $w \in W$ was arbitrary, it follows that $w(x)+w_0(x) = w(x)$ for all $w \in W$. So $w_0$ satisfies the definition of $\vec{w_0}$, and thus the first property is satisfied.
+%\newline
+%\newline
+%2. We define a function
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 1}\end{problem}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{2}
+Let $V=\mathbb{R}^4$. Write down a system of four equations in three unknowns such that
+\[
+\begin{pmatrix} 1\\7\\0\\6\end{pmatrix} \in \text{ Span}\left( \begin{pmatrix} 2\\-5\\1\\4 \end{pmatrix}, \begin{pmatrix} 6\\1\\-8\\2 \end{pmatrix}, \begin{pmatrix} 0\\3\\3\\3 \end{pmatrix} \right)
+\]
+if and only if the system has a solution.
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+By definition of Span, $\begin{pmatrix} 1\\7\\0\\6\end{pmatrix} \in \text{ Span}\left( \begin{pmatrix} 2\\-5\\1\\4 \end{pmatrix}, \begin{pmatrix} 6\\1\\-8\\2 \end{pmatrix}, \begin{pmatrix} 0\\3\\3\\3 \end{pmatrix} \right)$ if and only if there exist $a,b,c \in \mathbb{R}$ with $\begin{pmatrix} 1\\7\\0\\6\end{pmatrix} = a\cdot \begin{pmatrix} 2\\-5\\1\\4 \end{pmatrix} + b\cdot \begin{pmatrix} 6\\1\\-8\\2 \end{pmatrix} + c\cdot \begin{pmatrix} 0\\3\\3\\3 \end{pmatrix}$. We can express this sum of vectors as the following linear system of 4 equations in the variables $a$, $b$, and $c$:
+\begin{align*}
+2a + 6b + 0c = 1\\
+-5a+1b+3c=7\\
+1a-8b+3c=0\\
+4a+2b+3c=6
+\end{align*}
+If this system has a solution $(a_0,b_0,c_0)$, then the result follows.
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 2}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{3}
+Let $V$ be the vector space of all 2 $\times$ 2 matrices. Show that
+\[
+\begin{pmatrix} -2&7\\-1&-9 \end{pmatrix} \in \text{ Span} \left( \begin{pmatrix} 1&1\\2&-3 \end{pmatrix}, \begin{pmatrix} 3&0\\5&-4 \end{pmatrix} \right) \text{.}
+\]
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+Let $A \in \text{ Span} \left( \begin{pmatrix} 1&1\\2&-3 \end{pmatrix}, \begin{pmatrix} 3&0\\5&-4 \end{pmatrix} \right)$ be arbitrary. By definition of Span, we can fix $x,y \in \mathbb{R}$ with $A = x\cdot \begin{pmatrix} 1&1\\2&-3 \end{pmatrix} + y\cdot \begin{pmatrix} 3&0\\5&-4 \end{pmatrix}$. Notice that
+\begin{align*}
+A=x\cdot \begin{pmatrix} 1&1\\2&-3 \end{pmatrix} + y\cdot \begin{pmatrix} 3&0\\5&-4 \end{pmatrix}=&  \begin{pmatrix} 1x&1x\\2x&-3x \end{pmatrix} + \begin{pmatrix} 3y&0y\\5y&-4y \end{pmatrix}\\
+=&\begin{pmatrix} 1x+3y&1x+0y\\2x+5y&-3x-4y \end{pmatrix} 
+\end{align*}
+So $A=\begin{pmatrix} 1x+3y&1x+0y\\2x+5y&-3x-4y \end{pmatrix}$. If $\begin{pmatrix} -2&7\\-1&-9 \end{pmatrix} \in \text{ Span} \left( \begin{pmatrix} 1&1\\2&-3 \end{pmatrix}, \begin{pmatrix} 3&0\\5&-4 \end{pmatrix} \right)$, then there is a solution to the following linear system of four equations in the variables $(x,y)$:
+\begin{align}
+1x+3y=&-2\\
+1x+0y=&7\\
+2x+5y=&-1\\
+-3x-4y=&-9
+\end{align}
+Notice that (2) implies $x=7$. Using this value for $x$, our system becomes
+\begin{align}
+7+3y=&-2\\
+x=&7\\
+14+5y=&-1\\
+-21-4y=&-9
+\end{align}
+Solving simultaneously for $y$, we get
+\begin{align}
+y=&\frac{-2-7}{3} =\frac{-9}{3} = -3 \\
+x=&7\\
+y=&\frac{-1-14}{5} = \frac{-15}{5} = -3\\
+y=&\frac{-9+21}{-4} =\frac{12}{-4} = -3
+\end{align}
+So the solution to first system of equations is $(x,y)=(7,-3)$. Checking our answer, we compute: $A(7,-3) =\begin{pmatrix} 1(7)+3(-3)&1(7)+0(-3)\\2(7)+5(-3)&-3(7)-4(-3) \end{pmatrix} =\begin{pmatrix} 7-9&7\\14-15&-21+12 \end{pmatrix} = \begin{pmatrix} -2&7\\-1&-9 \end{pmatrix}$. Therefore, $\begin{pmatrix} -2&7\\-1&-9 \end{pmatrix} \in \text{ Span} \left( \begin{pmatrix} 1&1\\2&-3 \end{pmatrix}, \begin{pmatrix} 3&0\\5&-4 \end{pmatrix} \right)$.
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 3}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{4}
+Let $\mathcal{D}$ be the vector space of all differentiable functions $f : \mathbb{R} \to \mathbb{R}$. Let $f_1 :\mathbb{R} \to \mathbb{R}$ be the function $f_1 (x) = \sin ^2 (x)$ and let $f_2 :\mathbb{R} \to \mathbb{R}$ be the function $f_2 (x) = \cos ^2 (x)$. Finally, let $W = \text{Span}(f_1 , f_2 )$, and notice that $W$ is a subspace of $\mathcal{D}$. Determine, with explanation, whether the following functions are elements of $W$.
+\noindent
+\newline
+\newline
+a. The function $g_1 : \mathbb{R} \to \mathbb{R}$ given $g_1 (x) = 3$.
+\begin{solution}
+If $g_1 \in W$, then by definition of Span, there exist $a,b \in \mathbb{R}$ with $g_1(x) = a\cdot f_1(x) + b\cdot f_2(x)$ for all $x\in \mathbb{R}$, that is, there exist $a,b \in \mathbb{R}$ such that $3 = a\sin ^2 (x) + b\cos ^2 (x)$ for all $x \in \mathbb{R}$. Notice that $3 = 3(1) = 3( \sin ^2 (x) + \cos ^2 (x)) = 3\sin ^2 (x) + 3\cos ^2 (x)$ for all $x \in \mathbb{R}$. Because $3,3\in \mathbb{R}$, it follows that $g_1 \in W$.
+\end{solution}
+\noindent
+\newline
+\newline
+b. The function $g_2 : \mathbb{R} \to \mathbb{R}$ given $g_2 (x) = x^2$.
+\begin{solution}
+If $g_2 \in W$, then by definition of Span, there exist $a,b \in \mathbb{R}$ with $g_2(x) = a\cdot f_1(x) + b\cdot f_2(x)$ for all $x\in \mathbb{R}$, that is, there exist $a,b \in \mathbb{R}$ such that $x^2 = a\sin ^2 (x) + b\cos ^2 (x)$ for all $x \in \mathbb{R}$. We assume that there exists $a_2,b_2 \in \mathbb{R}$ such that $x^2 = a_2 \sin ^2 (x) + b_2 \cos ^2 (x)$ for all $x \in \mathbb{R}$. We then have that $\frac{d}{dx} (x^2) = \frac{d}{dx} (a_2 \sin ^2 (x) + b_2 \cos ^2 (x)$ for all $x \in \mathbb{R}$. Computing the derivatives, we get $2x = 2a_2 \sin (x) \cos (x) - 2b_2 \sin (x) \cos (x) = (a_2 - b_2) 2 \sin(x) \cos(x) =(a_2 - b_2) \sin (2x)$ for all $x \in \mathbb{R}$. So we have that $ 2x = (a_2 - b_2) \sin (2x)$ for all $x \in \mathbb{R}$. Consider $x=\pi$. We then have $2 \pi = (a_2 - b_2) \sin (2\pi) = (a_2 - b_2)0 = 0$. So $2 \pi =0$. Our assumption has led us to a contradiction, so it must be the case that there exist no $a,b \in \mathbb{R}$ such that $x^2 = a\sin ^2 (x) + b\cos ^2 (x)$ for all $x \in \mathbb{R}$. Therefore, $g_2 \notin W$.
+\end{solution}
+\noindent
+\newline
+\newline
+c. The function $g_3 : \mathbb{R} \to \mathbb{R}$ given $g_3 (x) = \sin x$.
+\begin{solution}
+If $g_3 \in W$, then by definition of Span, there exist $a,b \in \mathbb{R}$ with $g_3(x) = a\cdot f_1(x) + b\cdot f_2(x)$ for all $x\in \mathbb{R}$, that is, there exist $a,b \in \mathbb{R}$ such that $\sin (x) = a\sin ^2 (x) + b\cos ^2 (x)$ for all $x \in \mathbb{R}$. We assume that there exists $a_3, b_3 \in \mathbb{R}$ such that $\sin (x) = a_3 \sin ^2 (x) + b_3 \cos ^2 (x)$ for all $x \in \mathbb{R}$. We then have that $\frac{d}{dx} (\sin (x)) = \frac{d}{dx} (a_3 \sin ^2 (x) + b_3 \cos ^2 (x))$ for all $x \in \mathbb{R}$. Computing the derivatives, we get $\cos(x) = 2a_3 \sin (x) \cos (x) - 2b_3 \sin (x) \cos (x) = (a_3 - b_3) 2 \sin(x) \cos(x) =(a_3 - b_3) \sin (2x)$ for all $x \in \mathbb{R}$ So we have $\sin (x) = (a_3 - b_3) \sin (2x)$ for all $x \in \mathbb{R}$. Consider $x=\frac{\pi}{2}$. We then have that $\sin (\frac{\pi}{2}) = (a_3 - b_3) \sin (2 \frac{\pi}{2})$. This reduces to $1 = (a_3 - b_3) \sin (\pi) = 0$. So $1=0$. Our assumption has let us to a contradiction, so it must be the case that there exist no $a,b \in \mathbb{R}$ such that $\sin (x) = a\sin ^2 (x) + b\cos ^2 (x)$ for all $x \in \mathbb{R}$. Therefore, $g_3 \notin W$.
+\end{solution}
+\noindent
+\newline
+\newline
+d. The function $g_4 : \mathbb{R} \to \mathbb{R}$ given $g_4 (x) = \cos 2x$.
+\begin{solution}
+If $g_4 \in W$, then by definition of Span, there exist $a,b \in \mathbb{R}$ with $g_4(x) = a\cdot f_1(x) + b\cdot f_2(x)$ for all $x\in \mathbb{R}$, that is, there exist $a,b \in \mathbb{R}$ such that $\cos 2x = a\sin ^2 (x) + b\cos ^2 (x)$ for all $x \in \mathbb{R}$. Notice that $\cos 2x = \cos ^2 (x) - \sin ^2 (x) = 1\cdot \cos ^2 (x) + (-1) \cdot \sin ^2 (x)$ for all $x \in \mathbb{R}$. Because $1,-1\in \mathbb{R}$, it follows that $g_4 \in W$.
+
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 4}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{5}
+Let $V$ be a vector space, and let $W$ be a subspace of $V$. Recall that
+\[
+V \setminus W = \{ \vec{v} \in V : \vec{v} \notin W \}
+\]
+i.e. $V \setminus W$ is the set of elements of $V$ that are {\it not} in $W$. Is $V \setminus W$ always a subspace $V$? Sometimes a subspace of $V$? Never a subspace of $V$? Explain.
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+Let $V$ be an arbitrary vector space. By Definition 4.1.1, $\vec{0} \in V$. Let $W$ be an arbitrary subspace of $V$. By Defintion 4.1.12, $\vec{0} \in W$. By By Definition 1.5.2, $V \setminus W = \{ \vec{v}: \vec{v} \in V \text{ and } \vec{v} \notin W \}$. Because $\vec{0} \in V \text{ and } \vec{0} \in W$, it follows that $\vec{0} \notin V \setminus W$, and so by Definition 4.1.12, $V \setminus W$ is not a subspace of $V$. Because vector space $V$ and subspace $W$ were arbitrary, it follows that $V \setminus W$ is {\it never} a subspace of $V$.
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 5}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{6}
+Let $\mathcal{F}$ be the set of all functions $f: \mathbb{R} \to \mathbb{R}$. Recall that a function $f: \mathbb{R} \to \mathbb{R}$ is called {\it even} if $f(-x) = f(x)$ for all $x \in \mathbb{R}$. Let $W$ be the set of all even functions, i.e
+\[
+W = \{ f \in \mathcal{F} : f(-x) = f(x) \text{ for all } x \in \mathbb{R} \} \text{.}
+\]
+Is $W$ a subspace of $\mathcal{F}$? Either prove or give a counterexample.
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+ If $W$ is a subspace of $\mathcal{F}$, then $W$ has the following properties as laid out in Definition 4.1.12:
+
+1. There exists a $\vec{u_0} \in W$ such that $\vec{u} + \vec{u_0} = \vec{u}$ for all $\vec{u} \in W$.
+
+2. For all $\vec{u_1},\vec{u_2} \in W$, we have $\vec{u_1}+\vec{u_2} \in W$
+
+3. For all $\vec{u} \in W$ and all $c \in \mathbb{R}$, we have $c\cdot \vec{u} \in W$
+\noindent
+\newline
+\newline
+We check all three properties
+
+1. We define a function $u_0 :\mathbb{R} \to \mathbb{R}$ by letting $u_0 (x)=0$ for all $x \in \mathbb{R}$. Notice that $u_0 (x) = 0 = u_0(-x)$, so by definition $u_0$ is an even function, and it follows that $u_0 \in W$. Now let $u:\mathbb{R} \to \mathbb{R}$ be an arbitrary even function, so $u \in W$ by definition. Notice that $u(x) + u_0 (x) = u(x) + 0 = u(x)$. Because $u \in W$ was arbitrary, it follows that $u(x)+u_0(x) = u(x)$ for all $u \in W$. So $u_0$ satisfies the definition of $\vec{u_0}$, and thus the first property is satisfied.
+
+2. Let $u_1:\mathbb{R} \to \mathbb{R}$,  $u_2:\mathbb{R} \to \mathbb{R}$ be arbitrary even functions. So $u_1,u_2 \in W$ by definition. %Now let $x \in \mathbb{R}$ be arbitrary. 
+Because $u_1$ is even, we have that $u_1(x) = u_1 (-x)$ for all $x \in \mathbb{R}$. Similarly, $u_2$ is even, so $u_2 (x) = u_2 (-x)$ for all $x \in \mathbb{R}$. Notice that $(u_1 +u_2)(x) = u_1(x) + u_2 (x) = u_1 (-x) + u_2 (-x)= (u_1 +u_2)(-x)$ for all $x \in \mathbb{R}$. So $(u_1+u_2)(x) = (u_1+u_2)(-x)$ for all $x \in \mathbb{R}$, so by definition $u_1 + u_2$ is an even function, and it follows that $u_1 + u_2 \in W$. Since $u_1,u_2 \in U$ were arbitrary, we have that $u_1 + u_2 \in W$ for all $u_1,u_2 \in W$, and thus the second property is satisfied.
+
+3. Let $u: \mathbb{R} \to \mathbb{R}$ be an arbitrary even function, so $u \in W$ by definition. Because $u$ is even, we have that $u(x) = u(-x)$ for all $x \in \mathbb{R}$. Now let $r \in \mathbb{R}$ be arbitrary. Notice that $(r\cdot u)(x) = r\cdot u(x) = r\cdot u(-x) = (r\cdot u)(-x)$ for all $x \in \mathbb{R}$. So $(r\cdot u)(x) = (r\cdot u)(-x)$ for all $x \in \mathbb{R}$, so by definition, $r\cdot u$ is an even function, and it follows that $r\cdot u \in W$. Since $u \in W$ and  $r\in \mathbb{R}$ were arbitrary, we have that $r \cdot u \in W$ for all $u \in W$ and all $r \in \mathbb{R}$, and thus the third property is satisfied. 
+\noindent
+\newline
+\newline
+We have shown that $W$ has all three properties of a subspace of $\mathcal{F}$, therefore, $W$ is indeed a subspace of $\mathcal{F}$.
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 6}
+\end{problem}
+
+
+\end{document}

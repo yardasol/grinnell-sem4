@@ -1,0 +1,327 @@
+\documentclass[12pt]{article}
+\usepackage{latexsym, amssymb, amsmath, amsfonts, amscd, amsthm, xcolor, pgfplots}
+\usepackage{framed}
+\usepackage[margin=1in]{geometry}
+\linespread{1} %Change the line spacing only if instructed to do so.
+
+\newenvironment{problem}[2][Problem]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1 #2:}]
+	}
+{
+	\end{trivlist}
+	}
+
+\newenvironment{solution}[1][Solution]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\itshape #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+\newenvironment{collaborators}[1][Collaborator(s)]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%    You need only modify code below this block.
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\title{Assignment: Problem Set 20} %Change this to the assignment you are submitting.
+\author{Name: Oleksandr Yardas} %Change this to your name.
+\date{Due Date: 04/30/2018 } %Change this to the due date for the assignment you are submitting.
+\begin{document}
+	\maketitle
+	\thispagestyle{empty}
+	
+	\section*{List Your Collaborators:}%Enter your collaborators names below. Do not delete extra rows.
+	
+	\begin{itemize}
+		\begin{framed}
+			\item 
+			Problem 1: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 2: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 3: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 4: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 5: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 6: Not Applicable
+			\\\\
+		\end{framed}
+	\end{itemize}
+\newpage
+%
+%%%%%%%%%%%%%%%
+%
+% Your problem statements and solutions start here.
+% Use the \newpage command between problems so that
+% each of your problems begins on its own page.
+%
+%%%%%%%%%%%%%%%
+
+%FORMATTING OPTIONS
+%FOR BLANK SPACES: \underline{\hspace{2cm}}
+%FOR SPACES IN align OR SIMILAR ENVIRONMENTS:  \hphantom{1000}
+%FOR MATRICES: \begin{matrix} \end{matrix}, can add p, b, B, v, V, small as suffix to "matrix"
+%SETS: \mathbb{R}^, :\mathbb{R}^ \to \mathbb{R}^
+%Vectors: \vec{},
+%SUBSCRIPTS: _{}
+%FRACTIONS: \frac{}{}
+%FANCY LETTERS: \mathcal{}
+
+%Provide the problem statement.
+\begin{problem}{1}
+Working in $\mathbb{R}^4$, let
+\[
+W =\text{Span}\left( \begin{pmatrix} 0\\0\\1\\3 \end{pmatrix}, \begin{pmatrix} 4\\5\\2\\7 \end{pmatrix}, \begin{pmatrix} 7\\8\\0\\1 \end{pmatrix} \right) \text{.}
+\]
+Explain why dim$(W)=3$.
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+Let $\alpha = \left( \begin{pmatrix} 0\\0\\1\\3 \end{pmatrix}, \begin{pmatrix} 4\\5\\2\\7 \end{pmatrix}, \begin{pmatrix} 7\\8\\0\\1 \end{pmatrix} \right)$. Notice that $\begin{pmatrix} 0\\0\\1\\3 \end{pmatrix}, \begin{pmatrix} 4\\5\\2\\7 \end{pmatrix}, \begin{pmatrix} 7\\8\\0\\1 \end{pmatrix} \in \mathbb{R}^4$, so by Proposition 4.1.16 $W$ is a subspace of $\mathbb{R}^4$. Let $A$ be the $4 \times 3$ matrix with the elements of $\alpha$ as its columns. Performing Gaussian Elimination to obtain an echelon form of A, we get:
+\begin{align*}
+\begin{pmatrix} 0&4&7\\0&5&8\\1&2&0\\3&7&1 \end{pmatrix} &\rightarrow \begin{pmatrix} 0&4&7\\0&5&8\\1&2&0\\0&1&1 \end{pmatrix} \begin{matrix} \text{ } \\ \text{ } \\ \text{ } \\ -3R_3+R_4\text{ } \end{matrix} \\
+%
+%
+%
+&\rightarrow \begin{pmatrix} 0&0&3\\0&0&3\\1&2&0\\0&1&1 \end{pmatrix} \begin{matrix} -4R_4+R_1\text{ } \\ -5R_4+R_2\text{ } \\ \text{ } \\ \text{ } \end{matrix} \\
+%
+%
+%
+&\rightarrow \begin{pmatrix} 0&0&3\\0&0&0\\1&2&0\\0&1&1 \end{pmatrix} \begin{matrix} \text{ } \\ -R_1+R_2\text{ } \\ \text{ } \\ \text{ } \end{matrix} \\
+%
+%
+%
+&\rightarrow \begin{pmatrix} 1&2&0\\0&1&1\\0&0&3\\0&0&0 \end{pmatrix} \begin{matrix} R_3 \leftrightarrow R_1 \text{ } \\ R_4 \leftrightarrow R_2 \text{ } \\ R_1 \leftrightarrow R_3 \text{ } \\ R_2 \leftrightarrow R_4 \text{ } \end{matrix} \\
+\end{align*}
+Notice that there is a leading entry in every column of the echelon matrix, so by Proposition 4.3.3, $\alpha$ is linearly independent. Because $\text{Span}(\alpha) = W$, it follows from Definition 4.4.1 that $\alpha$ is a basis for $W$. Because $\alpha$ has 3 elements, it follows from Definition 4.4.9 that dim$(W)=3$.
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 1}\end{problem}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{2}
+Let $V$ be the vector space of all 2 $\times$ 2 matrices. Let
+\[
+W = \left\{ \begin{pmatrix} a&b\\c&d \end{pmatrix} \in V : 2a-c=0 \text{ and } b+c-d=0 \right\} \text{.}
+\]
+It turns out that $W$ is a subspace for $V$ (no need to show this). Find a basis for $W$, and determine dim$(W)$.
+\newline
+\noindent
+{\it Hint:} First try to write $W$ as the span of some elements of $V$ by solving the system of equations.
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+Notice that we can use the rules that define $W$ to rewrite
+\newline
+\noindent
+$W = \left\{ \begin{pmatrix} a&b\\c&d \end{pmatrix} \in V : 2a=c \text{ and } b+2a=d \right\}$, which we can then rewrite as
+\newline
+\noindent
+$W=\left\{ \begin{pmatrix} a&b\\2a&b+2a \end{pmatrix} \in V : a,b \in \mathbb{R} \right\}$. Let $A \in W$ be arbitrary, and fix $x,y \in \mathbb{R}$ with $A = \begin{pmatrix} x&y\\2x&y+2x\end{pmatrix}$. Let $\alpha = \left( \begin{pmatrix} 1&0\\2&2 \end{pmatrix}, \begin{pmatrix} 0&1\\0&1 \end{pmatrix} \right)$. Notice that
+\[
+A = \begin{pmatrix} x&y\\2x&y+2x\end{pmatrix} = x\cdot\begin{pmatrix} 1&0\\2&2 \end{pmatrix} + y\cdot \begin{pmatrix} 0&1\\0&1 \end{pmatrix} \text{,}
+\]
+so $A \in \text{Span}(\alpha)$. Because $A \in W$ was arbitrary, it follows that $W \subseteq \text{Span}(\alpha)$. Now let $B \in \text{Span}(\alpha)$ be arbitrary. By definition of Span we can fix $a,b \in \mathbb{R}$ with $B= a\cdot\begin{pmatrix} 1&0\\2&2 \end{pmatrix} + b\cdot \begin{pmatrix} 0&1\\0&1 \end{pmatrix}$. Notice that
+\[
+B= a\cdot\begin{pmatrix} 1&0\\2&2 \end{pmatrix} + b\cdot \begin{pmatrix} 0&1\\0&1 \end{pmatrix} = \begin{pmatrix} a&b\\2a&b+2a\end{pmatrix} \text{,}
+\]
+so $B \in W$. Because $B \in \text{Span}(\alpha)$ was arbitrary, it follows that $\text{Span}(\alpha) \subseteq W$. Because $W \subseteq \text{Span}(\alpha)$ and $\text{Span}(\alpha) \subseteq W$, it follows that $\text{Span}(\alpha) = W$. Now suppose that $\begin{pmatrix} 0&1\\0&1 \end{pmatrix} \in \text{Span}\left( \begin{pmatrix} 1&0\\2&2 \end{pmatrix} \right)$. By definition of Span, we can fix $c \in \mathbb{R}$ with $\begin{pmatrix} 0&1\\0&1 \end{pmatrix}= c\cdot \begin{pmatrix} 1&0\\2&2 \end{pmatrix} = \begin{pmatrix} c&0\\2c&2c \end{pmatrix}$. Because matrices are equal exactly when their entries are equal, we have that $0=c, 1=0,0=2c,1=2c$. The second equation does not depend on $c$ and immediately gives us a contradiction, so it must be the case that $\begin{pmatrix} 0&1\\0&1 \end{pmatrix} \notin \text{Span}\left( \begin{pmatrix} 1&0\\2&2 \end{pmatrix} \right)$. Notice that the sequence $\left( \begin{pmatrix} 1&0\\2&2 \end{pmatrix} \right)$ is linearly independent, so By Proposition 4.4.12 it follows that $\alpha$ is linearly independent. Because $\text{Span}(\alpha) = W$ and $\alpha$ is linearly independent, it follows from Definition 4.4.1 that $\alpha$ is a basis for $W$. Because $\alpha$ has two elements, it follows from Definition 4.4.9 that dim$(W)=2$.
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 2}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{3}
+Define $T:\mathcal{P}_1 \to \mathbb{R}^2$ by letting
+\[
+T(a+bx)=\begin{pmatrix} a-b\\b \end{pmatrix} \text{.}
+\]
+Show that $T$ is a linear transformation.
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+Let $f_1, f_2 \in \mathcal{P}_1$ be arbitrary, and fix $a_1,a_2,b_1,b_2 \in \mathbb{R}$ with $f_1 (x) = a_1 + b_1 x$ and $f_2 (x) = a_2 + b_2 x$ for all $x \in \mathbb{R}$. Notice that
+\begin{align*}
+T(f_1 + f_2) =& T(a_1 + b_1 x + a_2 + b_2 x)\\
+=& T((a_1 + a_2) +(b_1+b_2) x) \\
+=& \begin{pmatrix} (a_1 + a_2) - (b_1 + b_2)\\ (b_1 + b_2) \end{pmatrix}\\
+=& \begin{pmatrix} a_1 - b_1 + a_2 - b_2\\ b_1 + b_2 \end{pmatrix} \\
+=&  \begin{pmatrix} a_1 - b_1 \\  b_1 \end{pmatrix} + \begin{pmatrix}  a_2 - b_2\\  b_2 \end{pmatrix} = T(f_1) + T(f_2)
+\end{align*}
+So $T(f_1 + f_2) = T(f_1) + T(f_2)$. Because $f_1,f_2 \in \mathcal{P}_1$ were arbitrary, it follows that $T(f_1 + f_2) = T(f_1) + T(f_2)$ for all $f_1,f_2 \in \mathcal{P}_1$.
+
+Now let $r \in \mathbb{R}$ be arbitrary, and let $f \in \mathcal{P}_1$ be arbitrary and fix $p,q \in \mathbb{R}$ with $f(x) = p +qx$ for all $x \in \mathbb{R}$. Notice that
+\begin{align*}
+T(r\cdot f) =& T(r\cdot (p +qx))\\
+=& T((rp) + (rq)x) \\
+=& \begin{pmatrix}rp -rq \\ rq \end{pmatrix}\\
+=& r\cdot \begin{pmatrix} p-q\\ q \end{pmatrix} = r\cdot T(f)
+\end{align*}
+So $T(r\cdot f) = r\cdot T(f)$. Because $f \in \mathcal{P}_1$ and $r \in \mathbb{R}$ were arbitrary, it follows that $T(r\cdot f) = r\cdot T(f)$ for all $f \in \mathcal{P}_1$ and all $r \in \mathbb{R}$.
+
+We have shown that $T(f_1 + f_2) = T(f_1) + T(f_2)$ for all $f_1,f_2 \in \mathcal{P}_1$ and that $T(r\cdot f) = r\cdot T(f)$ for all $f \in \mathcal{P}_1$ and all $r \in \mathbb{R}$, so it follows from Definition 5.1.1 that $T: \mathcal{P}_1 \to \mathbb{R}^2$ is indeed a linear transformation.
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 3}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{4}
+Let $T:\mathbb{R}^3 \to \mathbb{R}^3$ be the function
+\[
+T\left(\begin{pmatrix} x\\y\\z\end{pmatrix} \right) = \begin{pmatrix} x-y\\x+z\\y+z\end{pmatrix} \text{.}
+\]
+\noindent
+\newline
+\newline
+a. Explain why $T$ is a linear transformation.
+\begin{solution}
+Fix $a_{1,1},a_{1,2},a_{1,3},a_{2,1},a_{2,2},a_{2,3}, a_{3,1},a_{3,2},a_{3,3} \in \mathbb{R}$ with $a_{1,1}=a_{2,1}=a_{2,3}=a_{3,2}=a_{3,3}=1, a_{1,3}=a_{2,2}=a_{3,1}=0, a_{1,2}=-1$. Let $x_1,x_2,x_3 \in \mathbb{R}$ be arbitrary. Notice that
+\begin{align*}
+\begin{pmatrix} a_{1,1}x_1 + a_{1,2}x_2 + a_{1,3}x_3\\a_{2,1}x_1 + a_{2,2}x_2 + a_{2,3}x_3\\ a_{3,1}x_1 + a_{3,2}x_2 + a_{3,3}x_3 \end{pmatrix} =& \begin{pmatrix} 1\cdot x_1 + -1\cdot x_2 + 0\cdot x_3\\1\cdot x_1 + 0\cdot x_2 + 1\cdot x_3\\ 0\cdot x_1 + 1\cdot x_2 + 1\cdot x_3 \end{pmatrix}\\
+=&\begin{pmatrix} x_1 -x_2 \\x_1 + x_3\\ x_2 + x_3 \end{pmatrix} = T\left( \begin{pmatrix} x_1\\x_2\\x_3 \end{pmatrix} \right) \text{.}
+\end{align*}
+Because $x_1,x_2,x_3 \in \mathbb{R}$ were arbitrary, we can express $T$ as the function $T:\mathbb{R}^3 \to \mathbb{R}^3$ by letting $T\left( \begin{pmatrix} x_1\\x_2\\x_3 \end{pmatrix} \right) = \begin{pmatrix} a_{1,1}x_1 + a_{1,2}x_2 + a_{1,3}x_3\\a_{2,1}x_1 + a_{2,2}x_2 + a_{2,3}x_3\\ a_{3,1}x_1 + a_{3,2}x_2 + a_{3,3}x_3 \end{pmatrix}$ for all $\begin{pmatrix} x_1\\x_2\\x_3 \end{pmatrix} \in \mathbb{R}^3$. By Proposition 5.1.2, it follows that $T$ is a linear transformation.
+\end{solution}
+\noindent
+\newline
+\newline
+b. Give an example of a nonzero $\vec{v} \in \mathbb{R}^3$ such that $T(\vec{v})=\vec{0}$.
+\begin{solution}
+Let $\vec{p} = \begin{pmatrix}1\\1\\-1 \end{pmatrix}$. Notice that
+\[
+T(\vec{p}) = \begin{pmatrix} 1-1\\1+(-1)\\1+(-1)\end{pmatrix}= \begin{pmatrix} 0\\0\\0 \end{pmatrix}= \vec{0}.
+\]
+So $T(\vec{p}) = \vec{0}$.
+\end{solution}
+\noindent
+\newline
+\newline
+c. Show that $T$ is not injective.
+\begin{solution}
+Let $S:\mathbb{R}^3 \to \mathbb{R}^3$ be a linear transformation. By Definition 1.6.7, if $S$ is injective, then for all $\vec{a},\vec{b} \in \mathbb{R}$, if $S(\vec{a}) = S(\vec{b})$, then $\vec{a} = \vec{b}$. Taking the contrapositive we obtain the following statement:
+If there exist $\vec{a}, \vec{b} \in \mathbb{R}^3$ with $S(\vec{a}) = S(\vec{b})$ and $\vec{a} \neq \vec{b}$, then $S$ is not injective. We showed above that, letting $\vec{p} = \begin{pmatrix}1\\1\\-1 \end{pmatrix}$, $T(\vec{p}) = \vec{0}$. Because $T$ is a linear transformation, by Proposition 5.1.4 $T(\vec{0}) = \vec{0}$. So $T(\vec{p}) = T(\vec{0})$. Notice that $\vec{p} \neq \vec{0}$. It follows from the statement above that $T$ is not injective.
+\end{solution}
+
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 4}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{5}
+Let $V$ be the vector space of all 2 $\times$ 2 matrices. Define $T:V\to \mathbb{R}$ by letting
+\[
+T\left( \begin{pmatrix} a&b\\c&d\end{pmatrix} \right) = 2a-d \text{.}
+\]
+\noindent
+\newline
+\newline
+a. Show that $T$ is a linear transformation.
+\begin{solution}
+Let $A_1,A_2 \in V$ be arbitrary, and fix $a_1,b_1,c_1,d_1,a_2,b_2,c_2,d_2 \in \mathbb{R}$ with $A_1=\begin{pmatrix} a_1&b_1\\c_1&d_1 \end{pmatrix}$ and $A_2=\begin{pmatrix} a_2&b_2\\c_2&d_2 \end{pmatrix}$. Notice that
+\begin{align*}
+T(A_1 + A_2) =& T \left( \begin{pmatrix} a_1 & b_1 \\ c_1 & d_1 \end{pmatrix} + \begin{pmatrix} a_2 & b_2 \\ c_2 & d_2 \end{pmatrix} \right) &\\
+=& T \left( \begin{pmatrix} a_1+a_2 &b_1+b_2\\c_1+c_2&d_1+d_2 \end{pmatrix} \right) & \text{(By Definition 5.1.13)}\\
+=&2(a_1+a_2) - (d_1+d_2) & \text{(By Definition of $T$)}\\
+=&2a_1 + 2a_2 -d_1 -d_2 &\\
+=&(2a_1 - d_1) + (2a_2 - d_2) &\\
+=&  T \left( \begin{pmatrix} a_1&b_1\\c_1&d_1 \end{pmatrix} \right) + T \left( \begin{pmatrix} a_2&b_2\\c_2&d_2 \end{pmatrix} \right) = T(A_1) + T(A_2). &
+\end{align*}
+So $T(A_1 + A_2) =T(A_1) + T(A_2)$. Because $A_1,A_2 \in V$ were arbitrary, it follows that $T(A_1 + A_2) =T(A_1) + T(A_2)$ for all $A_1,A_2 \in V$.
+
+Now let $r \in \mathbb{R} be arbitrary$. Let $A \in V$ be arbitrary, and fix $w,x,y,z \in \mathbb{R}$ with $A = \begin{pmatrix} w&x\\y&z \end{pmatrix}$. Notice that
+\begin{align*}
+T(r\cdot A) =& T\left( r\cdot \begin{pmatrix} w&x\\y&z \end{pmatrix} \right) &\\
+=& T\left( \begin{pmatrix} rw&rx\\ry&rz \end{pmatrix} \right) &\\
+=& 2(rw)-rz &\text{(By Definition of $T$)}\\
+=&r\cdot (2w-z) &\\
+=& r\cdot T\left( \begin{pmatrix} w&x\\y&z \end{pmatrix} \right) = r\cdot T(A). &
+\end{align*}
+So $T(r\cdot A) = r\cdot T(A)$. Because $A \in V$ and $r\in \mathbb{R}$ were arbitrary, it follows that $T(r\cdot A) = r\cdot T(A)$ for all $A \in V$ and all $r\in \mathbb{R}$.
+
+We have shown that $T(A_1+A_2) = T(A_1) + T(A_2)$ for all $A_1,A_2 \in V$ and that $T(r\cdot A) = r\cdot T(A)$ for all $A \in V$ and all $r \in \mathbb{R}$, so it follows from Definition 5.1.1 that $T: V \to \mathbb{R}$ is indeed a linear transformation.
+\end{solution}
+\vfill
+\centerline{PAGE 1 OF 2 FOR PROBLEM 5}
+\newpage
+b. Show that $T$ is surjective.
+\begin{solution}
+Let $S:V \to \mathbb{R}$ be a linear transformation. By Definition 1.6.7, if for all $c \in \mathbb{R}$, there exists $M \in V$ such that $S(M)=c$, then $S$ is surjective.
+%Taking the contrapositive we obtain the following statement: If there exists a $c \in \mathbb{R}$ for every $M \in V$ such that $T(M) \neq c$, then $T$ is not surjective. We assume that $T$ is not surjective, so there exists a $q \in \mathbb{R}$ for every $A \in V$ such that $T(M) \neq q$.
+Let $r \in \mathbb{R}$ be arbitrary. Letting $b,c \in \mathbb{R}$, notice that $\begin{pmatrix} r&b\\c&r \end{pmatrix} \in V$ and that $T(A) = T\left( \begin{pmatrix} r&b\\c&r \end{pmatrix} \right)=2r-r=r$. Thus, we have shown the existence of an $A \in V$ such that $T(A) = r$. Because $r \in \mathbb{R}$ was arbitrary, it follows that for all $r \in \mathbb{R}$, there exists $A \in V$ such that $T(A)=r$. It follows from the above statement that $T$ is surjective.
+\end{solution}
+\vfill
+\centerline{PAGE 2 OF 2 FOR PROBLEM 5}
+\end{problem}
+
+
+
+
+
+
+\end{document}

@@ -1,0 +1,356 @@
+\documentclass[12pt]{article}
+\usepackage{latexsym, amssymb, amsmath, amsfonts, amscd, amsthm}
+\usepackage{framed}
+\usepackage[margin=1in]{geometry}
+\linespread{1} %Change the line spacing only if instructed to do so.
+
+\newenvironment{problem}[2][Problem]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1 #2:}]
+	}
+{
+	\end{trivlist}
+	}
+
+\newenvironment{solution}[1][Solution]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\itshape #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+\newenvironment{collaborators}[1][Collaborator(s)]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%    You need only modify code below this block.
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\title{Assignment: Problem Set 5} %Change this to the assignment you are submitting.
+\author{Name: Oleksandr Yardas} %Change this to your name.
+\date{Due Date: 02/12/2018 } %Change this to the due date for the assignment you are submitting.
+\begin{document}
+	\maketitle
+	\thispagestyle{empty}
+	
+	\section*{List Your Collaborators:}%Enter your collaborators names below. Do not delete extra rows.
+	
+	\begin{itemize}
+		\begin{framed}
+			\item 
+			Problem 1: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 2: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 3: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 4: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 5: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 6: Not Applicable
+			\\\\
+		\end{framed}
+	\end{itemize}
+\newpage
+%
+%%%%%%%%%%%%%%%
+%
+% Your problem statements and solutions start here.
+% Use the \newpage command between problems so that
+% each of your problems begins on its own page.
+%
+%%%%%%%%%%%%%%%
+%Provide the problem statement.
+\begin{problem}{1}
+Let $f:\mathbb{R} \to \mathbb{R}$ be given by $f(x)= x^3 -8x$. Show that $f$ is not injective
+\begin{solution}
+By the definition of injective, for all $a,b \in \mathbb{R}$, if $f(a)=f(b)$, then $a=b$. The contrapositive of this statement: For all $a,b \in \mathbb{R}$, if $a \neq b$, then $f(a) \neq f(b)$. We assume $f$ is injective, so the original statement is true, and it follows that the contrapositive is true. 
+
+\noindent
+Let $a=0, b=8^\frac{1}{2}$. So $a \neq b$, and we have
+\begin{align*}
+a^3-8a &= (0)^3 - 8(0) & b^3-8b= (8^\frac{1}{2})^3 -8(8^\frac{1}{2})\\
+&=0 - 0 & =(8^\frac{3}{2}-8^\frac{3}{2})\\
+&=0 &=0
+\end{align*}
+We conclude that $f(0)=f((8^\frac{1}{2})$. We have found an $a,b \in \mathbb{R}$ with $a \neq b$ and $f(a) = f(b)$. However, it must be the case that $f(a) \neq f(b)$ (by the contrapositive). Our assumption has lead to a logical contradiction, so it must be the case that the contrapositive is false, and it follows that the original statement is false. Therefore, $f$ is not injective.
+\end{solution}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{2}
+Determine if the three lines $2x+y=5$, $7x-2y=1$, and $-5x+3y=4$ intersect. Explain your reasoning using a few sentences.
+\begin{solution}
+If the three lines intersect, then their solution sets will be the same. This is because the solution set of two distinct lines is a point, so if the solution sets of each pair of lines is the same, they all intersect at the point that is the singe element in their solution sets. By proposition 2.1.1, the solution set $S$ of the linear equations of the form
+\[
+ax + by =j
+\]
+\[
+cx+dy=k
+\]
+is 
+\[
+S= \Bigg\{ \left( \frac{dj-bk}{ad-bc}, \frac{ak-cj}{ad-bc} \right) \Bigg\}
+\]
+as long as $ad-bc \neq 0$. We compute each solution set:
+
+\begin{align*}
+2x+y&=5 & 7x-2y&=1 & -5x+3y=4\\
+7x-2y&=1& -5x+3y&=4 & 2x+y=5
+\end{align*}
+\begin{align*}
+\text{Let their solution set be } & S_1 & \text{Let their solution set be } & S_2 & \text{Let their solution set be } S_3
+\end{align*}
+We get:
+\[
+S_1=\Big\{ \left( \frac{-2 \cdot 5 -1 \cdot 1}{(2 \cdot (-2) - 1 \cdot 7}, \frac{2 \cdot1 - 7 \cdot 5}{2 \cdot (-2) - 1 \cdot 7} \right) \Big\}
+\]
+\[S_2=\Big\{ \left( \frac{3 \cdot 1- (-2) \cdot 4}{7 \cdot 3 - (-2) \cdot (-5)}, \frac{7 \cdot 4 - (-5) \cdot 1}{7 \cdot 3 - (-2) \cdot (-5)} \right) \Big\}
+\]
+\[S_3=\Big\{ \left( \frac{1 \cdot 4 - 3 \cdot 5}{-5 \cdot 1 - 3 \cdot 2}, \frac{-5 \cdot 5 - 2 \cdot 4}{-5 \cdot 1 - 3 \cdot 2} \right) \Big\}
+\]
+
+which become
+\begin{align*}
+S_1&=\Big\{ \left( \frac{-10-1}{-4-7}, \frac{2-35}{-4-7} \right) \Big\} &
+S_2&=\Big\{ \left( \frac{3+8}{21-10}, \frac{28+5}{21-10} \right) \Big\} &
+S_3&=\Big\{ \left( \frac{4-15}{-5-6}, \frac{-25-8}{-5-6} \right) \Big\}\\
+&=\Big\{ \left( \frac{-11}{-11}, \frac{-33}{-11} \right) \Big\} &
+&=\Big\{ \left( \frac{11}{11}, \frac{33}{11} \right) \Big\} &
+&=\Big\{ \left( \frac{-11}{-11}, \frac{-33}{-11} \right) \Big\}\\
+&=\Big\{ \left( 1, 3 \right) \Big\} &
+&=\Big\{ \left( 1, 3 \right) \Big\} &
+&=\Big\{ \left( 1, 3 \right) \Big\}
+\end{align*}
+
+All the solution sets are the same, and it follows that all three lines intersect at the point $(1,3)$.
+
+\begin{align*}
+\end{align*}
+\end{solution}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{3}
+For each part, explain your reasoning using a sentence or two.
+\newline
+\newline
+\noindent
+a. Find an example of a choice for $\vec{v}, \vec{u} \in \mathbb{R}^2$ such that the solution set to $-x +9y=-6$ is $\{\vec{v} +t \vec{u} : t \in \mathbb{R} \}$.
+\begin{solution}
+We can parameterize $-x +9y=-6$ as $\vec{q}(t)=\vec{b} +t\vec{a}$ with $\vec{a} = \begin{pmatrix} \frac{1}{9} \\ 1 \end{pmatrix}$ and $\vec{b} = \begin{pmatrix}- \frac{2}{3}\\0\end{pmatrix}$. 
+\noindent
+Let $\vec{r}(t)=\vec{v} + t\vec{u}$ with $\vec{v} =  \begin{pmatrix} v_1 \\ v_2 \end{pmatrix}$ and $\vec{u} =  \begin{pmatrix} u_1 \\ u_2 \end{pmatrix}$, $v_1,v_2,w_1,w_2 \in \mathbb{R}$. By definition, the solution set of $\vec{q}(t)=\vec{r}(t)$ is
+\[
+\{t \in \mathbb{R} : \vec{b} +t\vec{a} = \vec{v} +t \vec{u}\}
+\]
+Looking at the components, we see
+\[
+\begin{pmatrix}- \frac{2}{3}\\0\end{pmatrix} + t\begin{pmatrix} \frac{1}{9} \\ 1 \end{pmatrix} = \begin{pmatrix} v_1 \\ v_2 \end{pmatrix} + t\begin{pmatrix} u_1 \\ u_2 \end{pmatrix}
+\]
+So it must be the case that
+\[
+\begin{pmatrix} \frac{1}{9} \\ 1 \end{pmatrix} = \begin{pmatrix} u_1 \\ u_2 \end{pmatrix} \text{ and } \begin{pmatrix}- \frac{2}{3}\\0\end{pmatrix} = \begin{pmatrix} v_1 \\ v_2 \end{pmatrix}
+\]
+So we have found $\vec{v},\vec{u} \in \mathbb{R}$, namely $\vec{u} = \begin{pmatrix} \frac{1}{9} \\ 1 \end{pmatrix}  ,\vec{v}=\begin{pmatrix}- \frac{2}{3}\\0\end{pmatrix}$, for which the solution set of $-x +9y=-6$ is $\{\vec{v} +t \vec{u} : t \in \mathbb{R} \}$.
+
+\end{solution}
+\noindent
+b. Find an example of $\vec{u} \in \mathbb{R}^2$ such that the solution set of $5x+3y=0$ is Span$(\vec{u})$.
+\begin{solution}
+We can parameterize $5x+3y=0$ as $\vec{q}(t)=\vec{a}t$ with $\vec{a} = \begin{pmatrix} -\frac{5}{3} \\ 1 \end{pmatrix}$. Let $\vec{r}(t)=\vec{u}t$ with $\vec{u} = \begin{pmatrix} u_1 \\ u_2 \end{pmatrix}$, $u_1,u_2 \in \mathbb{R}$. By definition, the solution set of $\vec{q}(t)=\vec{r}(t)$ is
+\[
+\{t \in \mathbb{R} : \vec{a}t = \vec{u}t \}
+\]
+Looking at the components, we see
+\[
+\begin{pmatrix} -\frac{5}{3} \\ 1 \end{pmatrix} = \begin{pmatrix} u_1 \\ u_2 \end{pmatrix}
+\]
+So it must be the case that $\vec{a} = \vec{u}$, and our solution set becomes
+\[
+\{\vec{a}t : t\in \mathbb{R}\} = \{\vec{u}t : t\in \mathbb{R}\} = \text{Span}(\vec{u})
+\]
+by definition.
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\[
+\text{PAGE 1 OF 2 FOR PROBLEM 3}
+\]
+\end{solution}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{4}
+Let 
+\[
+A= \Bigg\{ \begin{pmatrix} 3 \\ -1 \end{pmatrix} + c \cdot \begin{pmatrix} 1 \\ 4 \end{pmatrix} : c \in \mathbb{R} \Bigg\} \text{ and } B= \Bigg\{ \begin{pmatrix} 5 \\ 7 \end{pmatrix} + c \cdot \begin{pmatrix} 1 \\ 4 \end{pmatrix} : c \in \mathbb{R} \Bigg\}
+\]
+In this problem, we will prove that $A=B$ by giving a double containment proof.
+\newline
+\newline
+\noindent
+a. Fill in the blanks below with appropriate phrases so that the result is a correct proof of the statement that $A \subseteq B$. 
+\newline
+\newline
+Let $\vec{u} \in A$ be arbitrary. By definition of $A$, we can \underline{\hspace{2cm}}. Now notice that
+\underline{\hspace{2cm}}$=\vec{u}$. Since \underline{\hspace{2cm}}$\in \mathbb{R}$, we conclude that $\vec{u} \in B$. Since $\vec{u} \in A$ was arbitrary, the result follows.
+
+\begin{solution}
+Let $\vec{u} \in A$ be arbitrary. By definition of $A$, we can fix a $c \in \mathbb{R}$ such that $\vec{u}= \begin{pmatrix} 3 \\ -1 \end{pmatrix} + c \cdot \begin{pmatrix} 1 \\ 4 \end{pmatrix}$. Now notice that 
+\begin{align*}
+\begin{pmatrix} 3 \\ -1 \end{pmatrix} + c \cdot \begin{pmatrix} 1 \\ 4 \end{pmatrix} &=  \begin{pmatrix} 5 \\ 7 \end{pmatrix} - \begin{pmatrix} 2 \\ 8 \end{pmatrix}  + c \cdot \begin{pmatrix} 1 \\ 4 \end{pmatrix}\\
+&=\begin{pmatrix} 5 \\ 7 \end{pmatrix} - 2\cdot \begin{pmatrix} 1 \\ 4 \end{pmatrix}  + c \cdot \begin{pmatrix} 1 \\ 4 \end{pmatrix} \\
+&= \begin{pmatrix} 5 \\ 7 \end{pmatrix} + (c-2) \cdot \begin{pmatrix} 1 \\ 4 \end{pmatrix}\\
+&=\vec{u}
+\end{align*}
+Since $(c-2) \in \mathbb{R}$, we conclude that $\vec{u} \in B$. Since $\vec{u} \in A$ was arbitrary, the result follows.
+
+\end{solution}
+
+\noindent
+b. Fill in the blanks below with appropriate phrases so that the result is a correct proof of the statement that $B \subseteq A$.
+\newline
+\newline
+Let $\vec{w} \in B$ be arbitrary. By definition of $B$, we can \underline{\hspace{2cm}}. Now notice that \underline{\hspace{2cm}}$=\vec{w}$. Since \underline{\hspace{2cm}}$\in \mathbb{R}$, we conclude that $\vec{w} \in A$. Since $\vec{w} \in B$ was arbitrary, the result follows.
+
+\begin{solution}
+Let $\vec{w} \in B$ be arbitrary. By definition of $B$, we can fix a $c \in \mathbb{R}$ such that $\vec{w}= \begin{pmatrix} 5 \\ 7 \end{pmatrix} + c \cdot \begin{pmatrix} 1 \\ 4 \end{pmatrix}$. Now notice that 
+\begin{align*}
+\begin{pmatrix} 5 \\ 7 \end{pmatrix} + c \cdot \begin{pmatrix} 1 \\ 4 \end{pmatrix} &=  \begin{pmatrix} 3 \\ -1 \end{pmatrix} + \begin{pmatrix} 2 \\ 8 \end{pmatrix}  + c \cdot \begin{pmatrix} 1 \\ 4 \end{pmatrix}\\
+&=\begin{pmatrix} 3 \\ -1 \end{pmatrix} + 2\cdot \begin{pmatrix} 1 \\ 4 \end{pmatrix}  + c \cdot \begin{pmatrix} 1 \\ 4 \end{pmatrix} \\
+&= \begin{pmatrix} 3 \\ -1 \end{pmatrix} + (c+2) \cdot \begin{pmatrix} 1 \\ 4 \end{pmatrix}\\
+&=\vec{w}
+\end{align*}
+Since $(c+2) \in \mathbb{R}$, we conclude that $\vec{w} \in A$. Since $\vec{w} \in B$ was arbitrary, the result follows.
+\end{solution}
+
+\end{problem}
+
+
+
+
+
+
+
+\newpage
+\begin{problem}{5}
+Given $a,b \in \mathbb{R}$, define two functions $f_{a}:\mathbb{R} \to \mathbb{R}$ and $g_{b}:\mathbb{R} \to \mathbb{R}$ by letting $f_{a}(x)=ax$ and letting $g_{b}(x)=x+b$. Determine, with explanation, all possible values of $a,b \in \mathbb{R}$ so that $f_{a} \circ g_{b} = g_{b} \circ f_{a}$.
+
+\noindent
+{\it Hint:} Recall that to prove that two functions are equal, you need to argue that they give the same output for every input. To prove that two functions are not equal, you just need to give one example of an input that produces different outputs.
+\begin{solution}
+Let $f_{a}:\mathbb{R} \to \mathbb{R}$ and $g_{b}:\mathbb{R} \to \mathbb{R}$ be functions defined by letting $f_{a}(x)=ax$ and letting $g_{b}(x)=x+b$. By definition of function composition,
+\[
+(f_{a} \circ g_{b})(x)= f_{a}(g_{b}(x)) = a(x+b) \text{ and } (g_{b} \circ f_{a})(x)= g_{b}(f_{a}(x)) = (ax)+b
+\]
+Let $(f_{a} \circ g_{b})(x)=(g_{b} \circ f_{a})(x)$. We have
+\[
+a(x+b)=(ax)+b
+\]
+\[
+ax+ab=ax+b
+\]
+So it must be the case that $ab=b$, that is that, $a=1,b\in \mathbb{R}$.
+\end{solution}
+\end{problem}
+
+\newpage
+
+\noindent
+c. Find an example of a choice for $a,b,c \in \mathbb{R}$ such that the solution set of $ax +by=c$ is Span$\Bigg(\begin{pmatrix} 2 \\ -7 \end{pmatrix}\Bigg)$.
+\begin{solution}
+We parameterize the equation $ax +by =c$ into the form $\vec{r}(t)=\vec{s} + t \cdot \vec{n}$, with $\vec{n}=\begin{pmatrix} -\frac{a}{b} \\ {1} \end{pmatrix}$, $\vec{s} = \begin{pmatrix} \frac{c}{b} \\ 0 \end{pmatrix}$.
+If $\vec{r}(t) \in$ Span$\Bigg(\begin{pmatrix} 2 \\ -7 \end{pmatrix}\Bigg)$ then the solution set of $\vec{r}(t)$ is equal to Span$\Bigg(\begin{pmatrix} 2 \\ -7 \end{pmatrix}\Bigg)$ because for every $h \in \mathbb{R}$, there exists a $d \in \mathbb{R}$ with $d \cdot \vec{r}(t) = h \cdot \begin{pmatrix} 2 \\ -7 \end{pmatrix}$. So we have
+\[
+d \cdot \vec{r}(t)=d \cdot t \begin{pmatrix} -\frac{a}{b} \\ {1} \end{pmatrix} + d \cdot \begin{pmatrix} \frac{c}{b} \\ 0 \end{pmatrix}
+\]
+\[
+=\begin{pmatrix} -\frac{d \cdot t \cdot a}{b} \\ {d \cdot t} \end{pmatrix} + \begin{pmatrix} \frac{d\cdot c}{b} \\ d\cdot 0 \end{pmatrix}
+\]
+\[
+=\begin{pmatrix} -\frac{d \cdot t \cdot a - d\cdot c}{b} \\ {d \cdot t} \end{pmatrix}
+\]
+Let $c=0,d \cdot t =-7, a=2,b=7$. We get
+\[
+\begin{pmatrix} -\frac{-7 \cdot 2 - d\cdot 0}{7} \\ {-7} \end{pmatrix}
+\]
+\[
+=\begin{pmatrix} \frac{7 \cdot 2}{7} \\ {-7} \end{pmatrix} = \begin{pmatrix}2 \\ -7 \end{pmatrix}
+\]
+We have found values for $a,b,c \in \mathbb{R}$, namely $a=2, b=7, c=0$, such that the solution set of $ax+by=c$ is Span$\Bigg(\begin{pmatrix} 2 \\ -7 \end{pmatrix}\Bigg)$
+\end{solution}. 
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\[
+\text{PAGE 2 OF 2 FOR PROBLEM 3}
+\]
+
+
+
+\end{document}

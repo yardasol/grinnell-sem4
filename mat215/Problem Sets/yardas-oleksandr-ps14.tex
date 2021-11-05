@@ -1,0 +1,295 @@
+\documentclass[12pt]{article}
+\usepackage{latexsym, amssymb, amsmath, amsfonts, amscd, amsthm, xcolor, pgfplots}
+\usepackage{framed}
+\usepackage[margin=1in]{geometry}
+\linespread{1} %Change the line spacing only if instructed to do so.
+
+\newenvironment{problem}[2][Problem]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1 #2:}]
+	}
+{
+	\end{trivlist}
+	}
+
+\newenvironment{solution}[1][Solution]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\itshape #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+\newenvironment{collaborators}[1][Collaborator(s)]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%    You need only modify code below this block.
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\title{Assignment: Problem Set 14} %Change this to the assignment you are submitting.
+\author{Name: Oleksandr Yardas} %Change this to your name.
+\date{Due Date: 04/04/2018 } %Change this to the due date for the assignment you are submitting.
+\begin{document}
+	\maketitle
+	\thispagestyle{empty}
+	
+	\section*{List Your Collaborators:}%Enter your collaborators names below. Do not delete extra rows.
+	
+	\begin{itemize}
+		\begin{framed}
+			\item 
+			Problem 1: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 2: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 3: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 4: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 5: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 6: Not Applicable
+			\\\\
+		\end{framed}
+	\end{itemize}
+\newpage
+%
+%%%%%%%%%%%%%%%
+%
+% Your problem statements and solutions start here.
+% Use the \newpage command between problems so that
+% each of your problems begins on its own page.
+%
+%%%%%%%%%%%%%%%
+
+%FORMATTING OPTIONS
+%FOR BLANK SPACES: \underline{\hspace{2cm}}
+%FOR SPACES IN align OR SIMILAR ENVIRONMENTS:  \hphantom{1000}
+%FOR MATRICES: \begin{matrix} \end{matrix}, can add p, b, B, v, V, small as suffix to "matrix"
+%SETS: \mathbb{R}^, :\mathbb{R}^ \to \mathbb{R}^
+%Vectors: \vec{},
+%SUBSCRIPTS: _{}
+%FRACTIONS: \frac{}{}
+
+%Provide the problem statement.
+\begin{problem}{1}
+Let $V=\mathbb{R}^3$, but with the following operations:
+\[
+\begin{pmatrix}a_1\\a_2\\a_3\end{pmatrix} + \begin{pmatrix}b_1\\b_2\\b_3\end{pmatrix} = \begin{pmatrix}0\\0\\0\end{pmatrix}  
+\]
+and
+\[
+c\cdot \begin{pmatrix}a_1\\a_2\\a_3\end{pmatrix}  = \begin{pmatrix}ca_1\\ca_2\\ca_3\end{pmatrix} \text{.}
+\]
+Show that there is no element of $V$ that serves as $\vec{0}$. That is, show that there does not exist $\vec{z}\in V$ such that $\vec{v} + \vec{z} = \vec{v}$ for all $\vec{v}\in V$.
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+We assume that $V$ is a vector space, with addition and scalar multiplication defined as above, but we rewrite the operators as $\oplus$ and $\odot$ so as to avoid confusion. Because $V$ is a vector space, all 10 properties stated in Definition 4.1.1 are true, in addition to all of the propositions that follow from the Definition 4.1.1. Consider Property 5. Let $\vec{v} \in V$ be arbitrary. Since $\vec{v}\in V$, by Property 5 there must exist a $\vec{z} \in V$ with $\vec{v} \oplus \vec{z} = \vec{v}$ for all $\vec{v}\in V$. 
+If there exists a $\vec{w} \in V$ that does not satisfy this property, it would follow that there is no element of $V$ that serves as a $\vec{z}$ for all $\vec{v} \in V$. It would also follow that our assumption of $V$ being a vector space is false.
+Consider $\vec{w} = \begin{pmatrix}1\\0\\0\end{pmatrix} \in V$. Notice that $\vec{w} \oplus \vec{v} = \begin{pmatrix}0\\0\\0\end{pmatrix} \neq \vec{w}$. Because $\vec{v} \in V$ was arbitrary, we conclude that there is no $\vec{z} \in V$ for which $\vec{w} \oplus \vec{z} = \vec{w}$. We have found a $\vec{w} \in V$ for which Property 5 does not hold, so it must be the case that there does not exist any $\vec{z} \in V$ for which $\vec{v} \oplus \vec{z} = \vec{v}$ for all $\vec{v}\in V$. Because Property 5 does not hold, and it also follows that $V$ is not a vector space. 
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 1}\end{problem}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{2}
+Let $V=\mathbb{R}^2$, but with the following operations:
+\[
+\begin{pmatrix} a_1\\a_2\end{pmatrix} + \begin{pmatrix} b_1\\b_2\end{pmatrix} = \begin{pmatrix} a_1 +b_1\\a_2 + b_2\end{pmatrix}
+\]
+and
+\[
+c\cdot \begin{pmatrix}a_1\\a_2\end{pmatrix} = \begin{pmatrix}ca_1\\a_2\end{pmatrix} \text{.}
+\]
+Also, let 
+\[
+\vec{0}=\begin{pmatrix}0\\0\end{pmatrix} \text{.}
+\]
+Show that $V$ is not a vector space by explicitly finding a counterexample to one of the 10 properties.
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+Consider Property 8:
+\newline
+\newline
+\noindent
+For all $\vec{v} \in V$ and all $c,d\in \mathbb{R}$, we have $(c+d)\cdot \vec{v} = c\cdot \vec{v} + d\cdot \vec{v}$. Let $\vec{v} \in V$ be arbitrary, and fix $x,y \in \mathbb{R}$ such that $\vec{v} = \begin{pmatrix}x\\y\end{pmatrix}$. Notice that
+\begin{align*}
+(1+0) \cdot \vec{v} = 1 \cdot \vec{v} =& 1\cdot \begin{pmatrix}x\\y\end{pmatrix} &\\
+=&  \begin{pmatrix}1\cdot x\\y\end{pmatrix} =  \begin{pmatrix}x\\y\end{pmatrix} &
+\end{align*}
+and that 
+\begin{align*}
+1\cdot \vec{v} + 0\cdot \vec{v} =& 1\cdot  \begin{pmatrix}x\\y\end{pmatrix} +  0\cdot \begin{pmatrix}x\\y\end{pmatrix} &\\
+=&  \begin{pmatrix}1\cdot x\\y\end{pmatrix} +  \begin{pmatrix}0\cdot x\\y\end{pmatrix} &\\
+=&  \begin{pmatrix}x\\y\end{pmatrix} +  \begin{pmatrix}0\\y\end{pmatrix} =  \begin{pmatrix}x\\2y\end{pmatrix} &
+\end{align*}
+So we have that $(1+0)\cdot \vec{v} \neq 1\cdot \vec{v} + 0\cdot \vec{v}$. Because $1,0 \in \mathbb{R}$, we have found an explicit counterexample to Property 8. So $V$ does not follow Property 8, and it follows that $V$ is not a vector space.
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 2}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{3}
+Let $V$ be a vector space. Show that $\vec{u}+(\vec{v}+\vec{w}) = \vec{w}+(\vec{v}+\vec{u})$ for all $\vec{u},\vec{v},\vec{w} \in V$. Carefully state what property you are using in every step of your argument. 
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+Let $\vec{u},\vec{v},\vec{w} \in V$ be arbitrary. Consider the sum $\vec{u} +(\vec{v}+\vec{w})$. Notice that
+\begin{align*}
+\vec{u} +(\vec{v}+\vec{w}) =& (\vec{u} +\vec{v})+\vec{w} & \text{(By Property 4)}\\
+=& \vec{w}+ (\vec{u} +\vec{v}) & \text{(By Property 3)} \\
+=& \vec{w}+ (\vec{v} +\vec{u}) & \text{(By Property 3)}
+\end{align*}
+So $\vec{u} +(\vec{v}+\vec{w}) = \vec{w}+ (\vec{v} +\vec{u})$. Because $\vec{u},\vec{w},\vec{v}$ were arbitrary, the result follows.
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 3}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{4}
+Let $V$ be a vector space. Recall that, given $\vec{v} \in V$, we defined $-\vec{v}$ to be the unique $\vec{w} \in V$ such that $\vec{v} + \vec{w} = \vec{0}$. Moreover, given $\vec{v}, \vec{w} \in V$, we defined $\vec{v}-\vec{w}$ to mean $\vec{v}+(-\vec{w})$. Prove each of the following, and carefully state what property and/or result you are using every step of your arguments.
+\noindent
+\newline
+\newline
+a. Show that $-(\vec{v}+\vec{w})=(-\vec{v})+(-\vec{w})$ for all $\vec{v},\vec{w}\in V$.
+\begin{solution}
+Let $\vec{v},\vec{w} \in V$ be arbitrary. Consider $-(\vec{v}+\vec{w})$. Notice that
+\begin{align*}
+-(\vec{v}+\vec{w}) =& (-1)\cdot (\vec{v} + \vec{w}) & \text{(By Proposition 4.1.11.3)}\\ 
+=& (-1)\cdot \vec{v} + (-1) \cdot \vec{w} & \text{(By Property 7)} \\
+=& (-\vec{v}) + (-\vec{w}) & \text{(By Proposition 4.1.11.3)}
+\end{align*}
+So we have that $-(\vec{v}+\vec{w})=(-\vec{v})+(-\vec{w})$. Becasue $\vec{v},\vec{w} \in V$ were arbitrary, the result follows.
+\end{solution}
+\noindent
+\newline
+\newline
+b. Show that $c\cdot (\vec{v}-\vec{w})=c\cdot\vec{v}-c\cdot\vec{w}$ for all $\vec{v},\vec{w}\in V$ and all $c\in\mathbb{R}$.
+\begin{solution}
+Let $\vec{v},\vec{w} \in V, c\in\mathbb{R}$ be arbitrary. Consider $c\cdot (\vec{v}-\vec{w})$. Notice that
+\begin{align*}
+c\cdot (\vec{v}-\vec{w}) =& c\cdot (\vec{v} + (-\vec{w})) & \text{(By Definition 4.1.10.2)}\\
+=& c\cdot \vec{v} + c\cdot (-\vec{w}) & \text{(By Property 7)} \\
+=& c\cdot \vec{v} + c\cdot ((-1)\cdot \vec{w}) & \text{(By Proposition 4.1.11.3)}\\
+=& c\cdot \vec{v} + (c\cdot (-1)) \cdot \vec{w} &\text{(By Property 9)}\\
+=&  c\cdot \vec{v} + ((-1)\cdot c) \cdot \vec{w} &\\
+=&  c\cdot \vec{v} + (-1)\cdot (c \cdot \vec{w}) &\text{(By Property 9)}\\
+=& c\cdot \vec{v} +(-(c\cdot \vec{w})) & \text{(By Proposition 4.1.11.3)}\\
+=& c\cdot \vec{v} -(c\cdot \vec{w}) & \text{(By Definition 4.1.10.2)}\\
+=&c\cdot\vec{v}-c\cdot\vec{w} &
+\end{align*}
+So we have that $c\cdot (\vec{v}-\vec{w})=c\cdot\vec{v}-c\cdot\vec{w}$. Because $\vec{v},\vec{w} \in V,c \in \mathbb{R}$ were arbitrary, the result follows.
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 4}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{5}
+Show that
+\[
+\left\{ \begin{pmatrix}a_1\\a_2\\a_3\end{pmatrix} \in \mathbb{R}^3 : a_1 + a_2 + a_3 = 0 \right\}
+\]
+is a subspace of $\mathbb{R}^3$.
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+Let $W=\left\{ \begin{pmatrix}a_1\\a_2\\a_3\end{pmatrix} \in \mathbb{R}^3 : a_1 + a_2 + a_3 = 0 \right\}$. Notice that $W \subseteq \mathbb{R}^3$. Let $\vec{v},\vec{w} \in W$ be arbitrary, and let $r \in \mathbb{R}$ be arbitrary. Fix $a,b,c,x,y,z\in \mathbb{R}$ such that $\vec{v} =  \begin{pmatrix} a\\b\\c \end{pmatrix}, \vec{w}= \begin{pmatrix}x\\y\\z\end{pmatrix}$.
+If $W$ is a subspace of $\mathbb{R}^3$, $W$ obeys the properties laid out in Definition 4.1.12, that is, $W$ obeys
+
+1. $\vec{0} \in W$
+
+2. For all $\vec{w_1},\vec{w_2} \in W$, we have $\vec{w_1}+\vec{w_2} \in W$
+
+3. For all $\vec{w} \in W$ and all $c \in \mathbb{R}$, we have $c\cdot \vec{w} \in W$
+\newline
+\newline
+\noindent
+Notice that $\begin{pmatrix} 0\\0\\0 \end{pmatrix} \in \mathbb{R}^3$, and that $0+0+0 =0$. So we have that $\vec{0}\in W$, and the first property is satisfied.
+\newline
+\newline
+\noindent
+Notice that $\vec{v} +\vec{w} = \begin{pmatrix} a\\b\\c \end{pmatrix} + \begin{pmatrix}x\\y\\z\end{pmatrix} = \begin{pmatrix}a+x\\b+y\\c+z\end{pmatrix}$, and that $(a+x)+(b+y)+(z+c) = a+x+b+y+c+z=a+b+c+x+y+z=0+0=0$, so $\vec{v} + \vec{w} \in W$. Since $\vec{v},\vec{w} \in W$ were arbitrary, we have that $\vec{v} + \vec{w} \in W$ for all $\vec{v},\vec{w} \in W$, so the second property is satisfied.
+\newline
+\newline
+\noindent
+Notice that $r\cdot \vec{v} = r\cdot \begin{pmatrix} a\\b\\c \end{pmatrix} = \begin{pmatrix} ra\\rb\\rc \end{pmatrix}$, and that $ra + rb + rc  = r(a+b+c) = r(0) = 0$, so $r\cdot \vec{v} \in W$. Since $\vec{v} \in W, r\in \mathbb{R}$ were arbitrary, we have that $r\cdot \vec{v} \in W$ for all $\vec{v} \in W, r\in \mathbb{R}$, so the third property is satisfied.
+\newline
+\newline
+\noindent
+All three properties defining a subspace have been satisfied, so we conclude that $W$ is indeed a subspace of $\mathbb{R}^3$.
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 5}
+\end{problem}
+
+
+
+
+
+\end{document}

@@ -1,0 +1,188 @@
+\documentclass[12pt]{article}
+\usepackage{latexsym, amssymb, amsmath, amsfonts, amscd, amsthm}
+\usepackage[margin=1in]{geometry}
+\linespread{1} %Change the line spacing only if instructed to do so.
+
+\newenvironment{problem}[2][Problem]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1 #2:}]
+	}
+{
+	\end{trivlist}
+	}
+
+\newenvironment{solution}[1][Solution]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\itshape #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+\newenvironment{collaborators}[1][Collaborator(s)]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%    You need only modify code below this block.
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%%%%%%%%%%%%%%%
+%
+% Modify the title, author, and due date for each assignment:
+%
+%%%%%%%%%%%%%%%
+\title{MAT215\\Problem Set X/Written Assignment Y}
+\author{First and last name}
+\date{Due: 01/25/2017}
+%%%%%%%%%%%%%%%
+%
+% Do not modify:
+%
+%%%%%%%%%%%%%%%
+\begin{document}
+\maketitle
+\newpage
+%%%%%%%%%%%%%%%
+%
+% Your problem statements and solutions start here.
+% Use the \newpage command between problems so that
+% each of your problems begins on its own page.
+%
+%%%%%%%%%%%%%%%
+%Provide the problem statement.
+\begin{problem}{7}
+	How do we use {\LaTeX} to typeset vectors, or systems of equations?
+\end{problem}
+%
+\begin{solution}
+	There a few ways to typeset math. Let's start with a simple vector. For example, we can define a vector in-line by: \verb|\(\vec{v}=\langle \frac{2}{3},-3,1\rangle\)| whose output looks like: \(\vec{v}=\langle \frac{2}{3},-3,1\rangle\), in the same line as the text.
+	
+	If, instead, we wanted this expression on its own line, we may use the code\\
+	\verb|\[\vec{v}=\Big\langle \frac{2}{3},-3,1\Big\rangle\]|\\
+	which results in
+	\[
+	\vec{v}=\Bigg\langle \frac{2}{3},-3,1\Bigg\rangle.
+	\]
+	
+	Alternatively, if we want our equation to be numbered, we can use the \verb|align| environment:
+	\begin{align}
+		\vec{v}=\Bigg\langle \frac{2}{3},-3,1\Bigg\rangle
+	\end{align}
+	
+	Google is your friend, there are a lot of resources available to help answer questions about \LaTeX.
+	
+	If we want out vectors to be aligned vertically, we might use the \verb|pmatrix| environment:
+	\[
+	\begin{pmatrix} 2 \\ -3 \\ 1 \end{pmatrix}
+	\]
+	
+	The \verb|align| environment is useful when we have equations or computations that span several lines. For example:
+	\begin{align}
+	2x+3y-z &= 12\\
+	x-y-12z &= 0\\
+	12x+y+z &= 5
+	\end{align}
+	The \verb|&| symbol sets an alignment marker. You can mess around with these to arrange the parts of your align environment. You can use the \verb|align*| environment to omit equation numbers:
+	\begin{align*}
+	2x+3y-z &= 12 & \text{(the first equation)}\\
+	x-y-12z &= 0\\
+	12x+y+z &= 5
+	\end{align*}
+	Or, you can use the \verb|\nonumber| command on individual lines to suppress numbering.
+	\begin{align}
+	2x+3y-z &= 12\\
+	x-y-12z &= 0\\
+	12x+y+z &= 5 & \text{(the third equation has no number)} \nonumber
+	\end{align}
+\end{solution}
+\begin{collaborators}
+	None
+\end{collaborators}
+\newpage
+\begin{problem}{13}
+	What if we want to write a bunch of matrices?
+\end{problem}
+\begin{solution}
+	There are many variations of the matrix environment, each of which must live inside a math environment such as \verb|\(\)| or \verb|\[\]| or \verb|align|.
+	\[
+	\begin{matrix}
+		\alpha& \beta^{*}\\
+		\gamma^{*}& \delta
+	\end{matrix}
+	\]
+
+	A matrix, in line: \(
+	\begin{bmatrix}
+		\alpha&     \beta^{*}\\
+		\gamma^{*}& \delta
+	\end{bmatrix}
+	\)
+
+	\[	
+	\begin{Bmatrix}
+		\alpha&     \beta^{*}\\
+		\gamma^{*}& \delta
+	\end{Bmatrix}
+	\]
+	
+	\[
+	\begin{pmatrix}
+		\alpha&     \beta^{*}\\
+		\gamma^{*}& \delta
+	\end{pmatrix}
+	\]
+	
+	\[
+	\begin{vmatrix}
+		\alpha&     \beta^{*}\\
+		\gamma^{*}& \delta
+	\end{vmatrix}
+	\]
+	
+	\[
+	\begin{Vmatrix}
+		\alpha&     \beta^{*}\\
+		\gamma^{*}& \delta
+	\end{Vmatrix}
+	\]
+	\[
+	\begin{smallmatrix}
+		\alpha&     \beta^{*}\\
+		\gamma^{*}& \delta
+	\end{smallmatrix}
+	\]
+	
+	\begin{align}
+		\begin{bmatrix}
+			\alpha&     \beta^{*} & 7\\
+			\gamma^{*}& \delta & -i
+		\end{bmatrix}
+		\times
+		\begin{bmatrix}
+		0&1\\
+		-1& 1\\
+		2 & 4
+		\end{bmatrix}
+	\end{align}
+\end{solution}
+\begin{collaborators}
+	T. Notaro, L. Lapkus
+\end{collaborators}
+\end{document}

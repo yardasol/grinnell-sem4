@@ -1,0 +1,226 @@
+\documentclass[12pt]{article}
+\usepackage{latexsym, amssymb, amsmath, amsfonts, amscd, amsthm, xcolor, pgfplots}
+\usepackage{framed}
+\usepackage[margin=1in]{geometry}
+\linespread{1} %Change the line spacing only if instructed to do so.
+
+\newenvironment{problem}[2][Problem]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1 #2:}]
+	}
+{
+	\end{trivlist}
+	}
+
+\newenvironment{solution}[1][Solution]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\itshape #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+\newenvironment{collaborators}[1][Collaborator(s)]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%    You need only modify code below this block.
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\title{Assignment: Written Assignment 7} %Change this to the assignment you are submitting.
+\author{Name: Oleksandr Yardas} %Change this to your name.
+\date{Due Date: 04/13/2018 } %Change this to the due date for the assignment you are submitting.
+\begin{document}
+	\maketitle
+	\thispagestyle{empty}
+	
+	\section*{List Your Collaborators:}%Enter your collaborators names below. Do not delete extra rows.
+	
+	\begin{itemize}
+		\begin{framed}
+			\item 
+			Problem 1: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 2: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 3: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 4: Not Applicable
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 5: Not Applicable
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 6: Not Applicable
+			\\\\
+		\end{framed}
+	\end{itemize}
+\newpage
+%
+%%%%%%%%%%%%%%%
+%
+% Your problem statements and solutions start here.
+% Use the \newpage command between problems so that
+% each of your problems begins on its own page.
+%
+%%%%%%%%%%%%%%%
+
+%FORMATTING OPTIONS
+%FOR BLANK SPACES: \underline{\hspace{2cm}}
+%FOR SPACES IN align OR SIMILAR ENVIRONMENTS:  \hphantom{1000}
+%FOR MATRICES: \begin{matrix} \end{matrix}, can add p, b, B, v, V, small as suffix to "matrix"
+%SETS: \mathbb{R}^, :\mathbb{R}^ \to \mathbb{R}^
+%Vectors: \vec{},
+%SUBSCRIPTS: _{}
+%FRACTIONS: \frac{}{}
+
+%Provide the problem statement.
+\begin{problem}{1}
+In our definition of the elementary row operation known as "row combination", we replace row $i$ by the sum of itself and a multiple of a different row $j$ (where different means that $j \neq i$). Suppose then that we consider the operation where we take a row $i$ and replace it by the sum of itself and a multiple of row $i$. Do we necessarily preserve the solution set of the system by doing this? As always, you must explain if your answer is yes, or you must provide a specific counterexample (with justification) if your answer is no.
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+Notice that taking a row $i$ and replacing it with the sum of itself and a multiple of row $i$ has the same effect as multiplying row $i$ by a constant. So if the multiple of row $i$ is such that the sum of $i$ and the multiple of row $i$ gives a nonzero row, then this operation is identical to rescaling which is an elementary row operation. However, this is not a property of the new operation, so it is possible to have the multiple of row $i$ be such that the sum of $i$ and the multiple of row $i$ gives a zero row, which would be the same as multiplying row $i$ by $0$, and this would change the solution set of the system. Therefore we do not necessarily preserve the solution set of the system by doing this operation.
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 1}\end{problem}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{2}
+Show that for all $a,b,c \in \mathbb{R}$, the matrices
+\[
+\begin{pmatrix}4&2&1\\a&-1&0\\b&c&3 \end{pmatrix}
+\]
+and
+\[
+\begin{pmatrix} 1&1&2\\-2&0&-1\\1&3&5 \end{pmatrix}
+\]
+are not row equivalent, i.e. there does not exists a sequence of elementary row operations that turns the first matrix into the second matrix.
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+Let $a,b,c\in \mathbb{R}$ be arbitrary. Let $A=\begin{pmatrix}4&2&1\\a&-1&0\\b&c&3 \end{pmatrix}$ and $B=\begin{pmatrix} 1&1&2\\-2&0&-1\\1&3&5 \end{pmatrix}$. We can view $A$ and $B$ as matrices encoding linear systems in the variables $(x,y)$. We assume that the solution set of $A$ is equal to the solution set of $B$. By Corollary 4.2.5, there exists a finite sequence of row operations that we can apply to $A$ to obtain $B$ and vice versa, and so by definition $A$ is row equivalent to $B$. We find the solution set of $B$ by using Gaussian elimination:
+\begin{align*}
+\begin{pmatrix} 1&1&2\\-2&0&-1\\1&3&5 \end{pmatrix}
+&\begin{matrix} \hphantom{1}\\ \hphantom{1}\\  \hphantom{1}\end{matrix}\\
+\begin{pmatrix} 1&1&2\\0&2&3\\0&2&3 \end{pmatrix}
+&\begin{matrix} \hphantom{1}\\ 2R_1 + R_2\hphantom{1}\\ -R_1+R_3 \hphantom{1}\end{matrix}\\
+\begin{pmatrix} 1&0&\frac{1}{2}\\0&1&\frac{3}{2}\\0&0&0 \end{pmatrix}
+&\begin{matrix} -\frac{1}{2} R_2 +R_1 \hphantom{1}\\ \frac{1}{2} R_2 \hphantom{1}\\ -R_2+R_3 \hphantom{1}\end{matrix}\\
+\end{align*}
+We have a new system, $C$
+\begin{align*}
+x=\frac{1}{2}\\
+y=\frac{3}{2}
+\end{align*}
+This system has the solution set $S_C = \{(\frac{1}{2},\frac{3}{2})\}$. By Corollary 4.2.5, this solution set is equal to the solution set of the original system, $S_B$. Therefore, $S_B =  \{(\frac{1}{2},\frac{3}{2})\}$. By assumption, $S_B = S_A$, and it follows from the definition of set equality that $S_B \subseteq S_A$.
+\end{solution}
+\vfill
+\centerline{PAGE 1 OF 2 FOR PROBLEM 2}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{3}
+Let $V$ be a vector space. Suppose that $U$ and $W$ are both subspaces of $V$. We showed in Written Assignment 6 that $U \cup W$ might not be a subspace of $V$. Instead, let
+\[
+U+W=\{ \vec{v} \in V: \text{ There exists } \vec{u} \in U \text{ and } \vec{w} \in W \text{ with } \vec{v} = \vec{u} + \vec{w} \} \text{.}
+\]
+That is, $U +W$ is the set of all vectors in $V$ that can be written as the sum of an element of $U$ and an element of $W$. Show that $U+W$ is a subspace of $V$.
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+Let $\vec{v} \in U+W$ be arbitrary. By definition, we can fi$\vec{u} \in U$ and $\vec{w} \in W$ such that $\vec{v} = \vec{u} + \vec{w}$. Notice that $U \subseteq V$ and $W \subseteq V$ by assumption. Because $\vec{u} \in U$ and $U \subseteq V$, it follows that $\vec{u} \in V$ by definition of subset. Similarly, because $\vec{w} \in W$ and $W \subseteq V$, it follows that $\vec{w} \in V$ by definition of subset. Because $V$ is a vector space and $\vec{u},\vec{w} \in V$, by Property 1 of vector spaces, it follows that $\vec{u} + \vec{w} \in V$. Because $\vec{v} = \vec{u} +\vec{w}$, it follows that $\vec{v} \in V$. Because $\vec{v} \in U+W$ was arbitrary, it follows that $U+W \subseteq V$.
+We now check that $U+W$ is indeed a subspace of $V$. If $U+W$ is a subspace of $V$, then $U+W$ has the following properties as laid out in Definition 4.1.12:
+
+1. $\vec{0} \in U+W$
+
+2. For all $\vec{v_1},\vec{v_2} \in U+W$, we have that $\vec{v_1}+\vec{v_2} \in U+W$
+
+3. For all $\vec{v} \in U+W$ and all $c \in \mathbb{R}$, we have $c\cdot \vec{v} \in U+W$
+\noindent
+\newline
+\newline
+We check all three properties:
+\newline
+\newline
+1. Because $U$ and $W$ are both subspaces of $V$, by definition we have that $\vec{0} \in U$ and $\vec{0} \in W$. By definition of $\vec{0}$, we have that $\vec{0} + \vec{0} = \vec{0}$. So by definition of $U+W$, it follows that $\vec{0} \in U+W$. So the first property is satisfied.
+\newline
+\newline
+2. Let $\vec{v_1},\vec{v_2} \in U+W$ be arbitrary. Because $\vec{v_1},\vec{v_2} \in U+W$, by definition we can fix $\vec{u_1},\vec{u_2} \in W$ and $\vec{w_1},\vec{w_2} \in W$ with $\vec{u_1} + \vec{w_1} = \vec{v_1}$ and $\vec{u_2} + \vec{w_2} = \vec{v_2}$. Notice that $
+\vec{v_1} + \vec{v_2} =(\vec{u_1} + \vec{w_1}) + (\vec{u_2} + \vec{w_2}) = (\vec{u_1} + \vec{w_1}) + (\vec{w_2} + \vec{u_2}) \text{ (By Property 3 of vector spaces) } =(\vec{u_1} + \vec{u_2}) + (\vec{w_1} + \vec{w_2}) \text{ (By Property 4 of vector spaces)}$.
+Because $\vec{u_1},\vec{u_2} \in U$ and $U$ is a subspace of $V$, by definition of subspace we have that $\vec{u_1}+\vec{u_2} \in U$. Similarly, $\vec{w_1},\vec{w_2} \in W$ and $W$ is a subspace of $V$, so by definition of subspace we have that $\vec{w_1}+\vec{w_2} \in W$. $\vec{v_1} + \vec{v_2} = (\vec{u_1} + \vec{u_2}) + (\vec{w_1} + \vec{w_2})$, so it follows from the definition of $U+W$ that $(\vec{v_1} + \vec{v_2}) \in U+W$. Because $\vec{v_1},\vec{v_2} \in U+W$ were arbitrary, we have that $\vec{v_1}+\vec{v_2} \in U+ W$ for all $\vec{v_1},\vec{v_2} \in U+ W$, thus the second property is satisfied.
+\newline
+\newline
+3. Let $\vec{v} \in U+W$ be arbitrary, and let $r \in \mathbb{R}$ be arbitrary. Because $\vec{v} \in U+W$, we can fix $\vec{u} \in U$ and $\vec{w} \in W$ such that $\vec{v} = \vec{u} + \vec{w}$. Notice that $r\cdot \vec{v} = r\cdot (\vec{u} + \vec{w}) = r\cdot \vec{u} + r\cdot \vec{w} \text{ (By Property 7 of vector spaces)}$. Because $U$ and $W$ are both subspaces of $V$, it follows from Property 3 that $r\cdot \vec{u} \in U$ and $r\cdot \vec{w} \in W$. Because $r\cdot \vec{v} =  r\cdot \vec{u} + r\cdot \vec{w}$, it follows from the definition of $U+W$, that $r\cdot \vec{v} \in U+W$. Because $\vec{v} \in U+W$ and $r\in \mathbb{R}$ were arbitrary, we have that $r\cdot \vec{v} \in U+W$ for all $\vec{v} \in U+W$ and all $r\in \mathbb{R}$, thus the third property is satisfied.
+\noindent
+\newline
+\newline
+We have shown that $U+W$ has all three properties of a subspace of $V$, therefore, $U+W$ is indeed a subspace of $V$.
+
+\end{solution}
+%\vfill
+%\centerline{PAGE 1 OF X FOR PROBLEM 3}
+%
+%
+%
+%
+\newpage
+Notice that plugging in $(x,y)=(\frac{1}{2},\frac{3}{2})$ into system $A$ yields:
+\begin{align}
+4(\frac{1}{2}) + 2(\frac{3}{2}) =& 2 \hphantom{1000} \rightarrow \hphantom{1000} 2+3=2\\
+a(\frac{1}{2}) - 1(\frac{3}{2}) =& 0 \hphantom{1000} \rightarrow \hphantom{1000} \frac{a-3}{2} = 0\\
+b(\frac{1}{2}) + c(\frac{3}{2}) =& 5 \hphantom{1000} \rightarrow \hphantom{1000} \frac{b+3c}{2}=5
+\end{align}
+So gives $5=2$, $\frac{a-3}{2} = 0$, and $\frac{b+3c}{2}=5$. Our assumption that $S_B = S_A$ has led to a contradiction, namely that $5=2$, and thus is must be the case that $S_B \neq S_A$. By Corollary 4.2.5, there does not exist a finite sequence of row operations that we can apply to $A$ to obtain $B$ and vice versa, and so by definition $A$ is not row equivalent to $B$. Because $a,b,c$ were arbitrary, the result follows.
+\vfill
+\centerline{PAGE 2 OF 2 FOR PROBLEM 2}
+\end{problem}
+
+
+\end{document}

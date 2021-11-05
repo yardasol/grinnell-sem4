@@ -1,0 +1,353 @@
+\documentclass[12pt]{article}
+\usepackage{latexsym, amssymb, amsmath, amsfonts, amscd, amsthm, xcolor, pgfplots}
+\usepackage{framed}
+\usepackage[margin=1in]{geometry}
+\linespread{1} %Change the line spacing only if instructed to do so.
+
+\newenvironment{problem}[2][Problem]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1 #2:}]
+	}
+{
+	\end{trivlist}
+	}
+
+\newenvironment{solution}[1][Solution]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\itshape #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+\newenvironment{collaborators}[1][Collaborator(s)]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%    You need only modify code below this block.
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\title{Assignment: Written Assignment 6} %Change this to the assignment you are submitting.
+\author{Name: Oleksandr Yardas} %Change this to your name.
+\date{Due Date: 04/06/2018 } %Change this to the due date for the assignment you are submitting.
+\begin{document}
+	\maketitle
+	\thispagestyle{empty}
+	
+	\section*{List Your Collaborators:}%Enter your collaborators names below. Do not delete extra rows.
+	
+	\begin{itemize}
+		\begin{framed}
+			\item 
+			Problem 1: Dan
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 2: None
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 3: Not applicable
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 4: Not Applicable
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 5: Not Applicable
+			\\\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 6: Not Applicable
+			\\\\
+		\end{framed}
+	\end{itemize}
+\newpage
+%
+%%%%%%%%%%%%%%%
+%
+% Your problem statements and solutions start here.
+% Use the \newpage command between problems so that
+% each of your problems begins on its own page.
+%
+%%%%%%%%%%%%%%%
+
+%FORMATTING OPTIONS
+%FOR BLANK SPACES: \underline{\hspace{2cm}}
+%FOR SPACES IN align OR SIMILAR ENVIRONMENTS:  \hphantom{1000}
+%FOR MATRICES: \begin{matrix} \end{matrix}, can add p, b, B, v, V, small as suffix to "matrix"
+%SETS: \mathbb{R}^, :\mathbb{R}^ \to \mathbb{R}^
+%Vectors: \vec{},
+%SUBSCRIPTS: _{}
+%FRACTIONS: \frac{}{}
+
+%Provide the problem statement.
+\begin{problem}{1}
+Let $V$ be a vector space. Prove each of the following. For this problem, be very explicit and mention which property and/or result you are using in each step of your argument.
+\noindent
+\newline
+\newline
+a. Suppose that $c \in \mathbb{R}$ and $\vec{v} \in V$ are such that $c\cdot \vec{v} = \vec{0}$. Show that either $c=0$ or $\vec{v}=\vec{0}$.
+\begin{solution}
+Let $\vec{v} \in V$ and let $c\in \mathbb{R}$ be arbitrary such that $c\cdot \vec{v} =\vec{0}$.
+\newline
+\newline
+\noindent
+Suppose that $c \neq 0$. We can then fix a $d\in \mathbb{R}$ such that $\frac{1}{c} = d$. Notice that
+\begin{align*}
+d\cdot \vec{0} = d\cdot (c\cdot \vec{v}) =& (dc) \cdot \vec{v} & \text{(By Property 9)}\\
+=& (\frac{1}{c} c) \cdot \vec{v} &\text{(By definition of $d$)}\\
+=& (1) \cdot \vec{v} &\\
+=& \vec{v} &\text{(By Property 10)}
+\end{align*}
+So we have that $d\cdot \vec{0} = \vec{v}$. Because $d \in \mathbb{R}$, by Proposition 4.1.11.2, $d\cdot \vec{0} = \vec{0}$. Since $d\cdot \vec{0} =\vec{v}$, it follows that $\vec{0} =\vec{v}$. So $\vec{0} = \vec{v}$.
+\newline
+\newline
+\noindent
+Now suppose that $\vec{v} \neq \vec{0}$. Because $\vec{v} \in V$, by Proposition 4.1.11.1, $0\cdot \vec{v} =\vec{0}$. Because $c\cdot \vec{v} =\vec{0}$ and $\vec{v} \neq \vec{0}$, there is only value of $c$ that satisfies $c \cdot \vec{v} =\vec{0}$ for all (nonzero) $\vec{v} \in V$, which is $c=0$. So $c=0$.
+%t follows that $c\cdot \vec{v} = 0\cdot \vec{v}$. Because $\vec{v} \neq \vec{0}$, 
+%Since $c \in \mathbb{R}$, by Proposition 4.1.11.2, $c\cdot \vec{0} = \vec{0}$. We have that $c \cdot \vec{v} = \vec{0}$. Because $c\cdot \vec{v} =\vec{0}$, it follows that $c\cdot \vec{v} = c\cdot \vec{0}$. Since $\vec{v} \neq \vec{0}$, it must be the case that $c = 0$.
+%\begin{align*}
+%\vec{0} =& c\cdot \vec{v} & \text{(By definition)}\\ 
+%=& c\cdot \vec{v} + \vec{0} &\text{(By Property 5)}\\
+%%=& c\cdot \vec{v} + 0\cdot \vec{v} & \text{(By Proposition 4.1.11.1)}\\
+%=& (c+0)\cdot \vec{v} & \text{(By Property 8)}
+%\end{align*}
+%So $\vec{0} = (c+0)\cdot \vec{v}$. Since $\vec{v} \neq \vec{0}$, and since by Proposition 4.1.12, $0\cdot \vec{v} = \vec{0}$, then the only value of $c+0$ that makes $\vec{0} = (c+0)\cdot \vec{v}$ true is $c+0=0$. So it must be the case that$(c+0) = 0$. It follows that $c=0$.
+ %= Since $\vec{v} \in V$, by Proposition 4.1.11.2, $0\cdot \vec{v} = \vec{0}$. Since $\vec{0} = c\cdot \vec{v}$, it follows that $0\cdot \vec{v} = c \cdot \vec{v}$. Subtracting $Since $\vec{v} \neq \vec{0}$, 
+\newline
+\newline
+\noindent
+Now suppose that $\vec{v} =\vec{0}, c=0$. It follows that $c\cdot \vec{v} =0$ by Proposition 4.1.11.
+\newline
+\newline
+\noindent
+These three cases cover all possible values of $\vec{v}, c$. Because $\vec{v}\in V, c \in \mathbb{R}$ were arbitrary with the aforementioned property, the result follows.
+
+\end{solution}
+\noindent
+\newline
+\newline
+b. Suppose that $c,d \in \mathbb{R}$ and $\vec{v}\in V$ are such that $c\cdot \vec{v}=d\cdot \vec{v}$. Show that if $\vec{v}\neq \vec{0}$, then $c=d$.
+\begin{solution}
+Let $\vec{v} \in V$ be nonzero, and let $c,d \in \mathbb{R}$ be arbitrary. Suppose that $c\cdot \vec{v}=d\cdot \vec{v}$. By Proposition 4.1.9 and Definition 4.1.10, $d \cdot \vec{v} + (-d\cdot \vec{v})=\vec{0}$. Because $c\cdot \vec{v}=d\cdot \vec{v}$, it follows that $c\cdot \vec{v} + (-d\cdot \vec{v})=\vec{0}$ So we have
+\begin{align*}
+\vec{0} = c\cdot \vec{v} + (-d\cdot \vec{v}) =& c\cdot \vec{v} + (-1)\cdot(d\cdot\vec{v}) & \text{(By Proposition 4.1.11.3)}\\
+=& c\cdot \vec{v} + (-1\cdot d)\cdot \vec{v} & \text{(By Property 9)}\\
+=& c\cdot \vec{v}+(-d) \cdot \vec{v} &\\
+=&(c-d) \cdot \vec{v} & \text{(By Property 8)}\\
+\end{align*}
+So $\vec{0} = (c-d) \cdot \vec{v}$. Because $\vec{v} \neq \vec{0}$, by our result in part a, we have that $c-d=0$. It follows that $c=d$. Because $\vec{v} \in V$ was nonzero and $c,d\in \mathbb{R}$ were arbitrary, the result follows.
+\vfill
+\centerline{PAGE 1 OF 2 FOR PROBLEM 1}
+\end{solution}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{2}
+Let $V$ be a vector space. Suppose that $U$ and $W$ are both subspaces of $V$.
+\noindent
+\newline
+\newline
+a. Let $U \cap W$ be the intersection of $U$ and $W$, i.e. $U \cap W = \{\vec{v} \in V: \vec{v}\in U \text{ and } \vec{v}\in W\}$. Show that $U\cap W$ is a subspace of $V$.
+\begin{solution}
+Notice that $U \subseteq V$ and $W \subseteq V$, so by definition of set intersection, it follows that $U\cap W \subseteq V$.
+We now check that $U\cap W$ is indeed a subspace of $V$. If $U\cap W$ is a subspace of $V$, then $U\cap W$ has the following properties as laid out in Definition 4.1.12:
+
+1. $\vec{0} \in U \cap W$
+
+2. For all $\vec{v_1},\vec{v_2} \in U\cap W$, we have that $\vec{v_1}+\vec{v_2} \in U \cap W$
+
+3. For all $\vec{v} \in U\cap W$ and all $c \in \mathbb{R}$, we have $c\cdot \vec{v} \in U \cap W$
+\noindent
+\newline
+\newline
+We check all three properties:
+\newline
+\newline
+1. Because $U$ and $W$ are both subspaces of $V$, by definition we have that $\vec{0} \in U$ and $\vec{0} \in W$. So by definition of set intersection, it follows that $\vec{0} \in U \cap W$. So the first property is satisfied.
+\newline
+\newline
+2. Let $\vec{u},\vec{w} \in U \cap W$ be arbitrary. Because $\vec{u},\vec{w} \in U \cap W$, by definition of set intersection it follows that $\vec{u},\vec{w} \in U$ and $\vec{u},\vec{w} \in W$. Because $U$ and $W$ are both subspaces of $V$, it follows from Property 2 that $\vec{u}+\vec{w} \in U$ and $\vec{u}+\vec{w} \in W$. So by definition of set intersection, we have that $\vec{u}+\vec{w} \in U\cap W$. Because $\vec{u},\vec{w} \in U\cap W$ were arbitrary, we have that $\vec{u}+\vec{w} \in U\cap W$ for all $\vec{u},\vec{w} \in U\cap W$, thus the second property is satisfied. the result follows.
+\newline
+\newline
+3. Let $\vec{v} \in U\cap W$ be arbitrary, and let $r \in \mathbb{R}$ be arbitrary. Because $\vec{v} \in U\cap W$, by definition of set intersection it follows that $\vec{v} \in U$ and $\vec{v} \in W$. Because $U$ and $W$ are both subspaces of $V$, it follows from Property 3 that $r\cdot \vec{v} \in U$ and $r\cdot \vec{v} \in W$. So by definition of set intersection, we have that $r\cdot \vec{v} \in U\cap W$. Because $\vec{v} \in U\cap W$ and $r\in \mathbb{R}$ were arbitrary, we have that $r\cdot \vec{v} \in U\cap W$ for all $\vec{v} \in U\cap W$ and all $r\in \mathbb{R}$, thus the third property is satisfied.
+\noindent
+\newline
+\newline
+We have shown that $U\cap W$ has all three properties of a subspace of $V$, therefore, $U\cap W$ is indeed a subspace of $V$.
+\end{solution}
+\noindent
+\newline
+\newline
+b. Let $U\cup W$ be the union of $U$ and $W$, i.e. $U \cup W = \{ \vec{v} \in V: \vec{v}\in U \text{ or } \vec{v}\in W \}$. By constructing an explicit example, show that $U\cup W$ need {\it not} be a subspace of $V$. 
+\begin{solution}
+Let $V=\mathcal{F}$ be the vector space of all functions $f:\mathbb{R} \to \mathbb{R}$. Addition and scalar multiplication are defined on $V$ as follows:
+\newline
+\newline
+\noindent
+1. $f(x) + g(x) = (f+g)(x)$ for all $x \in \mathbb{R}$
+\newline
+\newline
+\noindent
+2. $r\cdot f(x)=(r\cdot f)(x)$ for all $x\in \mathbb{R}$%We have the following properties:
+%
+%1. $f_1 (x) + f_2 (x) = (f_1 + f_2)(x) = (f_1 + f_2)(-x)$ (The sum of two even functions is an even function)
+%
+%2. $g_1 (x) + g_2 (x) = (g_1 + g_2)(x) = -(g_1 + g_2)(-x)$ (The sum of two odd functions is an odd function)
+%
+%3. The function $h_0:\mathbb{R} \to \{0\}$ is both even and odd.
+%
+%4. $f_1 (x) + h_0 (x) = f_1 (x)$ (the function $h_0$ is the additive identify for even functions)
+%
+%5. $g_1 (x) + h_0 (x) = g_1 (x)$ (the function $h_0$ is the additive identity for odd functions)
+%\noindent
+%\newline
+%\newline
+%
+%Let $\vec{u_1},\vec{u_2} \in U$ be arbitrary even functions, and let $\ve and let $\vec{w} \in W$ be an arbitrary odd function. By definition, the function $f_0:\mathbb{R} \to \{0\}$ is both even and odd, so $f_0 \in U$ and $f_0 \in W$. , i.e. the for which 
+%
+%Let $f:\mathbb{R} \to \mathbb{R}, f_1:\mathbb{R} \to \mathbb{R}$,  $f_2:\mathbb{R} \to \mathbb{R}$ be arbitrary even functions and let $g:\mathbb{R} \to \mathbb{R}, g_1:\mathbb{R} \to \mathbb{R}, g_2:\mathbb{R} \to \mathbb{R}$ be arbitrary odd functions.
+\end{solution}
+\vfill
+\centerline{PAGE 1 OF 4 FOR PROBLEM 2}
+
+
+
+
+
+
+\newpage
+c. Show that if a vector space has more than 1 element, then it must have infinitely many elements.
+\begin{solution}
+Let $V$ be a vector space with more than one element. By definition of vector spaces, one of these elements must be a vector that acts as $\vec{0}$. From our treatment of set theory we know that the other element must be unique, that is that the other element must be nonzero. We denote this element by $\vec{v}$. Let $c \in \mathbb{R}$ be arbitrary. By Property 2 of vector spaces, $c\cdot \vec{v} \in V$. Because $c \in \mathbb{R}$ was arbitrary, there are an infinite number of unique $c\cdot \vec{v} \in V$. Therefore, $V$ must have infinitely many elements.
+\end{solution}
+\vfill
+\centerline{PAGE 2 OF 2 FOR PROBLEM 1}
+
+
+
+
+
+
+
+\newpage
+Let $U_e\subseteq V$ be the subset of $V$ consisting of all even functions. Let $W_o\subseteq V$ be the subset of $V$ consisting of all odd functions.
+\newline
+\newline
+\noindent
+$\bullet$ We say that a function $f: \mathbb{R} \to \mathbb{R}$ is {\it even} if for all $x \in \mathbb{R}$, we have that $f(x)=f(-x)$.
+\newline
+\newline
+\noindent
+$\bullet$ We say that a function $g: \mathbb{R} \to \mathbb{R}$ is {\it odd} if, for all $x \in \mathbb{R}$, we have that $g(x)=-g(-x)$.
+\noindent
+\newline
+\newline
+We now check that $U_e$ is indeed a subspace of $V$. If $U_e$ is a subspace of $V$, then $U_e$ has the following properties as laid out in Definition 4.1.12:
+
+1. There exists a $\vec{u_0} \in U_e$ such that $\vec{u} + \vec{u_0} = \vec{u}$ for all $\vec{u} \in U_e$.
+
+2. For all $\vec{u_1},\vec{u_2} \in U_e$, we have $\vec{u_1}+\vec{u_2} \in U_e$
+
+3. For all $\vec{u} \in U_e$ and all $c \in \mathbb{R}$, we have $c\cdot \vec{u} \in U_e$
+\noindent
+\newline
+\newline
+We check all three properties
+
+1. We define a function $u_0 :\mathbb{R} \to \mathbb{R}$ by letting $u_0 (x)=0$ for all $x \in \mathbb{R}$. Notice that $u_0 (x) = 0 = u_0(-x)$, so by definition $u_0$ is an even function, and it follows that $u_0 \in U_e$. Now let $u:\mathbb{R} \to \mathbb{R}$ be an arbitrary even function, so $u \in U_e$ by definition. Notice that $u(x) + u_0 (x) = u(x) + 0 = u(x)$. Because $u \in U_e$ was arbitrary, it follows that $u(x)+u_0(x) = u(x)$ for all $u \in U_e$. So $u_0$ satisfies the definition of $\vec{u_0}$, and thus the first property is satisfied.
+
+2. Let $u_1:\mathbb{R} \to \mathbb{R}$,  $u_2:\mathbb{R} \to \mathbb{R}$ be arbitrary even functions. So $u_1,u_2 \in U_e$ by definition. %Now let $x \in \mathbb{R}$ be arbitrary. 
+Because $u_1$ is even, we have that $u_1(x) = u_1 (-x)$ for all $x \in \mathbb{R}$. Similarly, $u_2$ is even, so $u_2 (x) = u_2 (-x)$ for all $x \in \mathbb{R}$. Notice that $(u_1 +u_2)(x) = u_1(x) + u_2 (x) = u_1 (-x) + u_2 (-x)= (u_1 +u_2)(-x)$ for all $x \in \mathbb{R}$. So $(u_1+u_2)(x) = (u_1+u_2)(-x)$ for all $x \in \mathbb{R}$, so by definition $u_1 + u_2$ is an even function, and it follows that $u_1 + u_2 \in U_e$. Since $u_1,u_2 \in U$ were arbitrary, we have that $u_1 + u_2 \in U_e$ for all $u_1,u_2 \in U_e$, and thus the second property is satisfied.
+
+3. Let $u: \mathbb{R} \to \mathbb{R}$ be an arbitrary even function, so $u \in U_e$ by definition. Because $u$ is even, we have that $u(x) = u(-x)$ for all $x \in \mathbb{R}$. Now let $r \in \mathbb{R}$ be arbitrary. Notice that $(r\cdot u)(x) = r\cdot u(x) = r\cdot u(-x) = (r\cdot u)(-x)$ for all $x \in \mathbb{R}$. So $(r\cdot u)(x) = (r\cdot u)(-x)$ for all $x \in \mathbb{R}$, so by definition, $r\cdot u$ is an even function, and it follows that $r\cdot u \in U_e$. Since $u \in U_e$ and  $r\in \mathbb{R}$ were arbitrary, we have that $r \cdot u \in U_e$ for all $u \in U_e$ and all $r \in \mathbb{R}$, and thus the third property is satisfied. 
+\noindent
+\newline
+\newline
+We have shown that $U_e$ has all three properties of a subspace of $V$, therefore, $U_e$ is indeed a subspace of $V$.
+\newline
+\newline
+\noindent
+We now check that $W_o$ is indeed a subspace of $V$. If $W_o$ is a subspace of $V$, then $W_o$ has the following properties as laid out in Definition 4.1.12:
+
+
+1. There exists a $\vec{w_0} \in W_o$ such that $\vec{w} + \vec{w_0} = \vec{w}$ for all $\vec{w} \in W_o$.
+
+2. For all $\vec{w_1},\vec{w_2} \in W_o$, we have $\vec{w_1}+\vec{w_2} \in W_o$
+
+3. For all $\vec{w} \in W_o$ and all $c \in \mathbb{R}$, we have $c\cdot \vec{w} \in W_o$
+\vfill
+\centerline{PAGE 2 OF 4 FOR PROBLEM 2}
+\newpage
+\noindent
+We check all three properties
+
+1. We define a function $w_0 :\mathbb{R} \to \mathbb{R}$ by letting $w_0 (x)=0$ for all $x \in \mathbb{R}$. Notice that $w_0 (x) = 0 = (-1)\cdot 0= (-1)\cdot w_0(-x) = -w_0(x) \text{(By Proposition 4.1.11.3)}$, so by definition $w_0$ is an odd function, and it follows that $w_0 \in W_o$. Now let $w:\mathbb{R} \to \mathbb{R}$ be an arbitrary odd function, so $w \in W_o$ by definition.%Let $x \in \mathbb{R}$ be arbitrary.
+Notice that $w(x) + w_0 (x) = w(x) + 0 = w(x)$. Because $w \in W_o$ was arbitrary, it follows that $w(x)+w_0(x) = w(x)$ for all $w \in W_o$. So $w_0$ satisfies the definition of $\vec{w_0}$, and thus the first property is satisfied.
+
+2. Let $w_1:\mathbb{R} \to \mathbb{R}$, $w_2:\mathbb{R} \to \mathbb{R}$ be arbitrary odd functions. So $w_1,w_2 \in W_o$ by definition. %Now let $x \in \mathbb{R}$ be arbitrary. 
+Because $w_1$ is odd, we have that $w_1(x) = -w_1 (-x)$ for all $x \in \mathbb{R}$. Similarly, $w_2$ is odd, so $w_2 (x) = -w_2 (-x)$ for all $x \in \mathbb{R}$. Notice that $(w_1 +w_2)(x) = w_1(x) + w_2 (x) = -w_1 (-x) + -w_2 (-x)= -(w_1 +w_2)(-x)$ for all $x \in \mathbb{R}$. So $(w_1+w_2)(x) = -(w_1+w_2)(-x)$ for all $x \in \mathbb{R}$, so by definition $w_1 + w_2$ is an odd function, and it follows that $w_1 + w_2 \in W_o$. Since $w_1,w_2 \in W_o$ were arbitrary, we have that $w_1 + w_2 \in W_o$ for all $w_1,w_2 \in W_o$, and thus the second property is satisfied.
+
+3. Let $w: \mathbb{R} \to \mathbb{R}$ be an arbitrary odd function, so $w \in W_o$ by definition. Because $w$ is odd, we have that $w(x) = -w(-x)$ for all $x \in \mathbb{R}$. Now let $r \in \mathbb{R}$ be arbitrary. Notice that $(r\cdot w)(x) = r\cdot w(x) = r\cdot -w(-x) = (r\cdot (-1))\cdot w(-x) = ((-1) \cdot r) \cdot w(-x) = (-1) \cdot (r\cdot w)(-x) = -(r\cdot w)(-x)$ for all $x \in \mathbb{R}$. So $(r\cdot w)(x) = -(r\cdot w)(-x)$ for all $x \in \mathbb{R}$, so by definition, $r\cdot w$ is an odd function, and it follows that $r\cdot w \in W_o$. Since $w \in W_o, r\in \mathbb{R}$ were arbitrary, we have that $r \cdot w \in W_o$ for all $w \in W_o$ and all $r \in \mathbb{R}$, and thus the third property is satisfied. 
+\noindent
+\newline
+\newline
+We have shown that $W_o$ has all three properties of a subspace of $V$, therefore, $W_o$ is indeed a subspace of $V$.
+\noindent
+\newline
+\newline
+So $U_e$ and $W_o$ are both subspaces of $V$. We now consider the union of $U_e$ and $W_o$, that is, we want to check if $U_e\cup W_o$ is a subspace of $V$. Notice that $U_e \subseteq V$ and $W_o \subseteq V$, so by definition of set union, it follows that $U_e\cup W_o \subseteq V$.
+If $U_e\cup W_o$ is a subspace of $V$, then $U_e\cup W_o$ has the following properties as laid out in Definition 4.1.12:
+
+1. There exists a $\vec{v_0} \in U_e\cup W_o$ such that $\vec{v} + \vec{v_0} = \vec{w}$ for all $\vec{v} \in U_e\cup W_o$.
+
+2. For all $\vec{v_1},\vec{v_2} \in U_e\cup W_o$, we have that $\vec{v_1}+\vec{v_2} \in U_e\cup W_o$
+
+3. For all $\vec{v} \in U_e\cup W_o$ and all $c \in \mathbb{R}$, we have $c\cdot \vec{v} \in U_e\cup W_o$
+\noindent
+\newline
+\newline
+Consider the second property:
+\newline
+%1. Define a function $v_0 :\mathbb{R} \to \mathbb{R}$ by letting $v_0 (x)=0$ for all $x \in \mathbb{R}$. Notice that this function is identical to $u_0 \in U$ and $w_0 \in W$, so $v_0 \in U\cup W$, and satisfies the defintion of $\vec{v_0}, and so the first condition is satisfied.
+2. Let $u: \mathbb{R} \to \mathbb{R}$ be an arbitrary nonzero even function, and let $w: \mathbb{R} \to \mathbb{R}$ be an arbitrary nonzero odd function. So by definition, $u \in U_e$ and $w\in W_o$, thus it follows from the definition of set union that $u,w \in U_e \cup W_o$. Because $u$ is even, we have that $u(x) = u(-x)$ for all $x \in \mathbb{R}$. Because $w$ is odd, we have that $w(x) = -w(-x)$ for all $x \in \mathbb{R}$. Notice that $(u+w)(x)= u(x) + w(x) = u(-x) + (-w(-x)) = u(-x) - w(-x)$. So $(u+w)(x)=u(-x) - w(-x)$ for all $u,w \in U_e\cup W_o$. Notice that $u(-x) - w(-x)$ can be not be expressed as an even function nor as an odd function, and so it follows that $u(-x) - w(-x)$ is neither even nor odd. So $u(-x) - w(-x) \notin U_e$ and $u(-x) - w(-x) \notin W_o$ (this also follows from the definitions of $U_e$ and $W_o$) so by definition, we have that $u(-x) - w(-x) \notin U_e\cup W_o$. Because  $(u+w)(x) = u(-x) - w(-x)$, it follows that $u+w \notin U_e\cup W_o$. Therfore $U \cup W$ does not satisfy the second property.
+\vfill
+\centerline{PAGE 3 OF 4 FOR PROBLEM 2}
+We have that $U_e \cup W_o$ does not satisfy the second property, therefore $U_e \cup W_o$ is {\it not} a subspace of $V$. It follows that for arbitrary subspaces $U,W$ of an arbitrary vector space $V$, it need not be the case that $U\cup W$ is also a subspace of $V$.
+\vfill
+\centerline{PAGE 4 OF 4 FOR PROBLEM 2}
+\end{problem}
+
+
+
+
+
+\end{document}
